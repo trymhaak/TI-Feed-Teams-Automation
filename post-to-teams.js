@@ -11,14 +11,18 @@ function detectSeverity(title, description) {
   
   // Critical threats - immediate action required
   const criticalKeywords = ['critical', 'zero-day', 'rce', 'remote code execution', 
-                           'exploit in the wild', 'actively exploited', 'emergency'];
+                           'exploit in the wild', 'actively exploited', 'emergency',
+                           'ransomware', 'lockbit', 'cryptodestroy'];
   
   // High severity - patch/update required
   const highKeywords = ['high severity', 'security update', 'patch tuesday', 
-                       'vulnerability', 'cve-', 'security advisory'];
+                       'vulnerability', 'cve-', 'security advisory', 'apt29',
+                       'advanced persistent threat', 'apt', 'phishing campaign',
+                       'data breach', 'exposed', 'leaked', 'compromised'];
   
   // Medium severity - informational but important
-  const mediumKeywords = ['moderate', 'advisory', 'recommendation', 'guidance'];
+  const mediumKeywords = ['moderate', 'advisory', 'recommendation', 'guidance',
+                         'medium priority', 'security alert'];
   
   if (criticalKeywords.some(keyword => content.includes(keyword))) {
     return { 
@@ -202,3 +206,6 @@ export async function postToTeams(source, title, link, description = '', publish
     return false;
   }
 }
+
+// Export functions for testing
+export { detectSeverity, classifyThreatType };
