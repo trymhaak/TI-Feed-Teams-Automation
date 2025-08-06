@@ -25,5 +25,14 @@
     "priority": "medium",
     "enabled": true,
     "description": "US National Institute of Standards cybersecurity insights"
+  },
+  {
+    "name": "CISA-Alerts",
+    "url": "https://www.cisa.gov/news.xml",
+    "category": "government",
+    "region": "usa", 
+    "priority": "high",
+    "enabled": true,
+    "description": "US Cybersecurity and Infrastructure Security Agency alerts and advisories"
   }
 ]
