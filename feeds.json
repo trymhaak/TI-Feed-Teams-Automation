@@ -6,5 +6,9 @@
   {
     "name": "Microsoft-MSRC",
     "url": "https://api.msrc.microsoft.com/update-guide/rss"
+  },
+  {
+    "name": "NIST-Cybersecurity",
+    "url": "https://www.nist.gov/blogs/cybersecurity-insights/rss.xml"
   }
 ]
