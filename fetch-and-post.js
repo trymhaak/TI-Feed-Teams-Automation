@@ -85,15 +85,12 @@ async function processFeed(feed, state) {
     const itemsToProcess = [];
     
     if (!lastProcessedUrl) {
-      // First run - only save the most recent item without posting to avoid spam
-      console.log(`ℹ️  First run for ${name}, initializing state without posting`);
+      // First run - TEMPORARILY posting most recent item for GitHub Actions testing
+      console.log(`ℹ️  First run for ${name}, posting most recent item for GitHub Actions testing`);
       const mostRecentItem = sortedItems[0]; // Already sorted newest first
       if (mostRecentItem) {
-        const mostRecentUrl = mostRecentItem.link || mostRecentItem.guid;
-        console.log(`ℹ️  Saved most recent item URL for ${name}: ${mostRecentUrl}`);
-        return mostRecentUrl;
+        itemsToProcess.push(mostRecentItem);
       }
-      return null;
     } else {
       // Find items that are newer than the last processed one
       for (const item of sortedItems) {
