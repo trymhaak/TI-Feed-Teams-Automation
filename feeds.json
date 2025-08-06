@@ -1,14 +1,29 @@
 [
   {
     "name": "NSM-NCSC",
-    "url": "https://nsm.no/fagomrader/digital-sikkerhet/nasjonalt-cybersikkerhetssenter/varsler-fra-ncsc/rss/"
+    "url": "https://nsm.no/fagomrader/digital-sikkerhet/nasjonalt-cybersikkerhetssenter/varsler-fra-ncsc/rss/",
+    "category": "national",
+    "region": "norway",
+    "priority": "high",
+    "enabled": true,
+    "description": "Norwegian National Security Authority cybersecurity alerts"
   },
   {
     "name": "Microsoft-MSRC",
-    "url": "https://api.msrc.microsoft.com/update-guide/rss"
+    "url": "https://api.msrc.microsoft.com/update-guide/rss",
+    "category": "vendor",
+    "region": "global",
+    "priority": "high", 
+    "enabled": true,
+    "description": "Microsoft Security Response Center vulnerability updates"
   },
   {
     "name": "NIST-Cybersecurity",
-    "url": "https://www.nist.gov/blogs/cybersecurity-insights/rss.xml"
+    "url": "https://www.nist.gov/blogs/cybersecurity-insights/rss.xml",
+    "category": "government",
+    "region": "usa",
+    "priority": "medium",
+    "enabled": true,
+    "description": "US National Institute of Standards cybersecurity insights"
   }
 ]

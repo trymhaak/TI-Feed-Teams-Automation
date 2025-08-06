@@ -6,8 +6,64 @@ const RSS_PARSER = new Parser();
 const FEEDS_FILE = 'feeds.json';
 const STATE_FILE = 'state.json';
 
-// Limit for testing - set to 1 to avoid spam during testing
+// Production limits with enhanced control
 const MAX_ITEMS_PER_FEED = process.env.NODE_ENV === 'production' ? 10 : 1;
+
+/**
+ * Check if content is relevant threat intelligence
+ * @param {string} title - The title of the item
+ * @param {string} description - The description of the item
+ * @returns {boolean} - True if relevant, false if should be filtered out
+ */
+function isRelevantThreatIntel(title, description) {
+  const content = (title + ' ' + description).toLowerCase();
+  
+  // Filter out irrelevant content
+  const irrelevantKeywords = [
+    'webinar', 'conference', 'marketing', 'advertisement', 'promo',
+    'newsletter', 'subscribe', 'follow us', 'social media',
+    'job opening', 'hiring', 'career', 'training course'
+  ];
+  
+  // Must contain relevant security keywords
+  const relevantKeywords = [
+    'security', 'vulnerability', 'threat', 'malware', 'exploit',
+    'patch', 'update', 'advisory', 'alert', 'breach', 'attack',
+    'cve-', 'cybersecurity', 'cyber', 'risk', 'incident'
+  ];
+  
+  // Filter out if contains irrelevant content
+  if (irrelevantKeywords.some(keyword => content.includes(keyword))) {
+    return false;
+  }
+  
+  // Must contain at least one relevant keyword
+  return relevantKeywords.some(keyword => content.includes(keyword));
+}
+
+/**
+ * Validate RSS feed item structure
+ * @param {Object} item - RSS item to validate
+ * @returns {boolean} - True if valid, false otherwise
+ */
+function validateFeedItem(item) {
+  return item && item.title && item.link && (item.pubDate || item.isoDate);
+}
+
+/**
+ * Get feed priority delay based on feed configuration
+ * @param {Object} feed - Feed configuration object
+ * @returns {number} - Delay in milliseconds
+ */
+function getFeedDelay(feed) {
+  const priorityDelays = {
+    'high': 3000,    // 3 seconds for high priority feeds
+    'medium': 5000,  // 5 seconds for medium priority feeds
+    'low': 8000      // 8 seconds for low priority feeds
+  };
+  
+  return priorityDelays[feed.priority] || 5000;
+}
 
 /**
  * Load and parse the feeds configuration file
@@ -57,8 +113,15 @@ async function saveState(state) {
  * @returns {Promise<string|null>} URL of the latest processed item, or null if failed
  */
 async function processFeed(feed, state) {
-  const { name, url } = feed;
-  console.log(`🔍 Processing feed: ${name}`);
+  const { name, url, enabled, category, region, priority } = feed;
+  
+  // Skip disabled feeds
+  if (enabled === false) {
+    console.log(`⏸️  Skipping disabled feed: ${name}`);
+    return state[name] || null;
+  }
+  
+  console.log(`🔍 Processing ${category}/${region} feed: ${name} (Priority: ${priority || 'default'})`);
 
   try {
     const parsedFeed = await RSS_PARSER.parseURL(url);
@@ -75,11 +138,15 @@ async function processFeed(feed, state) {
     let latestItemUrl = null;
 
     // Sort items by publication date (most recent first)
-    const sortedItems = items.sort((a, b) => {
-      const dateA = new Date(a.pubDate || a.isoDate || 0);
-      const dateB = new Date(b.pubDate || b.isoDate || 0);
-      return dateB - dateA;
-    });
+    const sortedItems = items
+      .filter(validateFeedItem) // Filter out malformed items
+      .sort((a, b) => {
+        const dateA = new Date(a.pubDate || a.isoDate || 0);
+        const dateB = new Date(b.pubDate || b.isoDate || 0);
+        return dateB - dateA;
+      });
+
+    console.log(`📊 Found ${sortedItems.length} valid items in ${name} (${items.length - sortedItems.length} filtered out)`);
 
     // Find new items that are newer than the last processed item
     const itemsToProcess = [];
@@ -119,17 +186,40 @@ async function processFeed(feed, state) {
       return lastProcessedUrl; // Keep existing state
     }
 
-    console.log(`📰 Found ${itemsToProcess.length} new item(s) for ${name}`);
+    // Filter for relevant threat intelligence content
+    const relevantItems = itemsToProcess.filter(item => {
+      const isRelevant = isRelevantThreatIntel(
+        item.title || '',
+        item.contentSnippet || item.content || item.summary || item.description || ''
+      );
+      
+      if (!isRelevant) {
+        console.log(`� Filtered out non-threat-intel content: "${item.title}"`);
+      }
+      
+      return isRelevant;
+    });
+
+    if (relevantItems.length === 0) {
+      console.log(`ℹ️  No relevant threat intelligence found in ${itemsToProcess.length} new items from ${name}`);
+      // Still update state to avoid reprocessing filtered items
+      const mostRecentItem = itemsToProcess[0];
+      return mostRecentItem?.link || mostRecentItem?.guid || lastProcessedUrl;
+    }
+
+    console.log(`🎯 Found ${relevantItems.length} relevant threat intel items from ${name} (${itemsToProcess.length - relevantItems.length} filtered as non-relevant)`);
 
     // Limit items to avoid overwhelming Teams
-    if (itemsToProcess.length > MAX_ITEMS_PER_FEED) {
+    let finalItems = relevantItems;
+    if (finalItems.length > MAX_ITEMS_PER_FEED) {
       console.log(`ℹ️  Limiting to ${MAX_ITEMS_PER_FEED} item(s) per feed`);
-      itemsToProcess.splice(MAX_ITEMS_PER_FEED); // Keep only the first N items (newest)
+      finalItems = finalItems.slice(0, MAX_ITEMS_PER_FEED); // Keep only the first N items (newest)
     }
 
     // Post items from oldest to newest (reverse the array since it's sorted newest first)
-    const itemsToPost = itemsToProcess.reverse();
+    const itemsToPost = finalItems.reverse();
     let latestProcessedUrl = lastProcessedUrl;
+    const feedDelay = getFeedDelay(feed);
 
     for (const item of itemsToPost) {
       const itemUrl = item.link || item.guid;
@@ -137,15 +227,16 @@ async function processFeed(feed, state) {
       const description = item.contentSnippet || item.content || item.summary || item.description || '';
       const publishedDate = item.pubDate || item.isoDate || new Date().toISOString();
       
-      console.log(`📤 Posting new item from ${name}: ${title}`);
+      console.log(`📤 Posting threat intel from ${name} (${category}): ${title}`);
       
       const success = await postToTeams(name, title, itemUrl, description, publishedDate);
       
       if (success) {
         newItemsFound = true;
         latestProcessedUrl = itemUrl; // Update to this item's URL
-        // Small delay between posts to avoid rate limiting and Logic App throttling
-        await new Promise(resolve => setTimeout(resolve, 5000)); // 5 second delay
+        // Use priority-based delay between posts
+        console.log(`⏳ Applying ${feedDelay}ms delay for ${priority} priority feed`);
+        await new Promise(resolve => setTimeout(resolve, feedDelay));
       } else {
         console.error(`❌ Failed to post item from ${name}: ${title}`);
         // Continue processing other items even if one fails
@@ -153,7 +244,7 @@ async function processFeed(feed, state) {
     }
 
     if (newItemsFound) {
-      console.log(`✅ Successfully posted ${itemsToPost.length} new item(s) from ${name}`);
+      console.log(`✅ Successfully posted ${itemsToPost.length} threat intelligence items from ${name}`);
       return latestProcessedUrl;
     } else {
       console.log(`❌ No items were successfully posted from ${name}`);
