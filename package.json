@@ -1,0 +1,24 @@
+{
+  "name": "threat-feed-bot",
+  "version": "1.0.0",
+  "description": "Automated threat intelligence feed collector that posts to Microsoft Teams",
+  "type": "module",
+  "main": "fetch-and-post.js",
+  "scripts": {
+    "start": "node fetch-and-post.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "threat-intelligence",
+    "rss",
+    "microsoft-teams",
+    "automation",
+    "security"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "rss-parser": "^3.13.0",
+    "node-fetch": "^3.3.2"
+  }
+}

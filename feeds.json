@@ -1,0 +1,10 @@
+[
+  {
+    "name": "NSM-NCSC",
+    "url": "https://nsm.no/fagomrader/digital-sikkerhet/nasjonalt-cybersikkerhetssenter/varsler-fra-ncsc/rss/"
+  },
+  {
+    "name": "Microsoft-MSRC",
+    "url": "https://api.msrc.microsoft.com/update-guide/rss"
+  }
+]
