@@ -1,13 +1,12 @@
-name: RSS to Teams Bot
+name: Threat Feed Bot
 
 on:
   schedule:
-    # Run every 30 minutes
-    - cron: '*/30 * * * *'
-  workflow_dispatch: # Allow manual triggering
+    - cron: '*/30 * * * *'  # Every 30 minutes
+  workflow_dispatch:        # Manual trigger
 
 jobs:
-  fetch-and-post:
+  process-feeds:
     runs-on: ubuntu-latest
     
     steps:
@@ -15,7 +14,7 @@ jobs:
       uses: actions/checkout@v4
       with:
         token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
-        fetch-depth: 0
+        fetch-depth: 1  # Shallow clone for performance
     
     - name: Setup Node.js
       uses: actions/setup-node@v4
@@ -24,23 +23,21 @@ jobs:
         cache: 'npm'
     
     - name: Install dependencies
-      run: npm ci
+      run: npm ci --prefer-offline --no-audit
     
-    - name: Run threat feed bot
+    - name: Process threat intelligence feeds
       env:
         TEAMS_WEBHOOK_URL: ${{ secrets.TEAMS_WEBHOOK_URL }}
         NODE_ENV: production
       run: npm start
     
-    - name: Commit and push state changes
+    - name: Update feed state
       run: |
-        git config --local user.email "action@github.com"
-        git config --local user.name "GitHub Action"
+        git config --local user.email "bot@threatfeed.action"
+        git config --local user.name "ThreatFeed Bot"
         git add state.json
-        if git diff --staged --quiet; then
-          echo "No changes to commit"
-        else
-          git commit -m "Update state.json - $(date -u '+%Y-%m-%d %H:%M:%S UTC')"
+        if ! git diff --staged --quiet; then
+          git commit -m "chore: update feed state - $(date -u '+%Y-%m-%d %H:%M UTC')"
           git remote set-url origin https://x-access-token:${{ secrets.PERSONAL_ACCESS_TOKEN }}@github.com/trymhaak/TI-Feed-Teams-Automation.git
           git push origin main
         fi
