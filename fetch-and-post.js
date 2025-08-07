@@ -4,6 +4,7 @@ import { postToTeams } from './post-to-teams.js';
 import { FeedValidator, scanAvailableParsers } from './utils/validateFeeds.js';
 import { DefaultParser } from './parsers/defaultParser.js';
 import { formatMessage } from './utils/formatter.js';
+import OutputManager from './outputs/outputManager.js';
 
 // Default configuration
 const DEFAULT_FEEDS_FILE = 'data/feeds.json';
@@ -404,6 +405,21 @@ async function processFeed(feed, state) {
           feedMetadata
         });
         
+        // Create entry for output manager
+        const entryData = {
+          feedName: name,
+          category,
+          region,
+          priority,
+          title,
+          url: itemUrl,
+          description,
+          publishedDate
+        };
+        
+        // Process through output manager for dry-run
+        await OutputManager.processEntry(entryData, true);
+        
         logDryRunOutput({
           feedName: name,
           category,
@@ -421,16 +437,33 @@ async function processFeed(feed, state) {
       } else {
         console.log(`📤 Posting threat intel from ${name} (${category}): ${title}`);
         
-        const success = await postToTeams(name, title, itemUrl, description, publishedDate, feedMetadata);
+        // Create entry for output manager
+        const entryData = {
+          feedName: name,
+          category,
+          region,
+          priority,
+          title,
+          url: itemUrl,
+          description,
+          publishedDate
+        };
         
-        if (success) {
-          newItemsFound = true;
-          latestProcessedUrl = itemUrl; // Update to this item's URL
-          // Use priority-based delay between posts
-          console.log(`⏳ Applying ${feedDelay}ms delay for ${priority} priority feed`);
-          await new Promise(resolve => setTimeout(resolve, feedDelay));
-        } else {
-          console.error(`❌ Failed to post item from ${name}: ${title}`);
+        try {
+          // Process through output manager (sends to Teams and accumulates for HTML)
+          const results = await OutputManager.processEntry(entryData, false);
+          
+          if (results.teams?.success) {
+            newItemsFound = true;
+            latestProcessedUrl = itemUrl; // Update to this item's URL
+            // Use priority-based delay between posts
+            console.log(`⏳ Applying ${feedDelay}ms delay for ${priority} priority feed`);
+            await new Promise(resolve => setTimeout(resolve, feedDelay));
+          } else {
+            console.error(`❌ Failed to post item from ${name}: ${title}`);
+          }
+        } catch (error) {
+          console.error(`❌ Failed to process item from ${name}: ${title}`, error.message);
           // Continue processing other items even if one fails
         }
       }
@@ -470,6 +503,7 @@ OPTIONS:
   
 ENVIRONMENT VARIABLES:
   TEAMS_WEBHOOK_URL      Microsoft Teams webhook URL (required for live posting)
+  ENABLE_GITHUB_PAGES    Set to 'true' to generate HTML output for GitHub Pages
   LOG_TO_FILE           Set to 'true' to save dry-run output to logs/output.json
   NODE_ENV              Set to 'production' for production limits
 
@@ -478,6 +512,11 @@ EXAMPLES:
   node fetch-and-post.js --dry-run                 # Preview mode
   node fetch-and-post.js --config feeds-test.json  # Custom config
   LOG_TO_FILE=true node fetch-and-post.js --dry-run # Save preview to file
+  ENABLE_GITHUB_PAGES=true node fetch-and-post.js  # Generate HTML output
+
+OUTPUT CHANNELS:
+  - Microsoft Teams: Immediate posting of threat intelligence alerts
+  - GitHub Pages: Static HTML feed generated at docs/index.html
 
 DRY-RUN MODE:
   - Processes all feeds and validates configuration
@@ -501,6 +540,12 @@ async function main() {
   const mode = isDryRun ? 'DRY-RUN' : 'LIVE';
   console.log(`🚀 Starting Threat Feed Bot in ${mode} mode...`);
   console.log(`📅 Run time: ${new Date().toISOString()}`);
+  
+  // Configure output channels
+  OutputManager.configureOutputs({
+    teams: !!process.env.TEAMS_WEBHOOK_URL || isDryRun,
+    githubPages: process.env.ENABLE_GITHUB_PAGES === 'true' || isDryRun
+  });
   
   if (isDryRun) {
     console.log('🔍 DRY-RUN MODE: No Teams posting, no state updates');
@@ -541,6 +586,9 @@ async function main() {
 
   // Save updated state
   await saveState(updatedState);
+  
+  // Finalize all outputs (Teams and HTML)
+  await OutputManager.finalizeOutputs(isDryRun);
   
   // Finalize dry-run output
   await finalizeDryRunOutput();

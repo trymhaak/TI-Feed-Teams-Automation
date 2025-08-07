@@ -8,18 +8,28 @@
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage",
     "test:parsers": "jest parsers.test.js",
-    "test:validator": "jest validator.test.js", 
+    "test:validator": "jest validator.test.js",
     "test:formatter": "jest formatter.test.js",
     "test:integration": "jest fetch-and-post.test.js post-to-teams.test.js"
   },
   "jest": {
-    "preset": "jest-preset-node-esm",
-    "testMatch": ["**/*.test.js"],
+    "testMatch": [
+      "**/*.test.js"
+    ],
     "collectCoverageFrom": [
       "../*.js",
       "!../node_modules/**"
     ],
     "coverageDirectory": "./coverage",
-    "testEnvironment": "node"
+    "testEnvironment": "node",
+    "transform": {},
+    "extensionsToTreatAsEsm": [".js"],
+    "globals": {
+      "NODE_OPTIONS": "--experimental-vm-modules"
+    }
+  },
+  "devDependencies": {
+    "@babel/preset-env": "^7.28.0",
+    "jest": "^30.0.5"
   }
 }

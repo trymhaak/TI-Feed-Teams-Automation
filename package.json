@@ -8,6 +8,8 @@
     "start": "node fetch-and-post.js",
     "dry-run": "node fetch-and-post.js --dry-run",
     "dry-run:save": "LOG_TO_FILE=true node fetch-and-post.js --dry-run",
+    "dry-run:html": "ENABLE_GITHUB_PAGES=true node fetch-and-post.js --dry-run",
+    "generate-html": "ENABLE_GITHUB_PAGES=true node fetch-and-post.js",
     "test": "node tests/index.js",
     "test:live": "node tests/index.js --live-teams",
     "test:jest": "cd tests && npm test",
@@ -16,6 +18,7 @@
     "test:validator": "cd tests && npm run test:validator",
     "test:formatter": "cd tests && npm run test:formatter",
     "test:integration": "cd tests && npm run test:integration",
+    "test:outputs": "cd tests && npm run test:outputs",
     "validate": "node tests/index.js && echo 'System validation complete'"
   },
   "keywords": [

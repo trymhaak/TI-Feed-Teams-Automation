@@ -90,6 +90,60 @@ In your GitHub repository, go to Settings → Secrets and variables → Actions,
 
 The workflow will automatically start running every 30 minutes. You can also trigger it manually from the Actions tab.
 
+## Output Channels
+
+The Threat Feed Bot supports multiple output channels for maximum flexibility:
+
+### Microsoft Teams Integration
+
+Posts real-time threat intelligence alerts to Microsoft Teams channels with rich adaptive cards featuring:
+- Color-coded severity levels (Critical, High, Medium, Info)
+- Threat type classification with emoji indicators
+- Source feed metadata and regional context
+- Direct links to original advisories
+- Priority-based action indicators
+
+### GitHub Pages Static Feed
+
+Generate a beautiful, static HTML threat intelligence dashboard hosted on GitHub Pages.
+
+**Setup:**
+1. Enable GitHub Pages in your repository settings (Settings → Pages → Source: GitHub Actions)
+2. Set the `ENABLE_GITHUB_PAGES` environment variable to `true` in your GitHub Actions workflow
+3. The HTML feed will be automatically generated at `docs/index.html` and deployed to GitHub Pages
+
+**Features:**
+- 📊 **Interactive Dashboard**: Modern, responsive design with statistics overview
+- 🎨 **Color-Coded Alerts**: Visual severity indicators with hover effects
+- 🔍 **Rich Metadata**: Complete threat details including feed source, region, and category
+- 📱 **Mobile Responsive**: Optimized for all devices and screen sizes
+- ⚡ **Fast Loading**: Lightweight static HTML with modern CSS
+- 🔗 **Direct Links**: Quick access to original threat advisories
+
+**Example Output:**
+- Statistics cards showing threat counts by severity
+- Interactive threat cards with full descriptions
+- Action buttons for immediate access to advisories
+- Professional styling with gradients and modern typography
+
+**Environment Configuration:**
+```bash
+# Enable GitHub Pages output
+ENABLE_GITHUB_PAGES=true
+
+# Test locally with HTML generation
+npm run dry-run:html
+
+# Generate HTML output in production
+npm run generate-html
+```
+
+The GitHub Pages feed automatically updates with each run and provides a permanent, shareable URL for your threat intelligence dashboard.
+
+## Quick Start (Continued)
+
+### 6. Optional: Configure Additional Output Channels
+
 ## Project Structure
 
 ```
@@ -200,6 +254,8 @@ LOG_TO_FILE=true node fetch-and-post.js --dry-run
 # Convenient npm scripts
 npm run dry-run           # Quick preview
 npm run dry-run:save      # Preview with file output
+npm run dry-run:html      # Preview with GitHub Pages HTML generation
+npm run generate-html     # Generate GitHub Pages HTML output
 ```
 
 **Dry-run Features:**
@@ -235,6 +291,7 @@ npm run test:parsers     # Test parser functionality
 npm run test:validator   # Test feed validation
 npm run test:formatter   # Test message formatting
 npm run test:integration # Test end-to-end integration
+npm run test:outputs     # Test GitHub Pages and output manager
 
 # Run with coverage
 npm run test:coverage
@@ -250,6 +307,12 @@ npm run dry-run
 
 # Dry-run with output saved to logs/dry-run-<timestamp>.json
 npm run dry-run:save
+
+# Dry-run with GitHub Pages HTML generation
+npm run dry-run:html
+
+# Generate GitHub Pages HTML output for production
+npm run generate-html
 ```
 
 ## How It Works
