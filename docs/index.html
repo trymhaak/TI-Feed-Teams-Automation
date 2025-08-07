@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Threat Intelligence Feed</title>
+    <meta name="description" content="Latest cybersecurity threat intelligence from trusted sources">
     <style>
         * {
             margin: 0;
@@ -12,1614 +13,807 @@
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
             line-height: 1.6;
-            color: #333;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
+            color: #2d3748;
+            background-color: #f7fafc;
+            font-size: 16px;
         }
 
         .container {
-            max-width: 1200px;
+            max-width: 800px;
             margin: 0 auto;
-            padding: 20px;
+            padding: 24px 20px;
         }
 
         .header {
             text-align: center;
-            margin-bottom: 30px;
-            background: rgba(255, 255, 255, 0.95);
-            padding: 30px 30px 20px 30px;
-            border-radius: 15px;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-            backdrop-filter: blur(10px);
+            margin-bottom: 48px;
+            padding-bottom: 24px;
+            border-bottom: 1px solid #e2e8f0;
         }
 
         .header h1 {
-            font-size: 2.5rem;
-            color: #2c3e50;
+            font-size: 2.25rem;
+            font-weight: 700;
+            color: #1a202c;
             margin-bottom: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
+            letter-spacing: -0.025em;
         }
 
         .header p {
-            color: #7f8c8d;
-            font-size: 1.1rem;
-            margin-bottom: 15px;
+            color: #718096;
+            font-size: 1.125rem;
+            margin-bottom: 16px;
+            font-weight: 400;
         }
 
         .last-updated {
-            font-size: 0.9rem;
-            color: #95a5a6;
+            font-size: 0.875rem;
+            color: #a0aec0;
             font-style: italic;
         }
 
         .refresh-btn {
             position: fixed;
-            top: 20px;
-            right: 20px;
-            background: #3498db;
+            top: 24px;
+            right: 24px;
+            background: #4299e1;
             color: white;
             border: none;
             padding: 12px 20px;
-            border-radius: 25px;
+            border-radius: 8px;
             font-weight: 500;
             cursor: pointer;
-            box-shadow: 0 4px 15px rgba(52, 152, 219, 0.3);
-            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: all 0.2s ease;
             z-index: 1000;
             display: flex;
             align-items: center;
             gap: 8px;
             text-decoration: none;
+            font-size: 0.875rem;
         }
 
         .refresh-btn:hover {
-            background: #2980b9;
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(52, 152, 219, 0.4);
+            background: #3182ce;
+            transform: translateY(-1px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
         }
 
-        .threat-grid {
-            display: grid;
-            gap: 20px;
-        }
-
-        .threat-card {
-            background: rgba(255, 255, 255, 0.95);
-            border-radius: 15px;
-            padding: 25px;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-            border-left: 5px solid;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .threat-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
-        }
-
-        .threat-card.critical { border-left-color: #e74c3c; }
-        .threat-card.high { border-left-color: #f39c12; }
-        .threat-card.medium { border-left-color: #f1c40f; }
-        .threat-card.info { border-left-color: #3498db; }
-
-        .threat-header {
+        .feed-entries {
             display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            margin-bottom: 15px;
-            flex-wrap: wrap;
-            gap: 15px;
+            flex-direction: column;
+            gap: 32px;
         }
 
-        .threat-title {
-            flex: 1;
-            min-width: 0;
+        .entry {
+            background: white;
+            border-radius: 12px;
+            padding: 32px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            border: 1px solid #e2e8f0;
+            border-left: 4px solid;
+            transition: all 0.2s ease;
         }
 
-        .threat-title h2 {
-            font-size: 1.6rem;
-            color: #2c3e50;
-            margin-bottom: 8px;
-            line-height: 1.3;
+        .entry:hover {
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            transform: translateY(-2px);
+        }
+
+        .entry.critical { border-left-color: #e53e3e; }
+        .entry.high { border-left-color: #dd6b20; }
+        .entry.medium { border-left-color: #d69e2e; }
+        .entry.info { border-left-color: #3182ce; }
+
+        .entry-title {
+            font-size: 1.5rem;
             font-weight: 600;
+            color: #1a202c;
+            margin-bottom: 16px;
+            line-height: 1.4;
         }
 
-        .threat-title a {
+        .entry-title a {
             color: inherit;
             text-decoration: none;
         }
 
-        .threat-title a:hover {
-            color: #3498db;
+        .entry-title a:hover {
+            color: #4299e1;
             text-decoration: underline;
         }
 
-        .severity-badge {
-            padding: 10px 18px;
-            border-radius: 25px;
-            font-weight: bold;
-            font-size: 0.95rem;
-            white-space: nowrap;
+        .entry-meta {
             display: flex;
-            align-items: center;
-            gap: 6px;
-            flex-shrink: 0;
+            flex-wrap: wrap;
+            gap: 16px;
+            margin-bottom: 20px;
+            font-size: 0.875rem;
+            color: #718096;
         }
 
-        .severity-badge.critical {
-            background: #ffe6e6;
-            color: #c0392b;
-            border: 2px solid #e74c3c;
-        }
-
-        .severity-badge.high {
-            background: #fff3e0;
-            color: #d68910;
-            border: 2px solid #f39c12;
-        }
-
-        .severity-badge.medium {
-            background: #fffbdd;
-            color: #b7950b;
-            border: 2px solid #f1c40f;
-        }
-
-        .severity-badge.info {
-            background: #e8f4fd;
-            color: #2980b9;
-            border: 2px solid #3498db;
-        }
-
-        .threat-meta {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-            gap: 12px;
-            margin-bottom: 18px;
-            font-size: 0.85rem;
-            opacity: 0.8;
-        }
-
-        .meta-item {
+        .entry-meta span {
             display: flex;
-            align-items: center;
-            gap: 6px;
-        }
-
-        .meta-label {
-            font-weight: 500;
-            color: #95a5a6;
-        }
-
-        .meta-value {
-            color: #5d6d7e;
-            font-weight: 400;
-        }
-
-        .threat-type {
-            display: inline-flex;
             align-items: center;
             gap: 4px;
-            padding: 3px 8px;
-            background: #ecf0f1;
-            border-radius: 12px;
-            font-size: 0.8rem;
-            color: #5d6d7e;
         }
 
-        .description {
-            color: #5d6d7e;
-            line-height: 1.6;
-            margin-bottom: 20px;
+        .entry-meta .source {
+            font-weight: 600;
+            color: #4a5568;
+        }
+
+        .entry-meta .priority {
+            padding: 2px 8px;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .entry-meta .priority.critical {
+            background: #fed7d7;
+            color: #c53030;
+        }
+
+        .entry-meta .priority.high {
+            background: #feebc8;
+            color: #c05621;
+        }
+
+        .entry-meta .priority.medium {
+            background: #faf089;
+            color: #b7791f;
+        }
+
+        .entry-meta .priority.info {
+            background: #bee3f8;
+            color: #2a69ac;
+        }
+
+        .entry-description {
+            color: #4a5568;
+            line-height: 1.7;
+            margin-bottom: 24px;
             font-size: 1rem;
         }
 
-        .action-buttons {
+        .entry-actions {
             display: flex;
-            gap: 12px;
-            flex-wrap: wrap;
+            align-items: center;
+            justify-content: flex-start;
         }
 
-        .action-btn {
+        .read-more {
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            padding: 10px 20px;
-            background: #3498db;
-            color: white;
+            color: #4299e1;
             text-decoration: none;
-            border-radius: 25px;
             font-weight: 500;
-            transition: background-color 0.3s ease;
-            font-size: 0.9rem;
+            font-size: 0.875rem;
+            transition: color 0.2s ease;
         }
 
-        .action-btn:hover {
-            background: #2980b9;
-        }
-
-        .action-btn.primary {
-            background: #e74c3c;
-        }
-
-        .action-btn.primary:hover {
-            background: #c0392b;
+        .read-more:hover {
+            color: #3182ce;
         }
 
         .footer {
             text-align: center;
-            margin-top: 40px;
-            padding: 20px;
-            background: rgba(255, 255, 255, 0.9);
-            border-radius: 10px;
-            color: #7f8c8d;
-            font-size: 0.9rem;
+            margin-top: 64px;
+            padding: 32px 0;
+            border-top: 1px solid #e2e8f0;
+            color: #718096;
+            font-size: 0.875rem;
+        }
+
+        .footer p {
+            margin-bottom: 8px;
         }
 
         @media (max-width: 768px) {
+            .container {
+                padding: 16px 12px;
+            }
+
             .header h1 {
-                font-size: 2rem;
+                font-size: 1.875rem;
+            }
+
+            .header p {
+                font-size: 1rem;
+            }
+
+            .entry {
+                padding: 24px 20px;
+            }
+
+            .entry-title {
+                font-size: 1.25rem;
+            }
+
+            .entry-meta {
                 flex-direction: column;
-                gap: 5px;
-            }
-
-            .threat-header {
-                flex-direction: column;
-                align-items: stretch;
-                gap: 12px;
-            }
-
-            .threat-title h2 {
-                font-size: 1.4rem;
-            }
-
-            .threat-meta {
-                grid-template-columns: 1fr;
                 gap: 8px;
             }
 
             .refresh-btn {
-                top: 10px;
-                right: 10px;
+                top: 16px;
+                right: 16px;
                 padding: 10px 16px;
-                font-size: 0.9rem;
+                font-size: 0.8rem;
             }
 
-            .container {
-                padding: 15px;
+            .feed-entries {
+                gap: 24px;
             }
         }
 
         @media (max-width: 480px) {
             .container {
-                padding: 10px;
+                padding: 12px 8px;
             }
 
-            .header {
-                padding: 20px 15px;
+            .entry {
+                padding: 20px 16px;
             }
 
-            .header h1 {
-                font-size: 1.8rem;
-            }
-
-            .threat-card {
-                padding: 20px;
-            }
-
-            .action-buttons {
-                flex-direction: column;
+            .entry-title {
+                font-size: 1.125rem;
             }
         }
     </style>
 </head>
 <body>
     <a href="javascript:location.reload()" class="refresh-btn">
-        🔄 Refresh Feed
+        Refresh Feed
     </a>
 
     <div class="container">
         <div class="header">
-            <h1>🛡️ Threat Intelligence Feed</h1>
-            <p>Real-time cybersecurity alerts and advisories from trusted sources</p>
-            <div class="last-updated">Last updated: August 7, 2025 at 01:51 PM GMT+2</div>
+            <h1>Threat Intelligence Feed</h1>
+            <p>Latest cybersecurity threats and advisories from trusted sources</p>
+            <div class="last-updated">Last updated: August 7, 2025 at 02:15 PM GMT+2</div>
         </div>
 
-        <div class="threat-grid">
+        <div class="feed-entries">
             
-    <div class="threat-card critical">
-        <div class="threat-header">
-            <div class="threat-title">
-                <h2><a href="https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-53770" target="_blank" rel="noopener noreferrer">CVE-2025-53770 Microsoft SharePoint Server Remote Code Execution Vulnerability</a></h2>
-            </div>
-            <div class="severity-badge critical">
-                🚨 CRITICAL
-            </div>
+    <article class="entry critical">
+        <h2 class="entry-title">
+            <a href="https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-53770" target="_blank" rel="noopener noreferrer">CVE-2025-53770 Microsoft SharePoint Server Remote Code Execution Vulnerability</a>
+        </h2>
+
+        <div class="entry-meta">
+            <span class="source">Microsoft-MSRC</span>
+            <span>Aug 6, 2025</span>
+            <span>Vulnerability</span>
+            <span class="priority critical">CRITICAL</span>
         </div>
 
-        <div class="threat-meta">
-            <div class="meta-item">
-                <span class="meta-label">📡 Feed:</span>
-                <span class="meta-value">Microsoft-MSRC</span>
-            </div>
-            <div class="meta-item">
-                <span class="meta-label">🌍 Region:</span>
-                <span class="meta-value">global</span>
-            </div>
-            <div class="meta-item">
-                <span class="meta-label">📂 Category:</span>
-                <span class="meta-value">vendor</span>
-            </div>
-            <div class="meta-item">
-                <span class="meta-label">⚡ Priority:</span>
-                <span class="meta-value">P1</span>
-            </div>
-            <div class="meta-item">
-                <span class="meta-label">📅 Published:</span>
-                <span class="meta-value">Aug 6, 2025</span>
-            </div>
-            
-            <div class="meta-item">
-                <span class="meta-label">🏷️ Type:</span>
-                <span class="threat-type">🔓 Vulnerability</span>
-            </div>
-            
-        </div>
-
-        <div class="description">
+        <div class="entry-description">
             Acknowledgement added. This is an informational change only.
         </div>
 
-        <div class="action-buttons">
-            <a href="https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-53770" target="_blank" rel="noopener noreferrer" 
-               class="action-btn primary">
-                🔗 View Advisory
+        <div class="entry-actions">
+            <a href="https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-53770" target="_blank" rel="noopener noreferrer" class="read-more">
+                Read Advisory →
             </a>
-            
-            <span class="action-btn primary" style="cursor: default;">
-                ⚡ Action Required
-            </span>
-            
         </div>
-    </div>
-    <div class="threat-card critical">
-        <div class="threat-header">
-            <div class="threat-title">
-                <h2><a href="https://www.nist.gov/blogs/cybersecurity-insights/reflections-first-cyber-ai-profile-workshop" target="_blank" rel="noopener noreferrer">Reflections from the First Cyber AI Profile Workshop</a></h2>
-            </div>
-            <div class="severity-badge critical">
-                🚨 CRITICAL
-            </div>
+    </article>
+    <article class="entry critical">
+        <h2 class="entry-title">
+            <a href="https://www.nist.gov/blogs/cybersecurity-insights/reflections-first-cyber-ai-profile-workshop" target="_blank" rel="noopener noreferrer">Reflections from the First Cyber AI Profile Workshop</a>
+        </h2>
+
+        <div class="entry-meta">
+            <span class="source">NIST-Cybersecurity</span>
+            <span>Jul 31, 2025</span>
+            <span>APT</span>
+            <span class="priority critical">CRITICAL</span>
         </div>
 
-        <div class="threat-meta">
-            <div class="meta-item">
-                <span class="meta-label">📡 Feed:</span>
-                <span class="meta-value">NIST-Cybersecurity</span>
-            </div>
-            <div class="meta-item">
-                <span class="meta-label">🌍 Region:</span>
-                <span class="meta-value">usa</span>
-            </div>
-            <div class="meta-item">
-                <span class="meta-label">📂 Category:</span>
-                <span class="meta-value">government</span>
-            </div>
-            <div class="meta-item">
-                <span class="meta-label">⚡ Priority:</span>
-                <span class="meta-value">P1</span>
-            </div>
-            <div class="meta-item">
-                <span class="meta-label">📅 Published:</span>
-                <span class="meta-value">Jul 31, 2025</span>
-            </div>
-            
-            <div class="meta-item">
-                <span class="meta-label">🏷️ Type:</span>
-                <span class="threat-type">🎯 APT</span>
-            </div>
-            
+        <div class="entry-description">
+            Thank you to everyone who participated in the Cyber AI Profile Workshop NIST hosted this past April! This work intends to support the cybersecurity and AI communities — and the input you provided during this workshop is critical. We are working to publish a Workshop Summary that captures themes and highlights from the event. In the interim, we would like to share a preview of what we heard. Background on the Cyber AI Profile Workshop ( watch the workshop introduction video) As NIST began exploring the idea of a Cyber AI Profile and writing the Cybersecurity and AI Workshop Concept Paper
         </div>
 
-        <div class="description">
-            Thank you to everyone who participated in the Cyber AI Profile Workshop NIST hosted this past April! This work intends to support the cybersecurity and AI communities — and the input you provided during this workshop is critical. We are working to publish a Workshop Summary that captures themes and ...
-        </div>
-
-        <div class="action-buttons">
-            <a href="https://www.nist.gov/blogs/cybersecurity-insights/reflections-first-cyber-ai-profile-workshop" target="_blank" rel="noopener noreferrer" 
-               class="action-btn primary">
-                🔗 View Advisory
+        <div class="entry-actions">
+            <a href="https://www.nist.gov/blogs/cybersecurity-insights/reflections-first-cyber-ai-profile-workshop" target="_blank" rel="noopener noreferrer" class="read-more">
+                Read Advisory →
             </a>
-            
-            <span class="action-btn primary" style="cursor: default;">
-                ⚡ Action Required
-            </span>
-            
         </div>
-    </div>
-    <div class="threat-card critical">
-        <div class="threat-header">
-            <div class="threat-title">
-                <h2><a href="https://www.cisa.gov/news-events/news/cisa-releases-open-source-eviction-strategies-tool-cyber-incident-response" target="_blank" rel="noopener noreferrer">CISA Releases Open-Source Eviction Strategies Tool for Cyber Incident Response</a></h2>
-            </div>
-            <div class="severity-badge critical">
-                🚨 CRITICAL
-            </div>
+    </article>
+    <article class="entry critical">
+        <h2 class="entry-title">
+            <a href="https://www.cisa.gov/news-events/news/cisa-releases-open-source-eviction-strategies-tool-cyber-incident-response" target="_blank" rel="noopener noreferrer">CISA Releases Open-Source Eviction Strategies Tool for Cyber Incident Response</a>
+        </h2>
+
+        <div class="entry-meta">
+            <span class="source">CISA-Alerts</span>
+            <span>Jul 30, 2025</span>
+            <span>General</span>
+            <span class="priority critical">CRITICAL</span>
         </div>
 
-        <div class="threat-meta">
-            <div class="meta-item">
-                <span class="meta-label">📡 Feed:</span>
-                <span class="meta-value">CISA-Alerts</span>
-            </div>
-            <div class="meta-item">
-                <span class="meta-label">🌍 Region:</span>
-                <span class="meta-value">usa</span>
-            </div>
-            <div class="meta-item">
-                <span class="meta-label">📂 Category:</span>
-                <span class="meta-value">government</span>
-            </div>
-            <div class="meta-item">
-                <span class="meta-label">⚡ Priority:</span>
-                <span class="meta-value">P1</span>
-            </div>
-            <div class="meta-item">
-                <span class="meta-label">📅 Published:</span>
-                <span class="meta-value">Jul 30, 2025</span>
-            </div>
-            
-            <div class="meta-item">
-                <span class="meta-label">🏷️ Type:</span>
-                <span class="threat-type">📄 General</span>
-            </div>
-            
+        <div class="entry-description">
+            No description available for this threat intelligence item.
         </div>
 
-        <div class="description">
-            No detailed description available for this threat intelligence item.
-        </div>
-
-        <div class="action-buttons">
-            <a href="https://www.cisa.gov/news-events/news/cisa-releases-open-source-eviction-strategies-tool-cyber-incident-response" target="_blank" rel="noopener noreferrer" 
-               class="action-btn primary">
-                🔗 View Advisory
+        <div class="entry-actions">
+            <a href="https://www.cisa.gov/news-events/news/cisa-releases-open-source-eviction-strategies-tool-cyber-incident-response" target="_blank" rel="noopener noreferrer" class="read-more">
+                Read Advisory →
             </a>
-            
-            <span class="action-btn primary" style="cursor: default;">
-                ⚡ Action Required
-            </span>
-            
         </div>
-    </div>
-    <div class="threat-card critical">
-        <div class="threat-header">
-            <div class="threat-title">
-                <h2><a href="https://www.cisecurity.org/advisory/multiple-vulnerabilities-in-microsoft-sharepoint-server-could-allow-for-remote-code-execution_2025-066---updated-was-emailed-as-2025-065-in-email-notification-should-have-been-2025-066" target="_blank" rel="noopener noreferrer">Multiple Vulnerabilities in Microsoft SharePoint Server Could Allow for Remote Code Execution</a></h2>
-            </div>
-            <div class="severity-badge critical">
-                🚨 CRITICAL
-            </div>
+    </article>
+    <article class="entry critical">
+        <h2 class="entry-title">
+            <a href="https://www.cisecurity.org/advisory/multiple-vulnerabilities-in-microsoft-sharepoint-server-could-allow-for-remote-code-execution_2025-066---updated-was-emailed-as-2025-065-in-email-notification-should-have-been-2025-066" target="_blank" rel="noopener noreferrer">Multiple Vulnerabilities in Microsoft SharePoint Server Could Allow for Remote Code Execution</a>
+        </h2>
+
+        <div class="entry-meta">
+            <span class="source">CISecurity-Advisories</span>
+            <span>Jul 22, 2025</span>
+            <span>General</span>
+            <span class="priority critical">CRITICAL</span>
         </div>
 
-        <div class="threat-meta">
-            <div class="meta-item">
-                <span class="meta-label">📡 Feed:</span>
-                <span class="meta-value">CISecurity-Advisories</span>
-            </div>
-            <div class="meta-item">
-                <span class="meta-label">🌍 Region:</span>
-                <span class="meta-value">global</span>
-            </div>
-            <div class="meta-item">
-                <span class="meta-label">📂 Category:</span>
-                <span class="meta-value">vendor</span>
-            </div>
-            <div class="meta-item">
-                <span class="meta-label">⚡ Priority:</span>
-                <span class="meta-value">P1</span>
-            </div>
-            <div class="meta-item">
-                <span class="meta-label">📅 Published:</span>
-                <span class="meta-value">Jul 22, 2025</span>
-            </div>
-            
-            <div class="meta-item">
-                <span class="meta-label">🏷️ Type:</span>
-                <span class="threat-type">📄 General</span>
-            </div>
-            
+        <div class="entry-description">
+            Multiple Vulnerabilities have been discovered in Microsoft SharePoint Server, which could allow for remote code execution. Microsoft SharePoint Server is a web-based collaborative platform that integrates with Microsoft Office. Successful exploitation of these vulnerabilities allows for unauthenticated access to systems and enables malicious actors to fully access SharePoint content, including file systems and internal configurations, and execute code over the network
         </div>
 
-        <div class="description">
-            Multiple Vulnerabilities have been discovered in Microsoft SharePoint Server, which could allow for remote code execution. Microsoft SharePoint Server is a web-based collaborative platform that integrates with Microsoft Office. Successful exploitation of these vulnerabilities allows for unauthentica...
-        </div>
-
-        <div class="action-buttons">
-            <a href="https://www.cisecurity.org/advisory/multiple-vulnerabilities-in-microsoft-sharepoint-server-could-allow-for-remote-code-execution_2025-066---updated-was-emailed-as-2025-065-in-email-notification-should-have-been-2025-066" target="_blank" rel="noopener noreferrer" 
-               class="action-btn primary">
-                🔗 View Advisory
+        <div class="entry-actions">
+            <a href="https://www.cisecurity.org/advisory/multiple-vulnerabilities-in-microsoft-sharepoint-server-could-allow-for-remote-code-execution_2025-066---updated-was-emailed-as-2025-065-in-email-notification-should-have-been-2025-066" target="_blank" rel="noopener noreferrer" class="read-more">
+                Read Advisory →
             </a>
-            
-            <span class="action-btn primary" style="cursor: default;">
-                ⚡ Action Required
-            </span>
-            
         </div>
-    </div>
-    <div class="threat-card critical">
-        <div class="threat-header">
-            <div class="threat-title">
-                <h2><a href="https://www.nist.gov/blogs/cybersecurity-insights/nine-years-and-counting-nice-ramps-communities-keep-expanding" target="_blank" rel="noopener noreferrer">Nine Years and Counting: NICE RAMPS Communities Keep Expanding Opportunities in Cybersecurity Work and Learning</a></h2>
-            </div>
-            <div class="severity-badge critical">
-                🚨 CRITICAL
-            </div>
+    </article>
+    <article class="entry critical">
+        <h2 class="entry-title">
+            <a href="https://www.nist.gov/blogs/cybersecurity-insights/nine-years-and-counting-nice-ramps-communities-keep-expanding" target="_blank" rel="noopener noreferrer">Nine Years and Counting: NICE RAMPS Communities Keep Expanding Opportunities in Cybersecurity Work and Learning</a>
+        </h2>
+
+        <div class="entry-meta">
+            <span class="source">NIST-Cybersecurity</span>
+            <span>Jul 7, 2025</span>
+            <span>General</span>
+            <span class="priority critical">CRITICAL</span>
         </div>
 
-        <div class="threat-meta">
-            <div class="meta-item">
-                <span class="meta-label">📡 Feed:</span>
-                <span class="meta-value">NIST-Cybersecurity</span>
-            </div>
-            <div class="meta-item">
-                <span class="meta-label">🌍 Region:</span>
-                <span class="meta-value">usa</span>
-            </div>
-            <div class="meta-item">
-                <span class="meta-label">📂 Category:</span>
-                <span class="meta-value">government</span>
-            </div>
-            <div class="meta-item">
-                <span class="meta-label">⚡ Priority:</span>
-                <span class="meta-value">P1</span>
-            </div>
-            <div class="meta-item">
-                <span class="meta-label">📅 Published:</span>
-                <span class="meta-value">Jul 7, 2025</span>
-            </div>
-            
-            <div class="meta-item">
-                <span class="meta-label">🏷️ Type:</span>
-                <span class="threat-type">📄 General</span>
-            </div>
-            
+        <div class="entry-description">
+            A lot has changed in America’s cybersecurity workforce development ecosystem since 2016: employment in cybersecurity occupations has grown by more than 300,000 [1]; the number of information security degrees awarded annually has more than tripled to nearly 35,000 [2]; and a wide array of new technologies and risks have emerged. Five regional cybersecurity workforce partnerships supported by the 2016 RAMPS program pilot, administered by NIST’s NICE Program Office, have weathered the changes in cybersecurity and continue to anchor cybersecurity talent networks in their communities to this day
         </div>
 
-        <div class="description">
-            A lot has changed in America’s cybersecurity workforce development ecosystem since 2016: employment in cybersecurity occupations has grown by more than 300,000 [1]; the number of information security degrees awarded annually has more than tripled to nearly 35,000 [2]; and a wide array of new technol...
-        </div>
-
-        <div class="action-buttons">
-            <a href="https://www.nist.gov/blogs/cybersecurity-insights/nine-years-and-counting-nice-ramps-communities-keep-expanding" target="_blank" rel="noopener noreferrer" 
-               class="action-btn primary">
-                🔗 View Advisory
+        <div class="entry-actions">
+            <a href="https://www.nist.gov/blogs/cybersecurity-insights/nine-years-and-counting-nice-ramps-communities-keep-expanding" target="_blank" rel="noopener noreferrer" class="read-more">
+                Read Advisory →
             </a>
-            
-            <span class="action-btn primary" style="cursor: default;">
-                ⚡ Action Required
-            </span>
-            
         </div>
-    </div>
-    <div class="threat-card critical">
-        <div class="threat-header">
-            <div class="threat-title">
-                <h2><a href="https://www.cisa.gov/news-events/news/joint-statement-cisa-fbi-dc3-and-nsa-potential-targeted-cyber-activity-against-us-critical" target="_blank" rel="noopener noreferrer">Joint Statement from CISA, FBI, DC3 and NSA on Potential Targeted Cyber Activity Against U.S. Critical Infrastructure by Iran</a></h2>
-            </div>
-            <div class="severity-badge critical">
-                🚨 CRITICAL
-            </div>
+    </article>
+    <article class="entry critical">
+        <h2 class="entry-title">
+            <a href="https://www.cisa.gov/news-events/news/joint-statement-cisa-fbi-dc3-and-nsa-potential-targeted-cyber-activity-against-us-critical" target="_blank" rel="noopener noreferrer">Joint Statement from CISA, FBI, DC3 and NSA on Potential Targeted Cyber Activity Against U.S. Critical Infrastructure by Iran</a>
+        </h2>
+
+        <div class="entry-meta">
+            <span class="source">CISA-Alerts</span>
+            <span>Jun 30, 2025</span>
+            <span>General</span>
+            <span class="priority critical">CRITICAL</span>
         </div>
 
-        <div class="threat-meta">
-            <div class="meta-item">
-                <span class="meta-label">📡 Feed:</span>
-                <span class="meta-value">CISA-Alerts</span>
-            </div>
-            <div class="meta-item">
-                <span class="meta-label">🌍 Region:</span>
-                <span class="meta-value">usa</span>
-            </div>
-            <div class="meta-item">
-                <span class="meta-label">📂 Category:</span>
-                <span class="meta-value">government</span>
-            </div>
-            <div class="meta-item">
-                <span class="meta-label">⚡ Priority:</span>
-                <span class="meta-value">P1</span>
-            </div>
-            <div class="meta-item">
-                <span class="meta-label">📅 Published:</span>
-                <span class="meta-value">Jun 30, 2025</span>
-            </div>
-            
-            <div class="meta-item">
-                <span class="meta-label">🏷️ Type:</span>
-                <span class="threat-type">📄 General</span>
-            </div>
-            
+        <div class="entry-description">
+            No description available for this threat intelligence item.
         </div>
 
-        <div class="description">
-            No detailed description available for this threat intelligence item.
-        </div>
-
-        <div class="action-buttons">
-            <a href="https://www.cisa.gov/news-events/news/joint-statement-cisa-fbi-dc3-and-nsa-potential-targeted-cyber-activity-against-us-critical" target="_blank" rel="noopener noreferrer" 
-               class="action-btn primary">
-                🔗 View Advisory
+        <div class="entry-actions">
+            <a href="https://www.cisa.gov/news-events/news/joint-statement-cisa-fbi-dc3-and-nsa-potential-targeted-cyber-activity-against-us-critical" target="_blank" rel="noopener noreferrer" class="read-more">
+                Read Advisory →
             </a>
-            
-            <span class="action-btn primary" style="cursor: default;">
-                ⚡ Action Required
-            </span>
-            
         </div>
-    </div>
-    <div class="threat-card critical">
-        <div class="threat-header">
-            <div class="threat-title">
-                <h2><a href="https://www.nist.gov/blogs/cybersecurity-insights/impact-artificial-intelligence-cybersecurity-workforce" target="_blank" rel="noopener noreferrer">The Impact of Artificial Intelligence on the Cybersecurity Workforce</a></h2>
-            </div>
-            <div class="severity-badge critical">
-                🚨 CRITICAL
-            </div>
+    </article>
+    <article class="entry critical">
+        <h2 class="entry-title">
+            <a href="https://www.nist.gov/blogs/cybersecurity-insights/impact-artificial-intelligence-cybersecurity-workforce" target="_blank" rel="noopener noreferrer">The Impact of Artificial Intelligence on the Cybersecurity Workforce</a>
+        </h2>
+
+        <div class="entry-meta">
+            <span class="source">NIST-Cybersecurity</span>
+            <span>Jun 12, 2025</span>
+            <span>General</span>
+            <span class="priority critical">CRITICAL</span>
         </div>
 
-        <div class="threat-meta">
-            <div class="meta-item">
-                <span class="meta-label">📡 Feed:</span>
-                <span class="meta-value">NIST-Cybersecurity</span>
-            </div>
-            <div class="meta-item">
-                <span class="meta-label">🌍 Region:</span>
-                <span class="meta-value">usa</span>
-            </div>
-            <div class="meta-item">
-                <span class="meta-label">📂 Category:</span>
-                <span class="meta-value">government</span>
-            </div>
-            <div class="meta-item">
-                <span class="meta-label">⚡ Priority:</span>
-                <span class="meta-value">P1</span>
-            </div>
-            <div class="meta-item">
-                <span class="meta-label">📅 Published:</span>
-                <span class="meta-value">Jun 12, 2025</span>
-            </div>
-            
-            <div class="meta-item">
-                <span class="meta-label">🏷️ Type:</span>
-                <span class="threat-type">📄 General</span>
-            </div>
-            
+        <div class="entry-description">
+            The NICE Workforce Framework for Cybersecurity ( NICE Framework) was revised in November 2020 as NIST Special Publication 800-181 rev.1 to enable more effective and rapid updates to the NICE Framework Components, including how the advent of emerging technologies would impact cybersecurity work. NICE has been actively engaging in conversations with: federal departments and agencies; industry; education, training, and certification providers; and international representatives to understand how Artificial Intelligence (AI) might affect the nature of our Nation’s digital work. NICE has also led
         </div>
 
-        <div class="description">
-            The NICE Workforce Framework for Cybersecurity ( NICE Framework) was revised in November 2020 as NIST Special Publication 800-181 rev.1 to enable more effective and rapid updates to the NICE Framework Components, including how the advent of emerging technologies would impact cybersecurity work. NICE...
-        </div>
-
-        <div class="action-buttons">
-            <a href="https://www.nist.gov/blogs/cybersecurity-insights/impact-artificial-intelligence-cybersecurity-workforce" target="_blank" rel="noopener noreferrer" 
-               class="action-btn primary">
-                🔗 View Advisory
+        <div class="entry-actions">
+            <a href="https://www.nist.gov/blogs/cybersecurity-insights/impact-artificial-intelligence-cybersecurity-workforce" target="_blank" rel="noopener noreferrer" class="read-more">
+                Read Advisory →
             </a>
-            
-            <span class="action-btn primary" style="cursor: default;">
-                ⚡ Action Required
-            </span>
-            
         </div>
-    </div>
-    <div class="threat-card high">
-        <div class="threat-header">
-            <div class="threat-title">
-                <h2><a href="https://www.cisa.gov/news-events/news/cisa-issues-alert-vulnerability-affecting-microsoft-exchange" target="_blank" rel="noopener noreferrer">CISA Issues Alert on Vulnerability affecting Microsoft Exchange</a></h2>
-            </div>
-            <div class="severity-badge high">
-                ⚠️ HIGH
-            </div>
+    </article>
+    <article class="entry high">
+        <h2 class="entry-title">
+            <a href="https://www.cisa.gov/news-events/news/cisa-issues-alert-vulnerability-affecting-microsoft-exchange" target="_blank" rel="noopener noreferrer">CISA Issues Alert on Vulnerability affecting Microsoft Exchange</a>
+        </h2>
+
+        <div class="entry-meta">
+            <span class="source">CISA-Alerts</span>
+            <span>Aug 6, 2025</span>
+            <span>Vulnerability</span>
+            <span class="priority high">HIGH</span>
         </div>
 
-        <div class="threat-meta">
-            <div class="meta-item">
-                <span class="meta-label">📡 Feed:</span>
-                <span class="meta-value">CISA-Alerts</span>
-            </div>
-            <div class="meta-item">
-                <span class="meta-label">🌍 Region:</span>
-                <span class="meta-value">usa</span>
-            </div>
-            <div class="meta-item">
-                <span class="meta-label">📂 Category:</span>
-                <span class="meta-value">government</span>
-            </div>
-            <div class="meta-item">
-                <span class="meta-label">⚡ Priority:</span>
-                <span class="meta-value">P2</span>
-            </div>
-            <div class="meta-item">
-                <span class="meta-label">📅 Published:</span>
-                <span class="meta-value">Aug 6, 2025</span>
-            </div>
-            
-            <div class="meta-item">
-                <span class="meta-label">🏷️ Type:</span>
-                <span class="threat-type">🔓 Vulnerability</span>
-            </div>
-            
+        <div class="entry-description">
+            No description available for this threat intelligence item.
         </div>
 
-        <div class="description">
-            No detailed description available for this threat intelligence item.
-        </div>
-
-        <div class="action-buttons">
-            <a href="https://www.cisa.gov/news-events/news/cisa-issues-alert-vulnerability-affecting-microsoft-exchange" target="_blank" rel="noopener noreferrer" 
-               class="action-btn primary">
-                🔗 View Advisory
+        <div class="entry-actions">
+            <a href="https://www.cisa.gov/news-events/news/cisa-issues-alert-vulnerability-affecting-microsoft-exchange" target="_blank" rel="noopener noreferrer" class="read-more">
+                Read Advisory →
             </a>
-            
-            <span class="action-btn primary" style="cursor: default;">
-                ⚡ Action Required
-            </span>
-            
         </div>
-    </div>
-    <div class="threat-card high">
-        <div class="threat-header">
-            <div class="threat-title">
-                <h2><a href="https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-53786" target="_blank" rel="noopener noreferrer">CVE-2025-53786 Microsoft Exchange Server Hybrid Deployment Elevation of Privilege Vulnerability</a></h2>
-            </div>
-            <div class="severity-badge high">
-                ⚠️ HIGH
-            </div>
+    </article>
+    <article class="entry high">
+        <h2 class="entry-title">
+            <a href="https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-53786" target="_blank" rel="noopener noreferrer">CVE-2025-53786 Microsoft Exchange Server Hybrid Deployment Elevation of Privilege Vulnerability</a>
+        </h2>
+
+        <div class="entry-meta">
+            <span class="source">Microsoft-MSRC</span>
+            <span>Aug 6, 2025</span>
+            <span>Vulnerability</span>
+            <span class="priority high">HIGH</span>
         </div>
 
-        <div class="threat-meta">
-            <div class="meta-item">
-                <span class="meta-label">📡 Feed:</span>
-                <span class="meta-value">Microsoft-MSRC</span>
-            </div>
-            <div class="meta-item">
-                <span class="meta-label">🌍 Region:</span>
-                <span class="meta-value">global</span>
-            </div>
-            <div class="meta-item">
-                <span class="meta-label">📂 Category:</span>
-                <span class="meta-value">vendor</span>
-            </div>
-            <div class="meta-item">
-                <span class="meta-label">⚡ Priority:</span>
-                <span class="meta-value">P2</span>
-            </div>
-            <div class="meta-item">
-                <span class="meta-label">📅 Published:</span>
-                <span class="meta-value">Aug 6, 2025</span>
-            </div>
-            
-            <div class="meta-item">
-                <span class="meta-label">🏷️ Type:</span>
-                <span class="threat-type">🔓 Vulnerability</span>
-            </div>
-            
+        <div class="entry-description">
+            On April 18th 2025, Microsoft announced [Exchange Server Security Changes for Hybrid Deployments](https://techcommunity.microsoft.com/blog/exchange/exchange-server-security-changes-for-hybrid-deployments/4396833) and accompanying non-security [Hot Fix](https://techcommunity.microsoft.com/blog/exchange/released-april-2025-exchange-server-hotfix-updates/4402471). Microsoft made these changes in the general interest of improving the security of hybrid Exchange deployments. Following further investigation, Microsoft identified specific security implications tied to the guidance and configuration steps outlined in the April announcement. Microsoft is issuing CVE-2025-53786 to document a vulnerability that is addressed by taking the steps documented with the April 18th announcement. Microsoft st...
         </div>
 
-        <div class="description">
-            On April 18th 2025, Microsoft announced [Exchange Server Security Changes for Hybrid Deployments](https://techcommunity.microsoft.com/blog/exchange/exchange-server-security-changes-for-hybrid-deployments/4396833) and accompanying non-security [Hot Fix](https://techcommunity.microsoft.com/blog/exchan...
-        </div>
-
-        <div class="action-buttons">
-            <a href="https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-53786" target="_blank" rel="noopener noreferrer" 
-               class="action-btn primary">
-                🔗 View Advisory
+        <div class="entry-actions">
+            <a href="https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-53786" target="_blank" rel="noopener noreferrer" class="read-more">
+                Read Advisory →
             </a>
-            
-            <span class="action-btn primary" style="cursor: default;">
-                ⚡ Action Required
-            </span>
-            
         </div>
-    </div>
-    <div class="threat-card high">
-        <div class="threat-header">
-            <div class="threat-title">
-                <h2><a href="https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-8292" target="_blank" rel="noopener noreferrer">Chromium: CVE-2025-8292 Use after free in Media Stream</a></h2>
-            </div>
-            <div class="severity-badge high">
-                ⚠️ HIGH
-            </div>
+    </article>
+    <article class="entry high">
+        <h2 class="entry-title">
+            <a href="https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-8292" target="_blank" rel="noopener noreferrer">Chromium: CVE-2025-8292 Use after free in Media Stream</a>
+        </h2>
+
+        <div class="entry-meta">
+            <span class="source">Microsoft-MSRC</span>
+            <span>Jul 31, 2025</span>
+            <span>Vulnerability</span>
+            <span class="priority high">HIGH</span>
         </div>
 
-        <div class="threat-meta">
-            <div class="meta-item">
-                <span class="meta-label">📡 Feed:</span>
-                <span class="meta-value">Microsoft-MSRC</span>
-            </div>
-            <div class="meta-item">
-                <span class="meta-label">🌍 Region:</span>
-                <span class="meta-value">global</span>
-            </div>
-            <div class="meta-item">
-                <span class="meta-label">📂 Category:</span>
-                <span class="meta-value">vendor</span>
-            </div>
-            <div class="meta-item">
-                <span class="meta-label">⚡ Priority:</span>
-                <span class="meta-value">P2</span>
-            </div>
-            <div class="meta-item">
-                <span class="meta-label">📅 Published:</span>
-                <span class="meta-value">Jul 31, 2025</span>
-            </div>
-            
-            <div class="meta-item">
-                <span class="meta-label">🏷️ Type:</span>
-                <span class="threat-type">🔓 Vulnerability</span>
-            </div>
-            
-        </div>
-
-        <div class="description">
+        <div class="entry-description">
             This CVE was assigned by Chrome.  Microsoft Edge (Chromium-based) ingests Chromium, which addresses this vulnerability. Please see [Google Chrome Releases](https://chromereleases.googleblog.com/202[SS9.1]5) for more information.
         </div>
 
-        <div class="action-buttons">
-            <a href="https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-8292" target="_blank" rel="noopener noreferrer" 
-               class="action-btn primary">
-                🔗 View Advisory
+        <div class="entry-actions">
+            <a href="https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-8292" target="_blank" rel="noopener noreferrer" class="read-more">
+                Read Advisory →
             </a>
-            
-            <span class="action-btn primary" style="cursor: default;">
-                ⚡ Action Required
-            </span>
-            
         </div>
-    </div>
-    <div class="threat-card high">
-        <div class="threat-header">
-            <div class="threat-title">
-                <h2><a href="https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-49706" target="_blank" rel="noopener noreferrer">CVE-2025-49706 Microsoft SharePoint Server Spoofing Vulnerability</a></h2>
-            </div>
-            <div class="severity-badge high">
-                ⚠️ HIGH
-            </div>
+    </article>
+    <article class="entry high">
+        <h2 class="entry-title">
+            <a href="https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-49706" target="_blank" rel="noopener noreferrer">CVE-2025-49706 Microsoft SharePoint Server Spoofing Vulnerability</a>
+        </h2>
+
+        <div class="entry-meta">
+            <span class="source">Microsoft-MSRC</span>
+            <span>Jul 31, 2025</span>
+            <span>Vulnerability</span>
+            <span class="priority high">HIGH</span>
         </div>
 
-        <div class="threat-meta">
-            <div class="meta-item">
-                <span class="meta-label">📡 Feed:</span>
-                <span class="meta-value">Microsoft-MSRC</span>
-            </div>
-            <div class="meta-item">
-                <span class="meta-label">🌍 Region:</span>
-                <span class="meta-value">global</span>
-            </div>
-            <div class="meta-item">
-                <span class="meta-label">📂 Category:</span>
-                <span class="meta-value">vendor</span>
-            </div>
-            <div class="meta-item">
-                <span class="meta-label">⚡ Priority:</span>
-                <span class="meta-value">P2</span>
-            </div>
-            <div class="meta-item">
-                <span class="meta-label">📅 Published:</span>
-                <span class="meta-value">Jul 31, 2025</span>
-            </div>
-            
-            <div class="meta-item">
-                <span class="meta-label">🏷️ Type:</span>
-                <span class="threat-type">🔓 Vulnerability</span>
-            </div>
-            
-        </div>
-
-        <div class="description">
+        <div class="entry-description">
             Added an FAQ to explain that the security update KB for SharePoint Server 2016 applies to both Microsoft SharePoint Server 2016 and Microsoft SharePoint Enterprise Server 2016. This is an informational change only.
         </div>
 
-        <div class="action-buttons">
-            <a href="https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-49706" target="_blank" rel="noopener noreferrer" 
-               class="action-btn primary">
-                🔗 View Advisory
+        <div class="entry-actions">
+            <a href="https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-49706" target="_blank" rel="noopener noreferrer" class="read-more">
+                Read Advisory →
             </a>
-            
-            <span class="action-btn primary" style="cursor: default;">
-                ⚡ Action Required
-            </span>
-            
         </div>
-    </div>
-    <div class="threat-card high">
-        <div class="threat-header">
-            <div class="threat-title">
-                <h2><a href="https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-53771" target="_blank" rel="noopener noreferrer">CVE-2025-53771 Microsoft SharePoint Server Spoofing Vulnerability</a></h2>
-            </div>
-            <div class="severity-badge high">
-                ⚠️ HIGH
-            </div>
+    </article>
+    <article class="entry high">
+        <h2 class="entry-title">
+            <a href="https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-53771" target="_blank" rel="noopener noreferrer">CVE-2025-53771 Microsoft SharePoint Server Spoofing Vulnerability</a>
+        </h2>
+
+        <div class="entry-meta">
+            <span class="source">Microsoft-MSRC</span>
+            <span>Jul 31, 2025</span>
+            <span>Vulnerability</span>
+            <span class="priority high">HIGH</span>
         </div>
 
-        <div class="threat-meta">
-            <div class="meta-item">
-                <span class="meta-label">📡 Feed:</span>
-                <span class="meta-value">Microsoft-MSRC</span>
-            </div>
-            <div class="meta-item">
-                <span class="meta-label">🌍 Region:</span>
-                <span class="meta-value">global</span>
-            </div>
-            <div class="meta-item">
-                <span class="meta-label">📂 Category:</span>
-                <span class="meta-value">vendor</span>
-            </div>
-            <div class="meta-item">
-                <span class="meta-label">⚡ Priority:</span>
-                <span class="meta-value">P2</span>
-            </div>
-            <div class="meta-item">
-                <span class="meta-label">📅 Published:</span>
-                <span class="meta-value">Jul 31, 2025</span>
-            </div>
-            
-            <div class="meta-item">
-                <span class="meta-label">🏷️ Type:</span>
-                <span class="threat-type">🔓 Vulnerability</span>
-            </div>
-            
-        </div>
-
-        <div class="description">
+        <div class="entry-description">
             Added an FAQ to explain that the security update KB for SharePoint Server 2016 applies to both Microsoft SharePoint Server 2016 and Microsoft SharePoint Enterprise Server 2016. This is an informational change only.
         </div>
 
-        <div class="action-buttons">
-            <a href="https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-53771" target="_blank" rel="noopener noreferrer" 
-               class="action-btn primary">
-                🔗 View Advisory
+        <div class="entry-actions">
+            <a href="https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-53771" target="_blank" rel="noopener noreferrer" class="read-more">
+                Read Advisory →
             </a>
-            
-            <span class="action-btn primary" style="cursor: default;">
-                ⚡ Action Required
-            </span>
-            
         </div>
-    </div>
-    <div class="threat-card high">
-        <div class="threat-header">
-            <div class="threat-title">
-                <h2><a href="https://www.cisecurity.org/advisory/a-vulnerability-in-google-chrome-could-allow-for-arbitrary-code-execution_2025-068" target="_blank" rel="noopener noreferrer">A Vulnerability in Google Chrome Could Allow for Arbitrary Code Execution</a></h2>
-            </div>
-            <div class="severity-badge high">
-                ⚠️ HIGH
-            </div>
+    </article>
+    <article class="entry high">
+        <h2 class="entry-title">
+            <a href="https://www.cisecurity.org/advisory/a-vulnerability-in-google-chrome-could-allow-for-arbitrary-code-execution_2025-068" target="_blank" rel="noopener noreferrer">A Vulnerability in Google Chrome Could Allow for Arbitrary Code Execution</a>
+        </h2>
+
+        <div class="entry-meta">
+            <span class="source">CISecurity-Advisories</span>
+            <span>Jul 30, 2025</span>
+            <span>Vulnerability</span>
+            <span class="priority high">HIGH</span>
         </div>
 
-        <div class="threat-meta">
-            <div class="meta-item">
-                <span class="meta-label">📡 Feed:</span>
-                <span class="meta-value">CISecurity-Advisories</span>
-            </div>
-            <div class="meta-item">
-                <span class="meta-label">🌍 Region:</span>
-                <span class="meta-value">global</span>
-            </div>
-            <div class="meta-item">
-                <span class="meta-label">📂 Category:</span>
-                <span class="meta-value">vendor</span>
-            </div>
-            <div class="meta-item">
-                <span class="meta-label">⚡ Priority:</span>
-                <span class="meta-value">P2</span>
-            </div>
-            <div class="meta-item">
-                <span class="meta-label">📅 Published:</span>
-                <span class="meta-value">Jul 30, 2025</span>
-            </div>
-            
-            <div class="meta-item">
-                <span class="meta-label">🏷️ Type:</span>
-                <span class="threat-type">🔓 Vulnerability</span>
-            </div>
-            
+        <div class="entry-description">
+            A Vulnerability has been discovered in Google Chrome which could allow for arbitrary code execution. Successful exploitation of the the vulnerability could allow for arbitrary code execution in the context of the logged on user. Depending on the privileges associated with the user an attacker could then install programs; view, change, or delete data; or create new accounts with full user rights. Users whose accounts are configured to have fewer user rights on the system could be less impacted than those who operate with administrative user rights.
         </div>
 
-        <div class="description">
-            A Vulnerability has been discovered in Google Chrome which could allow for arbitrary code execution. Successful exploitation of the the vulnerability could allow for arbitrary code execution in the context of the logged on user. Depending on the privileges associated with the user an attacker could ...
-        </div>
-
-        <div class="action-buttons">
-            <a href="https://www.cisecurity.org/advisory/a-vulnerability-in-google-chrome-could-allow-for-arbitrary-code-execution_2025-068" target="_blank" rel="noopener noreferrer" 
-               class="action-btn primary">
-                🔗 View Advisory
+        <div class="entry-actions">
+            <a href="https://www.cisecurity.org/advisory/a-vulnerability-in-google-chrome-could-allow-for-arbitrary-code-execution_2025-068" target="_blank" rel="noopener noreferrer" class="read-more">
+                Read Advisory →
             </a>
-            
-            <span class="action-btn primary" style="cursor: default;">
-                ⚡ Action Required
-            </span>
-            
         </div>
-    </div>
-    <div class="threat-card high">
-        <div class="threat-header">
-            <div class="threat-title">
-                <h2><a href="https://nsm.no/fagomrader/digital-sikkerhet/nasjonalt-cybersikkerhetssenter/varsler-fra-ncsc/kritisk-sarbarhet-i-citrix-netscaler-cve-2025-6543" target="_blank" rel="noopener noreferrer">Kritisk sårbarhet i Citrix NetScaler (CVE-2025-6543)</a></h2>
-            </div>
-            <div class="severity-badge high">
-                ⚠️ HIGH
-            </div>
+    </article>
+    <article class="entry high">
+        <h2 class="entry-title">
+            <a href="https://nsm.no/fagomrader/digital-sikkerhet/nasjonalt-cybersikkerhetssenter/varsler-fra-ncsc/kritisk-sarbarhet-i-citrix-netscaler-cve-2025-6543" target="_blank" rel="noopener noreferrer">Kritisk sårbarhet i Citrix NetScaler (CVE-2025-6543)</a>
+        </h2>
+
+        <div class="entry-meta">
+            <span class="source">NSM-NCSC</span>
+            <span>Jun 26, 2025</span>
+            <span>Vulnerability</span>
+            <span class="priority high">HIGH</span>
         </div>
 
-        <div class="threat-meta">
-            <div class="meta-item">
-                <span class="meta-label">📡 Feed:</span>
-                <span class="meta-value">NSM-NCSC</span>
-            </div>
-            <div class="meta-item">
-                <span class="meta-label">🌍 Region:</span>
-                <span class="meta-value">norway</span>
-            </div>
-            <div class="meta-item">
-                <span class="meta-label">📂 Category:</span>
-                <span class="meta-value">national</span>
-            </div>
-            <div class="meta-item">
-                <span class="meta-label">⚡ Priority:</span>
-                <span class="meta-value">P2</span>
-            </div>
-            <div class="meta-item">
-                <span class="meta-label">📅 Published:</span>
-                <span class="meta-value">Jun 26, 2025</span>
-            </div>
-            
-            <div class="meta-item">
-                <span class="meta-label">🏷️ Type:</span>
-                <span class="threat-type">🔓 Vulnerability</span>
-            </div>
-            
-        </div>
-
-        <div class="description">
+        <div class="entry-description">
             Det er en ny kritisk sårbarhet i Citrix NetScaler som kan la en uautentisert angriper kjøre ondsinnet kode på enheten. Sårbarheten har fått tildelt CVE-2025-6543 og er vurdert som KRITISK av Citrix.
         </div>
 
-        <div class="action-buttons">
-            <a href="https://nsm.no/fagomrader/digital-sikkerhet/nasjonalt-cybersikkerhetssenter/varsler-fra-ncsc/kritisk-sarbarhet-i-citrix-netscaler-cve-2025-6543" target="_blank" rel="noopener noreferrer" 
-               class="action-btn primary">
-                🔗 View Advisory
+        <div class="entry-actions">
+            <a href="https://nsm.no/fagomrader/digital-sikkerhet/nasjonalt-cybersikkerhetssenter/varsler-fra-ncsc/kritisk-sarbarhet-i-citrix-netscaler-cve-2025-6543" target="_blank" rel="noopener noreferrer" class="read-more">
+                Read Advisory →
             </a>
-            
-            <span class="action-btn primary" style="cursor: default;">
-                ⚡ Action Required
-            </span>
-            
         </div>
-    </div>
-    <div class="threat-card high">
-        <div class="threat-header">
-            <div class="threat-title">
-                <h2><a href="https://nsm.no/fagomrader/digital-sikkerhet/nasjonalt-cybersikkerhetssenter/varsler-fra-ncsc/kritisk-sarbarhet-i-citrix-netscaler-cve-2025-5777" target="_blank" rel="noopener noreferrer">Kritisk sårbarhet i Citrix NetScaler (CVE-2025-5777)</a></h2>
-            </div>
-            <div class="severity-badge high">
-                ⚠️ HIGH
-            </div>
+    </article>
+    <article class="entry high">
+        <h2 class="entry-title">
+            <a href="https://nsm.no/fagomrader/digital-sikkerhet/nasjonalt-cybersikkerhetssenter/varsler-fra-ncsc/kritisk-sarbarhet-i-citrix-netscaler-cve-2025-5777" target="_blank" rel="noopener noreferrer">Kritisk sårbarhet i Citrix NetScaler (CVE-2025-5777)</a>
+        </h2>
+
+        <div class="entry-meta">
+            <span class="source">NSM-NCSC</span>
+            <span>Jun 18, 2025</span>
+            <span>Vulnerability</span>
+            <span class="priority high">HIGH</span>
         </div>
 
-        <div class="threat-meta">
-            <div class="meta-item">
-                <span class="meta-label">📡 Feed:</span>
-                <span class="meta-value">NSM-NCSC</span>
-            </div>
-            <div class="meta-item">
-                <span class="meta-label">🌍 Region:</span>
-                <span class="meta-value">norway</span>
-            </div>
-            <div class="meta-item">
-                <span class="meta-label">📂 Category:</span>
-                <span class="meta-value">national</span>
-            </div>
-            <div class="meta-item">
-                <span class="meta-label">⚡ Priority:</span>
-                <span class="meta-value">P2</span>
-            </div>
-            <div class="meta-item">
-                <span class="meta-label">📅 Published:</span>
-                <span class="meta-value">Jun 18, 2025</span>
-            </div>
-            
-            <div class="meta-item">
-                <span class="meta-label">🏷️ Type:</span>
-                <span class="threat-type">🔓 Vulnerability</span>
-            </div>
-            
-        </div>
-
-        <div class="description">
+        <div class="entry-description">
             Det er en kritisk sårbarhet i Citrix NetScaler som lar en uautentisert angriper fra internett hente ut hemmeligheter som påloggingsdetaljer, nøkler, sertifikater, aktive sesjoner og konfigurasjonsfiler. Slik kan en angriper få ytterligere fotfeste på serveren eller i virksomhetens nettverk.
         </div>
 
-        <div class="action-buttons">
-            <a href="https://nsm.no/fagomrader/digital-sikkerhet/nasjonalt-cybersikkerhetssenter/varsler-fra-ncsc/kritisk-sarbarhet-i-citrix-netscaler-cve-2025-5777" target="_blank" rel="noopener noreferrer" 
-               class="action-btn primary">
-                🔗 View Advisory
+        <div class="entry-actions">
+            <a href="https://nsm.no/fagomrader/digital-sikkerhet/nasjonalt-cybersikkerhetssenter/varsler-fra-ncsc/kritisk-sarbarhet-i-citrix-netscaler-cve-2025-5777" target="_blank" rel="noopener noreferrer" class="read-more">
+                Read Advisory →
             </a>
-            
-            <span class="action-btn primary" style="cursor: default;">
-                ⚡ Action Required
-            </span>
-            
         </div>
-    </div>
-    <div class="threat-card info">
-        <div class="threat-header">
-            <div class="threat-title">
-                <h2><a href="https://www.nist.gov/blogs/cybersecurity-insights/lets-get-digital-updated-digital-identity-guidelines-are-here" target="_blank" rel="noopener noreferrer">Let’s get Digital! Updated Digital Identity Guidelines are Here!</a></h2>
-            </div>
-            <div class="severity-badge info">
-                ℹ️ INFO
-            </div>
+    </article>
+    <article class="entry info">
+        <h2 class="entry-title">
+            <a href="https://www.nist.gov/blogs/cybersecurity-insights/lets-get-digital-updated-digital-identity-guidelines-are-here" target="_blank" rel="noopener noreferrer">Let’s get Digital! Updated Digital Identity Guidelines are Here!</a>
+        </h2>
+
+        <div class="entry-meta">
+            <span class="source">NIST-Cybersecurity</span>
+            <span>Aug 1, 2025</span>
+            <span>General</span>
+            <span class="priority info">INFO</span>
         </div>
 
-        <div class="threat-meta">
-            <div class="meta-item">
-                <span class="meta-label">📡 Feed:</span>
-                <span class="meta-value">NIST-Cybersecurity</span>
-            </div>
-            <div class="meta-item">
-                <span class="meta-label">🌍 Region:</span>
-                <span class="meta-value">usa</span>
-            </div>
-            <div class="meta-item">
-                <span class="meta-label">📂 Category:</span>
-                <span class="meta-value">government</span>
-            </div>
-            <div class="meta-item">
-                <span class="meta-label">⚡ Priority:</span>
-                <span class="meta-value">P4</span>
-            </div>
-            <div class="meta-item">
-                <span class="meta-label">📅 Published:</span>
-                <span class="meta-value">Aug 1, 2025</span>
-            </div>
-            
-            <div class="meta-item">
-                <span class="meta-label">🏷️ Type:</span>
-                <span class="threat-type">📄 General</span>
-            </div>
-            
+        <div class="entry-description">
+            Today is the day! Digital Identity Guidelines, Revision 4 is finally here...it’s been an exciting journey and NIST is honored to be a part of it. What can we expect? Serving as a culmination of a nearly four-year collaborative process that included foundational research, two public drafts, and about 6,000 individual comments from the public, Revision 4 of Special Publication 800-63, Digital Identity Guidelines, intends to respond to the changing digital landscape that has emerged since the last major revision of this suite, published in 2017. The guidelines presented in Revision 4 explain the
         </div>
 
-        <div class="description">
-            Today is the day! Digital Identity Guidelines, Revision 4 is finally here...it’s been an exciting journey and NIST is honored to be a part of it. What can we expect? Serving as a culmination of a nearly four-year collaborative process that included foundational research, two public drafts, and about...
-        </div>
-
-        <div class="action-buttons">
-            <a href="https://www.nist.gov/blogs/cybersecurity-insights/lets-get-digital-updated-digital-identity-guidelines-are-here" target="_blank" rel="noopener noreferrer" 
-               class="action-btn ">
-                🔗 View Advisory
+        <div class="entry-actions">
+            <a href="https://www.nist.gov/blogs/cybersecurity-insights/lets-get-digital-updated-digital-identity-guidelines-are-here" target="_blank" rel="noopener noreferrer" class="read-more">
+                Read Advisory →
             </a>
-            
         </div>
-    </div>
-    <div class="threat-card info">
-        <div class="threat-header">
-            <div class="threat-title">
-                <h2><a href="https://www.cisa.gov/news-events/news/dhs-launches-over-100-million-funding-strengthen-communities-cyber-defenses" target="_blank" rel="noopener noreferrer">DHS Launches Over $100 Million in Funding to Strengthen Communities’ Cyber Defenses</a></h2>
-            </div>
-            <div class="severity-badge info">
-                ℹ️ INFO
-            </div>
+    </article>
+    <article class="entry info">
+        <h2 class="entry-title">
+            <a href="https://www.cisa.gov/news-events/news/dhs-launches-over-100-million-funding-strengthen-communities-cyber-defenses" target="_blank" rel="noopener noreferrer">DHS Launches Over $100 Million in Funding to Strengthen Communities’ Cyber Defenses</a>
+        </h2>
+
+        <div class="entry-meta">
+            <span class="source">CISA-Alerts</span>
+            <span>Aug 1, 2025</span>
+            <span>General</span>
+            <span class="priority info">INFO</span>
         </div>
 
-        <div class="threat-meta">
-            <div class="meta-item">
-                <span class="meta-label">📡 Feed:</span>
-                <span class="meta-value">CISA-Alerts</span>
-            </div>
-            <div class="meta-item">
-                <span class="meta-label">🌍 Region:</span>
-                <span class="meta-value">usa</span>
-            </div>
-            <div class="meta-item">
-                <span class="meta-label">📂 Category:</span>
-                <span class="meta-value">government</span>
-            </div>
-            <div class="meta-item">
-                <span class="meta-label">⚡ Priority:</span>
-                <span class="meta-value">P4</span>
-            </div>
-            <div class="meta-item">
-                <span class="meta-label">📅 Published:</span>
-                <span class="meta-value">Aug 1, 2025</span>
-            </div>
-            
-            <div class="meta-item">
-                <span class="meta-label">🏷️ Type:</span>
-                <span class="threat-type">📄 General</span>
-            </div>
-            
+        <div class="entry-description">
+            No description available for this threat intelligence item.
         </div>
 
-        <div class="description">
-            No detailed description available for this threat intelligence item.
-        </div>
-
-        <div class="action-buttons">
-            <a href="https://www.cisa.gov/news-events/news/dhs-launches-over-100-million-funding-strengthen-communities-cyber-defenses" target="_blank" rel="noopener noreferrer" 
-               class="action-btn ">
-                🔗 View Advisory
+        <div class="entry-actions">
+            <a href="https://www.cisa.gov/news-events/news/dhs-launches-over-100-million-funding-strengthen-communities-cyber-defenses" target="_blank" rel="noopener noreferrer" class="read-more">
+                Read Advisory →
             </a>
-            
         </div>
-    </div>
-    <div class="threat-card info">
-        <div class="threat-header">
-            <div class="threat-title">
-                <h2><a href="https://www.cisa.gov/news-events/news/cisa-announces-release-thorium-malware-analysis" target="_blank" rel="noopener noreferrer">CISA Announces Release of Thorium for Malware Analysis </a></h2>
-            </div>
-            <div class="severity-badge info">
-                ℹ️ INFO
-            </div>
+    </article>
+    <article class="entry info">
+        <h2 class="entry-title">
+            <a href="https://www.cisa.gov/news-events/news/cisa-announces-release-thorium-malware-analysis" target="_blank" rel="noopener noreferrer">CISA Announces Release of Thorium for Malware Analysis </a>
+        </h2>
+
+        <div class="entry-meta">
+            <span class="source">CISA-Alerts</span>
+            <span>Jul 31, 2025</span>
+            <span>Malware</span>
+            <span class="priority info">INFO</span>
         </div>
 
-        <div class="threat-meta">
-            <div class="meta-item">
-                <span class="meta-label">📡 Feed:</span>
-                <span class="meta-value">CISA-Alerts</span>
-            </div>
-            <div class="meta-item">
-                <span class="meta-label">🌍 Region:</span>
-                <span class="meta-value">usa</span>
-            </div>
-            <div class="meta-item">
-                <span class="meta-label">📂 Category:</span>
-                <span class="meta-value">government</span>
-            </div>
-            <div class="meta-item">
-                <span class="meta-label">⚡ Priority:</span>
-                <span class="meta-value">P4</span>
-            </div>
-            <div class="meta-item">
-                <span class="meta-label">📅 Published:</span>
-                <span class="meta-value">Jul 31, 2025</span>
-            </div>
-            
-            <div class="meta-item">
-                <span class="meta-label">🏷️ Type:</span>
-                <span class="threat-type">🦠 Malware</span>
-            </div>
-            
+        <div class="entry-description">
+            No description available for this threat intelligence item.
         </div>
 
-        <div class="description">
-            No detailed description available for this threat intelligence item.
-        </div>
-
-        <div class="action-buttons">
-            <a href="https://www.cisa.gov/news-events/news/cisa-announces-release-thorium-malware-analysis" target="_blank" rel="noopener noreferrer" 
-               class="action-btn ">
-                🔗 View Advisory
+        <div class="entry-actions">
+            <a href="https://www.cisa.gov/news-events/news/cisa-announces-release-thorium-malware-analysis" target="_blank" rel="noopener noreferrer" class="read-more">
+                Read Advisory →
             </a>
-            
         </div>
-    </div>
-    <div class="threat-card info">
-        <div class="threat-header">
-            <div class="threat-title">
-                <h2><a href="https://www.cisecurity.org/advisory/multiple-vulnerabilities-in-apple-products-could-allow-for-arbitrary-code-execution_2025-069" target="_blank" rel="noopener noreferrer">Multiple Vulnerabilities in Apple Products Could Allow for Arbitrary Code Execution</a></h2>
-            </div>
-            <div class="severity-badge info">
-                ℹ️ INFO
-            </div>
+    </article>
+    <article class="entry info">
+        <h2 class="entry-title">
+            <a href="https://www.cisecurity.org/advisory/multiple-vulnerabilities-in-apple-products-could-allow-for-arbitrary-code-execution_2025-069" target="_blank" rel="noopener noreferrer">Multiple Vulnerabilities in Apple Products Could Allow for Arbitrary Code Execution</a>
+        </h2>
+
+        <div class="entry-meta">
+            <span class="source">CISecurity-Advisories</span>
+            <span>Jul 31, 2025</span>
+            <span>General</span>
+            <span class="priority info">INFO</span>
         </div>
 
-        <div class="threat-meta">
-            <div class="meta-item">
-                <span class="meta-label">📡 Feed:</span>
-                <span class="meta-value">CISecurity-Advisories</span>
-            </div>
-            <div class="meta-item">
-                <span class="meta-label">🌍 Region:</span>
-                <span class="meta-value">global</span>
-            </div>
-            <div class="meta-item">
-                <span class="meta-label">📂 Category:</span>
-                <span class="meta-value">vendor</span>
-            </div>
-            <div class="meta-item">
-                <span class="meta-label">⚡ Priority:</span>
-                <span class="meta-value">P4</span>
-            </div>
-            <div class="meta-item">
-                <span class="meta-label">📅 Published:</span>
-                <span class="meta-value">Jul 31, 2025</span>
-            </div>
-            
-            <div class="meta-item">
-                <span class="meta-label">🏷️ Type:</span>
-                <span class="threat-type">📄 General</span>
-            </div>
-            
+        <div class="entry-description">
+            Multiple vulnerabilities have been discovered in Apple products, the most severe of which could allow for arbitrary code execution. Successful exploitation of the most severe of these vulnerabilities could allow for arbitrary code execution in the context of the logged on user. Depending on the privileges associated with the user, an attacker could then install programs; view, change, or delete data; or create new accounts with full user rights. Users whose accounts are configured to have fewer user rights on the system could be less impacted than those who operate with administrative user rights.
         </div>
 
-        <div class="description">
-            Multiple vulnerabilities have been discovered in Apple products, the most severe of which could allow for arbitrary code execution. Successful exploitation of the most severe of these vulnerabilities could allow for arbitrary code execution in the context of the logged on user. Depending on the priv...
-        </div>
-
-        <div class="action-buttons">
-            <a href="https://www.cisecurity.org/advisory/multiple-vulnerabilities-in-apple-products-could-allow-for-arbitrary-code-execution_2025-069" target="_blank" rel="noopener noreferrer" 
-               class="action-btn ">
-                🔗 View Advisory
+        <div class="entry-actions">
+            <a href="https://www.cisecurity.org/advisory/multiple-vulnerabilities-in-apple-products-could-allow-for-arbitrary-code-execution_2025-069" target="_blank" rel="noopener noreferrer" class="read-more">
+                Read Advisory →
             </a>
-            
         </div>
-    </div>
-    <div class="threat-card info">
-        <div class="threat-header">
-            <div class="threat-title">
-                <h2><a href="https://www.cisecurity.org/advisory/multiple-vulnerabilities-in-google-chrome-could-allow-for-arbitrary-code-execution_2025-067" target="_blank" rel="noopener noreferrer">Multiple Vulnerabilities in Google Chrome Could Allow for Arbitrary Code Execution</a></h2>
-            </div>
-            <div class="severity-badge info">
-                ℹ️ INFO
-            </div>
+    </article>
+    <article class="entry info">
+        <h2 class="entry-title">
+            <a href="https://www.cisecurity.org/advisory/multiple-vulnerabilities-in-google-chrome-could-allow-for-arbitrary-code-execution_2025-067" target="_blank" rel="noopener noreferrer">Multiple Vulnerabilities in Google Chrome Could Allow for Arbitrary Code Execution</a>
+        </h2>
+
+        <div class="entry-meta">
+            <span class="source">CISecurity-Advisories</span>
+            <span>Jul 23, 2025</span>
+            <span>General</span>
+            <span class="priority info">INFO</span>
         </div>
 
-        <div class="threat-meta">
-            <div class="meta-item">
-                <span class="meta-label">📡 Feed:</span>
-                <span class="meta-value">CISecurity-Advisories</span>
-            </div>
-            <div class="meta-item">
-                <span class="meta-label">🌍 Region:</span>
-                <span class="meta-value">global</span>
-            </div>
-            <div class="meta-item">
-                <span class="meta-label">📂 Category:</span>
-                <span class="meta-value">vendor</span>
-            </div>
-            <div class="meta-item">
-                <span class="meta-label">⚡ Priority:</span>
-                <span class="meta-value">P4</span>
-            </div>
-            <div class="meta-item">
-                <span class="meta-label">📅 Published:</span>
-                <span class="meta-value">Jul 23, 2025</span>
-            </div>
-            
-            <div class="meta-item">
-                <span class="meta-label">🏷️ Type:</span>
-                <span class="threat-type">📄 General</span>
-            </div>
-            
+        <div class="entry-description">
+            Multiple vulnerabilities have been discovered in Google Chrome, the most severe of which could allow for arbitrary code execution. Successful exploitation of the most severe of these vulnerabilities could allow for arbitrary code execution in the context of the logged on user. Depending on the privileges associated with the user an attacker could then install programs; view, change, or delete data; or create new accounts with full user rights. Users whose accounts are configured to have fewer user rights on the system could be less impacted than those who operate with administrative user rights.
         </div>
 
-        <div class="description">
-            Multiple vulnerabilities have been discovered in Google Chrome, the most severe of which could allow for arbitrary code execution. Successful exploitation of the most severe of these vulnerabilities could allow for arbitrary code execution in the context of the logged on user. Depending on the privi...
-        </div>
-
-        <div class="action-buttons">
-            <a href="https://www.cisecurity.org/advisory/multiple-vulnerabilities-in-google-chrome-could-allow-for-arbitrary-code-execution_2025-067" target="_blank" rel="noopener noreferrer" 
-               class="action-btn ">
-                🔗 View Advisory
+        <div class="entry-actions">
+            <a href="https://www.cisecurity.org/advisory/multiple-vulnerabilities-in-google-chrome-could-allow-for-arbitrary-code-execution_2025-067" target="_blank" rel="noopener noreferrer" class="read-more">
+                Read Advisory →
             </a>
-            
         </div>
-    </div>
-    <div class="threat-card info">
-        <div class="threat-header">
-            <div class="threat-title">
-                <h2><a href="https://nsm.no/fagomrader/digital-sikkerhet/nasjonalt-cybersikkerhetssenter/varsler-fra-ncsc/microsoft-patchetirsdag-juli-2025" target="_blank" rel="noopener noreferrer">Microsoft patchetirsdag juli 2025</a></h2>
-            </div>
-            <div class="severity-badge info">
-                ℹ️ INFO
-            </div>
+    </article>
+    <article class="entry info">
+        <h2 class="entry-title">
+            <a href="https://nsm.no/fagomrader/digital-sikkerhet/nasjonalt-cybersikkerhetssenter/varsler-fra-ncsc/microsoft-patchetirsdag-juli-2025" target="_blank" rel="noopener noreferrer">Microsoft patchetirsdag juli 2025</a>
+        </h2>
+
+        <div class="entry-meta">
+            <span class="source">NSM-NCSC</span>
+            <span>Jul 8, 2025</span>
+            <span>Vulnerability</span>
+            <span class="priority info">INFO</span>
         </div>
 
-        <div class="threat-meta">
-            <div class="meta-item">
-                <span class="meta-label">📡 Feed:</span>
-                <span class="meta-value">NSM-NCSC</span>
-            </div>
-            <div class="meta-item">
-                <span class="meta-label">🌍 Region:</span>
-                <span class="meta-value">norway</span>
-            </div>
-            <div class="meta-item">
-                <span class="meta-label">📂 Category:</span>
-                <span class="meta-value">national</span>
-            </div>
-            <div class="meta-item">
-                <span class="meta-label">⚡ Priority:</span>
-                <span class="meta-value">P4</span>
-            </div>
-            <div class="meta-item">
-                <span class="meta-label">📅 Published:</span>
-                <span class="meta-value">Jul 8, 2025</span>
-            </div>
-            
-            <div class="meta-item">
-                <span class="meta-label">🏷️ Type:</span>
-                <span class="threat-type">🔓 Vulnerability</span>
-            </div>
-            
-        </div>
-
-        <div class="description">
+        <div class="entry-description">
             Microsoft har offentliggjort sine månedlige sikkerhetsoppdateringer. Det er totalt 130 sårbarheter. NCSC anbefaler systemeiere å oppdatere programvaren på sine systemer til siste versjon så snart det lar seg gjøre.
         </div>
 
-        <div class="action-buttons">
-            <a href="https://nsm.no/fagomrader/digital-sikkerhet/nasjonalt-cybersikkerhetssenter/varsler-fra-ncsc/microsoft-patchetirsdag-juli-2025" target="_blank" rel="noopener noreferrer" 
-               class="action-btn ">
-                🔗 View Advisory
+        <div class="entry-actions">
+            <a href="https://nsm.no/fagomrader/digital-sikkerhet/nasjonalt-cybersikkerhetssenter/varsler-fra-ncsc/microsoft-patchetirsdag-juli-2025" target="_blank" rel="noopener noreferrer" class="read-more">
+                Read Advisory →
             </a>
-            
         </div>
-    </div>
-    <div class="threat-card info">
-        <div class="threat-header">
-            <div class="threat-title">
-                <h2><a href="https://www.nist.gov/blogs/cybersecurity-insights/cybersecurity-and-ai-integrating-and-building-existing-nist-guidelines" target="_blank" rel="noopener noreferrer">Cybersecurity and AI: Integrating and Building on Existing NIST Guidelines</a></h2>
-            </div>
-            <div class="severity-badge info">
-                ℹ️ INFO
-            </div>
+    </article>
+    <article class="entry info">
+        <h2 class="entry-title">
+            <a href="https://www.nist.gov/blogs/cybersecurity-insights/cybersecurity-and-ai-integrating-and-building-existing-nist-guidelines" target="_blank" rel="noopener noreferrer">Cybersecurity and AI: Integrating and Building on Existing NIST Guidelines</a>
+        </h2>
+
+        <div class="entry-meta">
+            <span class="source">NIST-Cybersecurity</span>
+            <span>May 22, 2025</span>
+            <span>General</span>
+            <span class="priority info">INFO</span>
         </div>
 
-        <div class="threat-meta">
-            <div class="meta-item">
-                <span class="meta-label">📡 Feed:</span>
-                <span class="meta-value">NIST-Cybersecurity</span>
-            </div>
-            <div class="meta-item">
-                <span class="meta-label">🌍 Region:</span>
-                <span class="meta-value">usa</span>
-            </div>
-            <div class="meta-item">
-                <span class="meta-label">📂 Category:</span>
-                <span class="meta-value">government</span>
-            </div>
-            <div class="meta-item">
-                <span class="meta-label">⚡ Priority:</span>
-                <span class="meta-value">P4</span>
-            </div>
-            <div class="meta-item">
-                <span class="meta-label">📅 Published:</span>
-                <span class="meta-value">May 22, 2025</span>
-            </div>
-            
-            <div class="meta-item">
-                <span class="meta-label">🏷️ Type:</span>
-                <span class="threat-type">📄 General</span>
-            </div>
-            
+        <div class="entry-description">
+            What is NIST up to? On April 3, 2025, NIST hosted a Cybersecurity and AI Profile Workshop at our National Cybersecurity Center of Excellence (NCCoE) to hear feedback on our concept paper which presented opportunities to create profiles of the NIST Cybersecurity Framework (CSF) and the NIST AI Risk Management Framework (AI RMF). These would serve to support the cybersecurity community as they adopt AI for cybersecurity, need to defend against AI-enabled cybersecurity attacks, as well as protect AI systems as organizations adopt AI to support their business. Stay tuned for the soon to be
         </div>
 
-        <div class="description">
-            What is NIST up to? On April 3, 2025, NIST hosted a Cybersecurity and AI Profile Workshop at our National Cybersecurity Center of Excellence (NCCoE) to hear feedback on our concept paper which presented opportunities to create profiles of the NIST Cybersecurity Framework (CSF) and the NIST AI Risk M...
-        </div>
-
-        <div class="action-buttons">
-            <a href="https://www.nist.gov/blogs/cybersecurity-insights/cybersecurity-and-ai-integrating-and-building-existing-nist-guidelines" target="_blank" rel="noopener noreferrer" 
-               class="action-btn ">
-                🔗 View Advisory
+        <div class="entry-actions">
+            <a href="https://www.nist.gov/blogs/cybersecurity-insights/cybersecurity-and-ai-integrating-and-building-existing-nist-guidelines" target="_blank" rel="noopener noreferrer" class="read-more">
+                Read Advisory →
             </a>
-            
         </div>
-    </div>
-    <div class="threat-card info">
-        <div class="threat-header">
-            <div class="threat-title">
-                <h2><a href="https://nsm.no/fagomrader/digital-sikkerhet/nasjonalt-cybersikkerhetssenter/varsler-fra-ncsc/microsoft-patchetirsdag-mai-2025" target="_blank" rel="noopener noreferrer">Microsoft patchetirsdag mai 2025</a></h2>
-            </div>
-            <div class="severity-badge info">
-                ℹ️ INFO
-            </div>
+    </article>
+    <article class="entry info">
+        <h2 class="entry-title">
+            <a href="https://nsm.no/fagomrader/digital-sikkerhet/nasjonalt-cybersikkerhetssenter/varsler-fra-ncsc/microsoft-patchetirsdag-mai-2025" target="_blank" rel="noopener noreferrer">Microsoft patchetirsdag mai 2025</a>
+        </h2>
+
+        <div class="entry-meta">
+            <span class="source">NSM-NCSC</span>
+            <span>May 13, 2025</span>
+            <span>Vulnerability</span>
+            <span class="priority info">INFO</span>
         </div>
 
-        <div class="threat-meta">
-            <div class="meta-item">
-                <span class="meta-label">📡 Feed:</span>
-                <span class="meta-value">NSM-NCSC</span>
-            </div>
-            <div class="meta-item">
-                <span class="meta-label">🌍 Region:</span>
-                <span class="meta-value">norway</span>
-            </div>
-            <div class="meta-item">
-                <span class="meta-label">📂 Category:</span>
-                <span class="meta-value">national</span>
-            </div>
-            <div class="meta-item">
-                <span class="meta-label">⚡ Priority:</span>
-                <span class="meta-value">P4</span>
-            </div>
-            <div class="meta-item">
-                <span class="meta-label">📅 Published:</span>
-                <span class="meta-value">May 13, 2025</span>
-            </div>
-            
-            <div class="meta-item">
-                <span class="meta-label">🏷️ Type:</span>
-                <span class="threat-type">🔓 Vulnerability</span>
-            </div>
-            
-        </div>
-
-        <div class="description">
+        <div class="entry-description">
             Microsoft har offentliggjort sine månedlige sikkerhetsoppdateringer. To av sårbarhetene kan utnyttes til å kjøre kode over internett og ta kontroll over brukere og systemer.
         </div>
 
-        <div class="action-buttons">
-            <a href="https://nsm.no/fagomrader/digital-sikkerhet/nasjonalt-cybersikkerhetssenter/varsler-fra-ncsc/microsoft-patchetirsdag-mai-2025" target="_blank" rel="noopener noreferrer" 
-               class="action-btn ">
-                🔗 View Advisory
+        <div class="entry-actions">
+            <a href="https://nsm.no/fagomrader/digital-sikkerhet/nasjonalt-cybersikkerhetssenter/varsler-fra-ncsc/microsoft-patchetirsdag-mai-2025" target="_blank" rel="noopener noreferrer" class="read-more">
+                Read Advisory →
             </a>
-            
         </div>
-    </div>
-    <div class="threat-card info">
-        <div class="threat-header">
-            <div class="threat-title">
-                <h2><a href="https://nsm.no/fagomrader/digital-sikkerhet/nasjonalt-cybersikkerhetssenter/varsler-fra-ncsc/microsoft-patchetirsdag-april-2025" target="_blank" rel="noopener noreferrer">Microsoft patchetirsdag april 2025</a></h2>
-            </div>
-            <div class="severity-badge info">
-                ℹ️ INFO
-            </div>
+    </article>
+    <article class="entry info">
+        <h2 class="entry-title">
+            <a href="https://nsm.no/fagomrader/digital-sikkerhet/nasjonalt-cybersikkerhetssenter/varsler-fra-ncsc/microsoft-patchetirsdag-april-2025" target="_blank" rel="noopener noreferrer">Microsoft patchetirsdag april 2025</a>
+        </h2>
+
+        <div class="entry-meta">
+            <span class="source">NSM-NCSC</span>
+            <span>Apr 8, 2025</span>
+            <span>Vulnerability</span>
+            <span class="priority info">INFO</span>
         </div>
 
-        <div class="threat-meta">
-            <div class="meta-item">
-                <span class="meta-label">📡 Feed:</span>
-                <span class="meta-value">NSM-NCSC</span>
-            </div>
-            <div class="meta-item">
-                <span class="meta-label">🌍 Region:</span>
-                <span class="meta-value">norway</span>
-            </div>
-            <div class="meta-item">
-                <span class="meta-label">📂 Category:</span>
-                <span class="meta-value">national</span>
-            </div>
-            <div class="meta-item">
-                <span class="meta-label">⚡ Priority:</span>
-                <span class="meta-value">P4</span>
-            </div>
-            <div class="meta-item">
-                <span class="meta-label">📅 Published:</span>
-                <span class="meta-value">Apr 8, 2025</span>
-            </div>
-            
-            <div class="meta-item">
-                <span class="meta-label">🏷️ Type:</span>
-                <span class="threat-type">🔓 Vulnerability</span>
-            </div>
-            
-        </div>
-
-        <div class="description">
+        <div class="entry-description">
             Microsoft vurderer 11 sårbarheter som kritiske i månedens sikkerhetsoppdatering. Flere av sårbarhetene kan utnyttes til å kjøre kode over internett.
         </div>
 
-        <div class="action-buttons">
-            <a href="https://nsm.no/fagomrader/digital-sikkerhet/nasjonalt-cybersikkerhetssenter/varsler-fra-ncsc/microsoft-patchetirsdag-april-2025" target="_blank" rel="noopener noreferrer" 
-               class="action-btn ">
-                🔗 View Advisory
+        <div class="entry-actions">
+            <a href="https://nsm.no/fagomrader/digital-sikkerhet/nasjonalt-cybersikkerhetssenter/varsler-fra-ncsc/microsoft-patchetirsdag-april-2025" target="_blank" rel="noopener noreferrer" class="read-more">
+                Read Advisory →
             </a>
-            
         </div>
-    </div>
+    </article>
         </div>
 
         <div class="footer">
-            <p>🔄 This feed is automatically updated with the latest threat intelligence</p>
-            <p>🚨 For urgent threats marked as CRITICAL, immediate action is recommended</p>
+            <p>This feed is automatically updated with the latest threat intelligence.</p>
+            <p>For urgent threats, immediate action may be recommended.</p>
         </div>
     </div>
 </body>

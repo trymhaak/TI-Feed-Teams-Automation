@@ -30,6 +30,7 @@ function generateHTMLTemplate(entries) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Threat Intelligence Feed</title>
+    <meta name="description" content="Latest cybersecurity threat intelligence from trusted sources">
     <style>
         * {
             margin: 0;
@@ -38,330 +39,279 @@ function generateHTMLTemplate(entries) {
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
             line-height: 1.6;
-            color: #333;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
+            color: #2d3748;
+            background-color: #f7fafc;
+            font-size: 16px;
         }
 
         .container {
-            max-width: 1200px;
+            max-width: 800px;
             margin: 0 auto;
-            padding: 20px;
+            padding: 24px 20px;
         }
 
         .header {
             text-align: center;
-            margin-bottom: 30px;
-            background: rgba(255, 255, 255, 0.95);
-            padding: 30px 30px 20px 30px;
-            border-radius: 15px;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-            backdrop-filter: blur(10px);
+            margin-bottom: 48px;
+            padding-bottom: 24px;
+            border-bottom: 1px solid #e2e8f0;
         }
 
         .header h1 {
-            font-size: 2.5rem;
-            color: #2c3e50;
+            font-size: 2.25rem;
+            font-weight: 700;
+            color: #1a202c;
             margin-bottom: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
+            letter-spacing: -0.025em;
         }
 
         .header p {
-            color: #7f8c8d;
-            font-size: 1.1rem;
-            margin-bottom: 15px;
+            color: #718096;
+            font-size: 1.125rem;
+            margin-bottom: 16px;
+            font-weight: 400;
         }
 
         .last-updated {
-            font-size: 0.9rem;
-            color: #95a5a6;
+            font-size: 0.875rem;
+            color: #a0aec0;
             font-style: italic;
         }
 
         .refresh-btn {
             position: fixed;
-            top: 20px;
-            right: 20px;
-            background: #3498db;
+            top: 24px;
+            right: 24px;
+            background: #4299e1;
             color: white;
             border: none;
             padding: 12px 20px;
-            border-radius: 25px;
+            border-radius: 8px;
             font-weight: 500;
             cursor: pointer;
-            box-shadow: 0 4px 15px rgba(52, 152, 219, 0.3);
-            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: all 0.2s ease;
             z-index: 1000;
             display: flex;
             align-items: center;
             gap: 8px;
             text-decoration: none;
+            font-size: 0.875rem;
         }
 
         .refresh-btn:hover {
-            background: #2980b9;
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(52, 152, 219, 0.4);
+            background: #3182ce;
+            transform: translateY(-1px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
         }
 
-        .threat-grid {
-            display: grid;
-            gap: 20px;
-        }
-
-        .threat-card {
-            background: rgba(255, 255, 255, 0.95);
-            border-radius: 15px;
-            padding: 25px;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-            border-left: 5px solid;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .threat-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
-        }
-
-        .threat-card.critical { border-left-color: #e74c3c; }
-        .threat-card.high { border-left-color: #f39c12; }
-        .threat-card.medium { border-left-color: #f1c40f; }
-        .threat-card.info { border-left-color: #3498db; }
-
-        .threat-header {
+        .feed-entries {
             display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            margin-bottom: 15px;
-            flex-wrap: wrap;
-            gap: 15px;
+            flex-direction: column;
+            gap: 32px;
         }
 
-        .threat-title {
-            flex: 1;
-            min-width: 0;
+        .entry {
+            background: white;
+            border-radius: 12px;
+            padding: 32px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            border: 1px solid #e2e8f0;
+            border-left: 4px solid;
+            transition: all 0.2s ease;
         }
 
-        .threat-title h2 {
-            font-size: 1.6rem;
-            color: #2c3e50;
-            margin-bottom: 8px;
-            line-height: 1.3;
+        .entry:hover {
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            transform: translateY(-2px);
+        }
+
+        .entry.critical { border-left-color: #e53e3e; }
+        .entry.high { border-left-color: #dd6b20; }
+        .entry.medium { border-left-color: #d69e2e; }
+        .entry.info { border-left-color: #3182ce; }
+
+        .entry-title {
+            font-size: 1.5rem;
             font-weight: 600;
+            color: #1a202c;
+            margin-bottom: 16px;
+            line-height: 1.4;
         }
 
-        .threat-title a {
+        .entry-title a {
             color: inherit;
             text-decoration: none;
         }
 
-        .threat-title a:hover {
-            color: #3498db;
+        .entry-title a:hover {
+            color: #4299e1;
             text-decoration: underline;
         }
 
-        .severity-badge {
-            padding: 10px 18px;
-            border-radius: 25px;
-            font-weight: bold;
-            font-size: 0.95rem;
-            white-space: nowrap;
+        .entry-meta {
             display: flex;
-            align-items: center;
-            gap: 6px;
-            flex-shrink: 0;
+            flex-wrap: wrap;
+            gap: 16px;
+            margin-bottom: 20px;
+            font-size: 0.875rem;
+            color: #718096;
         }
 
-        .severity-badge.critical {
-            background: #ffe6e6;
-            color: #c0392b;
-            border: 2px solid #e74c3c;
-        }
-
-        .severity-badge.high {
-            background: #fff3e0;
-            color: #d68910;
-            border: 2px solid #f39c12;
-        }
-
-        .severity-badge.medium {
-            background: #fffbdd;
-            color: #b7950b;
-            border: 2px solid #f1c40f;
-        }
-
-        .severity-badge.info {
-            background: #e8f4fd;
-            color: #2980b9;
-            border: 2px solid #3498db;
-        }
-
-        .threat-meta {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-            gap: 12px;
-            margin-bottom: 18px;
-            font-size: 0.85rem;
-            opacity: 0.8;
-        }
-
-        .meta-item {
+        .entry-meta span {
             display: flex;
-            align-items: center;
-            gap: 6px;
-        }
-
-        .meta-label {
-            font-weight: 500;
-            color: #95a5a6;
-        }
-
-        .meta-value {
-            color: #5d6d7e;
-            font-weight: 400;
-        }
-
-        .threat-type {
-            display: inline-flex;
             align-items: center;
             gap: 4px;
-            padding: 3px 8px;
-            background: #ecf0f1;
-            border-radius: 12px;
-            font-size: 0.8rem;
-            color: #5d6d7e;
         }
 
-        .description {
-            color: #5d6d7e;
-            line-height: 1.6;
-            margin-bottom: 20px;
+        .entry-meta .source {
+            font-weight: 600;
+            color: #4a5568;
+        }
+
+        .entry-meta .priority {
+            padding: 2px 8px;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .entry-meta .priority.critical {
+            background: #fed7d7;
+            color: #c53030;
+        }
+
+        .entry-meta .priority.high {
+            background: #feebc8;
+            color: #c05621;
+        }
+
+        .entry-meta .priority.medium {
+            background: #faf089;
+            color: #b7791f;
+        }
+
+        .entry-meta .priority.info {
+            background: #bee3f8;
+            color: #2a69ac;
+        }
+
+        .entry-description {
+            color: #4a5568;
+            line-height: 1.7;
+            margin-bottom: 24px;
             font-size: 1rem;
         }
 
-        .action-buttons {
+        .entry-actions {
             display: flex;
-            gap: 12px;
-            flex-wrap: wrap;
+            align-items: center;
+            justify-content: flex-start;
         }
 
-        .action-btn {
+        .read-more {
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            padding: 10px 20px;
-            background: #3498db;
-            color: white;
+            color: #4299e1;
             text-decoration: none;
-            border-radius: 25px;
             font-weight: 500;
-            transition: background-color 0.3s ease;
-            font-size: 0.9rem;
+            font-size: 0.875rem;
+            transition: color 0.2s ease;
         }
 
-        .action-btn:hover {
-            background: #2980b9;
-        }
-
-        .action-btn.primary {
-            background: #e74c3c;
-        }
-
-        .action-btn.primary:hover {
-            background: #c0392b;
+        .read-more:hover {
+            color: #3182ce;
         }
 
         .footer {
             text-align: center;
-            margin-top: 40px;
-            padding: 20px;
-            background: rgba(255, 255, 255, 0.9);
-            border-radius: 10px;
-            color: #7f8c8d;
-            font-size: 0.9rem;
+            margin-top: 64px;
+            padding: 32px 0;
+            border-top: 1px solid #e2e8f0;
+            color: #718096;
+            font-size: 0.875rem;
+        }
+
+        .footer p {
+            margin-bottom: 8px;
         }
 
         @media (max-width: 768px) {
+            .container {
+                padding: 16px 12px;
+            }
+
             .header h1 {
-                font-size: 2rem;
+                font-size: 1.875rem;
+            }
+
+            .header p {
+                font-size: 1rem;
+            }
+
+            .entry {
+                padding: 24px 20px;
+            }
+
+            .entry-title {
+                font-size: 1.25rem;
+            }
+
+            .entry-meta {
                 flex-direction: column;
-                gap: 5px;
-            }
-
-            .threat-header {
-                flex-direction: column;
-                align-items: stretch;
-                gap: 12px;
-            }
-
-            .threat-title h2 {
-                font-size: 1.4rem;
-            }
-
-            .threat-meta {
-                grid-template-columns: 1fr;
                 gap: 8px;
             }
 
             .refresh-btn {
-                top: 10px;
-                right: 10px;
+                top: 16px;
+                right: 16px;
                 padding: 10px 16px;
-                font-size: 0.9rem;
+                font-size: 0.8rem;
             }
 
-            .container {
-                padding: 15px;
+            .feed-entries {
+                gap: 24px;
             }
         }
 
         @media (max-width: 480px) {
             .container {
-                padding: 10px;
+                padding: 12px 8px;
             }
 
-            .header {
-                padding: 20px 15px;
+            .entry {
+                padding: 20px 16px;
             }
 
-            .header h1 {
-                font-size: 1.8rem;
-            }
-
-            .threat-card {
-                padding: 20px;
-            }
-
-            .action-buttons {
-                flex-direction: column;
+            .entry-title {
+                font-size: 1.125rem;
             }
         }
     </style>
 </head>
 <body>
     <a href="javascript:location.reload()" class="refresh-btn">
-        🔄 Refresh Feed
+        Refresh Feed
     </a>
 
     <div class="container">
         <div class="header">
-            <h1>🛡️ Threat Intelligence Feed</h1>
-            <p>Real-time cybersecurity alerts and advisories from trusted sources</p>
+            <h1>Threat Intelligence Feed</h1>
+            <p>Latest cybersecurity threats and advisories from trusted sources</p>
             <div class="last-updated">Last updated: ${lastUpdated}</div>
         </div>
 
-        <div class="threat-grid">
-            ${entries.map(entry => generateThreatCard(entry)).join('')}
+        <div class="feed-entries">
+            ${entries.map(entry => generateEntryCard(entry)).join('')}
         </div>
 
         <div class="footer">
-            <p>🔄 This feed is automatically updated with the latest threat intelligence</p>
-            <p>🚨 For urgent threats marked as CRITICAL, immediate action is recommended</p>
+            <p>This feed is automatically updated with the latest threat intelligence.</p>
+            <p>For urgent threats, immediate action may be recommended.</p>
         </div>
     </div>
 </body>
@@ -369,83 +319,55 @@ function generateHTMLTemplate(entries) {
 }
 
 /**
- * Generate individual threat card
+ * Generate individual entry card for the news feed
  * @param {Object} entry - Threat intelligence entry
- * @returns {string} HTML for threat card
+ * @returns {string} HTML for entry card
  */
-function generateThreatCard(entry) {
+function generateEntryCard(entry) {
   const severityClass = entry.severity?.level?.toLowerCase() || 'info';
-  const actionRequired = ['CRITICAL', 'HIGH'].includes(entry.severity?.level);
   
-  // Format publish date
+  // Format publish date more naturally
   const publishDate = new Date(entry.publishedDate).toLocaleDateString('en-US', {
     year: 'numeric',
     month: 'short',
     day: 'numeric'
   });
 
-  // Prepare description with fallback
-  const description = entry.description || 'No detailed description available for this threat intelligence item.';
-  const truncatedDescription = description.length > 300 
-    ? description.substring(0, 300) + '...' 
+  // Use full description, only truncate if extremely long
+  const description = entry.description || 'No description available for this threat intelligence item.';
+  const displayDescription = description.length > 800 
+    ? description.substring(0, 800) + '...' 
     : description;
 
+  // Clean source name
+  const sourceName = entry.feedName || 'Unknown Source';
+  
+  // Threat type for display
+  const threatType = entry.threatType?.category || 'General';
+
   return `
-    <div class="threat-card ${severityClass}">
-        <div class="threat-header">
-            <div class="threat-title">
-                <h2><a href="${entry.url}" target="_blank" rel="noopener noreferrer">${entry.title}</a></h2>
-            </div>
-            <div class="severity-badge ${severityClass}">
-                ${entry.severity?.emoji || 'ℹ️'} ${entry.severity?.level || 'INFO'}
-            </div>
+    <article class="entry ${severityClass}">
+        <h2 class="entry-title">
+            <a href="${entry.url}" target="_blank" rel="noopener noreferrer">${entry.title}</a>
+        </h2>
+
+        <div class="entry-meta">
+            <span class="source">${sourceName}</span>
+            <span>${publishDate}</span>
+            <span>${threatType}</span>
+            <span class="priority ${severityClass}">${entry.severity?.level || 'Info'}</span>
         </div>
 
-        <div class="threat-meta">
-            <div class="meta-item">
-                <span class="meta-label">📡 Feed:</span>
-                <span class="meta-value">${entry.feedName}</span>
-            </div>
-            <div class="meta-item">
-                <span class="meta-label">🌍 Region:</span>
-                <span class="meta-value">${entry.region}</span>
-            </div>
-            <div class="meta-item">
-                <span class="meta-label">📂 Category:</span>
-                <span class="meta-value">${entry.category}</span>
-            </div>
-            <div class="meta-item">
-                <span class="meta-label">⚡ Priority:</span>
-                <span class="meta-value">P${entry.severity?.priority || 4}</span>
-            </div>
-            <div class="meta-item">
-                <span class="meta-label">📅 Published:</span>
-                <span class="meta-value">${publishDate}</span>
-            </div>
-            ${entry.threatType ? `
-            <div class="meta-item">
-                <span class="meta-label">🏷️ Type:</span>
-                <span class="threat-type">${entry.threatType.emoji} ${entry.threatType.category}</span>
-            </div>
-            ` : ''}
+        <div class="entry-description">
+            ${displayDescription}
         </div>
 
-        <div class="description">
-            ${truncatedDescription}
-        </div>
-
-        <div class="action-buttons">
-            <a href="${entry.url}" target="_blank" rel="noopener noreferrer" 
-               class="action-btn ${actionRequired ? 'primary' : ''}">
-                🔗 View Advisory
+        <div class="entry-actions">
+            <a href="${entry.url}" target="_blank" rel="noopener noreferrer" class="read-more">
+                Read Advisory →
             </a>
-            ${actionRequired ? `
-            <span class="action-btn primary" style="cursor: default;">
-                ⚡ Action Required
-            </span>
-            ` : ''}
         </div>
-    </div>`;
+    </article>`;
 }
 
 /**
@@ -472,10 +394,10 @@ function processEntriesForHTML(feedEntries) {
  */
 export async function generateGitHubPagesOutput(feedEntries) {
   try {
-    console.log('🌐 Generating GitHub Pages HTML output...');
+    console.log('Generating GitHub Pages HTML output...');
     
     if (!Array.isArray(feedEntries) || feedEntries.length === 0) {
-      console.log('⚠️  No entries to generate HTML output');
+      console.log('No entries to generate HTML output');
       return;
     }
 
@@ -504,8 +426,8 @@ export async function generateGitHubPagesOutput(feedEntries) {
     // Write HTML file
     await fs.writeFile(OUTPUT_FILE, htmlContent, 'utf8');
     
-    console.log(`✅ GitHub Pages HTML generated: ${OUTPUT_FILE}`);
-    console.log(`📊 Generated ${sortedEntries.length} threat intelligence entries`);
+    console.log(`GitHub Pages HTML generated: ${OUTPUT_FILE}`);
+    console.log(`Generated ${sortedEntries.length} threat intelligence entries`);
     
     // Log simplified statistics
     const stats = {
@@ -515,10 +437,10 @@ export async function generateGitHubPagesOutput(feedEntries) {
       info: sortedEntries.filter(e => e.severity?.level === 'INFO').length
     };
     
-    console.log(`🚨 Critical: ${stats.critical}, ⚠️  High: ${stats.high}, 📊 Medium: ${stats.medium}, ℹ️  Info: ${stats.info}`);
+    console.log(`Critical: ${stats.critical}, High: ${stats.high}, Medium: ${stats.medium}, Info: ${stats.info}`);
     
   } catch (error) {
-    console.error('❌ Failed to generate GitHub Pages output:', error.message);
+    console.error('Failed to generate GitHub Pages output:', error.message);
     throw error;
   }
 }
