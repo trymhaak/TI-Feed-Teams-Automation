@@ -1,64 +1,8 @@
 import fetch from 'node-fetch';
+import { formatMessage } from './utils/formatter.js';
 
-/**
- * Detect threat severity based on content
- * @param {string} title - The title of the threat intel item
- * @param {string} description - The description/summary of the item
- * @returns {Object} - Severity object with level, emoji, and color
- */
-function detectSeverity(title, description) {
-  const content = (title + ' ' + description).toLowerCase();
-  
-  // Critical threats - immediate action required
-  const criticalKeywords = ['critical', 'zero-day', 'rce', 'remote code execution', 
-                           'exploit in the wild', 'actively exploited', 'emergency',
-                           'ransomware', 'lockbit', 'cryptodestroy'];
-  
-  // High severity - patch/update required
-  const highKeywords = ['high severity', 'security update', 'patch tuesday', 
-                       'vulnerability', 'cve-', 'security advisory', 'apt29',
-                       'advanced persistent threat', 'apt', 'phishing campaign',
-                       'data breach', 'exposed', 'leaked', 'compromised'];
-  
-  // Medium severity - informational but important
-  const mediumKeywords = ['moderate', 'advisory', 'recommendation', 'guidance',
-                         'medium priority', 'security alert'];
-  
-  if (criticalKeywords.some(keyword => content.includes(keyword))) {
-    return { 
-      level: 'CRITICAL', 
-      emoji: '🚨', 
-      color: '#FF0000',
-      priority: 1 
-    };
-  }
-  
-  if (highKeywords.some(keyword => content.includes(keyword))) {
-    return { 
-      level: 'HIGH', 
-      emoji: '⚠️', 
-      color: '#FF8C00',
-      priority: 2 
-    };
-  }
-  
-  if (mediumKeywords.some(keyword => content.includes(keyword))) {
-    return { 
-      level: 'MEDIUM', 
-      emoji: '📋', 
-      color: '#32CD32',
-      priority: 3 
-    };
-  }
-  
-  // Default severity
-  return { 
-    level: 'INFO', 
-    emoji: 'ℹ️', 
-    color: '#1E90FF',
-    priority: 4 
-  };
-}
+// Re-export formatter functions for backward compatibility and testing
+export { detectSeverity, classifyThreatType } from './utils/formatter.js';
 
 /**
  * Classify threat type based on content
@@ -113,9 +57,10 @@ function classifyThreatType(title, description) {
  * @param {string} link - The URL to the full article
  * @param {string} description - The description/summary of the item
  * @param {string} publishedDate - The published date from RSS
+ * @param {Object} feedMetadata - Additional feed metadata (category, region, etc.)
  * @returns {Promise<boolean>} - Returns true if successful, false otherwise
  */
-export async function postToTeams(source, title, link, description = '', publishedDate = '') {
+export async function postToTeams(source, title, link, description = '', publishedDate = '', feedMetadata = {}) {
   const webhookUrl = process.env.TEAMS_WEBHOOK_URL;
   
   if (!webhookUrl) {
@@ -123,67 +68,19 @@ export async function postToTeams(source, title, link, description = '', publish
     return false;
   }
 
-  // Detect severity and threat type
-  const severity = detectSeverity(title, description);
-  const threatType = classifyThreatType(title, description);
-  
-  // Create enhanced payload with threat intelligence analysis
-  const cleanDescription = description.replace(/<[^>]*>/g, '').substring(0, 400); // Increased length
-  const formattedDate = publishedDate ? new Date(publishedDate).toISOString().split('T')[0] : new Date().toISOString().split('T')[0];
-  
-  // Build enhanced message with severity and classification
-  let message = `${severity.emoji} <strong>Threat Intelligence Alert - ${severity.level}</strong><br><br>`;
-  
-  // Add threat type classification
-  message += `${threatType.emoji} <strong>Type:</strong> ${threatType.category}<br><br>`;
-  
-  // Add source and priority info
-  message += `<strong>Source:</strong> ${source}<br><br>`;
-  message += `<strong>Priority:</strong> ${severity.level} (P${severity.priority})<br><br>`;
-  
-  // Add title with severity styling
-  message += `<strong>Title:</strong> ${title}<br><br>`;
-  
-  // Add publication date
-  message += `<strong>Published:</strong> ${formattedDate}<br><br>`;
-  
-  // Add enhanced summary with threat context
-  if (cleanDescription && cleanDescription.length > 10) {
-    message += `<strong>Summary:</strong> ${cleanDescription}${cleanDescription.length >= 400 ? '...' : ''}<br><br>`;
-  }
-  
-  // Add action items based on severity
-  if (severity.priority <= 2) {
-    message += `<strong>⚡ Action Required:</strong> Review and assess impact immediately<br><br>`;
-  } else if (severity.priority === 3) {
-    message += `<strong>📝 Recommended Action:</strong> Review when convenient<br><br>`;
-  }
-  
-  // Add read more link
-  message += `<a href="${link}">🔗 Read Full Threat Report</a>`;
-  
-  const payload = {
-    "type": "ThreatIntelAlert",
-    "attachments": [
-      {
-        "contentType": "text/html",
-        "content": {
-          "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
-          "type": "AdaptiveCard",
-          "version": "1.2",
-          "body": [
-            {
-              "type": "TextBlock",
-              "text": message,
-              "wrap": true
-            }
-          ]
-        }
-      }
-    ]
-  };
-
   try {
+    // Use the new formatter to create the message
+    const { payload, metadata } = formatMessage({
+      source,
+      title,
+      link,
+      description,
+      publishedDate,
+      feedMetadata
+    });
+
+    console.log(`📝 Formatted message: ${metadata.severity.level} ${metadata.threatType.category} (${metadata.messageLength} chars)`);
+
     const response = await fetch(webhookUrl, {
       method: 'POST',
       headers: {
@@ -206,6 +103,3 @@ export async function postToTeams(source, title, link, description = '', publish
     return false;
   }
 }
-
-// Export functions for testing
-export { detectSeverity, classifyThreatType };

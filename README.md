@@ -1,18 +1,33 @@
 # Threat Feed Bot
 
-An automated threat intelligence RSS feed collector that posts new alerts to Microsoft Teams.
+A professional, modular threat intelligence RSS feed collector that posts enhanced security alerts to Microsoft Teams with intelligent classification and formatting.
 
 ## Overview
 
-This bot automatically monitors threat intelligence RSS feeds and posts new entries to a Microsoft Teams channel using webhooks. It runs every 30 minutes via GitHub Actions and uses simple file-based state tracking to avoid duplicate postings.
+This bot automatically monitors multiple threat intelligence RSS feeds and posts classified security alerts to Microsoft Teams. Built with a clean, modular architecture, it features intelligent threat classification, severity detection, modular feed parsers, and comprehensive validation. The bot runs every 30 minutes via GitHub Actions with robust state tracking to prevent duplicate postings.
 
 ## Features
 
+### Core Functionality
 - 🔄 **Automated Processing**: Runs every 30 minutes via GitHub Actions
-- 🚫 **Duplicate Prevention**: Tracks processed items to avoid spam
-- 📢 **Teams Integration**: Posts formatted adaptive cards to Microsoft Teams
-- 🛡️ **Reliable**: Graceful error handling - one broken feed won't stop others
-- ⚙️ **Configurable**: Easy to add/remove RSS feeds via JSON configuration
+- 🚫 **Duplicate Prevention**: Sophisticated state tracking prevents spam
+- 📢 **Teams Integration**: Rich adaptive cards with threat intelligence context
+- 🛡️ **Reliable**: Comprehensive error handling and graceful fallbacks
+- ⚙️ **Configurable**: JSON-based feed configuration with validation
+
+### Intelligence Features
+- 🎯 **Threat Classification**: Automatic categorization (Malware, Vulnerability, Phishing, APT, Data Breach)
+- 🚨 **Severity Detection**: Critical, High, Medium, Info priority levels
+- 📊 **Content Filtering**: Intelligent filtering for relevant threat intelligence
+- 🏷️ **Feed Metadata**: Enhanced context with source, region, and category information
+- ⚡ **Priority-Based Processing**: Configurable delays based on feed importance
+
+### Architecture
+- 🏗️ **Modular Design**: Clean separation of parsers, validation, and formatting
+- 🔧 **Custom Parsers**: Support for feed-specific parsing logic
+- ✅ **Input Validation**: Comprehensive feed configuration validation
+- 🎨 **Consistent Formatting**: Standardized message formatting across all feeds
+- 🧪 **Comprehensive Testing**: Full unit and integration test coverage
 
 ## Quick Start
 
@@ -22,20 +37,41 @@ Click the "Fork" button to create your own copy of this repository.
 
 ### 2. Configure RSS Feeds
 
-Edit `feeds.json` to customize which threat intelligence sources you want to monitor:
+Edit `data/feeds.json` to customize which threat intelligence sources you want to monitor. The new format supports enhanced metadata and optional custom parsers:
 
 ```json
 [
   {
-    "name": "CISA",
-    "url": "https://www.cisa.gov/cybersecurity-advisories/all.xml"
+    "name": "NSM-NCSC",
+    "url": "https://nsm.no/fagomrader/digital-sikkerhet/nasjonalt-cybersikkerhetssenter/varsler-fra-ncsc/rss/",
+    "category": "national",
+    "region": "norway", 
+    "priority": "high",
+    "enabled": true,
+    "description": "Norwegian National Security Authority cybersecurity alerts",
+    "parser": "defaultParser"
   },
   {
-    "name": "US-CERT", 
-    "url": "https://www.cisa.gov/uscert/ncas/alerts.xml"
+    "name": "CISA-Alerts",
+    "url": "https://www.cisa.gov/news.xml",
+    "category": "government",
+    "region": "usa",
+    "priority": "high", 
+    "enabled": true,
+    "description": "US Cybersecurity and Infrastructure Security Agency alerts"
   }
 ]
 ```
+
+**Configuration Fields:**
+- `name` (required): Unique identifier for the feed
+- `url` (required): RSS feed URL
+- `enabled` (required): Boolean to enable/disable the feed
+- `category` (optional): Feed category (national, vendor, government, commercial, community)
+- `region` (optional): Geographic region (norway, usa, global, etc.)
+- `priority` (optional): Processing priority (high, medium, low) - affects posting delays
+- `description` (optional): Human-readable description of the feed
+- `parser` (optional): Custom parser name (defaults to defaultParser)
 
 ### 3. Set up Microsoft Teams Webhook
 
@@ -58,35 +94,76 @@ The workflow will automatically start running every 30 minutes. You can also tri
 
 ```
 threat-feed-bot/
-├── fetch-and-post.js       # Main logic - RSS polling and processing
-├── post-to-teams.js        # Teams webhook integration
-├── feeds.json              # RSS feed configurations
-├── state.json              # Tracks last processed items (auto-updated)
-├── package.json            # Node.js dependencies
+├── fetch-and-post.js           # Main orchestration logic
+├── post-to-teams.js            # Teams webhook integration
+├── data/                       # Configuration and state files
+│   ├── feeds.json             # RSS feed configurations
+│   └── state.json             # Tracks last processed items (auto-updated)
+├── parsers/                    # Modular feed parsers
+│   └── defaultParser.js       # Standard RSS/Atom parser
+├── utils/                      # Utility modules
+│   ├── validateFeeds.js       # Feed configuration validation
+│   └── formatter.js           # Message formatting and classification
+├── tests/                      # Comprehensive test suite
+│   ├── parsers.test.js        # Parser functionality tests
+│   ├── validator.test.js      # Validation logic tests
+│   ├── formatter.test.js      # Formatting and classification tests
+│   ├── fetch-and-post.test.js # Integration tests
+│   ├── post-to-teams.test.js  # Teams integration tests
+│   ├── test-utils.js          # Shared testing utilities
+│   ├── index.js               # Test runner
+│   └── package.json           # Jest configuration
 ├── .github/workflows/
-│   └── rss-to-teams.yml    # GitHub Actions workflow
-└── README.md               # This file
+│   └── rss-to-teams.yml       # GitHub Actions workflow
+├── package.json                # Node.js dependencies and scripts
+├── INSTRUCTIONS.txt            # Operational guide
+└── README.md                   # This file
 ```
 
 ## Configuration Files
 
-### feeds.json
+### data/feeds.json
+Enhanced feed configuration with metadata and validation:
 ```json
 [
   {
-    "name": "Unique Feed Name",
-    "url": "https://example.com/rss-feed.xml"
+    "name": "Microsoft-MSRC",
+    "url": "https://api.msrc.microsoft.com/update-guide/rss",
+    "category": "vendor",
+    "region": "global",
+    "priority": "high",
+    "enabled": true,
+    "description": "Microsoft Security Response Center vulnerability updates",
+    "parser": "defaultParser"
   }
 ]
 ```
 
-### state.json (auto-managed)
+### data/state.json (auto-managed)
 ```json
 {
-  "CISA": "https://www.cisa.gov/news/2024/01/15/cisa-releases-advisory",
-  "US-CERT": "https://www.cisa.gov/uscert/ncas/alerts/AA24-015A"
+  "NSM-NCSC": "https://nsm.no/aktuelt/2024/01/15/critical-vulnerability-alert",
+  "Microsoft-MSRC": "https://msrc.microsoft.com/update-guide/2024-01-15"
 }
 ```
+
+## Intelligence Classification
+
+The bot automatically classifies threats into categories and severity levels:
+
+### Threat Types
+- 🦠 **Malware**: Ransomware, trojans, backdoors, viruses
+- 🔓 **Vulnerability**: CVEs, security updates, patches
+- 🎣 **Phishing**: Social engineering, scams, fraudulent campaigns
+- 🎯 **APT**: Advanced persistent threats, nation-state activities
+- 💾 **Data Breach**: Data leaks, exposed databases, credential theft
+- 📄 **General**: Other security-related information
+
+### Severity Levels
+- 🚨 **CRITICAL (P1)**: Zero-day exploits, active threats requiring immediate action
+- ⚠️ **HIGH (P2)**: Vulnerabilities, security updates, confirmed threats
+- 📋 **MEDIUM (P3)**: Advisories, recommendations, moderate priority
+- ℹ️ **INFO (P4)**: General security information, low priority
 
 ## Local Development
 
@@ -106,75 +183,270 @@ export TEAMS_WEBHOOK_URL="your-webhook-url-here"
 npm start
 ```
 
+### Dry-Run Mode
+
+The bot includes a comprehensive dry-run mode for testing and previewing without making any changes:
+
+```bash
+# Preview mode - shows what would be posted without actually posting
+node fetch-and-post.js --dry-run
+
+# Use custom configuration file
+node fetch-and-post.js --dry-run --config path/to/feeds.json
+
+# Save preview output to logs/dry-run-<timestamp>.json
+LOG_TO_FILE=true node fetch-and-post.js --dry-run
+
+# Convenient npm scripts
+npm run dry-run           # Quick preview
+npm run dry-run:save      # Preview with file output
+```
+
+**Dry-run Features:**
+- ✅ Processes all feeds with full validation
+- ✅ Generates formatted Teams message previews  
+- ✅ Shows threat classification and severity detection
+- ✅ Tests custom configuration files
+- ❌ Skips actual Teams posting
+- ❌ Skips state file updates
+- 📁 Optionally saves output to `logs/` directory
+
+**GitHub Actions Dry-Run:**
+You can trigger a dry-run preview directly from GitHub Actions:
+1. Go to your repository → Actions tab
+2. Select "Threat Feed Bot" workflow
+3. Click "Run workflow"
+4. Check "Run in dry-run mode" 
+5. Optionally check "Save dry-run output to file"
+6. Click "Run workflow"
+
+The dry-run artifacts will be available for download from the workflow run.
+
 ### Testing
 ```bash
-# Test a single run
-node fetch-and-post.js
+# Run integration tests
+npm test
+
+# Run Jest unit tests  
+npm run test:jest
+
+# Run specific test suites
+npm run test:parsers     # Test parser functionality
+npm run test:validator   # Test feed validation
+npm run test:formatter   # Test message formatting
+npm run test:integration # Test end-to-end integration
+
+# Run with coverage
+npm run test:coverage
+
+# Test with live Teams posting (requires TEAMS_WEBHOOK_URL)
+npm run test:live
+
+# Validate system configuration
+npm run validate
+
+# Dry-run preview mode (no Teams posting, no state updates)
+npm run dry-run
+
+# Dry-run with output saved to logs/dry-run-<timestamp>.json
+npm run dry-run:save
 ```
 
 ## How It Works
 
-1. **RSS Parsing**: Uses `rss-parser` to fetch and parse RSS feeds
-2. **State Tracking**: Compares new items against `state.json` to identify unseen content
-3. **Teams Posting**: Sends formatted adaptive cards to Teams via webhook
-4. **State Updates**: Updates `state.json` with latest processed items
-5. **Automation**: GitHub Actions runs the process every 30 minutes
+### Processing Pipeline
+1. **Configuration Validation**: Validates `data/feeds.json` structure and content
+2. **Parser Loading**: Dynamically loads appropriate parser for each feed
+3. **RSS Parsing**: Fetches and normalizes RSS feed content
+4. **Content Filtering**: Filters for relevant threat intelligence content
+5. **Threat Classification**: Automatically detects severity and threat type
+6. **State Comparison**: Compares against `data/state.json` to identify new items
+7. **Message Formatting**: Creates standardized Teams adaptive cards
+8. **Teams Posting**: Sends formatted alerts to Teams via webhook
+9. **State Updates**: Updates state file with latest processed items
+
+### Intelligence Processing
+- **Relevance Filtering**: Excludes webinars, marketing, and non-security content
+- **Severity Detection**: Analyzes content for critical keywords and threat indicators
+- **Type Classification**: Categorizes threats based on content analysis
+- **Priority Processing**: High-priority feeds processed with shorter delays
+- **Graceful Degradation**: Individual feed failures don't stop other feeds
+
+### Modular Architecture
+- **Parser System**: Pluggable parsers for different feed formats
+- **Validation Engine**: Comprehensive input validation and error reporting
+- **Formatter Module**: Centralized message formatting with consistent styling
+- **Test Framework**: Complete unit and integration test coverage
 
 ## Customization
 
 ### Adding New Feeds
-Add entries to `feeds.json`:
+Add entries to `data/feeds.json` with full validation:
 ```json
 {
-  "name": "Your Feed Name",
-  "url": "https://example.com/feed.xml"
+  "name": "Your Custom Feed",
+  "url": "https://example.com/feed.xml",
+  "category": "vendor",
+  "region": "global", 
+  "priority": "medium",
+  "enabled": true,
+  "description": "Description of your feed"
 }
 ```
 
-### Modifying the Schedule
-Edit `.github/workflows/rss-to-teams.yml`:
-```yaml
-schedule:
-  - cron: '0 */2 * * *'  # Every 2 hours instead of 30 minutes
+### Creating Custom Parsers
+Create a new parser in `parsers/` directory:
+```javascript
+// parsers/customParser.js
+export class CustomParser {
+  constructor() {
+    this.name = 'customParser';
+  }
+
+  async parseURL(url) {
+    // Custom parsing logic
+    return {
+      title: 'Feed Title',
+      items: [/* normalized items */]
+    };
+  }
+
+  normalizeItems(items) {
+    // Return items with consistent fields
+    return items.map(item => ({
+      title: item.title,
+      link: item.link,
+      description: item.description,
+      publishedDate: item.publishedDate
+    }));
+  }
+
+  canHandle(feed) {
+    // Return true if this parser can handle the feed
+    return feed.url.includes('example.com');
+  }
+}
+```
+
+### Modifying Classification Rules
+Edit `utils/formatter.js` to customize threat detection:
+```javascript
+// Add custom severity keywords
+const criticalKeywords = ['your-critical-terms'];
+
+// Add custom threat types
+const threatTypes = {
+  yourType: {
+    keywords: ['your-keywords'],
+    emoji: '🔥',
+    category: 'Your Category'
+  }
+};
 ```
 
 ### Customizing Teams Messages
-Modify the `payload` object in `post-to-teams.js` to change the message format.
+The formatter provides standardized messaging, but you can customize the format in `utils/formatter.js`:
+```javascript
+// Modify the formatMessage function
+export function formatMessage(options) {
+  // Your custom formatting logic
+}
+```
 
 ## Troubleshooting
 
 ### Common Issues
 
+**Feed validation errors:**
+- Check `data/feeds.json` syntax and required fields
+- Verify URLs are accessible and use HTTPS
+- Ensure feed names are unique
+- Run `npm run validate` to check configuration
+
+**Parser loading failures:**
+- Verify custom parser files exist in `parsers/` directory
+- Check parser class exports and method implementations
+- Review console logs for specific parser errors
+- System falls back to default parser automatically
+
 **GitHub Actions not running:**
-- Check that you've enabled GitHub Actions in your repository settings
+- Check that you've enabled GitHub Actions in repository settings
 - Verify the TEAMS_WEBHOOK_URL secret is set correctly
+- Ensure `data/state.json` is tracked by git
 
 **No messages appearing in Teams:**
 - Verify your webhook URL is correct and active
 - Check the GitHub Actions logs for error messages
-- Test the webhook manually using a tool like curl
+- Test the webhook manually using curl or Postman
+- Verify feed URLs are accessible and contain recent content
 
-**Duplicate messages:**
-- The `state.json` file tracks processed items
-- If you're getting duplicates, check if the state file is being committed properly
+**Message formatting issues:**
+- Check threat classification keywords in `utils/formatter.js`
+- Verify Teams adaptive card format compatibility
+- Review formatter test cases for expected behavior
 
-### Logs
-Check the GitHub Actions logs under the "Actions" tab in your repository for detailed execution information.
+**Duplicate or missing messages:**
+- Check if `data/state.json` is being updated correctly
+- Verify state file is committed to repository
+- Review feed item URL uniqueness and consistency
+
+### Debugging Steps
+
+1. **Local Testing**: Run `npm start` locally with webhook URL
+2. **Validation**: Use `npm run validate` to check configuration
+3. **Unit Tests**: Run `npm run test:jest` to verify component functionality
+4. **Integration Tests**: Use `npm test` for end-to-end validation
+5. **Live Testing**: Use `npm run test:live` to test Teams integration
+
+### Logs and Monitoring
+- Check GitHub Actions logs under the "Actions" tab
+- Review local console output for detailed processing information
+- Monitor Teams channel for message delivery
+- Check `data/state.json` updates for processing progress
 
 ## Security Considerations
 
-- Webhook URLs should be kept secret (stored as GitHub Secrets)
-- RSS feeds are accessed over HTTPS when possible
-- No sensitive data is stored in the repository
-- State file only contains public RSS item URLs
+- **Webhook Security**: Teams webhook URLs stored as GitHub Secrets
+- **HTTPS Enforcement**: RSS feeds accessed over HTTPS when possible  
+- **Input Validation**: Comprehensive validation of all configuration inputs
+- **No Sensitive Data**: Only public RSS URLs and metadata stored in repository
+- **State File Safety**: State file contains only public RSS item URLs
+- **Error Handling**: Secure error reporting without exposing sensitive information
+- **Parser Security**: Custom parsers run in controlled environment
+- **Access Control**: Repository access controls who can modify configurations
 
 ## Contributing
 
+We welcome contributions to improve the Threat Feed Bot!
+
+### Development Setup
 1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Test locally
-5. Submit a pull request
+2. Clone your fork locally
+3. Install dependencies: `npm install`
+4. Set up your Teams webhook URL for testing
+5. Run tests: `npm test` and `npm run test:jest`
+
+### Contribution Areas
+- **Custom Parsers**: Add support for new RSS feed formats
+- **Classification Rules**: Improve threat detection and categorization
+- **Message Formatting**: Enhance Teams message presentation
+- **Testing**: Add test coverage for edge cases
+- **Documentation**: Improve setup guides and troubleshooting
+- **Performance**: Optimize processing speed and memory usage
+
+### Submission Process
+1. Create a feature branch from main
+2. Make your changes with appropriate tests
+3. Run the full test suite: `npm run validate`
+4. Update documentation if needed
+5. Submit a pull request with detailed description
+
+### Code Standards
+- Follow existing code style and patterns
+- Add unit tests for new functionality
+- Update integration tests for API changes
+- Document new configuration options
+- Maintain backward compatibility when possible
 
 ## License
 
@@ -183,6 +455,30 @@ MIT License - see LICENSE file for details.
 ## Support
 
 For issues and questions:
-1. Check the GitHub Actions logs
-2. Review this README
-3. Open an issue in the GitHub repository
+
+### Documentation
+1. Review this comprehensive README
+2. Check `INSTRUCTIONS.txt` for operational details
+3. Examine test files for usage examples
+4. Review code comments for implementation details
+
+### Troubleshooting
+1. Run `npm run validate` to check configuration
+2. Check GitHub Actions logs for execution details
+3. Test locally with `npm start` for debugging
+4. Review unit tests for expected behavior patterns
+
+### Getting Help
+1. Search existing GitHub issues for similar problems
+2. Check the troubleshooting section above
+3. Open a detailed issue with:
+   - Error messages and logs
+   - Configuration details (anonymized)
+   - Steps to reproduce
+   - Expected vs actual behavior
+
+### Resources
+- **GitHub Actions Logs**: Detailed execution information
+- **Test Suite**: Run `npm test` for system validation
+- **Configuration Validation**: Use `npm run validate`
+- **Live Testing**: Use `npm run test:live` for Teams integration testing

@@ -6,9 +6,17 @@
   "main": "fetch-and-post.js",
   "scripts": {
     "start": "node fetch-and-post.js",
-    "test": "node tests.js",
-    "test:live": "node tests.js --live-teams",
-    "validate": "node tests.js && echo 'System validation complete'"
+    "dry-run": "node fetch-and-post.js --dry-run",
+    "dry-run:save": "LOG_TO_FILE=true node fetch-and-post.js --dry-run",
+    "test": "node tests/index.js",
+    "test:live": "node tests/index.js --live-teams",
+    "test:jest": "cd tests && npm test",
+    "test:coverage": "cd tests && npm run test:coverage",
+    "test:parsers": "cd tests && npm run test:parsers",
+    "test:validator": "cd tests && npm run test:validator",
+    "test:formatter": "cd tests && npm run test:formatter",
+    "test:integration": "cd tests && npm run test:integration",
+    "validate": "node tests/index.js && echo 'System validation complete'"
   },
   "keywords": [
     "threat-intelligence",

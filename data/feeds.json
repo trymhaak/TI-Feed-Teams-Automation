@@ -34,5 +34,15 @@
     "priority": "high",
     "enabled": true,
     "description": "US Cybersecurity and Infrastructure Security Agency alerts and advisories"
+  },
+  {
+    "name": "CISecurity-Advisories",
+    "url": "https://www.cisecurity.org/feed/advisories",
+    "category": "vendor",
+    "region": "global",
+    "priority": "medium",
+    "enabled": true,
+    "description": "CISA advisories feed",
+    "parser": "defaultParser"
   }
 ]

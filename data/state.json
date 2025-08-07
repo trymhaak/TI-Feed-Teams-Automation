@@ -2,5 +2,6 @@
   "NSM-NCSC": "https://nsm.no/fagomrader/digital-sikkerhet/nasjonalt-cybersikkerhetssenter/varsler-fra-ncsc/microsoft-patchetirsdag-juli-2025",
   "Microsoft-MSRC": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-53770",
   "NIST-Cybersecurity": "https://www.nist.gov/blogs/cybersecurity-insights/lets-get-digital-updated-digital-identity-guidelines-are-here",
-  "CISA-Alerts": "https://www.cisa.gov/news-events/news/cisa-issues-alert-vulnerability-affecting-microsoft-exchange"
+  "CISA-Alerts": "https://www.cisa.gov/news-events/news/cisa-issues-alert-vulnerability-affecting-microsoft-exchange",
+  "CISecurity-Advisories": "https://www.cisecurity.org/advisory/multiple-vulnerabilities-in-apple-products-could-allow-for-arbitrary-code-execution_2025-069"
 }

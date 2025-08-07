@@ -1,0 +1,25 @@
+{
+  "name": "threat-feed-bot-tests",
+  "version": "1.0.0",
+  "description": "Test configuration for Jest",
+  "type": "module",
+  "scripts": {
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage",
+    "test:parsers": "jest parsers.test.js",
+    "test:validator": "jest validator.test.js", 
+    "test:formatter": "jest formatter.test.js",
+    "test:integration": "jest fetch-and-post.test.js post-to-teams.test.js"
+  },
+  "jest": {
+    "preset": "jest-preset-node-esm",
+    "testMatch": ["**/*.test.js"],
+    "collectCoverageFrom": [
+      "../*.js",
+      "!../node_modules/**"
+    ],
+    "coverageDirectory": "./coverage",
+    "testEnvironment": "node"
+  }
+}
