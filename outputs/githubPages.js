@@ -404,16 +404,11 @@ export async function generateGitHubPagesOutput(feedEntries) {
     // Process entries with severity and threat type classification
     const processedEntries = processEntriesForHTML(feedEntries);
     
-    // Sort by severity (critical first) and then by date
+    // Sort by publication date only (newest first) - chronological news stream
     const sortedEntries = processedEntries.sort((a, b) => {
-      // First sort by severity priority (lower number = higher priority)
-      const severityDiff = (a.severity?.priority || 5) - (b.severity?.priority || 5);
-      if (severityDiff !== 0) return severityDiff;
-      
-      // Then sort by date (newest first)
       const dateA = new Date(a.publishedDate || 0);
       const dateB = new Date(b.publishedDate || 0);
-      return dateB - dateA;
+      return dateB - dateA; // Most recent first
     });
 
     // Generate HTML content
