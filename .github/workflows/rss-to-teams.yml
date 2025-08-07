@@ -41,12 +41,13 @@ jobs:
         TEAMS_WEBHOOK_URL: ${{ secrets.TEAMS_WEBHOOK_URL }}
         NODE_ENV: production
         LOG_TO_FILE: ${{ inputs.log_output }}
+        ENABLE_GITHUB_PAGES: true
       run: |
         if [ "${{ inputs.dry_run }}" = "true" ]; then
-          echo "🔍 Running in DRY-RUN mode"
+          echo "🔍 Running in DRY-RUN mode (with GitHub Pages generation)"
           npm start -- --dry-run
         else
-          echo "🚀 Running in LIVE mode"
+          echo "🚀 Running in LIVE mode (with GitHub Pages generation)"
           npm start
         fi
     
@@ -58,14 +59,14 @@ jobs:
         path: logs/
         retention-days: 7
     
-    - name: Update feed state
+    - name: Update feed state and GitHub Pages
       if: ${{ !inputs.dry_run }}
       run: |
         git config --local user.email "bot@threatfeed.action"
         git config --local user.name "ThreatFeed Bot"
-        git add data/state.json
+        git add data/state.json docs/index.html
         if ! git diff --staged --quiet; then
-          git commit -m "chore: update feed state - $(date -u '+%Y-%m-%d %H:%M UTC')"
+          git commit -m "chore: update feed state and GitHub Pages - $(date -u '+%Y-%m-%d %H:%M UTC')"
           git remote set-url origin https://x-access-token:${{ secrets.PERSONAL_ACCESS_TOKEN }}@github.com/trymhaak/TI-Feed-Teams-Automation.git
           git push origin main
         fi
