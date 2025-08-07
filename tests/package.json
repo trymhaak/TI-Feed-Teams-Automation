@@ -4,13 +4,13 @@
   "description": "Test configuration for Jest",
   "type": "module",
   "scripts": {
-    "test": "jest",
-    "test:watch": "jest --watch",
-    "test:coverage": "jest --coverage",
-    "test:parsers": "jest parsers.test.js",
-    "test:validator": "jest validator.test.js",
-    "test:formatter": "jest formatter.test.js",
-    "test:integration": "jest fetch-and-post.test.js post-to-teams.test.js"
+    "test": "NODE_OPTIONS=--experimental-vm-modules jest",
+    "test:watch": "NODE_OPTIONS=--experimental-vm-modules jest --watch",
+    "test:coverage": "NODE_OPTIONS=--experimental-vm-modules jest --coverage",
+    "test:parsers": "NODE_OPTIONS=--experimental-vm-modules jest parsers.test.js",
+    "test:validator": "NODE_OPTIONS=--experimental-vm-modules jest validator.test.js",
+    "test:formatter": "NODE_OPTIONS=--experimental-vm-modules jest formatter.test.js",
+    "test:integration": "NODE_OPTIONS=--experimental-vm-modules jest fetch-and-post.test.js post-to-teams.test.js"
   },
   "jest": {
     "testMatch": [
@@ -22,11 +22,7 @@
     ],
     "coverageDirectory": "./coverage",
     "testEnvironment": "node",
-    "transform": {},
-    "extensionsToTreatAsEsm": [".js"],
-    "globals": {
-      "NODE_OPTIONS": "--experimental-vm-modules"
-    }
+    "transform": {}
   },
   "devDependencies": {
     "@babel/preset-env": "^7.28.0",

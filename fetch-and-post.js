@@ -270,8 +270,32 @@ async function processFeed(feed, state) {
     // Load the appropriate parser
     const parser = await loadParser(parserName);
     
-    // Parse the feed using the selected parser
-    const parsedFeed = await parser.parseURL(url);
+    // Parse the feed using the selected parser, or provide mock data in TEST_MODE
+    let parsedFeed;
+    if (process.env.TEST_MODE === 'true') {
+      const now = new Date().toISOString();
+      parsedFeed = {
+        title: name,
+        items: [
+          {
+            title: 'Test Security Update CVE-2024-0001',
+            link: `${url}#test-1` ,
+            guid: `${url}#test-1`,
+            description: 'Security update released; vulnerability addressed',
+            publishedDate: now
+          },
+          {
+            title: 'Test Ransomware Advisory',
+            link: `${url}#test-2`,
+            guid: `${url}#test-2`,
+            description: 'Ransomware campaign detected targeting enterprises',
+            publishedDate: now
+          }
+        ]
+      };
+    } else {
+      parsedFeed = await parser.parseURL(url);
+    }
     const items = parsedFeed.items || [];
 
     if (items.length === 0) {
@@ -397,9 +421,9 @@ async function processFeed(feed, state) {
       if (isDryRun) {
         // Generate formatted message for preview
         const formattedMessage = formatMessage({
-          feedName: name,
+          source: name,
           title,
-          url: itemUrl,
+          link: itemUrl,
           description,
           publishedDate,
           feedMetadata

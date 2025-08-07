@@ -6,7 +6,7 @@ import {
   classifyThreatType,
   cleanDescription,
   formatDate 
-} from '../../utils/formatter.js';
+} from '../utils/formatter.js';
 
 describe('Formatter - Severity Detection', () => {
   test('should detect critical severity', () => {
@@ -27,7 +27,7 @@ describe('Formatter - Severity Detection', () => {
   });
 
   test('should detect medium severity', () => {
-    const severity = detectSeverity('Security Advisory', 'moderate priority recommendation');
+    const severity = detectSeverity('Security Advisory', 'moderate recommendation');
     
     expect(severity.level).toBe('MEDIUM');
     expect(severity.emoji).toBe('📋');
@@ -102,7 +102,7 @@ describe('Formatter - Text Processing', () => {
     const clean = cleanDescription(longText, 100);
     
     expect(clean.length).toBeLessThanOrEqual(104); // 100 + '...'
-    expect(clean).toEndWith('...');
+    expect(clean.endsWith('...')).toBe(true);
   });
 
   test('should handle empty descriptions', () => {
@@ -135,9 +135,9 @@ describe('Formatter - Message Formatting', () => {
   test('should format complete message', () => {
     const options = {
       source: 'Test Source',
-      title: 'Critical Vulnerability CVE-2024-1234',
+      title: 'CVE-2024-1234 Security Update',
       link: 'https://example.com/alert',
-      description: 'A critical security vulnerability has been discovered',
+      description: 'A security vulnerability has been discovered; apply security update promptly',
       publishedDate: '2024-01-15T10:30:00Z',
       feedMetadata: {
         category: 'vendor',

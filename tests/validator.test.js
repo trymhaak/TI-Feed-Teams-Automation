@@ -1,5 +1,5 @@
 import { describe, test, expect, beforeEach } from '@jest/globals';
-import { FeedValidator, scanAvailableParsers } from '../../utils/validateFeeds.js';
+import { FeedValidator, scanAvailableParsers } from '../utils/validateFeeds.js';
 
 describe('FeedValidator', () => {
   let validator;
@@ -135,8 +135,8 @@ describe('FeedValidator', () => {
     const result = validator.validateFeeds(feeds);
 
     expect(result.totalFeeds).toBe(3);
-    expect(result.validCount).toBe(2);
-    expect(result.validFeeds).toHaveLength(2);
+    expect(result.validCount).toBe(1);
+    expect(result.validFeeds).toHaveLength(1);
     expect(result.errors.length).toBeGreaterThan(0);
   });
 

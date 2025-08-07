@@ -1,5 +1,5 @@
 import { describe, test, expect, beforeEach } from '@jest/globals';
-import { DefaultParser } from '../../parsers/defaultParser.js';
+import { DefaultParser } from '../parsers/defaultParser.js';
 
 describe('DefaultParser', () => {
   let parser;

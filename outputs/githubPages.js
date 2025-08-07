@@ -439,3 +439,10 @@ export async function generateGitHubPagesOutput(feedEntries) {
     throw error;
   }
 }
+
+export const GitHubPagesOutput = {
+  name: 'GitHubPages',
+  async generateOutput(entries) {
+    return generateGitHubPagesOutput(entries);
+  }
+};

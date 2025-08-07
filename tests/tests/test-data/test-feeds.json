@@ -1,0 +1,11 @@
+[
+  {
+    "name": "Test-Feed",
+    "url": "https://feeds.feedburner.com/oreilly/radar",
+    "category": "vendor",
+    "region": "global",
+    "priority": "medium",
+    "enabled": true,
+    "description": "Test feed for dry-run validation"
+  }
+]

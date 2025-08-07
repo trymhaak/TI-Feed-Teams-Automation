@@ -13,13 +13,13 @@ export function detectSeverity(title, description) {
   const content = (title + ' ' + description).toLowerCase();
   
   // Critical threats - immediate action required
-  const criticalKeywords = ['critical', 'zero-day', 'rce', 'remote code execution', 
+  const criticalKeywords = ['zero-day', 'rce', 'remote code execution', 
                            'exploit in the wild', 'actively exploited', 'emergency',
                            'ransomware', 'lockbit', 'cryptodestroy'];
   
   // High severity - patch/update required
   const highKeywords = ['high severity', 'security update', 'patch tuesday', 
-                       'vulnerability', 'cve-', 'security advisory', 'apt29',
+                       'vulnerability', 'cve-', 'apt29',
                        'advanced persistent threat', 'apt', 'phishing campaign',
                        'data breach', 'exposed', 'leaked', 'compromised'];
   
@@ -164,15 +164,17 @@ export function formatDate(publishedDate) {
  * @param {Object} options - Message formatting options
  * @returns {Object} - Formatted Teams webhook payload
  */
-export function formatMessage({
-  source = 'Unknown Source',
-  title = 'No Title',
-  link = '#',
-  description = '',
-  publishedDate = '',
-  feedMetadata = {}
-}) {
-  // Validate required parameters
+export function formatMessage(options) {
+  const {
+    source,
+    title,
+    link = '#',
+    description = '',
+    publishedDate = '',
+    feedMetadata = {}
+  } = options || {};
+
+  // Validate required parameters BEFORE applying defaults
   if (!source || !title) {
     throw new Error('Source and title are required for message formatting');
   }

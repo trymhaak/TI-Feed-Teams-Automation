@@ -29,7 +29,7 @@ export async function testFeedConfiguration() {
     logSection('FEED CONFIGURATION TEST');
     
     try {
-        const feedsData = JSON.parse(await fs.readFile('./data/feeds.json', 'utf8'));
+        const feedsData = JSON.parse(await fs.readFile('/workspace/data/feeds.json', 'utf8'));
         
         let validFeeds = 0;
         let totalFeeds = feedsData.length;
@@ -61,8 +61,8 @@ export async function testStateManagement() {
     logSection('STATE MANAGEMENT TEST');
     
     try {
-        const stateData = JSON.parse(await fs.readFile('./data/state.json', 'utf8'));
-        const feedsData = JSON.parse(await fs.readFile('./data/feeds.json', 'utf8'));
+        const stateData = JSON.parse(await fs.readFile('/workspace/data/state.json', 'utf8'));
+        const feedsData = JSON.parse(await fs.readFile('/workspace/data/feeds.json', 'utf8'));
         
         const enabledFeeds = feedsData.filter(feed => feed.enabled);
         const stateFeeds = Object.keys(stateData);

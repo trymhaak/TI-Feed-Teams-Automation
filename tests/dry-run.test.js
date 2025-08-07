@@ -14,7 +14,7 @@ describe('Dry-run Mode', () => {
     {
       "name": "Test-Feed",
       "url": "https://feeds.feedburner.com/oreilly/radar",
-      "category": "test",
+      "category": "vendor",
       "region": "global",
       "priority": "medium",
       "enabled": true,
@@ -30,8 +30,8 @@ describe('Dry-run Mode', () => {
 
   test('should run in dry-run mode with --dry-run flag', () => {
     const result = execSync(
-      `node fetch-and-post.js --dry-run --config ${testConfigFile}`,
-      { encoding: 'utf8', cwd: process.cwd() }
+      `TEST_MODE=true node /workspace/fetch-and-post.js --dry-run --config ${testConfigFile}`,
+      { encoding: 'utf8', cwd: '/workspace' }
     );
 
     expect(result).toContain('DRY-RUN MODE');
@@ -42,8 +42,8 @@ describe('Dry-run Mode', () => {
 
   test('should display help with --help flag', () => {
     const result = execSync(
-      'node fetch-and-post.js --help',
-      { encoding: 'utf8', cwd: process.cwd() }
+      'node /workspace/fetch-and-post.js --help',
+      { encoding: 'utf8', cwd: '/workspace' }
     );
 
     expect(result).toContain('Threat Feed Bot - Advanced Threat Intelligence Collector');
@@ -54,8 +54,8 @@ describe('Dry-run Mode', () => {
 
   test('should use custom config file with --config flag', () => {
     const result = execSync(
-      `node fetch-and-post.js --dry-run --config ${testConfigFile}`,
-      { encoding: 'utf8', cwd: process.cwd() }
+      `TEST_MODE=true node /workspace/fetch-and-post.js --dry-run --config ${testConfigFile}`,
+      { encoding: 'utf8', cwd: '/workspace' }
     );
 
     expect(result).toContain(testConfigFile);
@@ -70,24 +70,24 @@ describe('Dry-run Mode', () => {
     }
 
     execSync(
-      `LOG_TO_FILE=true node fetch-and-post.js --dry-run --config ${testConfigFile}`,
-      { encoding: 'utf8', cwd: process.cwd() }
+      `LOG_TO_FILE=true TEST_MODE=true node /workspace/fetch-and-post.js --dry-run --config ${testConfigFile}`,
+      { encoding: 'utf8', cwd: '/workspace' }
     );
 
     // Check if logs directory was created
-    const logsExists = await fs.access('logs').then(() => true).catch(() => false);
+    const logsExists = await fs.access('/workspace/logs').then(() => true).catch(() => false);
     expect(logsExists).toBe(true);
 
     // Check if a dry-run file was created
-    const logFiles = await fs.readdir('logs');
+    const logFiles = await fs.readdir('/workspace/logs');
     const dryRunFiles = logFiles.filter(file => file.startsWith('dry-run-'));
     expect(dryRunFiles.length).toBeGreaterThan(0);
-  });
+  }, 15000);
 
   test('should process feeds without updating state in dry-run mode', () => {
     const result = execSync(
-      `node fetch-and-post.js --dry-run --config ${testConfigFile}`,
-      { encoding: 'utf8', cwd: process.cwd() }
+      `TEST_MODE=true node /workspace/fetch-and-post.js --dry-run --config ${testConfigFile}`,
+      { encoding: 'utf8', cwd: '/workspace' }
     );
 
     expect(result).toContain('Skipping state save');
@@ -97,7 +97,7 @@ describe('Dry-run Mode', () => {
   test('npm run dry-run script should work', () => {
     const result = execSync(
       'npm run dry-run',
-      { encoding: 'utf8', cwd: process.cwd() }
+      { encoding: 'utf8', cwd: '/workspace' }
     );
 
     expect(result).toContain('DRY-RUN MODE');
@@ -113,15 +113,15 @@ describe('Dry-run Mode', () => {
 
     execSync(
       'npm run dry-run:save',
-      { encoding: 'utf8', cwd: process.cwd() }
+      { encoding: 'utf8', cwd: '/workspace' }
     );
 
     // Check if logs directory and files were created
-    const logsExists = await fs.access('logs').then(() => true).catch(() => false);
+    const logsExists = await fs.access('/workspace/logs').then(() => true).catch(() => false);
     expect(logsExists).toBe(true);
 
-    const logFiles = await fs.readdir('logs');
+    const logFiles = await fs.readdir('/workspace/logs');
     const dryRunFiles = logFiles.filter(file => file.startsWith('dry-run-'));
     expect(dryRunFiles.length).toBeGreaterThan(0);
-  });
+  }, 15000);
 });

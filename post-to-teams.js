@@ -5,101 +5,89 @@ import { formatMessage } from './utils/formatter.js';
 export { detectSeverity, classifyThreatType } from './utils/formatter.js';
 
 /**
- * Classify threat type based on content
- * @param {string} title - The title of the threat intel item
- * @param {string} description - The description/summary of the item
- * @returns {Object} - Threat type object
- */
-function classifyThreatType(title, description) {
-  const content = (title + ' ' + description).toLowerCase();
-  
-  const threatTypes = {
-    malware: {
-      keywords: ['ransomware', 'trojan', 'backdoor', 'malware', 'virus', 'worm'],
-      emoji: '🦠',
-      category: 'Malware'
-    },
-    vulnerability: {
-      keywords: ['vulnerability', 'cve-', 'patch', 'security update', 'buffer overflow'],
-      emoji: '🔓',
-      category: 'Vulnerability'
-    },
-    phishing: {
-      keywords: ['phishing', 'scam', 'social engineering', 'fraudulent'],
-      emoji: '🎣',
-      category: 'Phishing'
-    },
-    apt: {
-      keywords: ['apt', 'advanced persistent threat', 'nation state', 'targeted attack'],
-      emoji: '🎯',
-      category: 'APT'
-    },
-    data_breach: {
-      keywords: ['data breach', 'data leak', 'exposed database', 'credential theft'],
-      emoji: '💾',
-      category: 'Data Breach'
-    }
-  };
-  
-  for (const [key, type] of Object.entries(threatTypes)) {
-    if (type.keywords.some(keyword => content.includes(keyword))) {
-      return type;
-    }
-  }
-  
-  return { emoji: '📄', category: 'General' };
-}
-
-/**
  * Posts a threat intelligence item to Microsoft Teams using webhook
- * @param {string} source - The name of the RSS feed source
- * @param {string} title - The title of the threat intel item
- * @param {string} link - The URL to the full article
- * @param {string} description - The description/summary of the item
- * @param {string} publishedDate - The published date from RSS
- * @param {Object} feedMetadata - Additional feed metadata (category, region, etc.)
- * @returns {Promise<boolean>} - Returns true if successful, false otherwise
+ * Supports both positional args and an entry object
+ * @param {string|Object} sourceOrEntry - Source string or entry object
+ * @param {string} [title]
+ * @param {string} [link]
+ * @param {string} [description]
+ * @param {string} [publishedDate]
+ * @param {Object} [feedMetadata]
+ * @returns {Promise<{success: boolean, status?: number, statusText?: string, error?: string}>>
  */
-export async function postToTeams(source, title, link, description = '', publishedDate = '', feedMetadata = {}) {
+export async function postToTeams(
+  sourceOrEntry,
+  title,
+  link,
+  description = '',
+  publishedDate = '',
+  feedMetadata = {}
+) {
   const webhookUrl = process.env.TEAMS_WEBHOOK_URL;
-  
+
   if (!webhookUrl) {
-    console.error('TEAMS_WEBHOOK_URL environment variable is not set');
-    return false;
+    const msg = 'TEAMS_WEBHOOK_URL environment variable is not set';
+    console.error(msg);
+    return { success: false, error: msg };
   }
 
-  try {
-    // Use the new formatter to create the message
-    const { payload, metadata } = formatMessage({
-      source,
+  // Normalize input to a single options object expected by formatter
+  let options;
+  if (typeof sourceOrEntry === 'object' && sourceOrEntry !== null) {
+    const entry = sourceOrEntry;
+    options = {
+      source: entry.source || entry.feedName || 'Unknown Source',
+      title: entry.title || 'No Title',
+      link: entry.link || entry.url || '#',
+      description: entry.description || '',
+      publishedDate: entry.publishedDate || '',
+      feedMetadata: entry.feedMetadata || {
+        category: entry.category,
+        region: entry.region,
+        priority: entry.priority,
+        parser: entry.parser
+      }
+    };
+  } else {
+    options = {
+      source: sourceOrEntry,
       title,
       link,
       description,
       publishedDate,
       feedMetadata
-    });
+    };
+  }
 
-    console.log(`📝 Formatted message: ${metadata.severity.level} ${metadata.threatType.category} (${metadata.messageLength} chars)`);
+  try {
+    // Use the formatter to create the Teams payload
+    const { payload, metadata } = formatMessage(options);
+
+    console.log(
+      `📝 Formatted message: ${metadata.severity.level} ${metadata.threatType.category} (${metadata.messageLength} chars)`
+    );
 
     const response = await fetch(webhookUrl, {
       method: 'POST',
       headers: {
-        'Content-Type': 'application/json',
+        'Content-Type': 'application/json'
       },
       body: JSON.stringify(payload)
     });
 
     if (response.ok) {
-      console.log(`✅ Successfully posted to Teams: ${title}`);
-      return true;
+      console.log(`✅ Successfully posted to Teams: ${options.title}`);
+      return { success: true, status: response.status, statusText: response.statusText };
     } else {
-      console.error(`❌ Failed to post to Teams. Status: ${response.status}, Status Text: ${response.statusText}`);
       const responseText = await response.text();
+      console.error(
+        `❌ Failed to post to Teams. Status: ${response.status}, Status Text: ${response.statusText}`
+      );
       console.error(`Response: ${responseText}`);
-      return false;
+      return { success: false, status: response.status, statusText: response.statusText, error: responseText };
     }
   } catch (error) {
     console.error(`❌ Error posting to Teams: ${error.message}`);
-    return false;
+    return { success: false, error: error.message };
   }
 }
