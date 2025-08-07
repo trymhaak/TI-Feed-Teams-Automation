@@ -53,9 +53,9 @@ function generateHTMLTemplate(entries) {
 
         .header {
             text-align: center;
-            margin-bottom: 40px;
+            margin-bottom: 30px;
             background: rgba(255, 255, 255, 0.95);
-            padding: 30px;
+            padding: 30px 30px 20px 30px;
             border-radius: 15px;
             box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
             backdrop-filter: blur(10px);
@@ -64,7 +64,7 @@ function generateHTMLTemplate(entries) {
         .header h1 {
             font-size: 2.5rem;
             color: #2c3e50;
-            margin-bottom: 10px;
+            margin-bottom: 8px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -74,36 +74,44 @@ function generateHTMLTemplate(entries) {
         .header p {
             color: #7f8c8d;
             font-size: 1.1rem;
+            margin-bottom: 15px;
         }
 
-        .stats {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
-            margin-bottom: 40px;
+        .last-updated {
+            font-size: 0.9rem;
+            color: #95a5a6;
+            font-style: italic;
         }
 
-        .stat-card {
-            background: rgba(255, 255, 255, 0.9);
-            padding: 20px;
-            border-radius: 10px;
-            text-align: center;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        .refresh-btn {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #3498db;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 25px;
+            font-weight: 500;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(52, 152, 219, 0.3);
+            transition: all 0.3s ease;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
         }
 
-        .stat-card h3 {
-            font-size: 2rem;
-            margin-bottom: 5px;
+        .refresh-btn:hover {
+            background: #2980b9;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(52, 152, 219, 0.4);
         }
-
-        .stat-card.critical h3 { color: #e74c3c; }
-        .stat-card.high h3 { color: #f39c12; }
-        .stat-card.medium h3 { color: #f1c40f; }
-        .stat-card.info h3 { color: #3498db; }
 
         .threat-grid {
             display: grid;
-            gap: 25px;
+            gap: 20px;
         }
 
         .threat-card {
@@ -131,7 +139,7 @@ function generateHTMLTemplate(entries) {
             align-items: flex-start;
             margin-bottom: 15px;
             flex-wrap: wrap;
-            gap: 10px;
+            gap: 15px;
         }
 
         .threat-title {
@@ -140,10 +148,11 @@ function generateHTMLTemplate(entries) {
         }
 
         .threat-title h2 {
-            font-size: 1.4rem;
+            font-size: 1.6rem;
             color: #2c3e50;
-            margin-bottom: 5px;
+            margin-bottom: 8px;
             line-height: 1.3;
+            font-weight: 600;
         }
 
         .threat-title a {
@@ -157,83 +166,87 @@ function generateHTMLTemplate(entries) {
         }
 
         .severity-badge {
-            padding: 8px 16px;
-            border-radius: 20px;
+            padding: 10px 18px;
+            border-radius: 25px;
             font-weight: bold;
-            font-size: 0.9rem;
+            font-size: 0.95rem;
             white-space: nowrap;
             display: flex;
             align-items: center;
-            gap: 5px;
+            gap: 6px;
+            flex-shrink: 0;
         }
 
         .severity-badge.critical {
             background: #ffe6e6;
             color: #c0392b;
-            border: 1px solid #e74c3c;
+            border: 2px solid #e74c3c;
         }
 
         .severity-badge.high {
             background: #fff3e0;
             color: #d68910;
-            border: 1px solid #f39c12;
+            border: 2px solid #f39c12;
         }
 
         .severity-badge.medium {
             background: #fffbdd;
             color: #b7950b;
-            border: 1px solid #f1c40f;
+            border: 2px solid #f1c40f;
         }
 
         .severity-badge.info {
             background: #e8f4fd;
             color: #2980b9;
-            border: 1px solid #3498db;
+            border: 2px solid #3498db;
         }
 
         .threat-meta {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 15px;
-            margin-bottom: 15px;
-            font-size: 0.9rem;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 12px;
+            margin-bottom: 18px;
+            font-size: 0.85rem;
+            opacity: 0.8;
         }
 
         .meta-item {
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 6px;
         }
 
         .meta-label {
-            font-weight: 600;
-            color: #7f8c8d;
+            font-weight: 500;
+            color: #95a5a6;
         }
 
         .meta-value {
-            color: #2c3e50;
+            color: #5d6d7e;
+            font-weight: 400;
         }
 
         .threat-type {
             display: inline-flex;
             align-items: center;
-            gap: 5px;
-            padding: 4px 10px;
+            gap: 4px;
+            padding: 3px 8px;
             background: #ecf0f1;
-            border-radius: 15px;
-            font-size: 0.85rem;
-            color: #2c3e50;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            color: #5d6d7e;
         }
 
         .description {
             color: #5d6d7e;
             line-height: 1.6;
             margin-bottom: 20px;
+            font-size: 1rem;
         }
 
         .action-buttons {
             display: flex;
-            gap: 10px;
+            gap: 12px;
             flex-wrap: wrap;
         }
 
@@ -248,6 +261,7 @@ function generateHTMLTemplate(entries) {
             border-radius: 25px;
             font-weight: 500;
             transition: background-color 0.3s ease;
+            font-size: 0.9rem;
         }
 
         .action-btn:hover {
@@ -264,17 +278,12 @@ function generateHTMLTemplate(entries) {
 
         .footer {
             text-align: center;
-            margin-top: 50px;
+            margin-top: 40px;
             padding: 20px;
             background: rgba(255, 255, 255, 0.9);
             border-radius: 10px;
             color: #7f8c8d;
-        }
-
-        .timestamp {
             font-size: 0.9rem;
-            color: #95a5a6;
-            margin-top: 10px;
         }
 
         @media (max-width: 768px) {
@@ -287,14 +296,27 @@ function generateHTMLTemplate(entries) {
             .threat-header {
                 flex-direction: column;
                 align-items: stretch;
+                gap: 12px;
+            }
+
+            .threat-title h2 {
+                font-size: 1.4rem;
             }
 
             .threat-meta {
                 grid-template-columns: 1fr;
+                gap: 8px;
             }
 
-            .stats {
-                grid-template-columns: repeat(2, 1fr);
+            .refresh-btn {
+                top: 10px;
+                right: 10px;
+                padding: 10px 16px;
+                font-size: 0.9rem;
+            }
+
+            .container {
+                padding: 15px;
             }
         }
 
@@ -303,8 +325,16 @@ function generateHTMLTemplate(entries) {
                 padding: 10px;
             }
 
-            .stats {
-                grid-template-columns: 1fr;
+            .header {
+                padding: 20px 15px;
+            }
+
+            .header h1 {
+                font-size: 1.8rem;
+            }
+
+            .threat-card {
+                padding: 20px;
             }
 
             .action-buttons {
@@ -314,14 +344,16 @@ function generateHTMLTemplate(entries) {
     </style>
 </head>
 <body>
+    <a href="javascript:location.reload()" class="refresh-btn">
+        🔄 Refresh Feed
+    </a>
+
     <div class="container">
         <div class="header">
             <h1>🛡️ Threat Intelligence Feed</h1>
             <p>Real-time cybersecurity alerts and advisories from trusted sources</p>
-            <div class="timestamp">Last updated: ${lastUpdated}</div>
+            <div class="last-updated">Last updated: ${lastUpdated}</div>
         </div>
-
-        ${generateStatsSection(entries)}
 
         <div class="threat-grid">
             ${entries.map(entry => generateThreatCard(entry)).join('')}
@@ -334,46 +366,6 @@ function generateHTMLTemplate(entries) {
     </div>
 </body>
 </html>`;
-}
-
-/**
- * Generate statistics section
- * @param {Array} entries - Array of threat intelligence entries
- * @returns {string} HTML for stats section
- */
-function generateStatsSection(entries) {
-  const stats = {
-    critical: entries.filter(e => e.severity?.level === 'CRITICAL').length,
-    high: entries.filter(e => e.severity?.level === 'HIGH').length,
-    medium: entries.filter(e => e.severity?.level === 'MEDIUM').length,
-    info: entries.filter(e => e.severity?.level === 'INFO').length
-  };
-
-  const total = entries.length;
-
-  return `
-    <div class="stats">
-        <div class="stat-card critical">
-            <h3>${stats.critical}</h3>
-            <p>Critical Threats</p>
-        </div>
-        <div class="stat-card high">
-            <h3>${stats.high}</h3>
-            <p>High Priority</p>
-        </div>
-        <div class="stat-card medium">
-            <h3>${stats.medium}</h3>
-            <p>Medium Priority</p>
-        </div>
-        <div class="stat-card info">
-            <h3>${stats.info}</h3>
-            <p>Informational</p>
-        </div>
-        <div class="stat-card">
-            <h3>${total}</h3>
-            <p>Total Alerts</p>
-        </div>
-    </div>`;
 }
 
 /**
@@ -515,7 +507,7 @@ export async function generateGitHubPagesOutput(feedEntries) {
     console.log(`✅ GitHub Pages HTML generated: ${OUTPUT_FILE}`);
     console.log(`📊 Generated ${sortedEntries.length} threat intelligence entries`);
     
-    // Log statistics
+    // Log simplified statistics
     const stats = {
       critical: sortedEntries.filter(e => e.severity?.level === 'CRITICAL').length,
       high: sortedEntries.filter(e => e.severity?.level === 'HIGH').length,
@@ -530,13 +522,3 @@ export async function generateGitHubPagesOutput(feedEntries) {
     throw error;
   }
 }
-
-/**
- * Output manager interface for compatibility
- */
-export const GitHubPagesOutput = {
-  name: 'GitHubPages',
-  generateOutput: generateGitHubPagesOutput
-};
-
-export default GitHubPagesOutput;
