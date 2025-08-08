@@ -3,5 +3,5 @@
   "Microsoft-MSRC": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-8583",
   "NIST-Cybersecurity": "https://www.nist.gov/blogs/cybersecurity-insights/lets-get-digital-updated-digital-identity-guidelines-are-here",
   "CISA-Alerts": "https://www.cisa.gov/news-events/news/cisa-issues-emergency-directive-requiring-federal-agencies-update-systems-prevent-microsoft-exchange",
-  "CISecurity-Advisories": "https://www.cisecurity.org/advisory/a-vulnerability-in-sonicwall-sonicos-management-access-and-sslvpn-could-allow-for-unauthorized-access_2024-097"
+  "CISecurity-Advisories": "https://www.cisecurity.org/advisory/multiple-vulnerabilities-in-apple-products-could-allow-for-arbitrary-code-execution_2025-069"
 }
