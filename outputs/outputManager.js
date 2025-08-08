@@ -26,18 +26,62 @@ const OUTPUT_CONFIG = {
 let accumulatedEntries = [];
 
 /**
+ * Sanitize and validate entry data to prevent formatting bugs
+ * @param {Object} entry - Raw entry data
+ * @returns {Object|null} - Sanitized entry or null if invalid
+ */
+function sanitizeEntry(entry) {
+  if (!entry || typeof entry !== 'object') {
+    console.warn('⚠️  Invalid entry: not an object');
+    return null;
+  }
+
+  // Ensure all required fields exist and are strings
+  const sanitized = {
+    feedName: String(entry.feedName || entry.source || 'Unknown Source'),
+    title: String(entry.title || 'No Title Available'),
+    url: String(entry.url || entry.link || '#'),
+    description: String(entry.description || entry.summary || ''),
+    publishedDate: String(entry.publishedDate || new Date().toISOString()),
+    category: String(entry.category || 'general'),
+    region: String(entry.region || 'unknown'),
+    priority: String(entry.priority || 'medium'),
+    parser: String(entry.parser || 'defaultParser')
+  };
+
+  // Validate URL format
+  if (sanitized.url && sanitized.url !== '#') {
+    try {
+      new URL(sanitized.url);
+    } catch (error) {
+      console.warn(`⚠️  Invalid URL for entry "${sanitized.title}": ${sanitized.url}`);
+      sanitized.url = '#';
+    }
+  }
+
+  // Validate title is meaningful
+  if (!sanitized.title || sanitized.title === 'No Title' || sanitized.title.length < 3) {
+    console.warn(`⚠️  Entry has inadequate title: "${sanitized.title}"`);
+    sanitized.title = `Alert from ${sanitized.feedName}`;
+  }
+
+  return sanitized;
+}
+
+/**
  * Add entry to accumulated entries for batch output generation
  * @param {Object} entry - Threat intelligence entry
  */
 export function addEntry(entry) {
-  if (!entry || typeof entry !== 'object') {
-    console.warn('⚠️  Invalid entry provided to output manager');
+  const sanitized = sanitizeEntry(entry);
+  if (!sanitized) {
+    console.warn('⚠️  Skipping invalid entry');
     return;
   }
   
   accumulatedEntries.push({
     timestamp: new Date().toISOString(),
-    ...entry
+    ...sanitized
   });
 }
 
@@ -51,32 +95,38 @@ export async function sendToTeams(entry, isDryRun = false) {
     console.log('⏸️  Teams output disabled (no webhook URL configured)');
     return null;
   }
+
+  const sanitized = sanitizeEntry(entry);
+  if (!sanitized) {
+    console.error('❌ Cannot send invalid entry to Teams');
+    return { success: false, error: 'Invalid entry data' };
+  }
   
   try {
     if (isDryRun) {
-      console.log('🔍 DRY-RUN: Would send to Teams:', entry.title);
+      console.log('🔍 DRY-RUN: Would send to Teams:', sanitized.title);
       return { success: true, mode: 'dry-run' };
     }
     
-    console.log(`📨 Sending to ${OUTPUT_CONFIG.teams.name}: ${entry.title}`);
+    console.log(`📨 Sending to ${OUTPUT_CONFIG.teams.name}: ${sanitized.title}`);
     
-    // FIXED: Pass individual parameters instead of entire entry object
+    // Pass individual parameters with proper sanitization
     const result = await postToTeams(
-      entry.feedName || 'Unknown Source',
-      entry.title || 'No Title',
-      entry.url || '#',
-      entry.description || '',
-      entry.publishedDate || '',
+      sanitized.feedName,
+      sanitized.title,
+      sanitized.url,
+      sanitized.description,
+      sanitized.publishedDate,
       {
-        category: entry.category,
-        region: entry.region,
-        priority: entry.priority,
-        parser: entry.parser
+        category: sanitized.category,
+        region: sanitized.region,
+        priority: sanitized.priority,
+        parser: sanitized.parser
       }
     );
     
     console.log('✅ Successfully sent to Teams');
-    return result;
+    return { success: true, result };
     
   } catch (error) {
     console.error(`❌ Failed to send to ${OUTPUT_CONFIG.teams.name}:`, error.message);

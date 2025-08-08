@@ -1,0 +1,85 @@
+[
+  {
+    "name": "NSM-NCSC",
+    "url": "https://nsm.no/fagomrader/digital-sikkerhet/nasjonalt-cybersikkerhetssenter/varsler-fra-ncsc/rss/",
+    "category": "national",
+    "region": "norway",
+    "priority": "high",
+    "enabled": true,
+    "description": "Norwegian National Security Authority cybersecurity alerts",
+    "filters": {
+      "requiredKeywords": ["security", "vulnerability", "alert", "advisory"],
+      "blockedKeywords": ["training", "webinar", "conference"],
+      "minimumSeverity": "medium",
+      "threatTypes": ["vulnerability", "malware", "apt", "data_breach"],
+      "maxAge": 7
+    }
+  },
+  {
+    "name": "Microsoft-MSRC",
+    "url": "https://api.msrc.microsoft.com/update-guide/rss",
+    "category": "vendor",
+    "region": "global",
+    "priority": "high", 
+    "enabled": true,
+    "description": "Microsoft Security Response Center vulnerability updates",
+    "filters": {
+      "requiredKeywords": ["vulnerability", "security update", "patch"],
+      "blockedKeywords": ["preview", "beta"],
+      "minimumSeverity": "high",
+      "threatTypes": ["vulnerability"],
+      "priorityKeywords": ["zero-day", "critical", "exploit", "rce", "remote code execution"],
+      "maxAge": 14
+    }
+  },
+  {
+    "name": "NIST-Cybersecurity",
+    "url": "https://www.nist.gov/blogs/cybersecurity-insights/rss.xml",
+    "category": "government",
+    "region": "usa",
+    "priority": "medium",
+    "enabled": true,
+    "description": "US National Institute of Standards cybersecurity insights",
+    "filters": {
+      "requiredKeywords": ["cybersecurity", "security", "risk"],
+      "blockedKeywords": ["event", "meeting"],
+      "minimumSeverity": "info",
+      "threatTypes": ["vulnerability", "general"],
+      "maxAge": 30
+    }
+  },
+  {
+    "name": "CISA-Alerts",
+    "url": "https://www.cisa.gov/news.xml",
+    "category": "government",
+    "region": "usa", 
+    "priority": "high",
+    "enabled": true,
+    "description": "US Cybersecurity and Infrastructure Security Agency alerts and advisories",
+    "filters": {
+      "requiredKeywords": ["alert", "advisory", "vulnerability", "threat"],
+      "blockedKeywords": ["event", "training"],
+      "minimumSeverity": "medium",
+      "threatTypes": ["vulnerability", "malware", "apt", "data_breach"],
+      "priorityKeywords": ["critical", "zero-day", "exploit", "emergency"],
+      "maxAge": 7
+    }
+  },
+  {
+    "name": "CISecurity-Advisories",
+    "url": "https://www.cisecurity.org/feed/advisories",
+    "category": "vendor",
+    "region": "global",
+    "priority": "medium",
+    "enabled": true,
+    "description": "CIS Security advisories feed",
+    "parser": "defaultParser",
+    "filters": {
+      "requiredKeywords": ["advisory", "vulnerability", "security"],
+      "blockedKeywords": ["benchmark"],
+      "minimumSeverity": "medium",
+      "threatTypes": ["vulnerability", "malware"],
+      "maxAge": 14
+    }
+  }
+]

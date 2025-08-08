@@ -293,11 +293,298 @@ ${cleanDescription(description, 200)}
 Read more: ${link}`;
 }
 
+/**
+ * Helper functions for enhanced Teams adaptive cards
+ */
+
+/**
+ * Get severity color for Teams cards
+ */
+export function getSeverityColor(severity) {
+  const colors = {
+    critical: 'attention',
+    high: 'warning', 
+    medium: 'good',
+    low: 'accent',
+    info: 'default'
+  };
+  return colors[severity] || 'default';
+}
+
+/**
+ * Get severity emoji
+ */
+export function getSeverityEmoji(severity) {
+  const emojis = {
+    critical: '🚨',
+    high: '⚠️',
+    medium: '📋',
+    low: 'ℹ️',
+    info: 'ℹ️'
+  };
+  return emojis[severity] || 'ℹ️';
+}
+
+/**
+ * Get threat type emoji
+ */
+export function getThreatTypeEmoji(threatType) {
+  const emojis = {
+    vulnerability: '🔓',
+    malware: '🦠',
+    apt: '🎯',
+    data_breach: '💾',
+    phishing: '🎣',
+    ddos: '⚡',
+    insider_threat: '👤',
+    supply_chain: '🔗',
+    general: '📄'
+  };
+  return emojis[threatType] || '📄';
+}
+
+/**
+ * Get severity icon URL for Teams cards
+ */
+export function getSeverityIcon(severity) {
+  // Using standard iconify icons that work in Teams
+  const icons = {
+    critical: 'https://img.icons8.com/color/48/000000/error.png',
+    high: 'https://img.icons8.com/color/48/000000/warning-shield.png',
+    medium: 'https://img.icons8.com/color/48/000000/security-checked.png',
+    low: 'https://img.icons8.com/color/48/000000/info.png',
+    info: 'https://img.icons8.com/color/48/000000/info.png'
+  };
+  return icons[severity] || icons.info;
+}
+
+/**
+ * Classify threat severity (simplified for consistency)
+ */
+export function classifyThreatSeverity(title, description) {
+  const content = `${title} ${description || ''}`.toLowerCase();
+  
+  if (['critical', 'zero-day', 'rce', 'remote code execution', 'emergency'].some(k => content.includes(k))) {
+    return 'critical';
+  }
+  if (['high', 'exploit', 'vulnerability', 'cve-', 'security update'].some(k => content.includes(k))) {
+    return 'high';
+  }
+  if (['medium', 'advisory', 'patch'].some(k => content.includes(k))) {
+    return 'medium';
+  }
+  if (['low', 'informational'].some(k => content.includes(k))) {
+    return 'low';
+  }
+  return 'info';
+}
+
+/**
+ * Generate enhanced Teams adaptive card for a feed entry
+ * @param {Object} entry - Feed entry object
+ * @param {string} feedName - Name of the feed
+ * @returns {Object} Teams adaptive card
+ */
+export function formatTeamsMessage(entry, feedName) {
+  const severity = entry.classification?.severity || classifyThreatSeverity(entry.title, entry.description);
+  const threatType = entry.classification?.threatType || classifyThreatType(entry.title, entry.description).category.toLowerCase().replace(' ', '_');
+  const indicators = entry.classification?.indicators || {};
+  
+  const severityColor = getSeverityColor(severity);
+  const severityEmoji = getSeverityEmoji(severity);
+  const threatEmoji = getThreatTypeEmoji(threatType);
+  const severityIcon = getSeverityIcon(severity);
+
+  // Build facts array
+  const facts = [
+    {
+      title: "Published",
+      value: formatDate(entry.publishedDate)
+    },
+    {
+      title: "Source",
+      value: feedName
+    },
+    {
+      title: "Threat Type",
+      value: threatType.replace('_', ' ').toUpperCase()
+    },
+    {
+      title: "Severity",
+      value: severity.toUpperCase()
+    }
+  ];
+
+  // Add confidence if available
+  if (entry.classification?.confidence) {
+    facts.push({
+      title: "Confidence",
+      value: `${entry.classification.confidence}%`
+    });
+  }
+
+  // Add CVE if available
+  if (indicators.cves && indicators.cves.length > 0) {
+    facts.push({
+      title: "CVE IDs",
+      value: indicators.cves.slice(0, 3).join(', ')
+    });
+  }
+
+  // Build actions array
+  const actions = [
+    {
+      type: "Action.OpenUrl",
+      title: "📖 Read Article",
+      url: entry.link
+    }
+  ];
+
+  // Add quick action buttons based on threat type and severity
+  if (severity === 'critical' || severity === 'high') {
+    actions.push({
+      type: "Action.Submit",
+      title: "🚨 Alert Team",
+      data: {
+        action: "alert_team",
+        entryId: entry.id || entry.link,
+        severity: severity,
+        threatType: threatType
+      }
+    });
+  }
+
+  // Add search actions for indicators
+  if (indicators.cves && indicators.cves.length > 0) {
+    actions.push({
+      type: "Action.OpenUrl",
+      title: "🔍 Search CVE",
+      url: `https://nvd.nist.gov/vuln/search/results?form_type=Basic&results_type=overview&query=${indicators.cves[0]}`
+    });
+  }
+
+  if (indicators.ips && indicators.ips.length > 0) {
+    actions.push({
+      type: "Action.OpenUrl", 
+      title: "🌐 Check IP",
+      url: `https://www.virustotal.com/gui/ip-address/${indicators.ips[0]}`
+    });
+  }
+
+  if (indicators.domains && indicators.domains.length > 0) {
+    actions.push({
+      type: "Action.OpenUrl",
+      title: "🔗 Check Domain", 
+      url: `https://www.virustotal.com/gui/domain/${indicators.domains[0]}`
+    });
+  }
+
+  // Add bookmark action
+  actions.push({
+    type: "Action.Submit",
+    title: "🔖 Bookmark",
+    data: {
+      action: "bookmark",
+      entryId: entry.id || entry.link,
+      title: entry.title
+    }
+  });
+
+  return {
+    type: "message",
+    attachments: [
+      {
+        contentType: "application/vnd.microsoft.card.adaptive",
+        content: {
+          type: "AdaptiveCard",
+          version: "1.4",
+          body: [
+            {
+              type: "Container",
+              style: "emphasis",
+              items: [
+                {
+                  type: "ColumnSet",
+                  columns: [
+                    {
+                      type: "Column",
+                      width: "auto",
+                      items: [
+                        {
+                          type: "Image",
+                          url: severityIcon,
+                          size: "Small",
+                          style: "Default"
+                        }
+                      ]
+                    },
+                    {
+                      type: "Column",
+                      width: "auto", 
+                      items: [
+                        {
+                          type: "TextBlock",
+                          text: `${threatEmoji} ${severityEmoji}`,
+                          size: "Large",
+                          spacing: "None"
+                        }
+                      ]
+                    },
+                    {
+                      type: "Column",
+                      width: "stretch",
+                      items: [
+                        {
+                          type: "TextBlock",
+                          text: entry.title,
+                          weight: "Bolder",
+                          wrap: true,
+                          size: "Medium"
+                        },
+                        {
+                          type: "TextBlock",
+                          text: `**${severity.toUpperCase()}** | ${threatType.replace('_', ' ')} | ${feedName}`,
+                          color: severityColor,
+                          weight: "Bolder",
+                          size: "Small"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              type: "TextBlock",
+              text: entry.description || "No description available",
+              wrap: true,
+              spacing: "Medium",
+              maxLines: 3
+            },
+            {
+              type: "FactSet",
+              facts: facts,
+              spacing: "Medium"
+            }
+          ],
+          actions: actions.slice(0, 6) // Limit to 6 actions per Teams constraints
+        }
+      }
+    ]
+  };
+}
+
 export default {
   formatMessage,
   formatSimpleMessage,
+  formatTeamsMessage,
   detectSeverity,
   classifyThreatType,
+  classifyThreatSeverity,
   cleanDescription,
-  formatDate
+  formatDate,
+  getSeverityColor,
+  getSeverityEmoji,
+  getThreatTypeEmoji,
+  getSeverityIcon
 };
