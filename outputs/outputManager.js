@@ -59,7 +59,22 @@ export async function sendToTeams(entry, isDryRun = false) {
     }
     
     console.log(`📨 Sending to ${OUTPUT_CONFIG.teams.name}: ${entry.title}`);
-    const result = await postToTeams(entry);
+    
+    // FIXED: Pass individual parameters instead of entire entry object
+    const result = await postToTeams(
+      entry.feedName || 'Unknown Source',
+      entry.title || 'No Title',
+      entry.url || '#',
+      entry.description || '',
+      entry.publishedDate || '',
+      {
+        category: entry.category,
+        region: entry.region,
+        priority: entry.priority,
+        parser: entry.parser
+      }
+    );
+    
     console.log('✅ Successfully sent to Teams');
     return result;
     
