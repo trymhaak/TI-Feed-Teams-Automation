@@ -3,6 +3,9 @@ name: Run Threat Feed (Reusable)
 on:
   workflow_call:
     inputs:
+      environment:
+        required: true
+        type: string
       enablePages:
         required: false
         type: boolean
@@ -10,11 +13,14 @@ on:
     secrets:
       TEAMS_WEBHOOK_URL:
         required: true
+      PERSONAL_ACCESS_TOKEN:
+        required: false
 
 jobs:
   run:
     runs-on: ubuntu-latest
     timeout-minutes: 10
+    environment: ${{ inputs.environment }}
     env:
       TEAMS_WEBHOOK_URL: ${{ secrets.TEAMS_WEBHOOK_URL }}
     steps:
