@@ -4,7 +4,7 @@ A professional, modular threat intelligence RSS feed collector that posts enhanc
 
 ## Overview
 
-This bot automatically monitors multiple threat intelligence RSS feeds and posts classified security alerts to Microsoft Teams. Built with a clean, modular architecture, it features intelligent threat classification, severity detection, modular feed parsers, and comprehensive validation. The bot runs every 30 minutes via GitHub Actions with robust state tracking to prevent duplicate postings.
+This bot automatically monitors multiple threat intelligence RSS feeds and posts classified security alerts to Microsoft Teams. Built with a clean, modular architecture, it features intelligent threat classification, severity detection, modular feed parsers, and comprehensive validation. The bot runs on a 5-minute schedule in production (GitHub Actions) with robust state tracking to prevent duplicates and logic to handle API rate-limits.
 
 ## Features
 
@@ -88,7 +88,13 @@ In your GitHub repository, go to Settings → Secrets and variables → Actions,
 
 ### 5. Enable GitHub Actions
 
-The workflow will automatically start running every 30 minutes. You can also trigger it manually from the Actions tab.
+There are three workflows:
+
+- CI (`.github/workflows/ci.yml`): runs tests on PRs and non-main pushes.
+- Staging (`.github/workflows/staging.yml`): manual/scheduled runs using staging secrets.
+- Production (`.github/workflows/production.yml`): scheduled every 5 minutes, cancel-in-progress enabled.
+
+All share `.github/workflows/run-feed-reusable.yml` for consistency.
 
 ## Output Channels
 
@@ -319,13 +325,13 @@ npm run generate-html
 
 ### Processing Pipeline
 1. **Configuration Validation**: Validates `data/feeds.json` structure and content
-2. **Parser Loading**: Dynamically loads appropriate parser for each feed
-3. **RSS Parsing**: Fetches and normalizes RSS feed content
-4. **Content Filtering**: Filters for relevant threat intelligence content
+2. **Parser Loading**: Dynamically loads appropriate parser for each feed (default parser plus future per-source adapters)
+3. **RSS Parsing**: Fetches and normalizes RSS feed content (with `FETCH_TIMEOUT_MS`)
+4. **Content Filtering**: Relevance-first filtering: requires at least one relevant keyword; items are not dropped solely for blocked keywords if relevant
 5. **Threat Classification**: Automatically detects severity and threat type
 6. **State Comparison**: Compares against `data/state.json` to identify new items
 7. **Message Formatting**: Creates standardized Teams adaptive cards
-8. **Teams Posting**: Sends formatted alerts to Teams via webhook
+8. **Teams Posting**: Sends formatted alerts to Teams via webhook with exponential backoff, Retry-After support, and `POST_TIMEOUT_MS`
 9. **State Updates**: Updates state file with latest processed items
 
 ### Intelligence Processing
@@ -449,7 +455,7 @@ export function formatMessage(options) {
 - Review formatter test cases for expected behavior
 
 **Duplicate or missing messages:**
-- Check if `data/state.json` is being updated correctly
+- Check if `data/state.json` is being updated correctly. The enhanced state uses a `seen` map; the system migrates from legacy last-URL map automatically.
 - Verify state file is committed to repository
 - Review feed item URL uniqueness and consistency
 
@@ -466,6 +472,16 @@ export function formatMessage(options) {
 - Review local console output for detailed processing information
 - Monitor Teams channel for message delivery
 - Check `data/state.json` updates for processing progress
+
+### Environment Variables
+
+- Local development uses `.env` (see `.env.example` for keys). Do NOT commit real secrets.
+- Production/staging use GitHub Actions secrets. The webhook URL is redacted in logs.
+
+Key envs:
+- `TEAMS_WEBHOOK_URL` (secret in Actions)
+- `FETCH_TIMEOUT_MS`, `POST_TIMEOUT_MS`
+- `PER_RUN_POST_CAP`, `POST_DELAY_MS`, `TEAMS_MAX_RETRIES`
 
 ## Security Considerations
 
