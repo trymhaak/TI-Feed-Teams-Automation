@@ -11,6 +11,7 @@ concurrency:
 
 jobs:
   run:
+    environment: staging
     uses: ./.github/workflows/run-feed-reusable.yml
     with:
       enablePages: false
