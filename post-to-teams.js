@@ -1,5 +1,5 @@
 import fetch from 'node-fetch';
-import { formatMessage } from './utils/formatter.js';
+import { buildAdaptiveCard } from './utils/teamsCard.js';
 
 // Re-export formatter functions for backward compatibility and testing
 export { detectSeverity, classifyThreatType } from './utils/formatter.js';
@@ -69,15 +69,8 @@ export async function postToTeams(source, title, link, description = '', publish
   }
 
   try {
-    const { payload, metadata } = formatMessage({
-      source,
-      title,
-      link,
-      description,
-      publishedDate,
-      feedMetadata
-    });
-    console.log(`📝 Formatted message: ${metadata.severity.level} ${metadata.threatType.category} (${metadata.messageLength} chars)`);
+    const payload = buildAdaptiveCard({ source, title, link, description, publishedDate });
+    console.log(`📝 Formatted Teams card (AdaptiveCard v1.5): ${title}`);
 
     // Rate limit/backoff with Retry-After support
     const maxRetries = Number(process.env.TEAMS_MAX_RETRIES || 5);

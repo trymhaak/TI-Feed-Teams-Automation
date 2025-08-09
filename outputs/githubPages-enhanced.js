@@ -40,6 +40,20 @@ export class GitHubPagesOutput {
       
       // Write HTML file
       await fs.writeFile(this.outputPath, html, 'utf-8');
+
+      // Also emit feed.json for client-side rendering
+      const feedJson = sortedEntries.map(e => ({
+        title: e.title || '',
+        link: e.link || '#',
+        source: e.source || '',
+        published: e.publishedDate || '',
+        category: (e.classification?.threatType) || this.classifyThreatType(e.title, e.description),
+        severity: (e.classification?.severity) || this.classifySeverity(e.title, e.description),
+        threatType: (e.classification?.threatType) || this.classifyThreatType(e.title, e.description),
+        summary: this.cleanDescription(e.description || '', 300)
+      }));
+      const feedPath = path.join(path.dirname(this.outputPath), 'feed.json');
+      await fs.writeFile(feedPath, JSON.stringify(feedJson, null, 2), 'utf-8');
       
       console.log(`✅ GitHub Pages feed generated: ${this.outputPath} (${sortedEntries.length} entries)`);
       return { success: true, entriesCount: sortedEntries.length, outputPath: this.outputPath };

@@ -6,6 +6,7 @@
  */
 
 import { testPostToTeams, testTeamsIntegration } from './post-to-teams.test.js';
+import { testTeamsCardSnapshots } from './teamsCard.test.js';
 import { testContentFiltering, testFeedConfiguration, testStateManagement } from './fetch-and-post.test.js';
 import { logSection } from './test-utils.js';
 
@@ -26,6 +27,7 @@ async function runAllTests() {
         results.push(await testFeedConfiguration());
         results.push(await testStateManagement());
         results.push(await testTeamsIntegration(testMode === 'LIVE'));
+        results.push(await testTeamsCardSnapshots());
         
         const passed = results.filter(r => r).length;
         const total = results.length;
