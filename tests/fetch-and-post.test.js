@@ -65,20 +65,30 @@ export async function testStateManagement() {
         const feedsData = JSON.parse(await fs.readFile('./data/feeds.json', 'utf8'));
         
         const enabledFeeds = feedsData.filter(feed => feed.enabled);
-        const stateFeeds = Object.keys(stateData);
-        
-        console.log(`📊 State tracking: ${stateFeeds.length} feeds in state`);
-        console.log(`📊 Active feeds: ${enabledFeeds.length} enabled feeds\n`);
-        
-        let validState = true;
-        for (const feed of enabledFeeds) {
-            const hasState = stateData[feed.name] !== undefined;
-            logTest(`State for ${feed.name}`, hasState, hasState ? `URL: ${stateData[feed.name].substring(0, 50)}...` : 'Missing');
-            if (!hasState) validState = false;
+        const isEnhanced = stateData && typeof stateData === 'object' && stateData.seen;
+
+        if (isEnhanced) {
+            const seenCount = Object.keys(stateData.seen || {}).length;
+            console.log(`📊 State tracking (enhanced seen-map): ${seenCount} entries tracked`);
+            console.log(`📊 Active feeds: ${enabledFeeds.length} enabled feeds\n`);
+            const valid = typeof stateData.version === 'string';
+            logTest('State Management', valid, valid ? 'Enhanced state present' : 'Enhanced state missing version');
+            return valid;
+        } else {
+            const stateFeeds = Object.keys(stateData || {});
+            console.log(`📊 State tracking: ${stateFeeds.length} feeds in state`);
+            console.log(`📊 Active feeds: ${enabledFeeds.length} enabled feeds\n`);
+            let validState = true;
+            for (const feed of enabledFeeds) {
+                const val = stateData[feed.name];
+                const hasState = val !== undefined;
+                const preview = val ? String(val).substring(0, 50) : '';
+                logTest(`State for ${feed.name}`, hasState, hasState ? `URL: ${preview}...` : 'Missing');
+                if (!hasState) validState = false;
+            }
+            logTest('State Management', validState, 'All active feeds have state tracking');
+            return validState;
         }
-        
-        logTest('State Management', validState, 'All active feeds have state tracking');
-        return validState;
         
     } catch (error) {
         logTest('State Management', false, `Error reading state files: ${error.message}`);
