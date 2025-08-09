@@ -29,6 +29,8 @@ jobs:
         run: npm ci
 
       - name: Validate configuration
+        env:
+          TEAMS_WEBHOOK_URL: ${{ secrets.TEAMS_WEBHOOK_URL }}
         run: node scripts/validate-config.js
 
       - name: Run feed
