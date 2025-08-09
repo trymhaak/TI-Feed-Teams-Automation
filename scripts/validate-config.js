@@ -334,12 +334,12 @@ class ConfigValidator {
     console.log('🔧 Validating custom modules...');
 
     const modules = [
-      { path: './utils/formatter.js', name: 'Formatter' },
-      { path: './utils/validator.js', name: 'Validator' },
-      { path: './outputs/outputManager.js', name: 'Output Manager' },
-      { path: './utils/stateManager.js', name: 'State Manager' },
-      { path: './utils/threatFilter.js', name: 'Threat Filter' },
-      { path: './utils/healthMonitor.js', name: 'Health Monitor' }
+      { path: '../utils/formatter.js', name: 'Formatter' },
+      { path: '../utils/validator.js', name: 'Validator' },
+      { path: '../outputs/outputManager.js', name: 'Output Manager' },
+      { path: '../utils/stateManager.js', name: 'State Manager' },
+      { path: '../utils/threatFilter.js', name: 'Threat Filter' },
+      { path: '../utils/healthMonitor.js', name: 'Health Monitor' }
     ];
 
     for (const module of modules) {
