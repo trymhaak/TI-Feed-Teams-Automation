@@ -2,8 +2,9 @@
 node_modules/
 npm-debug.log*
 
-# Environment variables  
-.env*
+# Environment variables
+.env
+!.env.example
 
 # IDE & Editor files
 .vscode/
