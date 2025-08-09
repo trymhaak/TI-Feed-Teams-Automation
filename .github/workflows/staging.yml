@@ -16,5 +16,6 @@ jobs:
     with:
       enablePages: false
       # Optional: expose dry_run input if present in reusable workflow in the future
-    secrets: inherit
+    secrets:
+      TEAMS_WEBHOOK_URL: ${{ secrets.TEAMS_WEBHOOK_URL_STAGING }}
 
