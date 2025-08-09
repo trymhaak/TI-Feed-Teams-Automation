@@ -1,4 +1,5 @@
 import { DefaultParser } from '../parsers/defaultParser.js';
+import { normalizeEntryByFeed } from '../parsers/adapters/index.js';
 
 /**
  * Basic feed processor used by the enhanced pipeline.
@@ -12,9 +13,11 @@ export class FeedProcessor {
 
   async processFeed(feed) {
     const parsed = await this.parser.parseURL(feed.url);
+    const items = parsed.items || [];
+    const normalized = items.map(e => normalizeEntryByFeed(e, feed));
     return {
-      entries: parsed.items || [],
-      newEntries: parsed.items || []
+      entries: normalized,
+      newEntries: normalized
     };
   }
 }
