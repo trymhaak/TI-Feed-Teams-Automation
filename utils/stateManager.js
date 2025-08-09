@@ -1,5 +1,6 @@
 import fs from 'fs/promises';
 import path from 'path';
+import os from 'os';
 
 /**
  * Enhanced state management with file locking and backup/recovery
@@ -23,7 +24,7 @@ export class StateManager {
     const lockData = {
       pid: process.pid,
       timestamp: Date.now(),
-      hostname: require('os').hostname()
+      hostname: os.hostname()
     };
 
     for (let attempt = 0; attempt < this.maxRetries; attempt++) {
@@ -81,7 +82,7 @@ export class StateManager {
       }
 
       // Check if process is still running (if on same machine)
-      if (lockData.hostname === require('os').hostname()) {
+      if (lockData.hostname === os.hostname()) {
         try {
           process.kill(lockData.pid, 0); // Check if process exists
           return true;
