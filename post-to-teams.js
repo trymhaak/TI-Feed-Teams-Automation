@@ -69,7 +69,6 @@ export async function postToTeams(source, title, link, description = '', publish
   }
 
   try {
-    // Use the new formatter to create the message
     const { payload, metadata } = formatMessage({
       source,
       title,
@@ -78,28 +77,53 @@ export async function postToTeams(source, title, link, description = '', publish
       publishedDate,
       feedMetadata
     });
-
     console.log(`📝 Formatted message: ${metadata.severity.level} ${metadata.threatType.category} (${metadata.messageLength} chars)`);
 
-    const response = await fetch(webhookUrl, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(payload)
-    });
+    // Rate limit/backoff with Retry-After support
+    const maxRetries = Number(process.env.TEAMS_MAX_RETRIES || 5);
+    let attempt = 0;
+    let delayMs = 1000;
 
-    if (response.ok) {
-      console.log(`✅ Successfully posted to Teams: ${title}`);
-      return true;
-    } else {
-      console.error(`❌ Failed to post to Teams. Status: ${response.status}, Status Text: ${response.statusText}`);
+    const postTimeoutMs = Number(process.env.POST_TIMEOUT_MS || 5000);
+    while (attempt <= maxRetries) {
+      const controller = new AbortController();
+      const timer = setTimeout(() => controller.abort(), postTimeoutMs);
+      const response = await fetch(webhookUrl, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+        signal: controller.signal
+      });
+      clearTimeout(timer);
+
+      if (response.ok) {
+        console.log(`✅ Successfully posted to Teams: ${title}`);
+        return true;
+      }
+
+      // Handle 429 with Retry-After header
+      if (response.status === 429 && attempt < maxRetries) {
+        const retryAfter = response.headers.get('Retry-After');
+        const retryMs = retryAfter ? Number(retryAfter) * 1000 : delayMs;
+        console.warn(`⚠️  429 Too Many Requests. Retrying in ${Math.round(retryMs)}ms (attempt ${attempt + 1}/${maxRetries})`);
+        await new Promise(r => setTimeout(r, retryMs));
+        attempt++;
+        delayMs = Math.min(delayMs * 2, 30000);
+        continue;
+      }
+
+      // Other failures
       const responseText = await response.text();
-      console.error(`Response: ${responseText}`);
+      console.error(`❌ Failed to post to Teams. Status: ${response.status} ${response.statusText}. Response: ${responseText}`);
       return false;
     }
+
+    console.error(`❌ Exhausted retries posting to Teams: ${title}`);
+    return false;
   } catch (error) {
-    console.error(`❌ Error posting to Teams: ${error.message}`);
+    // Redact webhook URL if it appears in error messages
+    const redacted = (error && error.message || '').replaceAll(webhookUrl || '', '[REDACTED_URL]');
+    console.error(`❌ Error posting to Teams: ${redacted}`);
     return false;
   }
 }

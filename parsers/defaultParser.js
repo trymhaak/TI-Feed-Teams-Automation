@@ -1,4 +1,5 @@
 import Parser from 'rss-parser';
+import fetch from 'node-fetch';
 
 /**
  * Default RSS parser implementation
@@ -17,7 +18,16 @@ export class DefaultParser {
    */
   async parseURL(url) {
     try {
-      const feed = await this.parser.parseURL(url);
+      // Add timeout support using AbortController
+      const controller = new AbortController();
+      const timeoutMs = Number(process.env.FETCH_TIMEOUT_MS || 5000);
+      const timer = setTimeout(() => controller.abort(), timeoutMs);
+
+      const response = await fetch(url, { signal: controller.signal });
+      clearTimeout(timer);
+      if (!response.ok) throw new Error(`HTTP ${response.status}`);
+      const text = await response.text();
+      const feed = await this.parser.parseString(text);
       return {
         title: feed.title,
         description: feed.description,

@@ -11,6 +11,12 @@ export class ThreatFilter {
       priorityBoosts: config.priorityBoosts || {},
       ...config
     };
+
+    // Baseline relevant keywords used when no requiredKeywords are defined
+    this.relevantKeywords = [
+      'security','vulnerability','threat','malware','exploit','patch','update','advisory','alert',
+      'breach','attack','cve-','cybersecurity','cyber','risk','incident','ransomware','phishing','apt'
+    ];
   }
 
   /**
@@ -32,13 +38,21 @@ export class ThreatFilter {
         return null;
       }
 
-      // Skip if blocked keywords found
-      if (this.hasBlockedKeywords(entry, filters.blockedKeywords)) {
+      // Determine relevance: must have at least one relevant keyword overall (requiredKeywords or baseline)
+      const hasRequired = this.hasRequiredKeywords(entry, filters.requiredKeywords);
+      const hasBaselineRelevant = this.hasRequiredKeywords(entry, this.relevantKeywords);
+      const isRelevant = hasRequired || hasBaselineRelevant;
+
+      // If irrelevant, drop early
+      if (!isRelevant) {
+        console.warn(`🔍 Filtered (irrelevant): ${entry.source || 'unknown'} :: ${entry.title || ''}`);
         return null;
       }
 
-      // Skip if required keywords missing
-      if (!this.hasRequiredKeywords(entry, filters.requiredKeywords)) {
+      // If blocked keywords present but item is also relevant, do NOT drop solely due to blocked keywords
+      // Only drop blocked if not relevant (handled above)
+      if (!isRelevant && this.hasBlockedKeywords(entry, filters.blockedKeywords)) {
+        console.warn(`🔍 Filtered (blocked keywords): ${entry.source || 'unknown'} :: ${entry.title || ''}`);
         return null;
       }
 
@@ -52,6 +66,7 @@ export class ThreatFilter {
 
       // Skip if severity below minimum
       if (!this.meetsSeverityRequirement(classification.severity, filters.minimumSeverity)) {
+        console.warn(`🔍 Filtered (below min severity ${filters.minimumSeverity}): ${entry.source || 'unknown'} :: ${entry.title || ''}`);
         return null;
       }
 

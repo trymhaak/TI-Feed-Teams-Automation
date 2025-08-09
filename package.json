@@ -5,7 +5,7 @@
   "type": "module",
   "main": "fetch-and-post.js",
   "scripts": {
-    "start": "node fetch-and-post.js",
+    "start": "node fetch-and-post-enhanced.js",
     "start:enhanced": "node fetch-and-post-enhanced.js",
     "dry-run": "node fetch-and-post-enhanced.js --dry-run",
     "dry-run:save": "LOG_TO_FILE=true node fetch-and-post-enhanced.js --dry-run",

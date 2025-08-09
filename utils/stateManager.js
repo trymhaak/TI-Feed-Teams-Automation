@@ -172,6 +172,27 @@ export class StateManager {
     try {
       const data = await fs.readFile(filePath, 'utf-8');
       const state = JSON.parse(data);
+      // Legacy migration: if file is a map of feedName -> lastUrl (strings) without 'seen'
+      if (state && typeof state === 'object' && !state.seen) {
+        const keys = Object.keys(state);
+        const looksLegacy = keys.length > 0 && keys.every(k => typeof state[k] === 'string');
+        if (looksLegacy) {
+          const migrated = {
+            seen: {},
+            lastRun: null,
+            feedStats: {},
+            filterStats: {},
+            version: '2.0'
+          };
+          const nowIso = new Date().toISOString();
+          for (const [feedName, url] of Object.entries(state)) {
+            if (typeof url === 'string' && url) {
+              migrated.seen[url] = { timestamp: nowIso, source: feedName, title: '' };
+            }
+          }
+          return migrated;
+        }
+      }
       
       // Check if state is corrupted (basic validation)
       if (typeof state !== 'object' || state === null) {

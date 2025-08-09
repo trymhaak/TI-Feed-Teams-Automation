@@ -6,6 +6,7 @@
 import fs from 'fs/promises';
 import path from 'path';
 import { detectSeverity, classifyThreatType } from '../utils/formatter.js';
+import GitHubPagesOutputEnhanced from './githubPages-enhanced.js';
 
 const OUTPUT_FILE = 'docs/index.html';
 
@@ -439,3 +440,23 @@ export async function generateGitHubPagesOutput(feedEntries) {
     throw error;
   }
 }
+
+// Compatibility: some tests expect a class exported from this module.
+// Wrapper class expected by tests: name should be 'GitHubPages' and expose generateOutput()
+export class GitHubPages {
+  constructor(config = {}) {
+    this.impl = new GitHubPagesOutputEnhanced(config);
+  }
+  async generateOutput(entries, metadata = {}) {
+    return this.impl.generateFeed(entries, metadata);
+  }
+  static async generateOutput(entries, metadata = {}) {
+    const impl = new GitHubPagesOutputEnhanced();
+    return impl.generateFeed(entries, metadata);
+  }
+}
+
+// Re-export for tests expecting named import
+export { GitHubPages as GitHubPagesOutput };
+
+export default { generateGitHubPagesOutput, GitHubPages };

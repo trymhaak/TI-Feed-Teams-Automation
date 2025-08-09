@@ -1,0 +1,19 @@
+name: Staging
+
+on:
+  workflow_dispatch: {}
+  schedule:
+    - cron: '0 * * * *'
+
+concurrency:
+  group: staging-threat-feed
+  cancel-in-progress: true
+
+jobs:
+  run:
+    uses: ./.github/workflows/run-feed-reusable.yml
+    with:
+      enablePages: false
+    secrets:
+      TEAMS_WEBHOOK_URL: ${{ secrets.TEAMS_WEBHOOK_URL_STAGING }}
+

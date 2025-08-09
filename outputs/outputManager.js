@@ -287,3 +287,12 @@ export default {
   resetAccumulatedEntries,
   configureOutputs
 };
+
+// Lightweight class wrapper for enhanced pipeline usage
+export class OutputManager {
+  constructor() {}
+  async sendEntry(entry) {
+    const res = await processEntry(entry, false);
+    return res;
+  }
+}

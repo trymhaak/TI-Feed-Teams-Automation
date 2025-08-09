@@ -21,7 +21,7 @@ describe('ThreatFilter', () => {
   });
 
   describe('filterEntry', () => {
-    it('should filter out entries with blocked keywords', async () => {
+    it('should filter out entries with blocked keywords if not otherwise relevant', async () => {
       const entry = {
         title: 'Spam alert notification',
         description: 'This is spam content',
@@ -32,7 +32,7 @@ describe('ThreatFilter', () => {
       expect(result).toBeNull();
     });
 
-    it('should filter out entries without required keywords', async () => {
+    it('should filter out entries without any relevant keywords', async () => {
       const entry = {
         title: 'General notification',
         description: 'No security keywords here',
@@ -55,6 +55,18 @@ describe('ThreatFilter', () => {
       expect(result.classification).toBeDefined();
       expect(result.classification.threatType).toBe('vulnerability');
       expect(result.classification.severity).toBe('critical');
+    });
+
+    it('should allow relevant entries even if blocked keywords appear', async () => {
+      const entry = {
+        title: 'Ransomware webinar advisory',
+        description: 'Important ransomware advisory that mentions a webinar',
+        publishedDate: new Date().toISOString()
+      };
+
+      const result = await threatFilter.filterEntry(entry, { filters: { blockedKeywords: ['webinar'] } });
+      expect(result).not.toBeNull();
+      expect(result.classification).toBeDefined();
     });
 
     it('should filter by age when maxAge is specified', async () => {

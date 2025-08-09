@@ -243,10 +243,17 @@ class ThreatIntelBot {
 
     let totalPosted = 0;
 
+    let postedThisRun = 0;
+    const postCap = Number(process.env.PER_RUN_POST_CAP || 30);
     for (const entry of filteredResults.entries) {
+      if (postedThisRun >= postCap) {
+        logger.warn(`Post cap reached (${postCap}). Skipping remaining entries this run.`);
+        break;
+      }
       try {
         await this.outputManager.sendEntry(entry);
         totalPosted++;
+        postedThisRun++;
         logger.info(`📨 Posted: ${entry.title} (${entry.source})`);
 
         // Add delay between posts to avoid rate limiting

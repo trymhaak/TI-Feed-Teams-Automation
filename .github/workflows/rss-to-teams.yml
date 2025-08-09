@@ -2,6 +2,56 @@ name: Threat Feed Bot
 
 on:
   schedule:
+    - cron: '*/5 * * * *'
+  workflow_dispatch: {}
+
+concurrency:
+  group: threat-feed-bot
+  cancel-in-progress: true
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Validate configuration
+        run: node scripts/validate-config.js
+
+      - name: Run Threat Feed Bot
+        env:
+          TEAMS_WEBHOOK_URL: ${{ secrets.TEAMS_WEBHOOK_URL }}
+          ENABLE_GITHUB_PAGES: 'true'
+          PER_RUN_POST_CAP: '30'
+          POST_DELAY_MS: '1000'
+          TEAMS_MAX_RETRIES: '5'
+        run: npm start
+
+      - name: Commit state and docs (if changed)
+        if: success()
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/state.json docs/index.html || true
+          if ! git diff --cached --quiet; then
+            git commit -m "chore: update state and docs"
+            git push
+          fi
+name: Threat Feed Bot
+
+on:
+  schedule:
     - cron: '*/30 * * * *'  # Every 30 minutes
   workflow_dispatch:        # Manual trigger
     inputs:
