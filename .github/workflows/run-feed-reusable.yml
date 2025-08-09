@@ -10,6 +10,8 @@ on:
     secrets:
       TEAMS_WEBHOOK_URL:
         required: false
+      TEAMS_WEBHOOK_URL_STAGING:
+        required: false
 
 jobs:
   run:
@@ -30,12 +32,12 @@ jobs:
 
       - name: Validate configuration
         env:
-          TEAMS_WEBHOOK_URL: ${{ secrets.TEAMS_WEBHOOK_URL }}
+          TEAMS_WEBHOOK_URL: ${{ secrets.TEAMS_WEBHOOK_URL || secrets.TEAMS_WEBHOOK_URL_STAGING }}
         run: node scripts/validate-config.js
 
       - name: Run feed
         env:
-          TEAMS_WEBHOOK_URL: ${{ secrets.TEAMS_WEBHOOK_URL }}
+          TEAMS_WEBHOOK_URL: ${{ secrets.TEAMS_WEBHOOK_URL || secrets.TEAMS_WEBHOOK_URL_STAGING }}
           ENABLE_GITHUB_PAGES: ${{ inputs.enablePages && 'true' || 'false' }}
           PER_RUN_POST_CAP: '30'
           POST_DELAY_MS: '1000'
