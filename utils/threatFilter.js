@@ -1,4 +1,3 @@
-import { formatUtils } from './formatter.js';
 
 /**
  * Advanced filtering and classification system for threat intelligence feeds
