@@ -10,6 +10,13 @@ export function buildAdaptiveCard({ source, title, link, description, publishedD
   const threatType = classifyThreatType(title, description);
   const summary = cleanDescription(description, 280);
   const published = formatDate(publishedDate);
+  const html = [
+    `<strong>Threat Intelligence Alert — ${severity.level}</strong>`,
+    `<br/><br/><strong>Type:</strong> ${threatType.category}  |  <strong>Source:</strong> ${source}  |  <strong>Published:</strong> ${published}`,
+    `<br/><br/><strong>${title}</strong>`,
+    summary ? `<br/><br/>${summary}` : '',
+    `<br/><br/><a href="${link}">Read Advisory →</a>`
+  ].join('');
 
   return {
     type: 'message',
@@ -21,9 +28,7 @@ export function buildAdaptiveCard({ source, title, link, description, publishedD
           type: 'AdaptiveCard',
           version: '1.4',
           body: [
-            { type: 'TextBlock', text: `**Threat Intelligence Alert — ${severity.level}**`, wrap: true, weight: 'Bolder', color: severityToColor(severity.level) },
-            { type: 'TextBlock', text: `**${title}**`, wrap: true },
-            { type: 'TextBlock', text: `${summary || ''}\n\nType: ${threatType.category}  |  Source: ${source}  |  Published: ${published}`, wrap: true }
+            { type: 'TextBlock', text: html, wrap: true, color: severityToColor(severity.level) }
           ],
           actions: [
             { type: 'Action.OpenUrl', title: 'Read Advisory →', url: link }
