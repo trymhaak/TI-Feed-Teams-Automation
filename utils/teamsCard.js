@@ -22,16 +22,8 @@ export function buildAdaptiveCard({ source, title, link, description, publishedD
           version: '1.4',
           body: [
             { type: 'TextBlock', text: `**Threat Intelligence Alert — ${severity.level}**`, wrap: true, weight: 'Bolder', color: severityToColor(severity.level) },
-            {
-              type: 'FactSet',
-              facts: [
-                { title: 'Type', value: threatType.category },
-                { title: 'Source', value: source },
-                { title: 'Published', value: published }
-              ]
-            },
             { type: 'TextBlock', text: `**${title}**`, wrap: true },
-            { type: 'TextBlock', text: summary || 'No summary available', wrap: true, maxLines: 6 }
+            { type: 'TextBlock', text: `${summary || ''}\n\nType: ${threatType.category}  |  Source: ${source}  |  Published: ${published}`, wrap: true }
           ],
           actions: [
             { type: 'Action.OpenUrl', title: 'Read Advisory →', url: link }
