@@ -8,13 +8,20 @@ function severityToColor(level) {
 export function buildAdaptiveCard({ source, title, link, description, publishedDate }) {
   const severity = detectSeverity(title, description);
   const threatType = classifyThreatType(title, description);
-  const summary = cleanDescription(description, 280);
+  const summary = cleanDescription(description, 480);
   const published = formatDate(publishedDate);
+  const cves = Array.from(new Set((`${title} ${description||''}`.match(/CVE-\d{4}-\d{4,7}/gi) || []).slice(0,3)));
+  const recommended =
+    severity.level === 'CRITICAL' ? 'Immediately assess exposure, prioritize patching/mitigation, and monitor for exploitation.' :
+    severity.level === 'HIGH' ? 'Prioritize patching in normal change window and monitor for related activity.' :
+    'Review and triage as appropriate.';
   const html = [
     `<strong>Threat Intelligence Alert — ${severity.level}</strong>`,
     `<br/><br/><strong>Type:</strong> ${threatType.category}  |  <strong>Source:</strong> ${source}  |  <strong>Published:</strong> ${published}`,
     `<br/><br/><strong>${title}</strong>`,
     summary ? `<br/><br/>${summary}` : '',
+    (cves.length ? `<br/><br/><strong>Indicators:</strong> CVE(s): ${cves.join(', ')}` : ''),
+    `<br/><br/><strong>Recommended:</strong> ${recommended}`,
     `<br/><br/><a href="${link}">Read Advisory →</a>`
   ].join('');
 
