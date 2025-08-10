@@ -1,7 +1,7 @@
 import { cleanDescription, detectSeverity, classifyThreatType, formatDate } from './formatter.js';
 
-function severityToStyle(level) {
-  const map = { CRITICAL: 'attention', HIGH: 'warning', MEDIUM: 'default', INFO: 'emphasis' };
+function severityToColor(level) {
+  const map = { CRITICAL: 'attention', HIGH: 'warning', MEDIUM: 'accent', INFO: 'default' };
   return map[level] || 'default';
 }
 
@@ -19,9 +19,9 @@ export function buildAdaptiveCard({ source, title, link, description, publishedD
         content: {
           $schema: 'http://adaptivecards.io/schemas/adaptive-card.json',
           type: 'AdaptiveCard',
-          version: '1.5',
+          version: '1.4',
           body: [
-            { type: 'TextBlock', text: `**Threat Intelligence Alert — ${severity.level}**`, wrap: true, weight: 'Bolder', style: severityToStyle(severity.level) },
+            { type: 'TextBlock', text: `**Threat Intelligence Alert — ${severity.level}**`, wrap: true, weight: 'Bolder', color: severityToColor(severity.level) },
             {
               type: 'FactSet',
               facts: [

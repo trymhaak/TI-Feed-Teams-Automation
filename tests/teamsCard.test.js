@@ -15,7 +15,7 @@ export async function testTeamsCardSnapshots() {
   let ok = true;
   severities.forEach(s => {
     const card = sample(s, `${s} Threat`, `${s.toLowerCase()} vulnerability CVE-2025-0001`);
-    if (!card || card.attachments?.[0]?.content?.version !== '1.5') ok = false;
+    if (!card || card.attachments?.[0]?.content?.version !== '1.4') ok = false;
   });
   console.log(`✅ Teams AdaptiveCard snapshots: ${ok ? 'OK' : 'FAIL'}`);
   return ok;
