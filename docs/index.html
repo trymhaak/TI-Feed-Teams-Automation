@@ -5,6 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Threat Intelligence Dashboard</title>
   <meta name="description" content="Real-time cybersecurity advisories" />
+  <meta property="og:title" content="Threat Intelligence Dashboard" />
+  <meta property="og:description" content="Real-time cybersecurity advisories – searchable with filters and dark mode." />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpath fill='%234f46e5' d='M32 4l22 8v16c0 12.1-8.5 23.1-22 26-13.5-2.9-22-13.9-22-26V12l22-8z'/%3E%3Cpath fill='%23fff' d='M21 29l7 7 15-15 4 4-19 19-11-11z'/%3E%3C/svg%3E" />
   <link rel="stylesheet" href="./styles.css" />
 </head>
   <body>
@@ -24,26 +29,58 @@
           <span class="icon" aria-hidden="true">🔎</span>
           <input id="q" type="text" placeholder="Search title or summary" aria-label="Search" />
         </div>
-        <select id="source" multiple aria-label="Sources" title="Filter by source"></select>
-        <select id="severity" aria-label="Severity" title="Filter by severity">
-          <option value="">All severities</option>
-          <option>CRITICAL</option>
-          <option>HIGH</option>
-          <option>MEDIUM</option>
-          <option>INFO</option>
+        <select id="sort" aria-label="Sort order" title="Sort order">
+          <option value="new">Newest first</option>
+          <option value="old">Oldest first</option>
+          <option value="sev">By severity</option>
         </select>
         <label class="switch" title="Only show items newer than your last visit">
           <input id="newOnly" type="checkbox" />
           <span>New since last visit</span>
         </label>
+        <button id="sidebarToggle" class="btn ghost" aria-label="Toggle filters" title="Toggle filters">☰</button>
         <button id="themeToggle" class="btn ghost" aria-label="Toggle dark mode" title="Toggle dark mode">🌓</button>
       </div>
     </div>
   </header>
 
-  <main>
-    <section id="list" class="grid" aria-live="polite"></section>
-    <div id="sentinel"></div>
+  <main class="layout">
+    <aside class="sidebar" id="sidebar" aria-label="Filters">
+      <div class="sidebar-inner">
+        <h2 class="sidebar-title">Filters</h2>
+        <div class="field">
+          <label>Sources</label>
+          <div id="sources" class="checklist"></div>
+        </div>
+        <div class="field">
+          <label>Severity</label>
+          <div id="sevFilters" class="checklist">
+            <label><input type="checkbox" value="CRITICAL"> CRITICAL</label>
+            <label><input type="checkbox" value="HIGH"> HIGH</label>
+            <label><input type="checkbox" value="MEDIUM"> MEDIUM</label>
+            <label><input type="checkbox" value="INFO"> INFO</label>
+          </div>
+        </div>
+        <div class="field">
+          <label for="dateWindow">Date window</label>
+          <select id="dateWindow">
+            <option value="">Any time</option>
+            <option value="1">Last 24 hours</option>
+            <option value="3">Last 3 days</option>
+            <option value="7">Last 7 days</option>
+            <option value="14">Last 14 days</option>
+            <option value="30">Last 30 days</option>
+          </select>
+        </div>
+      </div>
+    </aside>
+
+    <section id="list" class="grid" aria-live="polite" aria-busy="false"></section>
+    <nav id="pager" class="pager" aria-label="Pagination">
+      <button id="prevPage" class="btn ghost" disabled>Previous</button>
+      <span id="pageInfo" class="muted"></span>
+      <button id="nextPage" class="btn ghost" disabled>Next</button>
+    </nav>
   </main>
 
   <template id="skeleton">
@@ -53,6 +90,9 @@
       <div class="summary"></div>
     </article>
   </template>
+
+  <button id="backToTop" class="fab" aria-label="Back to top" title="Back to top">↑</button>
+  <button id="refreshBtn" class="fab fab-secondary" aria-label="Refresh" title="Refresh feed">⟳</button>
 
   <script src="./app.js" type="module"></script>
 </body>
