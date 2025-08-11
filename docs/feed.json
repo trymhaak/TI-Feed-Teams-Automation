@@ -1,0 +1,12 @@
+[
+  {
+    "title": "CVE-2025-29954 Windows Lightweight Directory Access Protocol (LDAP) Denial of Service Vulnerability",
+    "link": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-29954",
+    "source": "Microsoft-MSRC",
+    "published": "Thu, 07 Aug 2025 07:00:00 Z",
+    "category": "vulnerability",
+    "severity": "high",
+    "threatType": "vulnerability",
+    "summary": "Added an acknowledgement. This is an informational change only."
+  }
+]

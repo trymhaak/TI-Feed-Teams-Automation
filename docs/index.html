@@ -1,99 +1,427 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Threat Intelligence Dashboard</title>
-  <meta name="description" content="Real-time cybersecurity advisories" />
-  <meta property="og:title" content="Threat Intelligence Dashboard" />
-  <meta property="og:description" content="Real-time cybersecurity advisories – searchable with filters and dark mode." />
-  <meta property="og:type" content="website" />
-  <meta name="twitter:card" content="summary" />
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpath fill='%234f46e5' d='M32 4l22 8v16c0 12.1-8.5 23.1-22 26-13.5-2.9-22-13.9-22-26V12l22-8z'/%3E%3Cpath fill='%23fff' d='M21 29l7 7 15-15 4 4-19 19-11-11z'/%3E%3C/svg%3E" />
-  <link rel="stylesheet" href="./styles.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Threat Intelligence Feed</title>
+    <meta name="description" content="Real-time cybersecurity threat intelligence and advisories">
+    
+    <!-- Modern CSS Framework and Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary-blue: #1e40af;
+            --accent-orange: #f59e0b;
+            --success-green: #10b981;
+            --warning-yellow: #f59e0b;
+            --danger-red: #ef4444;
+            --gray-50: #f9fafb;
+            --gray-800: #1f2937;
+            --gray-900: #111827;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: linear-gradient(135deg, var(--gray-50) 0%, #e5e7eb 100%);
+        }
+        
+        .header-gradient {
+            background: linear-gradient(135deg, var(--primary-blue) 0%, #1e3a8a 100%);
+        }
+        
+        .card-hover {
+            transition: all 0.2s ease-in-out;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        
+        .severity-critical { border-left: 4px solid var(--danger-red); }
+        .severity-high { border-left: 4px solid var(--warning-yellow); }
+        .severity-medium { border-left: 4px solid var(--accent-orange); }
+        .severity-low { border-left: 4px solid var(--success-green); }
+        .severity-info { border-left: 4px solid var(--primary-blue); }
+        
+        .badge {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        
+        .badge-critical { background: #fef2f2; color: var(--danger-red); }
+        .badge-high { background: #fffbeb; color: #d97706; }
+        .badge-medium { background: #fff7ed; color: var(--accent-orange); }
+        .badge-low { background: #f0fdf4; color: var(--success-green); }
+        .badge-info { background: #eff6ff; color: var(--primary-blue); }
+        
+        .search-container {
+            position: relative;
+        }
+        
+        .search-icon {
+            position: absolute;
+            left: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #9ca3af;
+        }
+        
+        .status-indicator {
+            position: relative;
+            display: inline-block;
+        }
+        
+        .status-indicator::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 8px;
+            height: 8px;
+            background: var(--success-green);
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+        
+        .filter-active {
+            background: var(--primary-blue);
+            color: white;
+        }
+        
+        .hidden {
+            display: none !important;
+        }
+        
+        @media (max-width: 768px) {
+            .header-stats {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1rem;
+            }
+            
+            .filters-container {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            
+            .filter-buttons {
+                justify-content: center;
+                margin-top: 1rem;
+            }
+        }
+    </style>
 </head>
-  <body>
-  <header class="toolbar">
-    <div class="toolbar-inner">
-      <div class="brand">
-        <img class="logo-img" src="https://clientmgt.blob.core.windows.net/clientmanagementstor/Crayon/Crayon-Logo-RGB-Original-200x130.png" alt="Crayon" decoding="async" loading="eager" />
-        <div class="brand-text">
-          <strong>Threat Intelligence</strong>
-          <small id="lastUpdated" class="muted" title="Last updated UTC">—</small>
+<body class="bg-gray-50">
+    <!-- Header -->
+    <header class="header-gradient text-white shadow-lg">
+        <div class="container mx-auto px-6 py-8">
+            <div class="flex items-center justify-between mb-6">
+                <div class="flex items-center space-x-4">
+                    <div class="status-indicator">
+                        <i class="fas fa-shield-alt text-3xl"></i>
+                    </div>
+                    <div>
+                        <h1 class="text-3xl font-bold">Threat Intelligence Feed</h1>
+                        <p class="text-blue-100 mt-1">Real-time cybersecurity threat intelligence and advisories</p>
+                    </div>
+                </div>
+                
+                <div class="text-right">
+                    <div class="text-sm text-blue-100">Last Updated</div>
+                    <div class="text-lg font-semibold" id="lastUpdated">8/11/2025, 2:01:06 PM</div>
+                    <div class="text-xs text-blue-200 mt-1">
+                        <i class="fas fa-wifi text-green-400"></i> Live Feed Active
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Statistics Dashboard -->
+            <div class="grid grid-cols-4 gap-4 header-stats">
+                <div class="text-center">
+                    <div class="text-2xl font-bold" id="totalCount">1</div>
+                    <div class="text-blue-100 text-sm">Total Alerts</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-2xl font-bold text-red-300" id="criticalCount">0</div>
+                    <div class="text-blue-100 text-sm">Critical</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-2xl font-bold text-yellow-300" id="highCount">1</div>
+                    <div class="text-blue-100 text-sm">High Priority</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-2xl font-bold text-green-300" id="recentCount">0</div>
+                    <div class="text-blue-100 text-sm">Last 24h</div>
+                </div>
+            </div>
         </div>
-        <span id="counter" class="counter" aria-live="polite"></span>
-      </div>
+    </header>
 
-      <div class="right-controls">
-        <div class="input-group">
-          <span class="icon" aria-hidden="true">🔎</span>
-          <input id="q" type="text" placeholder="Search title or summary" aria-label="Search" />
+    <!-- Search and Filters -->
+    
+    <div class="bg-white border-b border-gray-200 sticky top-0 z-10 shadow-sm">
+        <div class="container mx-auto px-6 py-4">
+            <div class="filters-container flex items-center justify-between">
+                
+                <div class="search-container flex-1 max-w-md">
+                    <i class="fas fa-search search-icon"></i>
+                    <input 
+                        type="text" 
+                        id="searchInput" 
+                        placeholder="Search threats, CVEs, sources..." 
+                        class="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    >
+                </div>
+                
+                
+                <div class="filter-buttons flex space-x-2 ml-4">
+                    <button class="filter-btn filter-active px-4 py-2 rounded-lg text-sm font-medium transition-colors" data-filter="all">
+                        All
+                    </button>
+                    <button class="filter-btn px-4 py-2 bg-gray-100 text-gray-700 rounded-lg text-sm font-medium hover:bg-gray-200 transition-colors" data-filter="critical">
+                        Critical
+                    </button>
+                    <button class="filter-btn px-4 py-2 bg-gray-100 text-gray-700 rounded-lg text-sm font-medium hover:bg-gray-200 transition-colors" data-filter="high">
+                        High
+                    </button>
+                    <button class="filter-btn px-4 py-2 bg-gray-100 text-gray-700 rounded-lg text-sm font-medium hover:bg-gray-200 transition-colors" data-filter="vulnerability">
+                        Vulnerabilities
+                    </button>
+                    <button class="filter-btn px-4 py-2 bg-gray-100 text-gray-700 rounded-lg text-sm font-medium hover:bg-gray-200 transition-colors" data-filter="malware">
+                        Malware
+                    </button>
+                </div>
+            </div>
         </div>
-        <select id="sort" aria-label="Sort order" title="Sort order">
-          <option value="new">Newest first</option>
-          <option value="old">Oldest first</option>
-          <option value="sev">By severity</option>
-        </select>
-        <label class="switch" title="Only show items newer than your last visit">
-          <input id="newOnly" type="checkbox" />
-          <span>New since last visit</span>
-        </label>
-        <button id="sidebarToggle" class="btn ghost" aria-label="Toggle filters" title="Toggle filters">☰</button>
-        <button id="themeToggle" class="btn ghost" aria-label="Toggle dark mode" title="Toggle dark mode">🌓</button>
-      </div>
     </div>
-  </header>
 
-  <main class="layout">
-    <aside class="sidebar" id="sidebar" aria-label="Filters">
-      <div class="sidebar-inner">
-        <h2 class="sidebar-title">Filters</h2>
-        <div class="field">
-          <label>Sources</label>
-          <div id="sources" class="checklist"></div>
+    <!-- Main Content -->
+    <main class="container mx-auto px-6 py-8">
+        <div class="space-y-6" id="feedContainer">
+            
+    <article class="threat-entry card-hover bg-white rounded-lg shadow-md p-6 severity-high cursor-pointer" 
+             data-severity="high" 
+             data-threat-type="vulnerability"
+             data-link="https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-29954"
+             data-search-text="cve-2025-29954 windows lightweight directory access protocol (ldap) denial of service vulnerability added an acknowledgement. this is an informational change only. microsoft-msrc">
+        
+        <div class="flex items-start justify-between mb-4">
+            <div class="flex items-center space-x-3">
+                <div class="flex-shrink-0">
+                    <i class="fas fa-shield-alt text-orange-500 text-2xl"></i>
+                </div>
+                <div class="flex-1">
+                    <h2 class="text-lg font-semibold text-gray-900 leading-tight mb-2 hover:text-blue-600">
+                        CVE-2025-29954 Windows Lightweight Directory Access Protocol (LDAP) Denial of Service Vulnerability
+                    </h2>
+                    <div class="flex items-center space-x-3 text-sm text-gray-600">
+                        <span class="badge badge-high">high</span>
+                        <span class="flex items-center">
+                            <i class="fas fa-calendar-alt mr-1"></i>
+                            4d ago
+                        </span>
+                        <span class="flex items-center">
+                            <i class="fas fa-rss mr-1"></i>
+                            Microsoft-MSRC
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="flex-shrink-0">
+                <button class="text-gray-400 hover:text-blue-600 p-2" title="External Link">
+                    <i class="fas fa-external-link-alt"></i>
+                </button>
+            </div>
         </div>
-        <div class="field">
-          <label>Severity</label>
-          <div id="sevFilters" class="checklist">
-            <label><input type="checkbox" value="CRITICAL"> CRITICAL</label>
-            <label><input type="checkbox" value="HIGH"> HIGH</label>
-            <label><input type="checkbox" value="MEDIUM"> MEDIUM</label>
-            <label><input type="checkbox" value="INFO"> INFO</label>
-          </div>
+        
+        
+        <div class="text-gray-700 text-sm leading-relaxed mb-4 line-clamp-3">
+            Added an acknowledgement. This is an informational change only.
         </div>
-        <div class="field">
-          <label for="dateWindow">Date window</label>
-          <select id="dateWindow">
-            <option value="">Any time</option>
-            <option value="1">Last 24 hours</option>
-            <option value="3">Last 3 days</option>
-            <option value="7">Last 7 days</option>
-            <option value="14">Last 14 days</option>
-            <option value="30">Last 30 days</option>
-          </select>
+        
+        
+        
+        <div class="flex items-center justify-between pt-4 border-t border-gray-100">
+            <div class="flex items-center space-x-4 text-xs text-gray-500">
+                
+                <span class="flex items-center">
+                    <i class="fas fa-clock mr-1"></i>
+                    8/7/2025
+                </span>
+            </div>
+            <div class="flex space-x-2">
+                
+                <span class="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-red-100 text-red-800">
+                    <i class="fas fa-exclamation-triangle mr-1"></i>
+                    Action Required
+                </span>
+            </div>
         </div>
-      </div>
-    </aside>
-
-    <section id="list" class="grid" aria-live="polite" aria-busy="false"></section>
-    <nav id="pager" class="pager" aria-label="Pagination">
-      <button id="prevPage" class="btn ghost" disabled>Previous</button>
-      <span id="pageInfo" class="muted"></span>
-      <button id="nextPage" class="btn ghost" disabled>Next</button>
-    </nav>
-  </main>
-
-  <template id="skeleton">
-    <article class="card skeleton">
-      <div class="title"></div>
-      <div class="meta"></div>
-      <div class="summary"></div>
     </article>
-  </template>
+        </div>
+        
+        <!-- Load More / Pagination -->
+        <div class="text-center mt-12">
+            <button class="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors" onclick="loadMoreEntries()">
+                <i class="fas fa-sync-alt mr-2"></i> Refresh Feed
+            </button>
+        </div>
+    </main>
 
-  <button id="backToTop" class="fab" aria-label="Back to top" title="Back to top">↑</button>
-  <button id="refreshBtn" class="fab fab-secondary" aria-label="Refresh" title="Refresh feed">⟳</button>
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white mt-16">
+        <div class="container mx-auto px-6 py-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div>
+                    <h3 class="font-bold text-lg mb-4">About This Feed</h3>
+                    <p class="text-gray-300 text-sm">
+                        Automated threat intelligence aggregation from multiple trusted sources. 
+                        Updated continuously to provide the latest cybersecurity alerts and advisories.
+                    </p>
+                </div>
+                <div>
+                    <h3 class="font-bold text-lg mb-4">Data Sources</h3>
+                    <ul class="text-gray-300 text-sm space-y-1">
+                        <li>• CISA Cybersecurity Advisories</li>
+                        <li>• Microsoft Security Response Center</li>
+                        <li>• NIST Cybersecurity Insights</li>
+                        <li>• Norwegian NCSC Alerts</li>
+                        <li>• CIS Security Advisories</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="font-bold text-lg mb-4">Feed Statistics</h3>
+                    <div class="text-gray-300 text-sm space-y-1">
+                        <div>Generated: 8/11/2025, 2:01:06 PM</div>
+                        <div>Total Entries: 1</div>
+                        <div>Critical Alerts: 0</div>
+                        <div>Last 24 Hours: 0</div>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400 text-sm">
+                <p>Threat Intelligence Feed • Generated 8/11/2025, 2:01:06 PM</p>
+            </div>
+        </div>
+    </footer>
 
-  <script src="./app.js" type="module"></script>
+    <script>
+        // Search functionality
+        
+    // Real-time search functionality
+    const searchInput = document.getElementById('searchInput');
+    const entries = document.querySelectorAll('.threat-entry');
+    
+    searchInput.addEventListener('input', function() {
+        const query = this.value.toLowerCase().trim();
+        let visibleCount = 0;
+        
+        entries.forEach(entry => {
+            const searchText = entry.dataset.searchText;
+            const isMatch = !query || searchText.includes(query);
+            
+            if (isMatch) {
+                entry.classList.remove('hidden');
+                visibleCount++;
+            } else {
+                entry.classList.add('hidden');
+            }
+        });
+        
+        // Update total count
+        document.getElementById('totalCount').textContent = visibleCount;
+    });
+    
+        
+        // Filter functionality  
+        
+    // Filter functionality
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const entries = document.querySelectorAll('.threat-entry');
+    
+    filterButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            const filter = this.dataset.filter;
+            
+            // Update active button
+            filterButtons.forEach(btn => {
+                btn.classList.remove('filter-active');
+                btn.classList.add('bg-gray-100', 'text-gray-700');
+            });
+            this.classList.add('filter-active');
+            this.classList.remove('bg-gray-100', 'text-gray-700');
+            
+            // Filter entries
+            let visibleCount = 0;
+            entries.forEach(entry => {
+                let shouldShow = filter === 'all';
+                
+                if (filter === 'critical' || filter === 'high') {
+                    shouldShow = entry.dataset.severity === filter;
+                } else if (filter === 'vulnerability' || filter === 'malware') {
+                    shouldShow = entry.dataset.threatType === filter;
+                }
+                
+                if (shouldShow) {
+                    entry.classList.remove('hidden');
+                    visibleCount++;
+                } else {
+                    entry.classList.add('hidden');
+                }
+            });
+            
+            // Update counts
+            document.getElementById('totalCount').textContent = visibleCount;
+        });
+    });
+    
+        
+        // Live status updates
+        
+    // Live status updates
+    function updateLiveStatus() {
+        const lastUpdatedEl = document.getElementById('lastUpdated');
+        if (lastUpdatedEl) {
+            lastUpdatedEl.textContent = new Date().toLocaleString();
+        }
+    }
+    
+    // Update every 30 seconds
+    setInterval(updateLiveStatus, 30000);
+    
+        
+        // Utility functions
+        function loadMoreEntries() {
+            // In a real implementation, this would fetch more data
+            location.reload();
+        }
+        
+        // Initialize page
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Threat Intelligence Feed loaded');
+            
+            // Add click tracking for entries
+            document.querySelectorAll('.threat-entry').forEach(entry => {
+                entry.addEventListener('click', function() {
+                    const link = this.dataset.link;
+                    if (link && link !== '#') {
+                        window.open(link, '_blank');
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 </html>
