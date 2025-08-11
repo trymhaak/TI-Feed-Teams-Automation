@@ -1,10 +1,9 @@
-import fs from 'fs/promises';
-import path from 'path';
-import { postToTeams } from './post-to-teams.js';
-import { FeedValidator, scanAvailableParsers } from './utils/validateFeeds.js';
-import { DefaultParser } from './parsers/defaultParser.js';
-import { formatMessage } from './utils/formatter.js';
-import OutputManager from './outputs/outputManager.js';
+// Deprecated entrypoint kept for compatibility. Use fetch-and-post-enhanced.js
+console.warn('[DEPRECATED] fetch-and-post.js has been replaced by fetch-and-post-enhanced.js');
+import('./fetch-and-post-enhanced.js').catch(err => {
+  console.error('Failed to load enhanced pipeline:', err?.message || err);
+  process.exit(0);
+});
 
 // Default configuration
 const DEFAULT_FEEDS_FILE = 'data/feeds.json';

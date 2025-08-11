@@ -19,6 +19,9 @@ Thumbs.db
 # Logs
 *.log
 logs/
+.DS_Store
+flow-*.csv
+*gh run list*
 
 # Runtime data
 *.pid
