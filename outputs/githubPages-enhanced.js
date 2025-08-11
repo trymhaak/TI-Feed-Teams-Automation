@@ -15,6 +15,8 @@ export class GitHubPagesOutput {
       enableSearch: true,
       enableFilters: true,
       enableLiveStatus: true,
+      // Optional brand logo shown in header. If not provided, a shield icon is used.
+      logoUrl: config.logoUrl || 'https://clientmgt.blob.core.windows.net/clientmanagementstor/Crayon/Crayon-Logo-RGB-Original-200x130.png',
       ...config
     };
   }
@@ -113,6 +115,8 @@ export class GitHubPagesOutput {
             transform: translateY(-2px);
             box-shadow: 0 10px 25px rgba(0,0,0,0.1);
         }
+
+        .brand-logo { height: 32px; max-height: 40px; width: auto; object-fit: contain; }
         
         .severity-critical { border-left: 4px solid var(--danger-red); }
         .severity-high { border-left: 4px solid var(--warning-yellow); }
@@ -204,7 +208,9 @@ export class GitHubPagesOutput {
             <div class="flex items-center justify-between mb-6">
                 <div class="flex items-center space-x-4">
                     <div class="status-indicator">
-                        <i class="fas fa-shield-alt text-3xl"></i>
+                        ${this.config.logoUrl
+                          ? `<img class=\"brand-logo\" src=\"${this.config.logoUrl}\" alt=\"Crayon\" />`
+                          : `<i class=\"fas fa-shield-alt text-3xl\"></i>`}
                     </div>
                     <div>
                         <h1 class="text-3xl font-bold">${this.config.title}</h1>
