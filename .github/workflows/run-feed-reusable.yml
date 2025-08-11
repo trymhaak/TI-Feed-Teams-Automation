@@ -55,7 +55,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add data/state.json docs/index.html || true
+          git add data/state.json docs/index.html docs/feed.json || true
           if ! git diff --cached --quiet; then
             git commit -m "chore: update state and docs"
             git push

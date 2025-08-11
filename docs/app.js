@@ -104,12 +104,15 @@ function populateSources() {
 
 function initObserver() {
   const sentinel = document.getElementById('sentinel');
-  const io = new IntersectionObserver(entries => {
-    if (entries.some(e=>e.isIntersecting)) {
-      renderBatch();
-    }
-  });
-  io.observe(sentinel);
+  if (!sentinel) return; // guard if sentinel is missing
+  try {
+    const io = new IntersectionObserver(entries => {
+      if (entries.some(e=>e.isIntersecting)) {
+        renderBatch();
+      }
+    });
+    io.observe(sentinel);
+  } catch {}
 }
 
 async function boot() {
