@@ -156,9 +156,22 @@ class ThreatIntelBot {
         };
 
         // Filter out already seen entries
+        const now = Date.now();
+        const lastRunTs = state.lastRun ? Date.parse(state.lastRun) : 0;
+        const maxAgeMs = this.config.maxBackfillDays * 24 * 60 * 60 * 1000;
+        const thisRunIds = new Set();
+
         const newEntries = feedResult.entries.filter(entry => {
           const entryId = this.generateEntryId(entry);
-          return !state.seen[entryId];
+          if (thisRunIds.has(entryId)) return false; // intra-run dedupe
+          thisRunIds.add(entryId);
+          if (state.seen[entryId]) return false; // already seen
+          if (!this.config.allowBackfill) {
+            const pubTs = entry.publishedDate ? Date.parse(entry.publishedDate) : now;
+            if (lastRunTs && pubTs < lastRunTs) return false; // older than last run
+            if (pubTs && now - pubTs > maxAgeMs) return false; // too old
+          }
+          return true;
         });
 
         logger.info(`📰 Feed "${feed.name}": ${feedResult.entries.length} total, ${newEntries.length} new`);
@@ -352,13 +365,23 @@ class ThreatIntelBot {
    * Generate unique ID for an entry
    */
   generateEntryId(entry) {
-    // Use URL if available, otherwise hash title + published date
+    // Prefer stable GUID
+    if (entry.guid && typeof entry.guid === 'string') return entry.guid.trim();
+    // Normalize URL if present
     if (entry.link) {
-      return entry.link;
+      try {
+        const u = new URL(entry.link);
+        u.hash = '';
+        u.search = ''; // drop tracking params
+        u.pathname = u.pathname.replace(/\/$/, '');
+        return u.toString().toLowerCase();
+      } catch {
+        return entry.link;
+      }
     }
-    
+    // Fallback: hash of title|published
     const content = `${entry.title || ''}|${entry.publishedDate || ''}`;
-    return Buffer.from(content).toString('base64');
+    return 'h:' + Buffer.from(content).toString('base64');
   }
 
   /**

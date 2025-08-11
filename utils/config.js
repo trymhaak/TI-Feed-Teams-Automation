@@ -6,6 +6,8 @@ export const config = {
   dryRun: process.env.DRY_RUN === 'true',
   postDelay: Number(process.env.POST_DELAY_MS || 1000),
   perRunPostCap: Number(process.env.PER_RUN_POST_CAP || 30),
+  allowBackfill: process.env.ALLOW_BACKFILL === 'true',
+  maxBackfillDays: Number(process.env.MAX_BACKFILL_DAYS || 14),
   teams: {
     webhookUrl: process.env.TEAMS_WEBHOOK_URL || '',
     maxRetries: Number(process.env.TEAMS_MAX_RETRIES || 5)
