@@ -133,8 +133,8 @@ async function boot() {
 }
 
 q.addEventListener('input', applyFilters);
-severitySel.addEventListener('change', applyFilters);
-sourceSel.addEventListener('change', applyFilters);
+if (severitySel) severitySel.addEventListener('change', applyFilters);
+if (sourceSel) sourceSel.addEventListener('change', applyFilters);
 sevFilters.addEventListener('change', applyFilters);
 sourcesContainer.addEventListener('change', applyFilters);
 newOnly.addEventListener('change', applyFilters);
