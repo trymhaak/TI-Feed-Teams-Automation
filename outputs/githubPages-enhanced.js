@@ -44,16 +44,19 @@ export class GitHubPagesOutput {
       await fs.writeFile(this.outputPath, html, 'utf-8');
 
       // Also emit feed.json for client-side rendering
-      const feedJson = sortedEntries.map(e => ({
-        title: e.title || '',
-        link: e.link || '#',
-        source: e.source || '',
-        published: e.publishedDate || '',
-        category: (e.classification?.threatType) || this.classifyThreatType(e.title, e.description),
-        severity: (e.classification?.severity) || this.classifySeverity(e.title, e.description),
-        threatType: (e.classification?.threatType) || this.classifyThreatType(e.title, e.description),
-        summary: this.cleanDescription(e.description || '', 300)
-      }));
+      const feedJson = {
+        lastUpdated: new Date().toISOString(),
+        entries: sortedEntries.map(e => ({
+          title: e.title || '',
+          link: e.link || '#',
+          source: e.source || '',
+          published: e.publishedDate || '',
+          category: (e.classification?.threatType) || this.classifyThreatType(e.title, e.description),
+          severity: (e.classification?.severity) || this.classifySeverity(e.title, e.description),
+          threatType: (e.classification?.threatType) || this.classifyThreatType(e.title, e.description),
+          summary: this.cleanDescription(e.description || '', 300)
+        }))
+      };
       const feedPath = path.join(path.dirname(this.outputPath), 'feed.json');
       await fs.writeFile(feedPath, JSON.stringify(feedJson, null, 2), 'utf-8');
       
@@ -338,36 +341,73 @@ export class GitHubPagesOutput {
         </div>
     </footer>
 
-    <script>
-        // Search functionality
-        ${this.config.enableSearch ? this.generateSearchScript() : ''}
-        
-        // Filter functionality  
-        ${this.config.enableFilters ? this.generateFilterScript() : ''}
-        
-        // Live status updates
-        ${this.config.enableLiveStatus ? this.generateLiveStatusScript() : ''}
-        
-        // Utility functions
-        function loadMoreEntries() {
-            // In a real implementation, this would fetch more data
-            location.reload();
-        }
-        
-        // Initialize page
-        document.addEventListener('DOMContentLoaded', function() {
-            console.log('Threat Intelligence Feed loaded');
-            
-            // Add click tracking for entries
-            document.querySelectorAll('.threat-entry').forEach(entry => {
-                entry.addEventListener('click', function() {
-                    const link = this.dataset.link;
-                    if (link && link !== '#') {
-                        window.open(link, '_blank');
-                    }
-                });
-            });
+    <script type="module">
+      const UI_VERSION = '1.0.0';
+      const $ = (sel, parent=document) => parent.querySelector(sel);
+      const $$ = (sel, parent=document) => Array.from(parent.querySelectorAll(sel));
+      const debounce = (fn, ms=150)=>{ let t; return (...a)=>{ clearTimeout(t); t=setTimeout(()=>fn(...a),ms);}; };
+
+      function updateCounts(){
+        const visible = $$('.threat-entry').filter(el=>!el.classList.contains('hidden'));
+        $('#totalCount').textContent = visible.length;
+        $('#criticalCount').textContent = visible.filter(el=>el.dataset.severity==='critical').length;
+        $('#highCount').textContent = visible.filter(el=>el.dataset.severity==='high').length;
+      }
+
+      function applyFilter(filter){
+        $$('.threat-entry').forEach(el=>{
+          let show = filter==='all';
+          if(filter==='critical'||filter==='high') show = el.dataset.severity===filter;
+          if(filter==='vulnerability'||filter==='malware') show = el.dataset.threatType===filter;
+          el.classList.toggle('hidden', !show);
         });
+        updateCounts();
+      }
+
+      function wireUI(){
+        $$('.filter-btn').forEach(btn=>{
+          btn.setAttribute('role','button');
+          btn.setAttribute('tabindex','0');
+          btn.addEventListener('click',()=>{
+            $$('.filter-btn').forEach(b=>b.classList.remove('filter-active'));
+            btn.classList.add('filter-active');
+            applyFilter(btn.dataset.filter);
+          });
+          btn.addEventListener('keydown',(e)=>{ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); btn.click(); }});
+        });
+
+        const input = $('#searchInput');
+        if(input){
+          const run = debounce(()=>{
+            const q = input.value.trim().toLowerCase();
+            $$('.threat-entry').forEach(el=>{
+              const hay = (el.dataset.searchText||'').toLowerCase();
+              const match = !q || hay.includes(q);
+              el.classList.toggle('hidden', !match);
+            });
+            updateCounts();
+          },200);
+          input.addEventListener('input', run);
+          input.addEventListener('keydown', e=>{ if(e.key==='Escape'){ input.value=''; input.dispatchEvent(new Event('input')); }});
+        }
+
+        // Ensure card anchors open in new tab safely
+        $$('.threat-entry a[target="_blank"]').forEach(a=>a.setAttribute('rel','noopener'));
+
+        console.log('UI initialized v'+UI_VERSION+' '+new Date().toISOString());
+      }
+
+      async function bootstrap(){
+        try{
+          const res = await fetch('feed.json?v=' + Date.now());
+          const data = await res.json();
+          const last = data?.lastUpdated ? new Date(data.lastUpdated).toUTCString().replace('GMT','UTC') : new Date().toUTCString().replace('GMT','UTC');
+          const lastEl = document.getElementById('lastUpdated'); if(lastEl) lastEl.textContent = last;
+        }catch(e){ console.warn('feed.json fetch failed:', e?.message||e); }
+        wireUI();
+      }
+
+      document.addEventListener('DOMContentLoaded', bootstrap);
     </script>
 </body>
 </html>`;
