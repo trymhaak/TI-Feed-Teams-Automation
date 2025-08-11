@@ -4,7 +4,7 @@
  */
 
 import { postToTeams } from '../post-to-teams.js';
-import { generateGitHubPagesOutput } from './githubPages.js';
+import { GitHubPagesOutput as EnhancedPages } from './githubPages-enhanced.js';
 
 /**
  * Configuration for output channels
@@ -156,7 +156,16 @@ export async function generateHTMLOutput(isDryRun = false) {
     }
     
     console.log(`🌐 Generating ${OUTPUT_CONFIG.githubPages.name} output with ${accumulatedEntries.length} entries`);
-    await generateGitHubPagesOutput(accumulatedEntries);
+    // Map accumulated entries to enhanced schema
+    const mapped = accumulatedEntries.map(e => ({
+      title: e.title,
+      link: e.url,
+      source: e.feedName,
+      description: e.description,
+      publishedDate: e.publishedDate
+    }));
+    const pages = new EnhancedPages();
+    await pages.generateFeed(mapped, {});
     
     if (isDryRun) {
       console.log('✅ Successfully generated HTML output (dry-run mode)');
