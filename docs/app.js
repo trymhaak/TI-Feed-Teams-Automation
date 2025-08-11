@@ -5,6 +5,7 @@ const sourceSel = document.getElementById('source');
 const newOnly = document.getElementById('newOnly');
 const lastUpdated = document.getElementById('lastUpdated');
 const themeToggle = document.getElementById('themeToggle');
+const counter = document.getElementById('counter');
 
 const PAGE_SIZE = 30;
 let data = [];
@@ -27,14 +28,15 @@ function renderBatch() {
   for (let i = start; i < end; i++) {
     const e = filtered[i];
     const card = document.createElement('article');
-    card.className = `card sev-${(e.severity||'INFO').toLowerCase()}`;
+    const sev = (e.severity || 'INFO').toUpperCase();
+    card.className = `card`;
     card.innerHTML = `
       <h3 class="title" title="${e.title}">${e.title}</h3>
       <div class="meta">
         <span class="source">${e.source||''}</span>
         <span class="time" title="${e.published}">${rel(e.published)}</span>
         <span class="cat">${e.category||e.threatType||''}</span>
-        <span class="chip">${e.severity||'INFO'}</span>
+        <span class="chip-sev sev-${sev}">${sev}</span>
       </div>
       <p class="summary">${e.summary||''}</p>
       <div class="actions">
@@ -67,6 +69,7 @@ function applyFilters() {
   list.innerHTML = '';
   page = 0;
   renderBatch();
+  counter.textContent = filtered.length ? `${filtered.length} item${filtered.length!==1?'s':''}` : '';
 }
 
 function populateSources() {

@@ -7,29 +7,42 @@
   <meta name="description" content="Real-time cybersecurity advisories" />
   <link rel="stylesheet" href="./styles.css" />
 </head>
-<body class="theme">
+  <body>
   <header class="toolbar">
-    <div class="toolbar-left">
-      <strong>Threat Intelligence</strong>
-      <span id="lastUpdated" title="Last updated UTC">—</span>
-    </div>
-    <div class="toolbar-right">
-      <input id="q" placeholder="Search title or summary" aria-label="Search" />
-      <select id="source" multiple aria-label="Sources"></select>
-      <select id="severity" aria-label="Severity">
-        <option value="">All severities</option>
-        <option>CRITICAL</option>
-        <option>HIGH</option>
-        <option>MEDIUM</option>
-        <option>INFO</option>
-      </select>
-      <label class="toggle"><input id="newOnly" type="checkbox" /> New since last visit</label>
-      <button id="themeToggle" aria-label="Toggle dark mode">🌓</button>
+    <div class="toolbar-inner">
+      <div class="brand">
+        <span class="logo" aria-hidden="true">🛡️</span>
+        <div class="brand-text">
+          <strong>Threat Intelligence</strong>
+          <small id="lastUpdated" class="muted" title="Last updated UTC">—</small>
+        </div>
+        <span id="counter" class="counter" aria-live="polite"></span>
+      </div>
+
+      <div class="right-controls">
+        <div class="input-group">
+          <span class="icon" aria-hidden="true">🔎</span>
+          <input id="q" type="text" placeholder="Search title or summary" aria-label="Search" />
+        </div>
+        <select id="source" multiple aria-label="Sources" title="Filter by source"></select>
+        <select id="severity" aria-label="Severity" title="Filter by severity">
+          <option value="">All severities</option>
+          <option>CRITICAL</option>
+          <option>HIGH</option>
+          <option>MEDIUM</option>
+          <option>INFO</option>
+        </select>
+        <label class="switch" title="Only show items newer than your last visit">
+          <input id="newOnly" type="checkbox" />
+          <span>New since last visit</span>
+        </label>
+        <button id="themeToggle" class="btn ghost" aria-label="Toggle dark mode" title="Toggle dark mode">🌓</button>
+      </div>
     </div>
   </header>
 
   <main>
-    <section id="list" class="cards" aria-live="polite"></section>
+    <section id="list" class="grid" aria-live="polite"></section>
     <div id="sentinel"></div>
   </main>
 
