@@ -144,10 +144,8 @@ export async function generateHTMLOutput(isDryRun = false) {
     return null;
   }
   
-  if (accumulatedEntries.length === 0) {
-    console.log('📝 No entries accumulated for HTML output');
-    return null;
-  }
+  // Even with zero accumulated entries, still write feed.json with fresh lastUpdated
+  // so the dashboard header reflects the latest run and CI smoke stays green.
   
   try {
     if (isDryRun && !OUTPUT_CONFIG.githubPages.enabled) {

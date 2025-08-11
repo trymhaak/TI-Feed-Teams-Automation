@@ -151,7 +151,7 @@ The GitHub Pages feed automatically updates with each run and provides a permane
 - Production runs every 5 minutes; staging is manual/scheduled.
 - Backfill is disabled by default; to seed older items use the "Seed Pages (One-time Backfill)" workflow or set `ALLOW_BACKFILL=true` temporarily.
 - Ordering: posts and dashboard are sorted newest-first (tie‑breaker: title).
-- A compact run summary is written to `data/metrics.json` each run; a read‑only state report is written to `data/state-report.json` by `scripts/state-doctor.js`.
+- A compact run summary is written to `data/metrics.json` each run; a read‑only state report is written to `data/state-report.json` by `scripts/state-doctor.js`. When Pages is enabled, `docs/feed.json` is always updated with a fresh `lastUpdated` (even if zero new items), so the dashboard stays fresh.
 
 ## Quick Start (Continued)
 
