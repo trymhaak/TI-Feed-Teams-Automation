@@ -1,0 +1,45 @@
+name: Seed Pages (One-time Backfill)
+
+on:
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+jobs:
+  seed:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Seed GitHub Pages artifacts (no Teams posts)
+        env:
+          ENABLE_GITHUB_PAGES: 'true'
+          ALLOW_BACKFILL: 'true'
+          MAX_BACKFILL_DAYS: '7'
+          PER_RUN_POST_CAP: '0'
+          TEAMS_WEBHOOK_URL: ''
+        run: node fetch-and-post-enhanced.js | cat
+
+      - name: Commit state and pages
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/state.json docs/index.html docs/feed.json || true
+          if ! git diff --cached --quiet; then
+            git commit -m "seed: publish GitHub Pages artifacts (backfill)"
+            git push
+          fi
+
+
