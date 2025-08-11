@@ -50,6 +50,10 @@ jobs:
           TEAMS_MAX_RETRIES: '5'
         run: npm start | cat
 
+      - name: Generate state report
+        if: always()
+        run: node scripts/state-doctor.js | cat
+
       - name: Collect metrics artifact
         if: always()
         uses: actions/upload-artifact@v4
@@ -61,7 +65,7 @@ jobs:
           if-no-files-found: ignore
 
       - name: Commit state and docs (if changed)
-        if: success()
+        if: success() && inputs.enablePages
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
