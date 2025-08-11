@@ -1,3 +1,14 @@
+// Deprecated entrypoint; the enhanced pipeline is authoritative.
+// This stub remains only for CLI/automation compatibility.
+console.warn('[DEPRECATED] Use fetch-and-post-enhanced.js. Redirecting...');
+
+try {
+  await import('./fetch-and-post-enhanced.js');
+} catch (err) {
+  console.error('Failed to start enhanced pipeline:', err?.message || err);
+  process.exit(0);
+}
+
 // Deprecated entrypoint kept for compatibility. Use fetch-and-post-enhanced.js
 console.warn('[DEPRECATED] fetch-and-post.js has been replaced by fetch-and-post-enhanced.js');
 import('./fetch-and-post-enhanced.js').catch(err => {
