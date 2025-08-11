@@ -2291,7 +2291,7 @@
       "title": "Critical Patches Issued for Microsoft Products, March 11, 2025"
     }
   },
-  "lastRun": "2025-08-11T10:24:41.149Z",
+  "lastRun": "2025-08-11T10:31:54.856Z",
   "feedStats": {},
   "filterStats": {
     "total": 0,
@@ -2300,7 +2300,7 @@
     "filterRate": "NaN",
     "threatTypes": {},
     "severities": {},
-    "timestamp": "2025-08-11T10:24:41.148Z"
+    "timestamp": "2025-08-11T10:31:54.855Z"
   },
   "version": "2.0"
 }
