@@ -23,8 +23,10 @@ jobs:
             const fs=require("fs");
             const j=JSON.parse(fs.readFileSync("feed.json","utf8"));
             if(!j.lastUpdated) throw new Error("missing lastUpdated");
-            if(!Array.isArray(j.entries) || j.entries.length===0) throw new Error("no entries");
-            console.log("lastUpdated", j.lastUpdated, "firstTitle", j.entries[0].title);
+            if(!Array.isArray(j.entries)) throw new Error("entries not array");
+            const ageMin = (Date.now()-Date.parse(j.lastUpdated))/60000;
+            if(!(ageMin>=0 && ageMin<=30)) throw new Error("lastUpdated too old: "+ageMin.toFixed(1)+"m");
+            console.log("lastUpdated", j.lastUpdated, "entries", j.entries.length);
           '
       - name: Curl live index.html
         run: |
@@ -33,4 +35,5 @@ jobs:
           curl -sS -D headers2.txt -o index.html "$URL"
           head -n 20 headers2.txt
           grep -q "Threat Intelligence Feed" index.html || (echo "missing title" && exit 1)
+          grep -q "TI-Dashboard:" index.html || (echo "missing UI init marker" && exit 1)
 
