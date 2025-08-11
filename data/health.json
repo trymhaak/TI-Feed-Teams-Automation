@@ -1,0 +1,29 @@
+{
+  "timestamp": "2025-08-09T18:41:00.105Z",
+  "uptime": 2753,
+  "status": "healthy",
+  "alerts": [],
+  "metrics": {
+    "uptime": 2753,
+    "totalRuns": 1,
+    "successRate": "100.0",
+    "averageProcessingTime": 2750,
+    "memoryUsage": {
+      "heapUsed": 12,
+      "heapTotal": 31,
+      "external": 4
+    },
+    "feedHealth": {
+      "total": 5,
+      "healthy": 5,
+      "failing": 0
+    },
+    "recentErrors": [],
+    "lastRun": {
+      "id": "run-1754764857354-sits85",
+      "duration": 2750,
+      "success": true,
+      "entriesPosted": 0
+    }
+  }
+}

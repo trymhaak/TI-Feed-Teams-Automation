@@ -1,7 +1,2318 @@
 {
-  "NSM-NCSC": "https://nsm.no/fagomrader/digital-sikkerhet/nasjonalt-cybersikkerhetssenter/varsler-fra-ncsc/microsoft-patchetirsdag-juli-2025",
-  "Microsoft-MSRC": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-8583",
-  "NIST-Cybersecurity": "https://www.nist.gov/blogs/cybersecurity-insights/lets-get-digital-updated-digital-identity-guidelines-are-here",
-  "CISA-Alerts": "https://www.cisa.gov/news-events/news/cisa-issues-emergency-directive-requiring-federal-agencies-update-systems-prevent-microsoft-exchange",
-  "CISecurity-Advisories": "https://www.cisecurity.org/advisory/multiple-vulnerabilities-in-apple-products-could-allow-for-arbitrary-code-execution_2025-069"
+  "seen": {
+    "https://nsm.no/fagomrader/digital-sikkerhet/nasjonalt-cybersikkerhetssenter/varsler-fra-ncsc/microsoft-patchetirsdag-juli-2025": {
+      "timestamp": "2025-08-09T18:40:57.356Z",
+      "source": "NSM-NCSC",
+      "title": ""
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-8583": {
+      "timestamp": "2025-08-09T18:40:57.356Z",
+      "source": "Microsoft-MSRC",
+      "title": ""
+    },
+    "https://www.nist.gov/blogs/cybersecurity-insights/lets-get-digital-updated-digital-identity-guidelines-are-here": {
+      "timestamp": "2025-08-09T18:40:57.356Z",
+      "source": "NIST-Cybersecurity",
+      "title": ""
+    },
+    "https://www.cisa.gov/news-events/news/cisa-issues-emergency-directive-requiring-federal-agencies-update-systems-prevent-microsoft-exchange": {
+      "timestamp": "2025-08-09T18:40:57.356Z",
+      "source": "CISA-Alerts",
+      "title": ""
+    },
+    "https://www.cisecurity.org/advisory/multiple-vulnerabilities-in-apple-products-could-allow-for-arbitrary-code-execution_2025-069": {
+      "timestamp": "2025-08-09T18:40:57.356Z",
+      "source": "CISecurity-Advisories",
+      "title": ""
+    },
+    "https://nsm.no/fagomrader/digital-sikkerhet/nasjonalt-cybersikkerhetssenter/varsler-fra-ncsc/kritisk-sarbarhet-i-citrix-netscaler-cve-2025-6543": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "NSM-NCSC",
+      "title": "Kritisk sårbarhet i Citrix NetScaler (CVE-2025-6543)"
+    },
+    "https://nsm.no/fagomrader/digital-sikkerhet/nasjonalt-cybersikkerhetssenter/varsler-fra-ncsc/kritisk-sarbarhet-i-citrix-netscaler-cve-2025-5777": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "NSM-NCSC",
+      "title": "Kritisk sårbarhet i Citrix NetScaler (CVE-2025-5777)"
+    },
+    "https://nsm.no/fagomrader/digital-sikkerhet/nasjonalt-cybersikkerhetssenter/varsler-fra-ncsc/microsoft-patchetirsdag-mai-2025": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "NSM-NCSC",
+      "title": "Microsoft patchetirsdag mai 2025"
+    },
+    "https://nsm.no/fagomrader/digital-sikkerhet/nasjonalt-cybersikkerhetssenter/varsler-fra-ncsc/microsoft-patchetirsdag-april-2025": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "NSM-NCSC",
+      "title": "Microsoft patchetirsdag april 2025"
+    },
+    "https://nsm.no/fagomrader/digital-sikkerhet/nasjonalt-cybersikkerhetssenter/varsler-fra-ncsc/microsoft-patchetirsdag-mars-2025": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "NSM-NCSC",
+      "title": "Microsoft patchetirsdag mars 2025"
+    },
+    "https://nsm.no/fagomrader/digital-sikkerhet/nasjonalt-cybersikkerhetssenter/varsler-fra-ncsc/microsoft-patchetirsdag-februar-2025": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "NSM-NCSC",
+      "title": "Microsoft patchetirsdag februar 2025"
+    },
+    "https://nsm.no/fagomrader/digital-sikkerhet/nasjonalt-cybersikkerhetssenter/varsler-fra-ncsc/aktiv-utnyttelse-av-fortinet-sarbarhet-cve-2024-55591": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "NSM-NCSC",
+      "title": "Aktiv utnyttelse av Fortinet-sårbarhet CVE-2024-55591"
+    },
+    "https://nsm.no/fagomrader/digital-sikkerhet/nasjonalt-cybersikkerhetssenter/varsler-fra-ncsc/patcetirsdag-januar-2025": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "NSM-NCSC",
+      "title": "Patchetirsdag januar 2025"
+    },
+    "https://nsm.no/fagomrader/digital-sikkerhet/nasjonalt-cybersikkerhetssenter/varsler-fra-ncsc/nsm-anbefaler-overgang-til-phishingresistent-autentisering": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "NSM-NCSC",
+      "title": "NSM anbefaler overgang til phishingresistent autentisering"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-29954": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-29954 Windows Lightweight Directory Access Protocol (LDAP) Denial of Service Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-8582": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "Chromium: CVE-2025-8582 Insufficient validation of untrusted input in DOM"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-8581": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "Chromium: CVE-2025-8581 Inappropriate implementation in Extensions"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-8580": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "Chromium: CVE-2025-8580 Inappropriate implementation in Filesystems"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-8578": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "Chromium: CVE-2025-8578 Use after free in Cast"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-8576": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "Chromium: CVE-2025-8576 Use after free in Extensions"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-8579": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "Chromium: CVE-2025-8579 Inappropriate implementation in Gemini Live in Chrome"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-8577": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "Chromium: CVE-2025-8577 Inappropriate implementation in Picture In Picture"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-53792": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-53792 Azure Portal Elevation of Privilege Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-53767": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-53767 Azure OpenAI Elevation of Privilege Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-53774": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-53774 Microsoft 365 Copilot BizChat Information Disclosure Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-53787": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-53787 Microsoft 365 Copilot BizChat Information Disclosure Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-53770": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-53770 Microsoft SharePoint Server Remote Code Execution Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-53786": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-53786 Microsoft Exchange Server Hybrid Deployment Elevation of Privilege Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-53771": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-53771 Microsoft SharePoint Server Spoofing Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-49706": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-49706 Microsoft SharePoint Server Spoofing Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-8292": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "Chromium: CVE-2025-8292 Use after free in Media Stream"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-8011": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "Chromium: CVE-2025-8011 Type Confusion in V8"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-8010": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "Chromium: CVE-2025-8010 Type Confusion in V8"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-29819": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-29819 Windows Admin Center in Azure Portal Information Disclosure Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2022-44693": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2022-44693 Microsoft SharePoint Server Remote Code Execution Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-49747": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-49747 Azure Machine Learning Elevation of Privilege Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-49746": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-49746 Azure Machine Learning Elevation of Privilege Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-47995": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-47995 Azure Machine Learning Elevation of Privilege Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-47158": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-47158 Azure DevOps Server Elevation of Privilege Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-53762": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-53762 Microsoft Purview Elevation of Privilege Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2024-36350": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2024-36350 AMD: CVE-2024-36350 Transient Scheduler Attack in Store Queue"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-7657": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "Chromium: CVE-2025-7657 Use after free in WebRTC"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-6558": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "Chromium: CVE-2025-6558 Incorrect validation of untrusted input in ANGLE and GPU"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-7656": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "Chromium: CVE-2025-7656 Integer overflow in V8"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-48812": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-48812 Microsoft Excel Information Disclosure Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-49711": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-49711 Microsoft Excel Remote Code Execution Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-49695": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-49695 Microsoft Office Remote Code Execution Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-49696": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-49696 Microsoft Office Remote Code Execution Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-49697": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-49697 Microsoft Office Remote Code Execution Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-49698": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-49698 Microsoft Word Remote Code Execution Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-49699": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-49699 Microsoft Office Remote Code Execution Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-49702": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-49702 Microsoft Office Remote Code Execution Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-49703": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-49703 Microsoft Word Remote Code Execution Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-49705": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-49705 Microsoft PowerPoint Remote Code Execution Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-49735": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-49735 Windows KDC Proxy Service (KPSSVC) Remote Code Execution Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-47956": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-47956 Windows Security App Spoofing Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-49717": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-49717 Microsoft SQL Server Remote Code Execution Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2024-49000": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2024-49000 SQL Server Native Client Remote Code Execution Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-49719": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-49719 Microsoft SQL Server Information Disclosure Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-49718": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-49718 Microsoft SQL Server Information Disclosure Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2023-24932": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2023-24932 Secure Boot Security Feature Bypass Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2024-21302": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2024-21302 Windows Secure Kernel Mode Elevation of Privilege Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-49689": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-49689 Microsoft Virtual Hard Disk Elevation of Privilege Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-33069": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-33069 Windows App Control for Business Security Feature Bypass Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-26636": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-26636 Windows Kernel Information Disclosure Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-33054": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-33054 Remote Desktop Spoofing Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-47159": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-47159 Windows Virtualization-Based Security (VBS) Elevation of Privilege Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-21195": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-21195 Azure Service Fabric Runtime Elevation of Privilege Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-47971": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-47971 Microsoft Virtual Hard Disk Elevation of Privilege Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-47972": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-47972 Windows Input Method Editor (IME) Elevation of Privilege Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-47976": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-47976 Windows Simple Search and Discovery Protocol (SSDP) Service Elevation of Privilege Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-47984": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-47984 Windows GDI Information Disclosure Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-47985": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-47985 Windows Event Tracing Elevation of Privilege Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-47986": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-47986 Universal Print Management Service Elevation of Privilege Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-47987": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-47987 Credential Security Support Provider Protocol (CredSSP) Elevation of Privilege Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-48824": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-48824 Windows Routing and Remote Access Service (RRAS) Remote Code Execution Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-49657": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-49657 Windows Routing and Remote Access Service (RRAS) Remote Code Execution Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-49658": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-49658 Windows Transport Driver Interface (TDI) Translation Driver Information Disclosure Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-49661": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-49661 Windows Ancillary Function Driver for WinSock Elevation of Privilege Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-49670": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-49670 Windows Routing and Remote Access Service (RRAS) Remote Code Execution Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-49671": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-49671 Windows Routing and Remote Access Service (RRAS) Information Disclosure Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-49672": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-49672 Windows Routing and Remote Access Service (RRAS) Remote Code Execution Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-49674": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-49674 Windows Routing and Remote Access Service (RRAS) Remote Code Execution Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-49676": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-49676 Windows Routing and Remote Access Service (RRAS) Remote Code Execution Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-49677": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-49677 Microsoft Brokering File System Elevation of Privilege Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-49686": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-49686 Windows TCP/IP Driver Elevation of Privilege Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-49687": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-49687 Windows Input Method Editor (IME) Elevation of Privilege Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-49688": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-49688 Windows Routing and Remote Access Service (RRAS) Remote Code Execution Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-49690": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-49690 Capability Access Management Service (camsvc) Elevation of Privilege Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-49691": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-49691 Windows Miracast Wireless Display Remote Code Execution Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-49694": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-49694 Microsoft Brokering File System Elevation of Privilege Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-47991": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-47991 Windows Input Method Editor (IME) Elevation of Privilege Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-47993": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-47993 Microsoft PC Manager Elevation of Privilege Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-47994": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-47994 Microsoft Office Elevation of Privilege Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-36357": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-36357 AMD: CVE-2025-36357 Transient Scheduler Attack in L1 Data Queue"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-36350": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-36350 AMD: CVE-2024-36350 Transient Scheduler Attack in Store Queue"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-49716": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-49716 Windows Netlogon Denial of Service Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-27613": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-27613 MITRE: CVE-2025-27613 Gitk Arguments Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-27614": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-27614 MITRE: CVE-2025-27614 Gitk Arbitrary Code Execution Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-46334": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-46334 MITRE: CVE-2025-46334 Git Malicious Shell Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-46835": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-46835 MITRE: CVE-2025-46835 Git File Overwrite Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-48384": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-48384 MITRE: CVE-2025-48384 Git Symlink Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-48385": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-48385 MITRE: CVE-2025-48385 Git Protocol Injection Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-48386": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-48386 MITRE: CVE-2025-48386 Git Credential Helper Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-49721": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-49721 Windows Fast FAT File System Driver Elevation of Privilege Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-49723": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-49723 Windows StateRepository API Server file Tampering Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-49726": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-49726 Windows Notification Elevation of Privilege Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-49731": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-49731 Microsoft Teams Elevation of Privilege Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-47178": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-47178 Microsoft Configuration Manager Remote Code Execution Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-49753": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-49753 Windows Routing and Remote Access Service (RRAS) Remote Code Execution Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-49756": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-49756 Office Developer Platform Security Feature Bypass Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-49760": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-49760 Windows Storage Spoofing Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-47973": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-47973 Microsoft Virtual Hard Disk Elevation of Privilege Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-47975": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-47975 Windows Simple Search and Discovery Protocol (SSDP) Service Elevation of Privilege Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-47978": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-47978 Windows Kerberos Denial of Service Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-47980": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-47980 Windows Imaging Component Information Disclosure Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-47981": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-47981 SPNEGO Extended Negotiation (NEGOEX) Security Mechanism Remote Code Execution Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-47982": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-47982 Windows Storage VSP Driver Elevation of Privilege Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-47996": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-47996 Windows MBT Transport Driver Elevation of Privilege Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-47998": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-47998 Windows Routing and Remote Access Service (RRAS) Remote Code Execution Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-48000": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-48000 Windows Connected Devices Platform Service Elevation of Privilege Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-48001": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-48001 BitLocker Security Feature Bypass Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-48002": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-48002 Windows Hyper-V Information Disclosure Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-48003": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-48003 BitLocker Security Feature Bypass Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-48799": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-48799 Windows Update Service Elevation of Privilege Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-48800": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-48800 BitLocker Security Feature Bypass Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-48802": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-48802 Windows SMB Server Spoofing Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-48803": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-48803 Windows Virtualization-Based Security (VBS) Elevation of Privilege Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-48804": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-48804 BitLocker Security Feature Bypass Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-48805": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-48805 Microsoft MPEG-2 Video Extension Remote Code Execution Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-48806": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-48806 Microsoft MPEG-2 Video Extension Remote Code Execution Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-48808": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-48808 Windows Kernel Information Disclosure Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-48809": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-48809 Windows Secure Kernel Mode Information Disclosure Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-48810": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-48810 Windows Secure Kernel Mode Information Disclosure Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-48811": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-48811 Windows Virtualization-Based Security (VBS) Enclave Elevation of Privilege Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-48814": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-48814 Remote Desktop Licensing Service Security Feature Bypass Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-48815": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-48815 Windows Simple Search and Discovery Protocol (SSDP) Service Elevation of Privilege Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-48816": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-48816 HID Class Driver Elevation of Privilege Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-48817": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-48817 Remote Desktop Client Remote Code Execution Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-48818": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-48818 BitLocker Security Feature Bypass Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-48819": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-48819 Windows Universal Plug and Play (UPnP) Device Host Elevation of Privilege Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-48820": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-48820 Windows AppX Deployment Service Elevation of Privilege Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-48821": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-48821 Windows Universal Plug and Play (UPnP) Device Host Elevation of Privilege Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-48822": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-48822 Windows Hyper-V Discrete Device Assignment (DDA) Remote Code Execution Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-48823": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-48823 Windows Cryptographic Services Information Disclosure Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-49659": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-49659 Windows Transport Driver Interface (TDI) Translation Driver Elevation of Privilege Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-49660": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-49660 Windows Event Tracing Elevation of Privilege Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-49663": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-49663 Windows Routing and Remote Access Service (RRAS) Remote Code Execution Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-49664": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-49664 Windows User-Mode Driver Framework Host Information Disclosure Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-49665": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-49665 Workspace Broker Elevation of Privilege Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-49666": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-49666 Windows Server Setup and Boot Event Collection Remote Code Execution Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-49667": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-49667 Windows Win32 Kernel Subsystem Elevation of Privilege Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-49668": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-49668 Windows Routing and Remote Access Service (RRAS) Remote Code Execution Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-49669": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-49669 Windows Routing and Remote Access Service (RRAS) Remote Code Execution Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-49673": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-49673 Windows Routing and Remote Access Service (RRAS) Remote Code Execution Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-49675": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-49675 Kernel Streaming WOW Thunk Service Driver Elevation of Privilege Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-49678": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-49678 NTFS Elevation of Privilege Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-49679": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-49679 Windows Shell Elevation of Privilege Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-49680": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-49680 Windows Performance Recorder (WPR) Denial of Service Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-49681": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-49681 Windows Routing and Remote Access Service (RRAS) Information Disclosure Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-49682": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-49682 Windows Media Elevation of Privilege Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-49683": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-49683 Microsoft Virtual Hard Disk Remote Code Execution Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-49684": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-49684 Windows Storage Port Driver Information Disclosure Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-49685": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-49685 Windows Search Service Elevation of Privilege Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-49693": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-49693 Microsoft Brokering File System Elevation of Privilege Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-49700": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-49700 Microsoft Word Remote Code Execution Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-49701": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-49701 Microsoft SharePoint Remote Code Execution Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-49714": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-49714 Visual Studio Code Python Extension Remote Code Execution Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-49722": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-49722 Windows Print Spooler Denial of Service Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-49724": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-49724 Windows Connected Devices Platform Service Remote Code Execution Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-49725": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-49725 Windows Notification Elevation of Privilege Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-49727": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-49727 Win32k Elevation of Privilege Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-49729": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-49729 Windows Routing and Remote Access Service (RRAS) Remote Code Execution Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-49730": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-49730 Microsoft Windows QoS Scheduler Driver Elevation of Privilege Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-49732": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-49732 Windows Graphics Component Elevation of Privilege Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-49733": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-49733 Win32k Elevation of Privilege Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-47999": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-47999 Windows Hyper-V Denial of Service Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-49737": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-49737 Microsoft Teams Elevation of Privilege Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-49738": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-49738 Microsoft PC Manager Elevation of Privilege Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-49739": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-49739 Visual Studio Elevation of Privilege Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-49740": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-49740 Windows SmartScreen Security Feature Bypass Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-49742": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-49742 Windows Graphics Component Remote Code Execution Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-49744": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-49744 Windows Graphics Component Elevation of Privilege Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/ADV990001": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "ADV990001 Latest Servicing Stack Updates"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-47988": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-47988 Azure Monitor Agent Remote Code Execution Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-49704": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-49704 Microsoft SharePoint Remote Code Execution Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-30399": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-30399 .NET and Visual Studio Remote Code Execution Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2024-29187": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2024-29187 GitHub: CVE-2024-29187 WiX Burn-based bundles are vulnerable to binary hijack when run as SYSTEM"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-26684": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-26684 Microsoft Defender Elevation of Privilege Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-47161": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-47161 Microsoft Defender for Endpoint Elevation of Privilege Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2024-43614": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2024-43614 Microsoft Defender for Endpoint for Linux Spoofing Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2022-33637": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2022-33637 Microsoft Defender for Endpoint Tampering Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2022-23278": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2022-23278 Microsoft Defender for Endpoint Spoofing Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-32726": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-32726 Visual Studio Code Elevation of Privilege Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-49713": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-49713 Microsoft Edge (Chromium-based) Remote Code Execution Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-49741": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-49741 Microsoft Edge (Chromium-based) Information Disclosure Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-6554": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "Chromium: CVE-2025-6554 Type Confusion in V8"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-47182": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-47182 Microsoft Edge (Chromium-based) Elevation of Privilege Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-6555": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "Chromium: CVE-2025-6555 Use after free in Animation"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-47964": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-47964 Microsoft Edge (Chromium-based) Spoofing Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-6556": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "Chromium: CVE-2025-6556 Insufficient policy enforcement in Loader"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-6557": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "Chromium: CVE-2025-6557 Insufficient data validation in DevTools"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-47963": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-47963 Microsoft Edge (Chromium-based) Spoofing Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-33053": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-33053 Web Distributed Authoring and Versioning (WEBDAV) Remote Code Execution Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-32711": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-32711 M365 Copilot Information Disclosure Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-21264": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-21264 Visual Studio Code Security Feature Bypass Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-5959": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "Chromium: CVE-2025-5959 Type Confusion in V8"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-5958": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "Chromium: CVE-2025-5958 Use after free in Media"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2024-28923": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2024-28923 Secure Boot Security Feature Bypass Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-47172": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-47172 Microsoft SharePoint Server Remote Code Execution Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-33073": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-33073 Windows SMB Client Elevation of Privilege Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-47957": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-47957 Microsoft Word Remote Code Execution Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-29828": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-29828 Windows Schannel Remote Code Execution Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-32710": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-32710 Windows Remote Desktop Services Remote Code Execution Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-32712": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-32712 Win32k Elevation of Privilege Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-32713": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-32713 Windows Common Log File System Driver Elevation of Privilege Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-32714": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-32714 Windows Installer Elevation of Privilege Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-32715": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-32715 Remote Desktop Protocol Client Information Disclosure Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-32716": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-32716 Windows Media Elevation of Privilege Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-32718": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-32718 Windows SMB Client Elevation of Privilege Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-32719": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-32719 Windows Storage Management Provider Information Disclosure Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-32720": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-32720 Windows Storage Management Provider Information Disclosure Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-32721": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-32721 Windows Recovery Driver Elevation of Privilege Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-32722": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-32722 Windows Storage Port Driver Information Disclosure Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-32724": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-32724 Local Security Authority Subsystem Service (LSASS) Denial of Service Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-33058": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-33058 Windows Storage Management Provider Information Disclosure Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-33059": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-33059 Windows Storage Management Provider Information Disclosure Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-33060": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-33060 Windows Storage Management Provider Information Disclosure Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-33061": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-33061 Windows Storage Management Provider Information Disclosure Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-33062": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-33062 Windows Storage Management Provider Information Disclosure Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-33063": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-33063 Windows Storage Management Provider Information Disclosure Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-33064": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-33064 Windows Routing and Remote Access Service (RRAS) Remote Code Execution Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-33065": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-33065 Windows Storage Management Provider Information Disclosure Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-33066": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-33066 Windows Routing and Remote Access Service (RRAS) Remote Code Execution Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-33067": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-33067 Windows Task Scheduler Elevation of Privilege Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-33075": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-33075 Windows Installer Elevation of Privilege Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-47160": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-47160 Windows Shortcut Files Security Feature Bypass Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-47162": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-47162 Microsoft Office Remote Code Execution Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-47953": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-47953 Microsoft Office Remote Code Execution Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-47955": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-47955 Windows Remote Access Connection Manager Elevation of Privilege Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-33071": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-33071 Windows KDC Proxy Service (KPSSVC) Remote Code Execution Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-47962": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-47962 Windows SDK Elevation of Privilege Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-47969": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-47969 Windows Virtualization-Based Security (VBS) Information Disclosure Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-32717": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-32717 Microsoft Word Remote Code Execution Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-24068": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-24068 Windows Storage Management Provider Information Disclosure Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-24069": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-24069 Windows Storage Management Provider Information Disclosure Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-24065": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-24065 Windows Storage Management Provider Information Disclosure Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-32725": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-32725 DHCP Server Service Denial of Service Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-33050": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-33050 DHCP Server Service Denial of Service Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-33052": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-33052 Windows DWM Core Library Information Disclosure  Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-33055": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-33055 Windows Storage Management Provider Information Disclosure Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-33056": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-33056 Windows Local Security Authority (LSA) Denial of Service Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-33057": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-33057 Windows Local Security Authority (LSA) Denial of Service Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-33068": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-33068 Windows Standards-Based Storage Management Service Denial of Service Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-33070": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-33070 Windows Netlogon Elevation of Privilege Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-47163": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-47163 Microsoft SharePoint Server Remote Code Execution Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-47164": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-47164 Microsoft Office Remote Code Execution Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-47165": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-47165 Microsoft Excel Remote Code Execution Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-47166": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-47166 Microsoft SharePoint Server Remote Code Execution Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-47167": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-47167 Microsoft Office Remote Code Execution Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-47168": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-47168 Microsoft Word Remote Code Execution Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-47169": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-47169 Microsoft Word Remote Code Execution Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-47170": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-47170 Microsoft Word Remote Code Execution Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-47171": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-47171 Microsoft Outlook Remote Code Execution Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-47173": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-47173 Microsoft Office Remote Code Execution Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-47174": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-47174 Microsoft Excel Remote Code Execution Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-47175": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-47175 Microsoft PowerPoint Remote Code Execution Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-47176": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-47176 Microsoft Outlook Remote Code Execution Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-3052": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-3052 Cert CC: CVE-2025-3052 InsydeH2O Secure Boot Bypass"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-47959": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-47959 Visual Studio Remote Code Execution Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-47968": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-47968 Microsoft AutoUpdate (MAU) Elevation of Privilege Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-47977": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-47977 Nuance Digital Engagement Platform Spoofing Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-47966": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-47966 Power Automate Elevation of Privilege Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-21204": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-21204 Windows Process Activation Elevation of Privilege Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-5068": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "Chromium: CVE-2025-5068 Use after free in Blink"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-5419": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "Chromium: CVE-2025-5419 Out of bounds read and write in V8"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-30394": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-30394 Windows Remote Desktop Gateway (RD Gateway) Denial of Service Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-21174": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-21174 Windows Standards-Based Storage Management Service Denial of Service Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-5066": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "Chromium: CVE-2025-5066 Inappropriate implementation in Messages"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-5067": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "Chromium: CVE-2025-5067 Inappropriate implementation in Tab Strip"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-5283": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "Chromium: CVE-2025-5283 Use after free in libvpx"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-5281": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "Chromium: CVE-2025-5281 Inappropriate implementation in BFCache"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-5065": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "Chromium: CVE-2025-5065 Inappropriate implementation in FileSystemAccess API"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-5064": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "Chromium: CVE-2025-5064 Inappropriate implementation in Background Fetch API"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-5280": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "Chromium: CVE-2025-5280 Out of bounds write in V8"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-5063": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "Chromium: CVE-2025-5063 Use after free in Compositing"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-26646": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-26646 .NET, Visual Studio, and Build Tools for Visual Studio Spoofing Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-47181": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-47181 Microsoft Edge (Chromium-based) Update Elevation of Privilege Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-32709": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-32709 Windows Ancillary Function Driver for WinSock Elevation of Privilege Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-4609": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "Chromium: CVE-2025-4609 Incorrect handle provided in unspecified circumstances in Mojo"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-4664": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "Chromium: CVE-2025-4664 Insufficient policy enforcement in Loader"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-29959": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-29959 Windows Routing and Remote Access Service (RRAS) Information Disclosure Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-29960": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-29960 Windows Routing and Remote Access Service (RRAS) Information Disclosure Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-29964": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-29964 Windows Media Remote Code Execution Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-29966": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-29966 Remote Desktop Client Remote Code Execution Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-29967": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-29967 Remote Desktop Client Remote Code Execution Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-29968": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-29968 Active Directory Certificate Services (AD CS) Denial of Service Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-29969": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-29969 MS-EVEN RPC Remote Code Execution Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-29970": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-29970 Microsoft Brokering File System Elevation of Privilege Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-29971": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-29971 Web Threat Defense (WTD.sys) Denial of Service Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-29973": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-29973 Microsoft Azure File Sync Elevation of Privilege Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-29975": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-29975 Microsoft PC Manager Elevation of Privilege Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-29976": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-29976 Microsoft SharePoint Server Elevation of Privilege Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-29977": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-29977 Microsoft Excel Remote Code Execution Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-29978": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-29978 Microsoft PowerPoint Remote Code Execution Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-30375": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-30375 Microsoft Excel Remote Code Execution Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-30376": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-30376 Microsoft Excel Remote Code Execution Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-30377": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-30377 Microsoft Office Remote Code Execution Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-30378": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-30378 Microsoft SharePoint Server Remote Code Execution Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-30379": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-30379 Microsoft Excel Remote Code Execution Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-30381": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-30381 Microsoft Excel Remote Code Execution Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-30382": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-30382 Microsoft SharePoint Server Remote Code Execution Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-30383": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-30383 Microsoft Excel Remote Code Execution Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-30384": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-30384 Microsoft SharePoint Server Remote Code Execution Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-30386": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-30386 Microsoft Office Remote Code Execution Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-30387": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-30387 Document Intelligence Studio On-Prem Elevation of Privilege Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-27468": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-27468 Windows Kernel-Mode Driver Elevation of Privilege Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-30393": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-30393 Microsoft Excel Remote Code Execution Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-29826": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-29826 Microsoft Dataverse Elevation of Privilege Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-30400": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-30400 Microsoft DWM Core Library Elevation of Privilege Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-32701": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-32701 Windows Common Log File System Driver Elevation of Privilege Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-32703": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-32703 Visual Studio Information Disclosure Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-32706": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-32706 Windows Common Log File System Driver Elevation of Privilege Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-26677": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-26677 Windows Remote Desktop Gateway (RD Gateway) Denial of Service Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-27488": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-27488 Microsoft Windows Hardware Lab Kit (HLK) Elevation of Privilege Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-26685": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-26685 Microsoft Defender for Identity Spoofing Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-29829": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-29829 Windows Trusted Runtime Interface Driver Information Disclosure Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-29830": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-29830 Windows Routing and Remote Access Service (RRAS) Information Disclosure Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-29831": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-29831 Windows Remote Desktop Services Remote Code Execution Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-29832": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-29832 Windows Routing and Remote Access Service (RRAS) Information Disclosure Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-29833": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-29833 Microsoft Virtual Machine Bus (VMBus) Remote Code Execution Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-29835": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-29835 Windows Remote Access Connection Manager Information Disclosure Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-29836": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-29836 Windows Routing and Remote Access Service (RRAS) Information Disclosure Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-29837": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-29837 Windows Installer Information Disclosure Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-29838": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-29838 Windows ExecutionContext Driver Elevation of Privilege Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-29839": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-29839 Windows Multiple UNC Provider Driver Information Disclosure Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-29840": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-29840 Windows Media Remote Code Execution Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-29841": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-29841 Universal Print Management Service Elevation of Privilege Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-29842": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-29842 UrlMon Security Feature Bypass Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-29955": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-29955 Windows Hyper-V Denial of Service Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-29956": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-29956 Windows SMB Information Disclosure Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-29957": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-29957 Windows Deployment Services Denial of Service Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-29958": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-29958 Windows Routing and Remote Access Service (RRAS) Information Disclosure Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-29961": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-29961 Windows Routing and Remote Access Service (RRAS) Information Disclosure Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-29962": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-29962 Windows Media Remote Code Execution Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-29963": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-29963 Windows Media Remote Code Execution Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-29974": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-29974 Windows Kernel Information Disclosure Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-30385": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-30385 Windows Common Log File System Driver Elevation of Privilege Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-30388": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-30388 Windows Graphics Component Remote Code Execution Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-30397": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-30397 Scripting Engine Memory Corruption Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-32702": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-32702 Visual Studio Remote Code Execution Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-32704": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-32704 Microsoft Excel Remote Code Execution Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-32705": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-32705 Microsoft Outlook Remote Code Execution Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-32707": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-32707 NTFS Elevation of Privilege Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-24063": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-24063 Kernel Streaming Service Driver Elevation of Privilege Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-29979": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-29979 Microsoft Excel Remote Code Execution Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-26673": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-26673 Windows Lightweight Directory Access Protocol (LDAP) Denial of Service Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-29823": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-29823 Microsoft Excel Remote Code Execution Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2017-0045": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2017-0045 Windows DVD Maker XML External Entity Information Disclosure Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-26629": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2025-26629 Microsoft Office Remote Code Execution Vulnerability"
+    },
+    "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2024-49128": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "Microsoft-MSRC",
+      "title": "CVE-2024-49128 Windows Remote Desktop Services Remote Code Execution Vulnerability"
+    },
+    "https://www.nist.gov/blogs/cybersecurity-insights/reflections-first-cyber-ai-profile-workshop": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "NIST-Cybersecurity",
+      "title": "Reflections from the First Cyber AI Profile Workshop"
+    },
+    "https://www.nist.gov/blogs/cybersecurity-insights/nine-years-and-counting-nice-ramps-communities-keep-expanding": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "NIST-Cybersecurity",
+      "title": "Nine Years and Counting: NICE RAMPS Communities Keep Expanding Opportunities in Cybersecurity Work and Learning"
+    },
+    "https://www.nist.gov/blogs/cybersecurity-insights/impact-artificial-intelligence-cybersecurity-workforce": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "NIST-Cybersecurity",
+      "title": "The Impact of Artificial Intelligence on the Cybersecurity Workforce"
+    },
+    "https://www.nist.gov/blogs/cybersecurity-insights/cybersecurity-and-ai-integrating-and-building-existing-nist-guidelines": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "NIST-Cybersecurity",
+      "title": "Cybersecurity and AI: Integrating and Building on Existing NIST Guidelines"
+    },
+    "https://www.nist.gov/blogs/cybersecurity-insights/five-years-later-evolving-iot-cybersecurity-guidelines": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "NIST-Cybersecurity",
+      "title": "Five Years Later: Evolving IoT Cybersecurity Guidelines"
+    },
+    "https://www.nist.gov/blogs/cybersecurity-insights/small-businesses-create-big-impact-nist-celebrates-2025-national-small": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "NIST-Cybersecurity",
+      "title": "Small Businesses Create Big Impact: NIST Celebrates 2025 National Small Business Week"
+    },
+    "https://www.nist.gov/blogs/cybersecurity-insights/celebrating-1-year-csf-20": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "NIST-Cybersecurity",
+      "title": "Celebrating 1 Year of CSF 2.0"
+    },
+    "https://www.nist.gov/blogs/cybersecurity-insights/privacy-preserving-federated-learning-future-collaboration-and": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "NIST-Cybersecurity",
+      "title": "Privacy-Preserving Federated Learning – Future Collaboration and Continued Research"
+    },
+    "https://www.nist.gov/blogs/cybersecurity-insights/nists-international-cybersecurity-and-privacy-engagement-update-new": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "NIST-Cybersecurity",
+      "title": "NIST’s International Cybersecurity and Privacy Engagement Update – New Translations"
+    },
+    "https://www.nist.gov/blogs/cybersecurity-insights/data-pipeline-challenges-privacy-preserving-federated-learning": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "NIST-Cybersecurity",
+      "title": "Data Pipeline Challenges of Privacy-Preserving Federated Learning"
+    },
+    "https://www.nist.gov/blogs/cybersecurity-insights/kicking-december-4th-workshop-nist-revisiting-and-revising-foundational": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "NIST-Cybersecurity",
+      "title": "Kicking-Off with a December 4th Workshop, NIST is Revisiting and Revising Foundational Cybersecurity Activities for IoT Device Manufacturers, NIST IR 8259!"
+    },
+    "https://www.nist.gov/blogs/cybersecurity-insights/unlocking-cybersecurity-talent-power-apprenticeships": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "NIST-Cybersecurity",
+      "title": "Unlocking Cybersecurity Talent: The Power of Apprenticeships"
+    },
+    "https://www.nist.gov/blogs/cybersecurity-insights/digital-identities-getting-know-verifiable-digital-credential-ecosystem": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "NIST-Cybersecurity",
+      "title": "Digital Identities: Getting to Know the Verifiable Digital Credential Ecosystem"
+    },
+    "https://www.nist.gov/blogs/cybersecurity-insights/staff-stories-spotlight-series-cybersecurity-awareness-month-2024": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "NIST-Cybersecurity",
+      "title": "Staff Stories Spotlight Series: Cybersecurity Awareness Month 2024"
+    },
+    "https://www.nist.gov/blogs/cybersecurity-insights/staff-stories-spotlight-series-cybersecurity-awareness-month-2024-0": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "NIST-Cybersecurity",
+      "title": "Staff Stories Spotlight Series: Cybersecurity Awareness Month 2024"
+    },
+    "https://www.nist.gov/blogs/cybersecurity-insights/iot-assignment-completed-report-barriers-us-iot-adoption": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "NIST-Cybersecurity",
+      "title": "IoT Assignment Completed! Report on Barriers to U.S. IoT Adoption"
+    },
+    "https://www.nist.gov/blogs/cybersecurity-insights/staff-stories-spotlight-series-cybersecurity-awareness-month-2024-4": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "NIST-Cybersecurity",
+      "title": "Staff Stories Spotlight Series: Cybersecurity Awareness Month 2024"
+    },
+    "https://www.nist.gov/blogs/cybersecurity-insights/staff-stories-spotlight-series-cybersecurity-awareness-month-2024-1": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "NIST-Cybersecurity",
+      "title": "Staff Stories Spotlight Series: Cybersecurity Awareness Month 2024"
+    },
+    "https://www.nist.gov/blogs/cybersecurity-insights/staff-stories-spotlight-series-cybersecurity-awareness-month-2024-2": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "NIST-Cybersecurity",
+      "title": "Staff Stories Spotlight Series: Cybersecurity Awareness Month 2024"
+    },
+    "https://www.nist.gov/blogs/cybersecurity-insights/scalability-challenges-privacy-preserving-federated-learning": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "NIST-Cybersecurity",
+      "title": "Scalability Challenges in Privacy-Preserving Federated Learning"
+    },
+    "https://www.nist.gov/blogs/cybersecurity-insights/staff-stories-spotlight-series-cybersecurity-awareness-month-2024-3": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "NIST-Cybersecurity",
+      "title": "Staff Stories Spotlight Series: Cybersecurity Awareness Month 2024"
+    },
+    "https://www.nist.gov/blogs/cybersecurity-insights/managing-cybersecurity-and-privacy-risks-age-artificial-intelligence": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "NIST-Cybersecurity",
+      "title": "Managing Cybersecurity and Privacy Risks in the Age of Artificial Intelligence: Launching a New Program at NIST"
+    },
+    "https://www.nist.gov/blogs/cybersecurity-insights/learning-sharing-and-exploring-nists-new-human-centered-cybersecurity": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "NIST-Cybersecurity",
+      "title": "Learning, Sharing, and Exploring with NIST’s New Human-Centered Cybersecurity Community of Interest"
+    },
+    "https://www.nist.gov/blogs/cybersecurity-insights/implementation-challenges-privacy-preserving-federated-learning": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "NIST-Cybersecurity",
+      "title": "Implementation Challenges in Privacy-Preserving Federated Learning"
+    },
+    "https://www.nist.gov/blogs/cybersecurity-insights/protecting-trained-models-privacy-preserving-federated-learning": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "NIST-Cybersecurity",
+      "title": "Protecting Trained Models in Privacy-Preserving Federated Learning"
+    },
+    "https://www.nist.gov/blogs/cybersecurity-insights/nists-international-cybersecurity-and-privacy-engagement-update-mexico": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "NIST-Cybersecurity",
+      "title": "NIST’s International Cybersecurity and Privacy Engagement Update – Mexico City, RSA Conference, and More"
+    },
+    "https://www.nist.gov/blogs/cybersecurity-insights/check-your-wallet-how-mobile-drivers-licenses-are-changing-online": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "NIST-Cybersecurity",
+      "title": "Check Your Wallet? How Mobile Driver’s Licenses are Changing Online Transactions"
+    },
+    "https://www.nist.gov/blogs/cybersecurity-insights/latest-nice-framework-update-offers-improvements-cybersecurity": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "NIST-Cybersecurity",
+      "title": "Latest NICE Framework Update Offers Improvements for the Cybersecurity Workforce"
+    },
+    "https://www.nist.gov/blogs/cybersecurity-insights/protecting-model-updates-privacy-preserving-federated-learning-part-two": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "NIST-Cybersecurity",
+      "title": "Protecting Model Updates in Privacy-Preserving Federated Learning: Part Two"
+    },
+    "https://www.nist.gov/blogs/cybersecurity-insights/take-tour-nist-cybersecurity-framework-20-small-business-quick-start": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "NIST-Cybersecurity",
+      "title": "Take A Tour! NIST Cybersecurity Framework 2.0: Small Business Quick Start Guide"
+    },
+    "https://www.nist.gov/blogs/cybersecurity-insights/giving-nist-digital-identity-guidelines-boost-supplement-incorporating": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "NIST-Cybersecurity",
+      "title": "Giving NIST Digital Identity Guidelines a Boost: Supplement for Incorporating Syncable Authenticators"
+    },
+    "https://www.nist.gov/blogs/cybersecurity-insights/protecting-model-updates-privacy-preserving-federated-learning": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "NIST-Cybersecurity",
+      "title": "Protecting Model Updates in Privacy-Preserving Federated Learning"
+    },
+    "https://www.nist.gov/blogs/cybersecurity-insights/updates-nists-interagency-international-cybersecurity-standardization": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "NIST-Cybersecurity",
+      "title": "Updates on NIST’s Interagency International Cybersecurity Standardization Working Group"
+    },
+    "https://www.nist.gov/blogs/cybersecurity-insights/data-distribution-privacy-preserving-federated-learning": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "NIST-Cybersecurity",
+      "title": "Data Distribution in Privacy-Preserving Federated Learning"
+    },
+    "https://www.nist.gov/blogs/cybersecurity-insights/travel-update-nist-csf-20-herealong-many-helpful-resources": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "NIST-Cybersecurity",
+      "title": "Travel Update! The NIST CSF 2.0 is HERE…Along with Many Helpful Resources…"
+    },
+    "https://www.nist.gov/blogs/cybersecurity-insights/nist-celebrates-national-entrepreneurship-week": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "NIST-Cybersecurity",
+      "title": "NIST Celebrates National Entrepreneurship Week"
+    },
+    "https://www.nist.gov/blogs/cybersecurity-insights/nists-international-cybersecurity-and-privacy-engagement-update": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "NIST-Cybersecurity",
+      "title": "NIST’s International Cybersecurity and Privacy Engagement Update – International Dialogues, Workshops, and Translations"
+    },
+    "https://www.nist.gov/blogs/cybersecurity-insights/new-year-new-initiatives-nist-privacy-framework": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "NIST-Cybersecurity",
+      "title": "New Year, New Initiatives for the NIST Privacy Framework!"
+    },
+    "https://www.nist.gov/blogs/cybersecurity-insights/privacy-attacks-federated-learning": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "NIST-Cybersecurity",
+      "title": "Privacy Attacks in Federated Learning"
+    },
+    "https://www.cisa.gov/news-events/news/cisa-issues-alert-vulnerability-affecting-microsoft-exchange": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "CISA-Alerts",
+      "title": "CISA Issues Alert on Vulnerability affecting Microsoft Exchange"
+    },
+    "https://www.cisa.gov/news-events/news/dhs-launches-over-100-million-funding-strengthen-communities-cyber-defenses": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "CISA-Alerts",
+      "title": "DHS Launches Over $100 Million in Funding to Strengthen Communities’ Cyber Defenses"
+    },
+    "https://www.cisa.gov/news-events/news/cisa-announces-release-thorium-malware-analysis": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "CISA-Alerts",
+      "title": "CISA Announces Release of Thorium for Malware Analysis"
+    },
+    "https://www.cisa.gov/news-events/news/cisa-releases-open-source-eviction-strategies-tool-cyber-incident-response": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "CISA-Alerts",
+      "title": "CISA Releases Open-Source Eviction Strategies Tool for Cyber Incident Response"
+    },
+    "https://www.cisa.gov/news-events/news/joint-statement-cisa-fbi-dc3-and-nsa-potential-targeted-cyber-activity-against-us-critical": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "CISA-Alerts",
+      "title": "Joint Statement from CISA, FBI, DC3 and NSA on Potential Targeted Cyber Activity Against U.S. Critical Infrastructure by Iran"
+    },
+    "https://www.cisa.gov/news-events/news/cisa-welcomes-madhu-gottumukkala-new-deputy-director": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "CISA-Alerts",
+      "title": "CISA Welcomes Madhu Gottumukkala as the New Deputy Director"
+    },
+    "https://www.cisa.gov/news-events/news/cisa-statement-cyber-related-alerts-and-notifications": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "CISA-Alerts",
+      "title": "CISA Statement on Cyber-Related Alerts and Notifications"
+    },
+    "https://www.cisa.gov/news-events/news/cisa-dhs-st-inl-lsu-help-energy-industry-partners-strengthen-incident-response-and-ot-cybersecurity": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "CISA-Alerts",
+      "title": "CISA, DHS S&T, INL, LSU Help Energy Industry Partners Strengthen Incident Response and OT Cybersecurity"
+    },
+    "https://www.cisa.gov/news-events/news/statement-matt-hartman-cve-program": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "CISA-Alerts",
+      "title": "Statement from Matt Hartman on the CVE Program"
+    },
+    "https://www.cisecurity.org/advisory/a-vulnerability-in-sonicwall-sonicos-management-access-and-sslvpn-could-allow-for-unauthorized-access_2024-097": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "CISecurity-Advisories",
+      "title": "A Vulnerability in SonicWall SonicOS management access and SSLVPN Could Allow for Unauthorized Access"
+    },
+    "https://www.cisecurity.org/advisory/a-vulnerability-in-google-chrome-could-allow-for-arbitrary-code-execution_2025-068": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "CISecurity-Advisories",
+      "title": "A Vulnerability in Google Chrome Could Allow for Arbitrary Code Execution"
+    },
+    "https://www.cisecurity.org/advisory/multiple-vulnerabilities-in-adobe-products-could-allow-for-arbitrary-code-execution_2025-065": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "CISecurity-Advisories",
+      "title": "Multiple Vulnerabilities in Adobe Products Could Allow for Arbitrary Code Execution"
+    },
+    "https://www.cisecurity.org/advisory/multiple-vulnerabilities-in-google-chrome-could-allow-for-arbitrary-code-execution_2025-067": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "CISecurity-Advisories",
+      "title": "Multiple Vulnerabilities in Google Chrome Could Allow for Arbitrary Code Execution"
+    },
+    "https://www.cisecurity.org/advisory/multiple-vulnerabilities-in-microsoft-sharepoint-server-could-allow-for-remote-code-execution_2025-066---updated-was-emailed-as-2025-065-in-email-notification-should-have-been-2025-066": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "CISecurity-Advisories",
+      "title": "Multiple Vulnerabilities in Microsoft SharePoint Server Could Allow for Remote Code Execution"
+    },
+    "https://www.cisecurity.org/advisory/multiple-vulnerabilities-in-mozilla-thunderbird-could-allow-for-arbitrary-code-execution_2025-064": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "CISecurity-Advisories",
+      "title": "Multiple Vulnerabilities in Mozilla Thunderbird Could Allow for Arbitrary Code Execution"
+    },
+    "https://www.cisecurity.org/advisory/a-vulnerability-in-fortiweb-could-allow-for-sql-injection_2025-063": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "CISecurity-Advisories",
+      "title": "A Vulnerability in FortiWeb Could Allow for SQL Injection"
+    },
+    "https://www.cisecurity.org/advisory/critical-patches-issued-for-microsoft-products-july-8-2025_2025-062": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "CISecurity-Advisories",
+      "title": "Critical Patches Issued for Microsoft Products, July 8, 2025"
+    },
+    "https://www.cisecurity.org/advisory/a-vulnerability-in-google-chrome-could-allow-for-arbitrary-code-execution_2025-061": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "CISecurity-Advisories",
+      "title": "A Vulnerability in Google Chrome Could Allow for Arbitrary Code Execution"
+    },
+    "https://www.cisecurity.org/advisory/multiple-vulnerabilities-in-citrix-products-could-allow-for-disclosure-of-sensitive-data_2025-060": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "CISecurity-Advisories",
+      "title": "Multiple Vulnerabilities in Citrix Products Could Allow For Disclosure Of Sensitive Data"
+    },
+    "https://www.cisecurity.org/advisory/multiple-vulnerabilities-in-cisco-ise-and-ise-pic-could-allow-for-remote-code-execution_2025-059": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "CISecurity-Advisories",
+      "title": "Multiple Vulnerabilities in Cisco ISE and ISE-PIC Could Allow for Remote Code Execution"
+    },
+    "https://www.cisecurity.org/advisory/a-vulnerability-in-grafana-could-allow-for-arbitrary-code-execution_2025-058": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "CISecurity-Advisories",
+      "title": "A Vulnerability in Grafana Could Allow for Arbitrary Code Execution"
+    },
+    "https://www.cisecurity.org/advisory/multiple-vulnerabilities-in-adobe-products-could-allow-for-arbitrary-code-execution_2025-057": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "CISecurity-Advisories",
+      "title": "Multiple Vulnerabilities in Adobe Products Could Allow for Arbitrary Code Execution"
+    },
+    "https://www.cisecurity.org/advisory/critical-patches-issued-for-microsoft-products-june-10-2025_2025-056": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "CISecurity-Advisories",
+      "title": "Critical Patches Issued for Microsoft Products, June 10, 2025"
+    },
+    "https://www.cisecurity.org/advisory/multiple-vulnerabilities-in-mozilla-firefox-could-allow-for-arbitrary-code-execution_2025-055": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "CISecurity-Advisories",
+      "title": "Multiple Vulnerabilities in Mozilla Firefox Could Allow for Arbitrary Code Execution"
+    },
+    "https://www.cisecurity.org/advisory/multiple-vulnerabilities-in-hpe-storeonce-software-could-allow-for-remote-code-execution_2025-054": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "CISecurity-Advisories",
+      "title": "Multiple Vulnerabilities in HPE StoreOnce Software Could Allow for Remote Code Execution"
+    },
+    "https://www.cisecurity.org/advisory/multiple-vulnerabilities-in-google-chrome-could-allow-for-arbitrary-code-execution_2025-053": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "CISecurity-Advisories",
+      "title": "Multiple Vulnerabilities in Google Chrome Could Allow for Arbitrary Code Execution"
+    },
+    "https://www.cisecurity.org/advisory/a-vulnerability-in-google-chrome-could-allow-for-arbitrary-code-execution_2025-052": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "CISecurity-Advisories",
+      "title": "A Vulnerability in Google Chrome Could Allow for Arbitrary Code Execution"
+    },
+    "https://www.cisecurity.org/advisory/multiple-vulnerabilities-in-ivanti-endpoint-manager-mobile-could-allow-for-remote-code-execution_2025-051": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "CISecurity-Advisories",
+      "title": "Multiple Vulnerabilities in Ivanti Endpoint Manager Mobile Could Allow for Remote Code Execution"
+    },
+    "https://www.cisecurity.org/advisory/multiple-vulnerabilities-in-adobe-products-could-allow-for-arbitrary-code-execution_2025-050": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "CISecurity-Advisories",
+      "title": "Multiple Vulnerabilities in Adobe Products Could Allow for Arbitrary Code Execution"
+    },
+    "https://www.cisecurity.org/advisory/multiple-vulnerabilities-in-fortinet-products-could-allow-for-arbitrary-code-execution_2025-049": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "CISecurity-Advisories",
+      "title": "Multiple Vulnerabilities in Fortinet Products Could Allow for Arbitrary Code Execution"
+    },
+    "https://www.cisecurity.org/advisory/critical-patches-issued-for-microsoft-products-may-13-2025_2025-048": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "CISecurity-Advisories",
+      "title": "Critical Patches Issued for Microsoft Products, May 13, 2025"
+    },
+    "https://www.cisecurity.org/advisory/multiple-vulnerabilities-in-google-android-os-could-allow-for-remote-code-execution_2025-047": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "CISecurity-Advisories",
+      "title": "Multiple Vulnerabilities in Google Android OS Could Allow for Remote Code Execution"
+    },
+    "https://www.cisecurity.org/advisory/multiple-vulnerabilities-in-sonicwall-secure-mobile-access-sma-100-series-management-interface-could-allow-for-remote-code-execution_2025-046": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "CISecurity-Advisories",
+      "title": "Multiple Vulnerabilities in SonicWall Secure Mobile Access (SMA) 100 Series Management Interface Could Allow for Remote Code Execution"
+    },
+    "https://www.cisecurity.org/advisory/multiple-vulnerabilities-in-mozilla-products-could-allow-for-arbitrary-code-execution_2025-045": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "CISecurity-Advisories",
+      "title": "Multiple Vulnerabilities in Mozilla Products Could Allow for Arbitrary Code Execution"
+    },
+    "https://www.cisecurity.org/advisory/a-vulnerability-in-sap-netweaver-visual-composer-could-allow-for-remote-code-execution_2025-044": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "CISecurity-Advisories",
+      "title": "A Vulnerability in SAP NetWeaver Visual Composer Could Allow for Remote Code Execution"
+    },
+    "https://www.cisecurity.org/advisory/a-vulnerability-in-sonicwall-secure-mobile-access-sma-100-series-management-interface-could-allow-for-remote-code-execution_2025-043": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "CISecurity-Advisories",
+      "title": "A Vulnerability in SonicWall Secure Mobile Access (SMA) 100 Series Management Interface Could Allow for Remote Code Execution"
+    },
+    "https://www.cisecurity.org/advisory/oracle-quarterly-critical-patches-issued-april-15-2025_2025-041": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "CISecurity-Advisories",
+      "title": "Oracle Quarterly Critical Patches Issued April 15, 2025"
+    },
+    "https://www.cisecurity.org/advisory/multiple-vulnerabilities-in-apple-products-could-allow-for-arbitrary-code-execution_2025-042": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "CISecurity-Advisories",
+      "title": "Multiple Vulnerabilities in Apple Products Could Allow for Arbitrary Code Execution"
+    },
+    "https://www.cisecurity.org/advisory/multiple-vulnerabilities-in-fortinet-products-could-allow-for-remote-code-execution_2025-040": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "CISecurity-Advisories",
+      "title": "Multiple Vulnerabilities in Fortinet Products Could Allow for Remote Code Execution"
+    },
+    "https://www.cisecurity.org/advisory/multiple-vulnerabilities-in-adobe-products-could-allow-for-arbitrary-code-execution_2025-039": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "CISecurity-Advisories",
+      "title": "Multiple Vulnerabilities in Adobe Products Could Allow for Arbitrary Code Execution"
+    },
+    "https://www.cisecurity.org/advisory/a-vulnerability-in-google-chrome-could-allow-for-arbitrary-code-execution_2025-038": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "CISecurity-Advisories",
+      "title": "A Vulnerability in Google Chrome Could Allow for Arbitrary Code Execution"
+    },
+    "https://www.cisecurity.org/advisory/multiple-vulnerabilities-in-ivanti-endpoint-manager-could-allow-for-remote-code-execution_2025-037": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "CISecurity-Advisories",
+      "title": "Multiple Vulnerabilities in Ivanti Endpoint Manager Could Allow for Remote Code Execution"
+    },
+    "https://www.cisecurity.org/advisory/critical-patches-issued-for-microsoft-products-april-8-2025_2025-036": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "CISecurity-Advisories",
+      "title": "Critical Patches Issued for Microsoft Products, April 8, 2025"
+    },
+    "https://www.cisecurity.org/advisory/multiple-vulnerabilities-in-mozilla-products-could-allow-for-arbitrary-code-execution_2025-035": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "CISecurity-Advisories",
+      "title": "Multiple Vulnerabilities in Mozilla Products Could Allow for Arbitrary Code Execution"
+    },
+    "https://www.cisecurity.org/advisory/a-vulnerability-in-ivanti-products-could-allow-for-remote-code-execution_2025-034": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "CISecurity-Advisories",
+      "title": "A Vulnerability in Ivanti Products Could Allow for Remote Code Execution"
+    },
+    "https://www.cisecurity.org/advisory/multiple-vulnerabilities-in-ibm-aix-could-allow-for-arbitrary-code-execution_2025-033": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "CISecurity-Advisories",
+      "title": "Multiple Vulnerabilities in IBM AIX could allow for arbitrary code execution."
+    },
+    "https://www.cisecurity.org/advisory/a-vulnerability-in-crushftp-could-allow-for-unauthorized-access_2025-032": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "CISecurity-Advisories",
+      "title": "A Vulnerability in CrushFTP Could Allow for Unauthorized Access"
+    },
+    "https://www.cisecurity.org/advisory/a-vulnerability-in-google-chrome-could-allow-for-arbitrary-code-execution_2025-031": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "CISecurity-Advisories",
+      "title": "A Vulnerability in Google Chrome Could Allow for Arbitrary Code Execution"
+    },
+    "https://www.cisecurity.org/advisory/a-vulnerability-in-google-chrome-could-allow-for-arbitrary-code-execution_2025-030": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "CISecurity-Advisories",
+      "title": "A Vulnerability in Google Chrome Could Allow for Arbitrary Code Execution"
+    },
+    "https://www.cisecurity.org/advisory/a-vulnerability-in-veeam-backup-replication-could-allow-for-arbitrary-code-execution_2025-029": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "CISecurity-Advisories",
+      "title": "A Vulnerability in Veeam Backup & Replication Could Allow for Arbitrary Code Execution"
+    },
+    "https://www.cisecurity.org/advisory/a-vulnerability-in-ami-megarac-software-could-allow-for-remote-code-execution_2025-028": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "CISecurity-Advisories",
+      "title": "A Vulnerability in AMI MegaRAC Software Could Allow for Remote Code Execution"
+    },
+    "https://www.cisecurity.org/advisory/a-vulnerability-in-apache-tomcat-could-allow-for-remote-code-execution_2025-027": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "CISecurity-Advisories",
+      "title": "A Vulnerability in Apache Tomcat Could Allow for Remote Code Execution"
+    },
+    "https://www.cisecurity.org/advisory/ms-isac-cybersecurity-advisory---multiple-vulnerabilities-in-sante-pacs-server-could-allow-for-remote-code-execution---patch-now---tlp-clear_2025-026": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "CISecurity-Advisories",
+      "title": "MS-ISAC CYBERSECURITY ADVISORY - Multiple Vulnerabilities in Sante PACS Server Could Allow for Remote Code Execution - PATCH NOW - TLP: CLEAR"
+    },
+    "https://www.cisecurity.org/advisory/multiple-vulnerabilities-in-google-android-os-could-allow-for-remote-code-execution_2025-025": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "CISecurity-Advisories",
+      "title": "Multiple Vulnerabilities in Google Android OS Could Allow for Remote Code Execution"
+    },
+    "https://www.cisecurity.org/advisory/multiple-vulnerabilities-in-mozilla-products-could-allow-for-arbitrary-code-execution_2025-024": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "CISecurity-Advisories",
+      "title": "Multiple Vulnerabilities in Mozilla Products Could Allow for Arbitrary Code Execution"
+    },
+    "https://www.cisecurity.org/advisory/multiple-vulnerabilities-in-fortinet-products-could-allow-for-remote-code-execution_2025-021": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "CISecurity-Advisories",
+      "title": "Multiple Vulnerabilities in Fortinet Products Could Allow for Remote Code Execution"
+    },
+    "https://www.cisecurity.org/advisory/multiple-vulnerabilities-in-adobe-products-could-allow-for-arbitrary-code-execution_2025-023": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "CISecurity-Advisories",
+      "title": "Multiple Vulnerabilities in Adobe Products Could Allow for Arbitrary Code Execution"
+    },
+    "https://www.cisecurity.org/advisory/critical-patches-issued-for-microsoft-products-march-11-2025_2025-022": {
+      "timestamp": "2025-08-09T18:41:00.097Z",
+      "source": "CISecurity-Advisories",
+      "title": "Critical Patches Issued for Microsoft Products, March 11, 2025"
+    }
+  },
+  "lastRun": "2025-08-09T18:41:00.097Z",
+  "feedStats": {},
+  "filterStats": {
+    "total": 513,
+    "passed": 513,
+    "filtered": 0,
+    "filterRate": "0.0",
+    "threatTypes": {
+      "vulnerability": 462,
+      "phishing": 1,
+      "general": 48,
+      "apt": 1,
+      "malware": 1
+    },
+    "severities": {
+      "info": 46,
+      "medium": 238,
+      "critical": 203,
+      "low": 3,
+      "high": 23
+    },
+    "timestamp": "2025-08-09T18:41:00.094Z"
+  },
+  "version": "2.0"
 }

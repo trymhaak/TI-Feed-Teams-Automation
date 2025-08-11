@@ -1,0 +1,68 @@
+{
+  "id": "run-1754764857354-sits85",
+  "startTime": 1754764857354,
+  "feeds": [],
+  "mode": "dry-run",
+  "timestamp": "2025-08-09T18:40:57.354Z",
+  "endTime": 1754764860104,
+  "duration": 2750,
+  "success": true,
+  "entriesProcessed": 513,
+  "entriesPosted": 0,
+  "feedResults": {
+    "NSM-NCSC": {
+      "success": true,
+      "entries": 10,
+      "newEntries": 10
+    },
+    "Microsoft-MSRC": {
+      "success": true,
+      "entries": 408,
+      "newEntries": 408
+    },
+    "NIST-Cybersecurity": {
+      "success": true,
+      "entries": 40,
+      "newEntries": 40
+    },
+    "CISA-Alerts": {
+      "success": true,
+      "entries": 10,
+      "newEntries": 10
+    },
+    "CISecurity-Advisories": {
+      "success": true,
+      "entries": 50,
+      "newEntries": 50
+    }
+  },
+  "errors": [],
+  "memoryUsage": {
+    "rss": 99549184,
+    "heapTotal": 32456704,
+    "heapUsed": 12689464,
+    "external": 3783652,
+    "arrayBuffers": 224476
+  },
+  "filterStats": {
+    "total": 513,
+    "passed": 513,
+    "filtered": 0,
+    "filterRate": "0.0",
+    "threatTypes": {
+      "vulnerability": 462,
+      "phishing": 1,
+      "general": 48,
+      "apt": 1,
+      "malware": 1
+    },
+    "severities": {
+      "info": 46,
+      "medium": 238,
+      "critical": 203,
+      "low": 3,
+      "high": 23
+    },
+    "timestamp": "2025-08-09T18:41:00.094Z"
+  }
+}
