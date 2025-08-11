@@ -13,6 +13,7 @@ jobs:
   run:
     uses: ./.github/workflows/run-feed-reusable.yml
     with:
+      environment: production
       enablePages: true
     secrets:
       TEAMS_WEBHOOK_URL: ${{ secrets.TEAMS_WEBHOOK_URL }}
