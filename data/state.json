@@ -4331,27 +4331,16 @@
       "title": "Kritiska sårbarheter i VMware-produkter"
     }
   },
-  "lastRun": "2025-08-11T12:21:13.218Z",
+  "lastRun": "2025-08-11T12:25:04.037Z",
   "feedStats": {},
   "filterStats": {
-    "total": 408,
-    "passed": 408,
+    "total": 0,
+    "passed": 0,
     "filtered": 0,
-    "filterRate": "0.0",
-    "threatTypes": {
-      "vulnerability": 351,
-      "general": 55,
-      "apt": 1,
-      "malware": 1
-    },
-    "severities": {
-      "medium": 215,
-      "critical": 141,
-      "low": 3,
-      "high": 3,
-      "info": 46
-    },
-    "timestamp": "2025-08-11T12:21:12.920Z"
+    "filterRate": "NaN",
+    "threatTypes": {},
+    "severities": {},
+    "timestamp": "2025-08-11T12:25:04.036Z"
   },
   "version": "2.0"
 }
