@@ -97,8 +97,15 @@ async function boot() {
   } catch {
     data = [];
   }
-  populateSources();
-  applyFilters();
+  if (!data.length) {
+    const empty = document.createElement('div');
+    empty.className = 'empty';
+    empty.innerHTML = 'No items available yet. The site updates automatically after the next run.';
+    list.appendChild(empty);
+  } else {
+    populateSources();
+    applyFilters();
+  }
   initObserver();
 }
 
