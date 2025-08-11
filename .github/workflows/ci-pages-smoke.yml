@@ -1,0 +1,36 @@
+name: Pages Smoke (Live)
+
+on:
+  workflow_dispatch: {}
+  workflow_run:
+    workflows: ["Production"]
+    types: [completed]
+
+jobs:
+  smoke:
+    if: ${{ github.event.workflow_run.conclusion == 'success' || github.event_name == 'workflow_dispatch' }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Curl live feed.json
+        id: feed
+        run: |
+          set -euo pipefail
+          URL="https://trymhaak.github.io/TI-Feed-Teams-Automation/feed.json?v=$(date +%s)"
+          echo "Fetching $URL"
+          curl -sS -D headers.txt -o feed.json "$URL"
+          head -n 20 headers.txt
+          node -e '
+            const fs=require("fs");
+            const j=JSON.parse(fs.readFileSync("feed.json","utf8"));
+            if(!j.lastUpdated) throw new Error("missing lastUpdated");
+            if(!Array.isArray(j.entries) || j.entries.length===0) throw new Error("no entries");
+            console.log("lastUpdated", j.lastUpdated, "firstTitle", j.entries[0].title);
+          '
+      - name: Curl live index.html
+        run: |
+          URL="https://trymhaak.github.io/TI-Feed-Teams-Automation/?v=$(date +%s)"
+          echo "Fetching $URL"
+          curl -sS -D headers2.txt -o index.html "$URL"
+          head -n 20 headers2.txt
+          grep -q "Threat Intelligence Feed" index.html || (echo "missing title" && exit 1)
+

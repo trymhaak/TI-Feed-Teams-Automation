@@ -394,12 +394,12 @@ export class GitHubPagesOutput {
         // Ensure card anchors open in new tab safely
         $$('.threat-entry a[target="_blank"]').forEach(a=>a.setAttribute('rel','noopener'));
 
-        console.log('UI initialized v'+UI_VERSION+' '+new Date().toISOString());
+        console.log('TI-Dashboard: UI initialized v'+UI_VERSION+' '+new Date().toISOString());
       }
 
       async function bootstrap(){
         try{
-          const res = await fetch('feed.json?v=' + Date.now());
+          const res = await fetch('./feed.json?v=' + Date.now());
           const data = await res.json();
           const last = data?.lastUpdated ? new Date(data.lastUpdated).toUTCString().replace('GMT','UTC') : new Date().toUTCString().replace('GMT','UTC');
           const lastEl = document.getElementById('lastUpdated'); if(lastEl) lastEl.textContent = last;
