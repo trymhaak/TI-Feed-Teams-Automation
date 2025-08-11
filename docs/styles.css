@@ -14,11 +14,15 @@ body{margin:0;background:var(--bg);color:var(--text);font:14px/1.5 -apple-system
 
 /* Toolbar */
 .toolbar{position:sticky;top:0;z-index:10;background:var(--panel);border-bottom:1px solid var(--border)}
-.toolbar-inner{display:flex;gap:12px;align-items:center;max-width:1100px;margin:0 auto;padding:10px 16px}
-.brand{display:flex;align-items:center;gap:10px}
-.brand .logo{font-size:18px}
-.brand .logo-img{height:20px;width:auto;object-fit:contain;filter:brightness(1);}
+.toolbar-inner{display:flex;gap:12px;align-items:center;max-width:1100px;margin:0 auto;padding:10px 16px;min-height:56px}
+.brand{display:flex;align-items:center;gap:12px}
+.brand .logo{display:none} /* hide emoji when brand image is present */
+.brand .logo-img{height:32px;max-height:40px;width:auto;object-fit:contain;vertical-align:middle;filter:brightness(1)}
 body[data-theme="dark"] .brand .logo-img{filter:brightness(0.95) contrast(1.05)}
+.brand .brand-text{display:flex;flex-direction:column;line-height:1.1}
+@media (max-width: 600px){
+  .brand .logo-img{height:24px}
+}
 .brand .brand-text{display:flex;flex-direction:column;line-height:1}
 .counter{margin-left:8px;color:var(--muted);font-size:12px}
 
