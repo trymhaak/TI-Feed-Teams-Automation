@@ -45,4 +45,15 @@
     "description": "CISA advisories feed",
     "parser": "defaultParser"
   }
+  ,
+  {
+    "name": "CERT-SE",
+    "url": "https://www.cert.se/feed.rss",
+    "category": "national",
+    "region": "sweden",
+    "priority": "high",
+    "enabled": true,
+    "description": "CERT-SE – Sweden's national CSIRT (RSS)",
+    "parser": "defaultParser"
+  }
 ]
