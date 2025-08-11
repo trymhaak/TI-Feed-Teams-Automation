@@ -50,6 +50,16 @@ jobs:
           TEAMS_MAX_RETRIES: '5'
         run: npm start | cat
 
+      - name: Collect metrics artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: run-metrics
+          path: |
+            data/metrics.json
+            data/state-report.json
+          if-no-files-found: ignore
+
       - name: Commit state and docs (if changed)
         if: success()
         run: |

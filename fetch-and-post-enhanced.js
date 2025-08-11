@@ -5,7 +5,7 @@
  * Monitors RSS feeds for cybersecurity threats and posts to Teams with advanced filtering
  */
 
-import { readFile } from 'fs/promises';
+import { readFile, writeFile, mkdir } from 'fs/promises';
 import { OutputManager, addEntry as addHtmlEntry, finalizeOutputs as finalizeHtmlOutputs } from './outputs/outputManager.js';
 import { StateManager } from './utils/stateManager.js';
 import { ThreatFilter } from './utils/threatFilter.js';
@@ -40,6 +40,7 @@ class ThreatIntelBot {
    */
   async run() {
     try {
+      const runStartedAtMs = Date.now();
       if (this.showHelp) {
         showHelp();
         return;
@@ -73,7 +74,15 @@ class ThreatIntelBot {
       const results = await this.processFeeds(feeds, state);
 
       // Filter and classify entries
-      const filteredResults = await this.filterAndClassifyEntries(results);
+      let filteredResults = await this.filterAndClassifyEntries(results);
+
+      // Enforce strict chronological ordering (newest first), tie-breaker by title
+      filteredResults.entries.sort((a, b) => {
+        const ta = Date.parse(a.publishedDate || 0) || 0;
+        const tb = Date.parse(b.publishedDate || 0) || 0;
+        if (tb !== ta) return tb - ta;
+        return String(a.title || '').localeCompare(String(b.title || ''));
+      });
 
       // Output results
       const outputResults = await this.outputEntries(filteredResults);
@@ -90,11 +99,22 @@ class ThreatIntelBot {
         filterStats: filteredResults.stats
       });
 
-      logger.info('✅ Bot run completed successfully', {
-        processed: results.totalEntries,
-        posted: outputResults.totalPosted,
-        filtered: filteredResults.stats.filtered
-      });
+      // Emit compact run summary and write metrics file
+      const durationMs = Date.now() - runStartedAtMs;
+      const metrics = {
+        timestamp: new Date().toISOString(),
+        feedsConfigured: Object.keys(results.feedResults).length,
+        totalNewDetected: results.totalEntries,
+        totalFiltered: filteredResults.entries.length,
+        totalPosted: outputResults.totalPosted,
+        capped: Math.max(0, filteredResults.entries.length - outputResults.capAppliedCount),
+        durationMs
+      };
+      logger.info('📈 Run summary', metrics);
+      try {
+        await mkdir('data', { recursive: true });
+        await writeFile('data/metrics.json', JSON.stringify(metrics, null, 2), 'utf8');
+      } catch {}
 
     } catch (error) {
       logger.error('❌ Bot run failed:', error);
@@ -293,7 +313,8 @@ class ThreatIntelBot {
       logger.warn('GitHub Pages finalize step skipped or failed:', e?.message || e);
     }
 
-    return { totalPosted };
+    const capAppliedCount = Math.min(filteredResults.entries.length, postCap);
+    return { totalPosted, capAppliedCount };
   }
 
   /**

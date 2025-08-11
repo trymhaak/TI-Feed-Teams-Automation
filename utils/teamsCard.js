@@ -33,6 +33,7 @@ export function buildAdaptiveCard({ source, title, link, description, publishedD
   let summary = cleanDescription(description, 50000); // start with full text; soft-limit later
   const published = formatDate(publishedDate);
   const cves = Array.from(new Set((`${title} ${description||''}`.match(/CVE-\d{4}-\d{4,7}/gi) || []).slice(0,3)));
+  const cveLinks = cves.map(c => `[${c}](https://nvd.nist.gov/vuln/detail/${c})`);
   const recommended =
     severity.level === 'CRITICAL' ? 'Immediately assess exposure, prioritize patching/mitigation, and monitor for exploitation.' :
     severity.level === 'HIGH' ? 'Prioritize patching in normal change window and monitor for related activity.' :
@@ -42,7 +43,7 @@ export function buildAdaptiveCard({ source, title, link, description, publishedD
 
   // Build rich card first (not relied on by current Flow, but kept for future-proofing)
   const facts = [];
-  if (cves.length) facts.push({ title: 'CVEs', value: cves.join(', ') });
+  if (cves.length) facts.push({ title: 'CVEs', value: cveLinks.join(', ') });
   facts.push({ title: 'Feed', value: source });
 
   const baseCard = {
@@ -107,7 +108,7 @@ export function buildAdaptiveCard({ source, title, link, description, publishedD
     `<br/><br/><strong>${title}</strong>`,
     `<br/><span>${badgesLine}</span>`,
     summary ? `<br/><br/>${baseCard.attachments[0].content.body[3].text}` : '',
-    (cves.length ? `<br/><br/><strong>CVEs:</strong> ${cves.join(', ')}` : ''),
+    (cves.length ? `<br/><br/><strong>CVEs:</strong> ${cves.map(c=>`<a href=\"https://nvd.nist.gov/vuln/detail/${c}\">${c}</a>`).join(', ')}` : ''),
     `<br/><br/><a href="${link}">Read Advisory →</a>`
   ].join('');
   baseCard.attachments[0].content.body[0].text = html;

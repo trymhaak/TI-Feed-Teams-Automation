@@ -146,6 +146,13 @@ npm run generate-html
 
 The GitHub Pages feed automatically updates with each run and provides a permanent, shareable URL for your threat intelligence dashboard.
 
+### Operations notes
+
+- Production runs every 5 minutes; staging is manual/scheduled.
+- Backfill is disabled by default; to seed older items use the "Seed Pages (One-time Backfill)" workflow or set `ALLOW_BACKFILL=true` temporarily.
+- Ordering: posts and dashboard are sorted newest-first (tie‑breaker: title).
+- A compact run summary is written to `data/metrics.json` each run; a read‑only state report is written to `data/state-report.json` by `scripts/state-doctor.js`.
+
 ## Quick Start (Continued)
 
 ### 6. Optional: Configure Additional Output Channels
