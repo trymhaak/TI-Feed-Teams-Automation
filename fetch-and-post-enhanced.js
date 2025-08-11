@@ -256,11 +256,16 @@ class ThreatIntelBot {
 
     let totalPosted = 0;
 
+    // Always accumulate ALL entries for GitHub Pages output regardless of Teams posting
+    try {
+      for (const entry of filteredResults.entries) {
+        addHtmlEntry(entry);
+      }
+    } catch {}
+
     let postedThisRun = 0;
     const postCap = Number(process.env.PER_RUN_POST_CAP || 30);
     for (const entry of filteredResults.entries) {
-      // Always accumulate for GitHub Pages output, regardless of Teams posting
-      try { addHtmlEntry(entry); } catch {}
       if (postedThisRun >= postCap) {
         logger.warn(`Post cap reached (${postCap}). Skipping remaining entries this run.`);
         break;
