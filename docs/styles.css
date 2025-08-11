@@ -17,6 +17,8 @@ body{margin:0;background:var(--bg);color:var(--text);font:14px/1.5 -apple-system
 .toolbar-inner{display:flex;gap:12px;align-items:center;max-width:1100px;margin:0 auto;padding:10px 16px}
 .brand{display:flex;align-items:center;gap:10px}
 .brand .logo{font-size:18px}
+.brand .logo-img{height:20px;width:auto;object-fit:contain;filter:brightness(1);}
+body[data-theme="dark"] .brand .logo-img{filter:brightness(0.95) contrast(1.05)}
 .brand .brand-text{display:flex;flex-direction:column;line-height:1}
 .counter{margin-left:8px;color:var(--muted);font-size:12px}
 
