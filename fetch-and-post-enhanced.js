@@ -6,7 +6,7 @@
  */
 
 import { readFile } from 'fs/promises';
-import { OutputManager } from './outputs/outputManager.js';
+import { OutputManager, addEntry as addHtmlEntry, finalizeOutputs as finalizeHtmlOutputs } from './outputs/outputManager.js';
 import { StateManager } from './utils/stateManager.js';
 import { ThreatFilter } from './utils/threatFilter.js';
 import { HealthMonitor } from './utils/healthMonitor.js';
@@ -259,6 +259,8 @@ class ThreatIntelBot {
     let postedThisRun = 0;
     const postCap = Number(process.env.PER_RUN_POST_CAP || 30);
     for (const entry of filteredResults.entries) {
+      // Always accumulate for GitHub Pages output, regardless of Teams posting
+      try { addHtmlEntry(entry); } catch {}
       if (postedThisRun >= postCap) {
         logger.warn(`Post cap reached (${postCap}). Skipping remaining entries this run.`);
         break;
@@ -277,6 +279,13 @@ class ThreatIntelBot {
         logger.error(`Failed to post entry "${entry.title}":`, error);
         await this.healthMonitor.recordError(error, { entry: entry.title });
       }
+    }
+
+    // Finalize GitHub Pages output (writes docs/index.html and feed.json when enabled)
+    try {
+      await finalizeHtmlOutputs(false);
+    } catch (e) {
+      logger.warn('GitHub Pages finalize step skipped or failed:', e?.message || e);
     }
 
     return { totalPosted };
