@@ -1,15 +1,15 @@
 {
-  "lastUpdated": "2025-08-12T20:41:52.337Z",
+  "lastUpdated": "2025-08-12T20:49:38.972Z",
   "entries": [
     {
       "title": "Microsoft patchetirsdag august 2025",
       "link": "https://nsm.no/fagomrader/digital-sikkerhet/nasjonalt-cybersikkerhetssenter/varsler-fra-ncsc/microsoft-patchetirsdag-august-2025",
       "source": "NSM-NCSC",
-      "published": "Tue, 12 Aug 2025 22:37:10 +0200",
+      "published": "",
       "category": "vulnerability",
       "severity": "medium",
       "threatType": "vulnerability",
-      "summary": "Microsoft har offentliggjort sine månedlige sikkerhetsoppdateringer. Disse er gjennomgått i mer detalj på Microsoft sine sider1"
+      "summary": ""
     },
     {
       "title": "CVE-2025-49699 Microsoft Office Remote Code Execution Vulnerability",
