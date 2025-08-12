@@ -4331,7 +4331,7 @@
       "title": "Kritiska sårbarheter i VMware-produkter"
     }
   },
-  "lastRun": "2025-08-12T19:52:52.991Z",
+  "lastRun": "2025-08-12T19:58:55.502Z",
   "feedStats": {},
   "filterStats": {
     "total": 0,
@@ -4340,7 +4340,7 @@
     "filterRate": "NaN",
     "threatTypes": {},
     "severities": {},
-    "timestamp": "2025-08-12T19:52:52.634Z"
+    "timestamp": "2025-08-12T19:58:55.190Z"
   },
   "version": "2.0"
 }
