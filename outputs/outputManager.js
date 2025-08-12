@@ -3,6 +3,9 @@
  * Handles Teams webhook and GitHub Pages HTML generation
  */
 
+import fs from 'fs/promises';
+import path from 'path';
+
 import { postToTeams } from '../post-to-teams.js';
 import { GitHubPagesOutput as EnhancedPages } from './githubPages-enhanced.js';
 
@@ -144,8 +147,9 @@ export async function generateHTMLOutput(isDryRun = false) {
     return null;
   }
   
-  // Even with zero accumulated entries, still write feed.json with fresh lastUpdated
-  // so the dashboard header reflects the latest run and CI smoke stays green.
+  // Even with zero new entries, we still publish a non-empty feed by
+  // merging with the previously published feed.json. This keeps the
+  // dashboard populated independent of current-run posting.
   
   try {
     if (isDryRun && !OUTPUT_CONFIG.githubPages.enabled) {
@@ -162,8 +166,36 @@ export async function generateHTMLOutput(isDryRun = false) {
       description: e.description,
       publishedDate: e.publishedDate
     }));
-    const pages = new EnhancedPages();
-    await pages.generateFeed(mapped, {});
+    // Read previously published feed.json to backfill if needed
+    let previousEntries = [];
+    try {
+      const feedPath = path.join(process.cwd(), 'docs', 'feed.json');
+      const raw = await fs.readFile(feedPath, 'utf8');
+      const parsed = JSON.parse(raw);
+      previousEntries = Array.isArray(parsed) ? parsed : Array.isArray(parsed.entries) ? parsed.entries : [];
+    } catch {}
+
+    // Merge new mapped entries with previous ones, newest first, dedup by link/title/published
+    const maxItems = 200;
+    const makeId = (it) => (it.link || '') + '|' + (it.title || '') + '|' + (it.publishedDate || '');
+    const seenIds = new Set();
+    const merged = [];
+    for (const it of [...mapped, ...previousEntries]) {
+      const id = makeId(it);
+      if (seenIds.has(id)) continue;
+      seenIds.add(id);
+      merged.push(it);
+      if (merged.length >= maxItems) break;
+    }
+
+    const pages = new EnhancedPages({ maxEntries: maxItems });
+    // Safety: never clobber a previously non-empty feed with empty
+    if (merged.length === 0 && previousEntries.length > 0) {
+      console.warn('⚠️  No entries collected this run; keeping previous non-empty feed.');
+      await pages.generateFeed(previousEntries, { note: 'fallback_previous_feed_used' });
+    } else {
+      await pages.generateFeed(merged, {});
+    }
     
     if (isDryRun) {
       console.log('✅ Successfully generated HTML output (dry-run mode)');
