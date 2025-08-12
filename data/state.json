@@ -4329,18 +4329,27 @@
       "timestamp": "2025-08-11T12:21:13.218Z",
       "source": "CERT-SE",
       "title": "Kritiska sårbarheter i VMware-produkter"
+    },
+    "https://nsm.no/fagomrader/digital-sikkerhet/nasjonalt-cybersikkerhetssenter/varsler-fra-ncsc/microsoft-patchetirsdag-august-2025": {
+      "timestamp": "2025-08-12T20:41:52.338Z",
+      "source": "NSM-NCSC",
+      "title": "Microsoft patchetirsdag august 2025"
     }
   },
-  "lastRun": "2025-08-12T20:32:43.017Z",
+  "lastRun": "2025-08-12T20:41:52.338Z",
   "feedStats": {},
   "filterStats": {
-    "total": 0,
-    "passed": 0,
+    "total": 1,
+    "passed": 1,
     "filtered": 0,
-    "filterRate": "NaN",
-    "threatTypes": {},
-    "severities": {},
-    "timestamp": "2025-08-12T20:32:42.795Z"
+    "filterRate": "0.0",
+    "threatTypes": {
+      "vulnerability": 1
+    },
+    "severities": {
+      "info": 1
+    },
+    "timestamp": "2025-08-12T20:41:51.581Z"
   },
   "version": "2.0"
 }

@@ -1,6 +1,16 @@
 {
-  "lastUpdated": "2025-08-12T20:32:43.015Z",
+  "lastUpdated": "2025-08-12T20:41:52.337Z",
   "entries": [
+    {
+      "title": "Microsoft patchetirsdag august 2025",
+      "link": "https://nsm.no/fagomrader/digital-sikkerhet/nasjonalt-cybersikkerhetssenter/varsler-fra-ncsc/microsoft-patchetirsdag-august-2025",
+      "source": "NSM-NCSC",
+      "published": "Tue, 12 Aug 2025 22:37:10 +0200",
+      "category": "vulnerability",
+      "severity": "medium",
+      "threatType": "vulnerability",
+      "summary": "Microsoft har offentliggjort sine månedlige sikkerhetsoppdateringer. Disse er gjennomgått i mer detalj på Microsoft sine sider1"
+    },
     {
       "title": "CVE-2025-49699 Microsoft Office Remote Code Execution Vulnerability",
       "link": "CVE-2025-49699",
@@ -1984,16 +1994,6 @@
     {
       "title": "CVE-2025-33050 DHCP Server Service Denial of Service Vulnerability",
       "link": "CVE-2025-33050",
-      "source": "Microsoft-MSRC",
-      "published": "",
-      "category": "vulnerability",
-      "severity": "high",
-      "threatType": "vulnerability",
-      "summary": ""
-    },
-    {
-      "title": "CVE-2025-33052 Windows DWM Core Library Information Disclosure  Vulnerability",
-      "link": "CVE-2025-33052",
       "source": "Microsoft-MSRC",
       "published": "",
       "category": "vulnerability",
