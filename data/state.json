@@ -4336,7 +4336,7 @@
       "title": "Microsoft patchetirsdag august 2025"
     }
   },
-  "lastRun": "2025-08-12T22:01:52.457Z",
+  "lastRun": "2025-08-12T22:11:11.683Z",
   "feedStats": {},
   "filterStats": {
     "total": 0,
@@ -4345,7 +4345,7 @@
     "filterRate": "NaN",
     "threatTypes": {},
     "severities": {},
-    "timestamp": "2025-08-12T22:01:52.159Z"
+    "timestamp": "2025-08-12T22:11:11.469Z"
   },
   "version": "2.0"
 }
