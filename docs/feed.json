@@ -1,4 +1,2005 @@
 {
-  "lastUpdated": "2025-08-12T08:12:08.575Z",
-  "entries": []
+  "lastUpdated": "2025-08-12T08:16:13.979Z",
+  "entries": [
+    {
+      "title": "CVE-2025-49699 Microsoft Office Remote Code Execution Vulnerability",
+      "link": "CVE-2025-49699",
+      "source": "Microsoft-MSRC",
+      "published": "2025-08-11T12:21:13.218Z",
+      "category": "vulnerability",
+      "severity": "high",
+      "threatType": "vulnerability",
+      "summary": ""
+    },
+    {
+      "title": "CVE-2025-49702 Microsoft Office Remote Code Execution Vulnerability",
+      "link": "CVE-2025-49702",
+      "source": "Microsoft-MSRC",
+      "published": "2025-08-11T12:21:13.218Z",
+      "category": "vulnerability",
+      "severity": "high",
+      "threatType": "vulnerability",
+      "summary": ""
+    },
+    {
+      "title": "CVE-2025-49703 Microsoft Word Remote Code Execution Vulnerability",
+      "link": "CVE-2025-49703",
+      "source": "Microsoft-MSRC",
+      "published": "2025-08-11T12:21:13.218Z",
+      "category": "vulnerability",
+      "severity": "high",
+      "threatType": "vulnerability",
+      "summary": ""
+    },
+    {
+      "title": "CVE-2025-49705 Microsoft PowerPoint Remote Code Execution Vulnerability",
+      "link": "CVE-2025-49705",
+      "source": "Microsoft-MSRC",
+      "published": "2025-08-11T12:21:13.218Z",
+      "category": "vulnerability",
+      "severity": "high",
+      "threatType": "vulnerability",
+      "summary": ""
+    },
+    {
+      "title": "CVE-2025-49735 Windows KDC Proxy Service (KPSSVC) Remote Code Execution Vulnerability",
+      "link": "CVE-2025-49735",
+      "source": "Microsoft-MSRC",
+      "published": "2025-08-11T12:21:13.218Z",
+      "category": "vulnerability",
+      "severity": "high",
+      "threatType": "vulnerability",
+      "summary": ""
+    },
+    {
+      "title": "CVE-2025-47956 Windows Security App Spoofing Vulnerability",
+      "link": "CVE-2025-47956",
+      "source": "Microsoft-MSRC",
+      "published": "2025-08-11T12:21:13.218Z",
+      "category": "vulnerability",
+      "severity": "high",
+      "threatType": "vulnerability",
+      "summary": ""
+    },
+    {
+      "title": "CVE-2025-49717 Microsoft SQL Server Remote Code Execution Vulnerability",
+      "link": "CVE-2025-49717",
+      "source": "Microsoft-MSRC",
+      "published": "2025-08-11T12:21:13.218Z",
+      "category": "vulnerability",
+      "severity": "high",
+      "threatType": "vulnerability",
+      "summary": ""
+    },
+    {
+      "title": "CVE-2024-49000 SQL Server Native Client Remote Code Execution Vulnerability",
+      "link": "CVE-2024-49000",
+      "source": "Microsoft-MSRC",
+      "published": "2025-08-11T12:21:13.218Z",
+      "category": "vulnerability",
+      "severity": "high",
+      "threatType": "vulnerability",
+      "summary": ""
+    },
+    {
+      "title": "CVE-2025-49719 Microsoft SQL Server Information Disclosure Vulnerability",
+      "link": "CVE-2025-49719",
+      "source": "Microsoft-MSRC",
+      "published": "2025-08-11T12:21:13.218Z",
+      "category": "vulnerability",
+      "severity": "high",
+      "threatType": "vulnerability",
+      "summary": ""
+    },
+    {
+      "title": "CVE-2025-49718 Microsoft SQL Server Information Disclosure Vulnerability",
+      "link": "CVE-2025-49718",
+      "source": "Microsoft-MSRC",
+      "published": "2025-08-11T12:21:13.218Z",
+      "category": "vulnerability",
+      "severity": "high",
+      "threatType": "vulnerability",
+      "summary": ""
+    },
+    {
+      "title": "CVE-2023-24932 Secure Boot Security Feature Bypass Vulnerability",
+      "link": "CVE-2023-24932",
+      "source": "Microsoft-MSRC",
+      "published": "2025-08-11T12:21:13.218Z",
+      "category": "vulnerability",
+      "severity": "high",
+      "threatType": "vulnerability",
+      "summary": ""
+    },
+    {
+      "title": "CVE-2024-21302 Windows Secure Kernel Mode Elevation of Privilege Vulnerability",
+      "link": "CVE-2024-21302",
+      "source": "Microsoft-MSRC",
+      "published": "2025-08-11T12:21:13.218Z",
+      "category": "vulnerability",
+      "severity": "high",
+      "threatType": "vulnerability",
+      "summary": ""
+    },
+    {
+      "title": "CVE-2025-49689 Microsoft Virtual Hard Disk Elevation of Privilege Vulnerability",
+      "link": "CVE-2025-49689",
+      "source": "Microsoft-MSRC",
+      "published": "2025-08-11T12:21:13.218Z",
+      "category": "vulnerability",
+      "severity": "high",
+      "threatType": "vulnerability",
+      "summary": ""
+    },
+    {
+      "title": "CVE-2025-33069 Windows App Control for Business Security Feature Bypass Vulnerability",
+      "link": "CVE-2025-33069",
+      "source": "Microsoft-MSRC",
+      "published": "2025-08-11T12:21:13.218Z",
+      "category": "vulnerability",
+      "severity": "high",
+      "threatType": "vulnerability",
+      "summary": ""
+    },
+    {
+      "title": "CVE-2025-26636 Windows Kernel Information Disclosure Vulnerability",
+      "link": "CVE-2025-26636",
+      "source": "Microsoft-MSRC",
+      "published": "2025-08-11T12:21:13.218Z",
+      "category": "vulnerability",
+      "severity": "high",
+      "threatType": "vulnerability",
+      "summary": ""
+    },
+    {
+      "title": "CVE-2025-33054 Remote Desktop Spoofing Vulnerability",
+      "link": "CVE-2025-33054",
+      "source": "Microsoft-MSRC",
+      "published": "2025-08-11T12:21:13.218Z",
+      "category": "vulnerability",
+      "severity": "high",
+      "threatType": "vulnerability",
+      "summary": ""
+    },
+    {
+      "title": "CVE-2025-47159 Windows Virtualization-Based Security (VBS) Elevation of Privilege Vulnerability",
+      "link": "CVE-2025-47159",
+      "source": "Microsoft-MSRC",
+      "published": "2025-08-11T12:21:13.218Z",
+      "category": "vulnerability",
+      "severity": "high",
+      "threatType": "vulnerability",
+      "summary": ""
+    },
+    {
+      "title": "CVE-2025-21195 Azure Service Fabric Runtime Elevation of Privilege Vulnerability",
+      "link": "CVE-2025-21195",
+      "source": "Microsoft-MSRC",
+      "published": "2025-08-11T12:21:13.218Z",
+      "category": "vulnerability",
+      "severity": "high",
+      "threatType": "vulnerability",
+      "summary": ""
+    },
+    {
+      "title": "CVE-2025-47971 Microsoft Virtual Hard Disk Elevation of Privilege Vulnerability",
+      "link": "CVE-2025-47971",
+      "source": "Microsoft-MSRC",
+      "published": "2025-08-11T12:21:13.218Z",
+      "category": "vulnerability",
+      "severity": "high",
+      "threatType": "vulnerability",
+      "summary": ""
+    },
+    {
+      "title": "CVE-2025-47972 Windows Input Method Editor (IME) Elevation of Privilege Vulnerability",
+      "link": "CVE-2025-47972",
+      "source": "Microsoft-MSRC",
+      "published": "2025-08-11T12:21:13.218Z",
+      "category": "vulnerability",
+      "severity": "high",
+      "threatType": "vulnerability",
+      "summary": ""
+    },
+    {
+      "title": "CVE-2025-47976 Windows Simple Search and Discovery Protocol (SSDP) Service Elevation of Privilege Vulnerability",
+      "link": "CVE-2025-47976",
+      "source": "Microsoft-MSRC",
+      "published": "2025-08-11T12:21:13.218Z",
+      "category": "vulnerability",
+      "severity": "high",
+      "threatType": "vulnerability",
+      "summary": ""
+    },
+    {
+      "title": "CVE-2025-47984 Windows GDI Information Disclosure Vulnerability",
+      "link": "CVE-2025-47984",
+      "source": "Microsoft-MSRC",
+      "published": "2025-08-11T12:21:13.218Z",
+      "category": "vulnerability",
+      "severity": "high",
+      "threatType": "vulnerability",
+      "summary": ""
+    },
+    {
+      "title": "CVE-2025-47985 Windows Event Tracing Elevation of Privilege Vulnerability",
+      "link": "CVE-2025-47985",
+      "source": "Microsoft-MSRC",
+      "published": "2025-08-11T12:21:13.218Z",
+      "category": "vulnerability",
+      "severity": "high",
+      "threatType": "vulnerability",
+      "summary": ""
+    },
+    {
+      "title": "CVE-2025-47986 Universal Print Management Service Elevation of Privilege Vulnerability",
+      "link": "CVE-2025-47986",
+      "source": "Microsoft-MSRC",
+      "published": "2025-08-11T12:21:13.218Z",
+      "category": "vulnerability",
+      "severity": "high",
+      "threatType": "vulnerability",
+      "summary": ""
+    },
+    {
+      "title": "CVE-2025-47987 Credential Security Support Provider Protocol (CredSSP) Elevation of Privilege Vulnerability",
+      "link": "CVE-2025-47987",
+      "source": "Microsoft-MSRC",
+      "published": "2025-08-11T12:21:13.218Z",
+      "category": "vulnerability",
+      "severity": "high",
+      "threatType": "vulnerability",
+      "summary": ""
+    },
+    {
+      "title": "CVE-2025-48824 Windows Routing and Remote Access Service (RRAS) Remote Code Execution Vulnerability",
+      "link": "CVE-2025-48824",
+      "source": "Microsoft-MSRC",
+      "published": "2025-08-11T12:21:13.218Z",
+      "category": "vulnerability",
+      "severity": "high",
+      "threatType": "vulnerability",
+      "summary": ""
+    },
+    {
+      "title": "CVE-2025-49657 Windows Routing and Remote Access Service (RRAS) Remote Code Execution Vulnerability",
+      "link": "CVE-2025-49657",
+      "source": "Microsoft-MSRC",
+      "published": "2025-08-11T12:21:13.218Z",
+      "category": "vulnerability",
+      "severity": "high",
+      "threatType": "vulnerability",
+      "summary": ""
+    },
+    {
+      "title": "CVE-2025-49658 Windows Transport Driver Interface (TDI) Translation Driver Information Disclosure Vulnerability",
+      "link": "CVE-2025-49658",
+      "source": "Microsoft-MSRC",
+      "published": "2025-08-11T12:21:13.218Z",
+      "category": "vulnerability",
+      "severity": "high",
+      "threatType": "vulnerability",
+      "summary": ""
+    },
+    {
+      "title": "CVE-2025-49661 Windows Ancillary Function Driver for WinSock Elevation of Privilege Vulnerability",
+      "link": "CVE-2025-49661",
+      "source": "Microsoft-MSRC",
+      "published": "2025-08-11T12:21:13.218Z",
+      "category": "vulnerability",
+      "severity": "high",
+      "threatType": "vulnerability",
+      "summary": ""
+    },
+    {
+      "title": "CVE-2025-49670 Windows Routing and Remote Access Service (RRAS) Remote Code Execution Vulnerability",
+      "link": "CVE-2025-49670",
+      "source": "Microsoft-MSRC",
+      "published": "2025-08-11T12:21:13.218Z",
+      "category": "vulnerability",
+      "severity": "high",
+      "threatType": "vulnerability",
+      "summary": ""
+    },
+    {
+      "title": "CVE-2025-49671 Windows Routing and Remote Access Service (RRAS) Information Disclosure Vulnerability",
+      "link": "CVE-2025-49671",
+      "source": "Microsoft-MSRC",
+      "published": "2025-08-11T12:21:13.218Z",
+      "category": "vulnerability",
+      "severity": "high",
+      "threatType": "vulnerability",
+      "summary": ""
+    },
+    {
+      "title": "CVE-2025-49672 Windows Routing and Remote Access Service (RRAS) Remote Code Execution Vulnerability",
+      "link": "CVE-2025-49672",
+      "source": "Microsoft-MSRC",
+      "published": "2025-08-11T12:21:13.218Z",
+      "category": "vulnerability",
+      "severity": "high",
+      "threatType": "vulnerability",
+      "summary": ""
+    },
+    {
+      "title": "CVE-2025-49674 Windows Routing and Remote Access Service (RRAS) Remote Code Execution Vulnerability",
+      "link": "CVE-2025-49674",
+      "source": "Microsoft-MSRC",
+      "published": "2025-08-11T12:21:13.218Z",
+      "category": "vulnerability",
+      "severity": "high",
+      "threatType": "vulnerability",
+      "summary": ""
+    },
+    {
+      "title": "CVE-2025-49676 Windows Routing and Remote Access Service (RRAS) Remote Code Execution Vulnerability",
+      "link": "CVE-2025-49676",
+      "source": "Microsoft-MSRC",
+      "published": "2025-08-11T12:21:13.218Z",
+      "category": "vulnerability",
+      "severity": "high",
+      "threatType": "vulnerability",
+      "summary": ""
+    },
+    {
+      "title": "CVE-2025-49677 Microsoft Brokering File System Elevation of Privilege Vulnerability",
+      "link": "CVE-2025-49677",
+      "source": "Microsoft-MSRC",
+      "published": "2025-08-11T12:21:13.218Z",
+      "category": "vulnerability",
+      "severity": "high",
+      "threatType": "vulnerability",
+      "summary": ""
+    },
+    {
+      "title": "CVE-2025-49686 Windows TCP/IP Driver Elevation of Privilege Vulnerability",
+      "link": "CVE-2025-49686",
+      "source": "Microsoft-MSRC",
+      "published": "2025-08-11T12:21:13.218Z",
+      "category": "vulnerability",
+      "severity": "high",
+      "threatType": "vulnerability",
+      "summary": ""
+    },
+    {
+      "title": "CVE-2025-49687 Windows Input Method Editor (IME) Elevation of Privilege Vulnerability",
+      "link": "CVE-2025-49687",
+      "source": "Microsoft-MSRC",
+      "published": "2025-08-11T12:21:13.218Z",
+      "category": "vulnerability",
+      "severity": "high",
+      "threatType": "vulnerability",
+      "summary": ""
+    },
+    {
+      "title": "CVE-2025-49688 Windows Routing and Remote Access Service (RRAS) Remote Code Execution Vulnerability",
+      "link": "CVE-2025-49688",
+      "source": "Microsoft-MSRC",
+      "published": "2025-08-11T12:21:13.218Z",
+      "category": "vulnerability",
+      "severity": "high",
+      "threatType": "vulnerability",
+      "summary": ""
+    },
+    {
+      "title": "CVE-2025-49690 Capability Access Management Service (camsvc) Elevation of Privilege Vulnerability",
+      "link": "CVE-2025-49690",
+      "source": "Microsoft-MSRC",
+      "published": "2025-08-11T12:21:13.218Z",
+      "category": "vulnerability",
+      "severity": "high",
+      "threatType": "vulnerability",
+      "summary": ""
+    },
+    {
+      "title": "CVE-2025-49691 Windows Miracast Wireless Display Remote Code Execution Vulnerability",
+      "link": "CVE-2025-49691",
+      "source": "Microsoft-MSRC",
+      "published": "2025-08-11T12:21:13.218Z",
+      "category": "vulnerability",
+      "severity": "high",
+      "threatType": "vulnerability",
+      "summary": ""
+    },
+    {
+      "title": "CVE-2025-49694 Microsoft Brokering File System Elevation of Privilege Vulnerability",
+      "link": "CVE-2025-49694",
+      "source": "Microsoft-MSRC",
+      "published": "2025-08-11T12:21:13.218Z",
+      "category": "vulnerability",
+      "severity": "high",
+      "threatType": "vulnerability",
+      "summary": ""
+    },
+    {
+      "title": "CVE-2025-47991 Windows Input Method Editor (IME) Elevation of Privilege Vulnerability",
+      "link": "CVE-2025-47991",
+      "source": "Microsoft-MSRC",
+      "published": "2025-08-11T12:21:13.218Z",
+      "category": "vulnerability",
+      "severity": "high",
+      "threatType": "vulnerability",
+      "summary": ""
+    },
+    {
+      "title": "CVE-2025-47993 Microsoft PC Manager Elevation of Privilege Vulnerability",
+      "link": "CVE-2025-47993",
+      "source": "Microsoft-MSRC",
+      "published": "2025-08-11T12:21:13.218Z",
+      "category": "vulnerability",
+      "severity": "high",
+      "threatType": "vulnerability",
+      "summary": ""
+    },
+    {
+      "title": "CVE-2025-47994 Microsoft Office Elevation of Privilege Vulnerability",
+      "link": "CVE-2025-47994",
+      "source": "Microsoft-MSRC",
+      "published": "2025-08-11T12:21:13.218Z",
+      "category": "vulnerability",
+      "severity": "high",
+      "threatType": "vulnerability",
+      "summary": ""
+    },
+    {
+      "title": "CVE-2025-36357 AMD: CVE-2025-36357 Transient Scheduler Attack in L1 Data Queue",
+      "link": "CVE-2025-36357",
+      "source": "Microsoft-MSRC",
+      "published": "2025-08-11T12:21:13.218Z",
+      "category": "vulnerability",
+      "severity": "high",
+      "threatType": "vulnerability",
+      "summary": ""
+    },
+    {
+      "title": "CVE-2025-36350 AMD: CVE-2024-36350 Transient Scheduler Attack in Store Queue",
+      "link": "CVE-2025-36350",
+      "source": "Microsoft-MSRC",
+      "published": "2025-08-11T12:21:13.218Z",
+      "category": "vulnerability",
+      "severity": "high",
+      "threatType": "vulnerability",
+      "summary": ""
+    },
+    {
+      "title": "CVE-2025-49716 Windows Netlogon Denial of Service Vulnerability",
+      "link": "CVE-2025-49716",
+      "source": "Microsoft-MSRC",
+      "published": "2025-08-11T12:21:13.218Z",
+      "category": "vulnerability",
+      "severity": "high",
+      "threatType": "vulnerability",
+      "summary": ""
+    },
+    {
+      "title": "CVE-2025-27613 MITRE: CVE-2025-27613 Gitk Arguments Vulnerability",
+      "link": "CVE-2025-27613",
+      "source": "Microsoft-MSRC",
+      "published": "2025-08-11T12:21:13.218Z",
+      "category": "vulnerability",
+      "severity": "high",
+      "threatType": "vulnerability",
+      "summary": ""
+    },
+    {
+      "title": "CVE-2025-27614 MITRE: CVE-2025-27614 Gitk Arbitrary Code Execution Vulnerability",
+      "link": "CVE-2025-27614",
+      "source": "Microsoft-MSRC",
+      "published": "2025-08-11T12:21:13.218Z",
+      "category": "vulnerability",
+      "severity": "high",
+      "threatType": "vulnerability",
+      "summary": ""
+    },
+    {
+      "title": "CVE-2025-46334 MITRE: CVE-2025-46334 Git Malicious Shell Vulnerability",
+      "link": "CVE-2025-46334",
+      "source": "Microsoft-MSRC",
+      "published": "2025-08-11T12:21:13.218Z",
+      "category": "vulnerability",
+      "severity": "high",
+      "threatType": "vulnerability",
+      "summary": ""
+    },
+    {
+      "title": "CVE-2025-46835 MITRE: CVE-2025-46835 Git File Overwrite Vulnerability",
+      "link": "CVE-2025-46835",
+      "source": "Microsoft-MSRC",
+      "published": "2025-08-11T12:21:13.218Z",
+      "category": "vulnerability",
+      "severity": "high",
+      "threatType": "vulnerability",
+      "summary": ""
+    },
+    {
+      "title": "CVE-2025-48384 MITRE: CVE-2025-48384 Git Symlink Vulnerability",
+      "link": "CVE-2025-48384",
+      "source": "Microsoft-MSRC",
+      "published": "2025-08-11T12:21:13.218Z",
+      "category": "vulnerability",
+      "severity": "high",
+      "threatType": "vulnerability",
+      "summary": ""
+    },
+    {
+      "title": "CVE-2025-48385 MITRE: CVE-2025-48385 Git Protocol Injection Vulnerability",
+      "link": "CVE-2025-48385",
+      "source": "Microsoft-MSRC",
+      "published": "2025-08-11T12:21:13.218Z",
+      "category": "vulnerability",
+      "severity": "high",
+      "threatType": "vulnerability",
+      "summary": ""
+    },
+    {
+      "title": "CVE-2025-48386 MITRE: CVE-2025-48386 Git Credential Helper Vulnerability",
+      "link": "CVE-2025-48386",
+      "source": "Microsoft-MSRC",
+      "published": "2025-08-11T12:21:13.218Z",
+      "category": "vulnerability",
+      "severity": "high",
+      "threatType": "vulnerability",
+      "summary": ""
+    },
+    {
+      "title": "CVE-2025-49721 Windows Fast FAT File System Driver Elevation of Privilege Vulnerability",
+      "link": "CVE-2025-49721",
+      "source": "Microsoft-MSRC",
+      "published": "2025-08-11T12:21:13.218Z",
+      "category": "vulnerability",
+      "severity": "high",
+      "threatType": "vulnerability",
+      "summary": ""
+    },
+    {
+      "title": "CVE-2025-49723 Windows StateRepository API Server file Tampering Vulnerability",
+      "link": "CVE-2025-49723",
+      "source": "Microsoft-MSRC",
+      "published": "2025-08-11T12:21:13.218Z",
+      "category": "vulnerability",
+      "severity": "high",
+      "threatType": "vulnerability",
+      "summary": ""
+    },
+    {
+      "title": "CVE-2025-49726 Windows Notification Elevation of Privilege Vulnerability",
+      "link": "CVE-2025-49726",
+      "source": "Microsoft-MSRC",
+      "published": "2025-08-11T12:21:13.218Z",
+      "category": "vulnerability",
+      "severity": "high",
+      "threatType": "vulnerability",
+      "summary": ""
+    },
+    {
+      "title": "CVE-2025-49731 Microsoft Teams Elevation of Privilege Vulnerability",
+      "link": "CVE-2025-49731",
+      "source": "Microsoft-MSRC",
+      "published": "2025-08-11T12:21:13.218Z",
+      "category": "vulnerability",
+      "severity": "high",
+      "threatType": "vulnerability",
+      "summary": ""
+    },
+    {
+      "title": "CVE-2025-47178 Microsoft Configuration Manager Remote Code Execution Vulnerability",
+      "link": "CVE-2025-47178",
+      "source": "Microsoft-MSRC",
+      "published": "2025-08-11T12:21:13.218Z",
+      "category": "vulnerability",
+      "severity": "high",
+      "threatType": "vulnerability",
+      "summary": ""
+    },
+    {
+      "title": "CVE-2025-49753 Windows Routing and Remote Access Service (RRAS) Remote Code Execution Vulnerability",
+      "link": "CVE-2025-49753",
+      "source": "Microsoft-MSRC",
+      "published": "2025-08-11T12:21:13.218Z",
+      "category": "vulnerability",
+      "severity": "high",
+      "threatType": "vulnerability",
+      "summary": ""
+    },
+    {
+      "title": "CVE-2025-49756 Office Developer Platform Security Feature Bypass Vulnerability",
+      "link": "CVE-2025-49756",
+      "source": "Microsoft-MSRC",
+      "published": "2025-08-11T12:21:13.218Z",
+      "category": "vulnerability",
+      "severity": "high",
+      "threatType": "vulnerability",
+      "summary": ""
+    },
+    {
+      "title": "CVE-2025-49760 Windows Storage Spoofing Vulnerability",
+      "link": "CVE-2025-49760",
+      "source": "Microsoft-MSRC",
+      "published": "2025-08-11T12:21:13.218Z",
+      "category": "vulnerability",
+      "severity": "high",
+      "threatType": "vulnerability",
+      "summary": ""
+    },
+    {
+      "title": "CVE-2025-47973 Microsoft Virtual Hard Disk Elevation of Privilege Vulnerability",
+      "link": "CVE-2025-47973",
+      "source": "Microsoft-MSRC",
+      "published": "2025-08-11T12:21:13.218Z",
+      "category": "vulnerability",
+      "severity": "high",
+      "threatType": "vulnerability",
+      "summary": ""
+    },
+    {
+      "title": "CVE-2025-47975 Windows Simple Search and Discovery Protocol (SSDP) Service Elevation of Privilege Vulnerability",
+      "link": "CVE-2025-47975",
+      "source": "Microsoft-MSRC",
+      "published": "2025-08-11T12:21:13.218Z",
+      "category": "vulnerability",
+      "severity": "high",
+      "threatType": "vulnerability",
+      "summary": ""
+    },
+    {
+      "title": "CVE-2025-47978 Windows Kerberos Denial of Service Vulnerability",
+      "link": "CVE-2025-47978",
+      "source": "Microsoft-MSRC",
+      "published": "2025-08-11T12:21:13.218Z",
+      "category": "vulnerability",
+      "severity": "high",
+      "threatType": "vulnerability",
+      "summary": ""
+    },
+    {
+      "title": "CVE-2025-47980 Windows Imaging Component Information Disclosure Vulnerability",
+      "link": "CVE-2025-47980",
+      "source": "Microsoft-MSRC",
+      "published": "2025-08-11T12:21:13.218Z",
+      "category": "vulnerability",
+      "severity": "high",
+      "threatType": "vulnerability",
+      "summary": ""
+    },
+    {
+      "title": "CVE-2025-47981 SPNEGO Extended Negotiation (NEGOEX) Security Mechanism Remote Code Execution Vulnerability",
+      "link": "CVE-2025-47981",
+      "source": "Microsoft-MSRC",
+      "published": "2025-08-11T12:21:13.218Z",
+      "category": "vulnerability",
+      "severity": "high",
+      "threatType": "vulnerability",
+      "summary": ""
+    },
+    {
+      "title": "CVE-2025-47982 Windows Storage VSP Driver Elevation of Privilege Vulnerability",
+      "link": "CVE-2025-47982",
+      "source": "Microsoft-MSRC",
+      "published": "2025-08-11T12:21:13.218Z",
+      "category": "vulnerability",
+      "severity": "high",
+      "threatType": "vulnerability",
+      "summary": ""
+    },
+    {
+      "title": "CVE-2025-47996 Windows MBT Transport Driver Elevation of Privilege Vulnerability",
+      "link": "CVE-2025-47996",
+      "source": "Microsoft-MSRC",
+      "published": "2025-08-11T12:21:13.218Z",
+      "category": "vulnerability",
+      "severity": "high",
+      "threatType": "vulnerability",
+      "summary": ""
+    },
+    {
+      "title": "CVE-2025-47998 Windows Routing and Remote Access Service (RRAS) Remote Code Execution Vulnerability",
+      "link": "CVE-2025-47998",
+      "source": "Microsoft-MSRC",
+      "published": "2025-08-11T12:21:13.218Z",
+      "category": "vulnerability",
+      "severity": "high",
+      "threatType": "vulnerability",
+      "summary": ""
+    },
+    {
+      "title": "CVE-2025-48000 Windows Connected Devices Platform Service Elevation of Privilege Vulnerability",
+      "link": "CVE-2025-48000",
+      "source": "Microsoft-MSRC",
+      "published": "2025-08-11T12:21:13.218Z",
+      "category": "vulnerability",
+      "severity": "high",
+      "threatType": "vulnerability",
+      "summary": ""
+    },
+    {
+      "title": "CVE-2025-48001 BitLocker Security Feature Bypass Vulnerability",
+      "link": "CVE-2025-48001",
+      "source": "Microsoft-MSRC",
+      "published": "2025-08-11T12:21:13.218Z",
+      "category": "vulnerability",
+      "severity": "high",
+      "threatType": "vulnerability",
+      "summary": ""
+    },
+    {
+      "title": "CVE-2025-48002 Windows Hyper-V Information Disclosure Vulnerability",
+      "link": "CVE-2025-48002",
+      "source": "Microsoft-MSRC",
+      "published": "2025-08-11T12:21:13.218Z",
+      "category": "vulnerability",
+      "severity": "high",
+      "threatType": "vulnerability",
+      "summary": ""
+    },
+    {
+      "title": "CVE-2025-48003 BitLocker Security Feature Bypass Vulnerability",
+      "link": "CVE-2025-48003",
+      "source": "Microsoft-MSRC",
+      "published": "2025-08-11T12:21:13.218Z",
+      "category": "vulnerability",
+      "severity": "high",
+      "threatType": "vulnerability",
+      "summary": ""
+    },
+    {
+      "title": "CVE-2025-48799 Windows Update Service Elevation of Privilege Vulnerability",
+      "link": "CVE-2025-48799",
+      "source": "Microsoft-MSRC",
+      "published": "2025-08-11T12:21:13.218Z",
+      "category": "vulnerability",
+      "severity": "high",
+      "threatType": "vulnerability",
+      "summary": ""
+    },
+    {
+      "title": "CVE-2025-48800 BitLocker Security Feature Bypass Vulnerability",
+      "link": "CVE-2025-48800",
+      "source": "Microsoft-MSRC",
+      "published": "2025-08-11T12:21:13.218Z",
+      "category": "vulnerability",
+      "severity": "high",
+      "threatType": "vulnerability",
+      "summary": ""
+    },
+    {
+      "title": "CVE-2025-48802 Windows SMB Server Spoofing Vulnerability",
+      "link": "CVE-2025-48802",
+      "source": "Microsoft-MSRC",
+      "published": "2025-08-11T12:21:13.218Z",
+      "category": "vulnerability",
+      "severity": "high",
+      "threatType": "vulnerability",
+      "summary": ""
+    },
+    {
+      "title": "CVE-2025-48803 Windows Virtualization-Based Security (VBS) Elevation of Privilege Vulnerability",
+      "link": "CVE-2025-48803",
+      "source": "Microsoft-MSRC",
+      "published": "2025-08-11T12:21:13.218Z",
+      "category": "vulnerability",
+      "severity": "high",
+      "threatType": "vulnerability",
+      "summary": ""
+    },
+    {
+      "title": "CVE-2025-48804 BitLocker Security Feature Bypass Vulnerability",
+      "link": "CVE-2025-48804",
+      "source": "Microsoft-MSRC",
+      "published": "2025-08-11T12:21:13.218Z",
+      "category": "vulnerability",
+      "severity": "high",
+      "threatType": "vulnerability",
+      "summary": ""
+    },
+    {
+      "title": "CVE-2025-48805 Microsoft MPEG-2 Video Extension Remote Code Execution Vulnerability",
+      "link": "CVE-2025-48805",
+      "source": "Microsoft-MSRC",
+      "published": "2025-08-11T12:21:13.218Z",
+      "category": "vulnerability",
+      "severity": "high",
+      "threatType": "vulnerability",
+      "summary": ""
+    },
+    {
+      "title": "CVE-2025-48806 Microsoft MPEG-2 Video Extension Remote Code Execution Vulnerability",
+      "link": "CVE-2025-48806",
+      "source": "Microsoft-MSRC",
+      "published": "2025-08-11T12:21:13.218Z",
+      "category": "vulnerability",
+      "severity": "high",
+      "threatType": "vulnerability",
+      "summary": ""
+    },
+    {
+      "title": "CVE-2025-48808 Windows Kernel Information Disclosure Vulnerability",
+      "link": "CVE-2025-48808",
+      "source": "Microsoft-MSRC",
+      "published": "2025-08-11T12:21:13.218Z",
+      "category": "vulnerability",
+      "severity": "high",
+      "threatType": "vulnerability",
+      "summary": ""
+    },
+    {
+      "title": "CVE-2025-48809 Windows Secure Kernel Mode Information Disclosure Vulnerability",
+      "link": "CVE-2025-48809",
+      "source": "Microsoft-MSRC",
+      "published": "2025-08-11T12:21:13.218Z",
+      "category": "vulnerability",
+      "severity": "high",
+      "threatType": "vulnerability",
+      "summary": ""
+    },
+    {
+      "title": "CVE-2025-48810 Windows Secure Kernel Mode Information Disclosure Vulnerability",
+      "link": "CVE-2025-48810",
+      "source": "Microsoft-MSRC",
+      "published": "2025-08-11T12:21:13.218Z",
+      "category": "vulnerability",
+      "severity": "high",
+      "threatType": "vulnerability",
+      "summary": ""
+    },
+    {
+      "title": "CVE-2025-48811 Windows Virtualization-Based Security (VBS) Enclave Elevation of Privilege Vulnerability",
+      "link": "CVE-2025-48811",
+      "source": "Microsoft-MSRC",
+      "published": "2025-08-11T12:21:13.218Z",
+      "category": "vulnerability",
+      "severity": "high",
+      "threatType": "vulnerability",
+      "summary": ""
+    },
+    {
+      "title": "CVE-2025-48814 Remote Desktop Licensing Service Security Feature Bypass Vulnerability",
+      "link": "CVE-2025-48814",
+      "source": "Microsoft-MSRC",
+      "published": "2025-08-11T12:21:13.218Z",
+      "category": "vulnerability",
+      "severity": "high",
+      "threatType": "vulnerability",
+      "summary": ""
+    },
+    {
+      "title": "CVE-2025-48815 Windows Simple Search and Discovery Protocol (SSDP) Service Elevation of Privilege Vulnerability",
+      "link": "CVE-2025-48815",
+      "source": "Microsoft-MSRC",
+      "published": "2025-08-11T12:21:13.218Z",
+      "category": "vulnerability",
+      "severity": "high",
+      "threatType": "vulnerability",
+      "summary": ""
+    },
+    {
+      "title": "CVE-2025-48816 HID Class Driver Elevation of Privilege Vulnerability",
+      "link": "CVE-2025-48816",
+      "source": "Microsoft-MSRC",
+      "published": "2025-08-11T12:21:13.218Z",
+      "category": "vulnerability",
+      "severity": "high",
+      "threatType": "vulnerability",
+      "summary": ""
+    },
+    {
+      "title": "CVE-2025-48817 Remote Desktop Client Remote Code Execution Vulnerability",
+      "link": "CVE-2025-48817",
+      "source": "Microsoft-MSRC",
+      "published": "2025-08-11T12:21:13.218Z",
+      "category": "vulnerability",
+      "severity": "high",
+      "threatType": "vulnerability",
+      "summary": ""
+    },
+    {
+      "title": "CVE-2025-48818 BitLocker Security Feature Bypass Vulnerability",
+      "link": "CVE-2025-48818",
+      "source": "Microsoft-MSRC",
+      "published": "2025-08-11T12:21:13.218Z",
+      "category": "vulnerability",
+      "severity": "high",
+      "threatType": "vulnerability",
+      "summary": ""
+    },
+    {
+      "title": "CVE-2025-48819 Windows Universal Plug and Play (UPnP) Device Host Elevation of Privilege Vulnerability",
+      "link": "CVE-2025-48819",
+      "source": "Microsoft-MSRC",
+      "published": "2025-08-11T12:21:13.218Z",
+      "category": "vulnerability",
+      "severity": "high",
+      "threatType": "vulnerability",
+      "summary": ""
+    },
+    {
+      "title": "CVE-2025-48820 Windows AppX Deployment Service Elevation of Privilege Vulnerability",
+      "link": "CVE-2025-48820",
+      "source": "Microsoft-MSRC",
+      "published": "2025-08-11T12:21:13.218Z",
+      "category": "vulnerability",
+      "severity": "high",
+      "threatType": "vulnerability",
+      "summary": ""
+    },
+    {
+      "title": "CVE-2025-48821 Windows Universal Plug and Play (UPnP) Device Host Elevation of Privilege Vulnerability",
+      "link": "CVE-2025-48821",
+      "source": "Microsoft-MSRC",
+      "published": "2025-08-11T12:21:13.218Z",
+      "category": "vulnerability",
+      "severity": "high",
+      "threatType": "vulnerability",
+      "summary": ""
+    },
+    {
+      "title": "CVE-2025-48822 Windows Hyper-V Discrete Device Assignment (DDA) Remote Code Execution Vulnerability",
+      "link": "CVE-2025-48822",
+      "source": "Microsoft-MSRC",
+      "published": "2025-08-11T12:21:13.218Z",
+      "category": "vulnerability",
+      "severity": "high",
+      "threatType": "vulnerability",
+      "summary": ""
+    },
+    {
+      "title": "CVE-2025-48823 Windows Cryptographic Services Information Disclosure Vulnerability",
+      "link": "CVE-2025-48823",
+      "source": "Microsoft-MSRC",
+      "published": "2025-08-11T12:21:13.218Z",
+      "category": "vulnerability",
+      "severity": "high",
+      "threatType": "vulnerability",
+      "summary": ""
+    },
+    {
+      "title": "CVE-2025-49659 Windows Transport Driver Interface (TDI) Translation Driver Elevation of Privilege Vulnerability",
+      "link": "CVE-2025-49659",
+      "source": "Microsoft-MSRC",
+      "published": "2025-08-11T12:21:13.218Z",
+      "category": "vulnerability",
+      "severity": "high",
+      "threatType": "vulnerability",
+      "summary": ""
+    },
+    {
+      "title": "CVE-2025-49660 Windows Event Tracing Elevation of Privilege Vulnerability",
+      "link": "CVE-2025-49660",
+      "source": "Microsoft-MSRC",
+      "published": "2025-08-11T12:21:13.218Z",
+      "category": "vulnerability",
+      "severity": "high",
+      "threatType": "vulnerability",
+      "summary": ""
+    },
+    {
+      "title": "CVE-2025-49663 Windows Routing and Remote Access Service (RRAS) Remote Code Execution Vulnerability",
+      "link": "CVE-2025-49663",
+      "source": "Microsoft-MSRC",
+      "published": "2025-08-11T12:21:13.218Z",
+      "category": "vulnerability",
+      "severity": "high",
+      "threatType": "vulnerability",
+      "summary": ""
+    },
+    {
+      "title": "CVE-2025-49664 Windows User-Mode Driver Framework Host Information Disclosure Vulnerability",
+      "link": "CVE-2025-49664",
+      "source": "Microsoft-MSRC",
+      "published": "2025-08-11T12:21:13.218Z",
+      "category": "vulnerability",
+      "severity": "high",
+      "threatType": "vulnerability",
+      "summary": ""
+    },
+    {
+      "title": "CVE-2025-49665 Workspace Broker Elevation of Privilege Vulnerability",
+      "link": "CVE-2025-49665",
+      "source": "Microsoft-MSRC",
+      "published": "2025-08-11T12:21:13.218Z",
+      "category": "vulnerability",
+      "severity": "high",
+      "threatType": "vulnerability",
+      "summary": ""
+    },
+    {
+      "title": "CVE-2025-49666 Windows Server Setup and Boot Event Collection Remote Code Execution Vulnerability",
+      "link": "CVE-2025-49666",
+      "source": "Microsoft-MSRC",
+      "published": "2025-08-11T12:21:13.218Z",
+      "category": "vulnerability",
+      "severity": "high",
+      "threatType": "vulnerability",
+      "summary": ""
+    },
+    {
+      "title": "CVE-2025-49667 Windows Win32 Kernel Subsystem Elevation of Privilege Vulnerability",
+      "link": "CVE-2025-49667",
+      "source": "Microsoft-MSRC",
+      "published": "2025-08-11T12:21:13.218Z",
+      "category": "vulnerability",
+      "severity": "high",
+      "threatType": "vulnerability",
+      "summary": ""
+    },
+    {
+      "title": "CVE-2025-49668 Windows Routing and Remote Access Service (RRAS) Remote Code Execution Vulnerability",
+      "link": "CVE-2025-49668",
+      "source": "Microsoft-MSRC",
+      "published": "2025-08-11T12:21:13.218Z",
+      "category": "vulnerability",
+      "severity": "high",
+      "threatType": "vulnerability",
+      "summary": ""
+    },
+    {
+      "title": "CVE-2025-49669 Windows Routing and Remote Access Service (RRAS) Remote Code Execution Vulnerability",
+      "link": "CVE-2025-49669",
+      "source": "Microsoft-MSRC",
+      "published": "2025-08-11T12:21:13.218Z",
+      "category": "vulnerability",
+      "severity": "high",
+      "threatType": "vulnerability",
+      "summary": ""
+    },
+    {
+      "title": "CVE-2025-49673 Windows Routing and Remote Access Service (RRAS) Remote Code Execution Vulnerability",
+      "link": "CVE-2025-49673",
+      "source": "Microsoft-MSRC",
+      "published": "2025-08-11T12:21:13.218Z",
+      "category": "vulnerability",
+      "severity": "high",
+      "threatType": "vulnerability",
+      "summary": ""
+    },
+    {
+      "title": "CVE-2025-49675 Kernel Streaming WOW Thunk Service Driver Elevation of Privilege Vulnerability",
+      "link": "CVE-2025-49675",
+      "source": "Microsoft-MSRC",
+      "published": "2025-08-11T12:21:13.218Z",
+      "category": "vulnerability",
+      "severity": "high",
+      "threatType": "vulnerability",
+      "summary": ""
+    },
+    {
+      "title": "CVE-2025-49678 NTFS Elevation of Privilege Vulnerability",
+      "link": "CVE-2025-49678",
+      "source": "Microsoft-MSRC",
+      "published": "2025-08-11T12:21:13.218Z",
+      "category": "vulnerability",
+      "severity": "high",
+      "threatType": "vulnerability",
+      "summary": ""
+    },
+    {
+      "title": "CVE-2025-49679 Windows Shell Elevation of Privilege Vulnerability",
+      "link": "CVE-2025-49679",
+      "source": "Microsoft-MSRC",
+      "published": "2025-08-11T12:21:13.218Z",
+      "category": "vulnerability",
+      "severity": "high",
+      "threatType": "vulnerability",
+      "summary": ""
+    },
+    {
+      "title": "CVE-2025-49680 Windows Performance Recorder (WPR) Denial of Service Vulnerability",
+      "link": "CVE-2025-49680",
+      "source": "Microsoft-MSRC",
+      "published": "2025-08-11T12:21:13.218Z",
+      "category": "vulnerability",
+      "severity": "high",
+      "threatType": "vulnerability",
+      "summary": ""
+    },
+    {
+      "title": "CVE-2025-49681 Windows Routing and Remote Access Service (RRAS) Information Disclosure Vulnerability",
+      "link": "CVE-2025-49681",
+      "source": "Microsoft-MSRC",
+      "published": "2025-08-11T12:21:13.218Z",
+      "category": "vulnerability",
+      "severity": "high",
+      "threatType": "vulnerability",
+      "summary": ""
+    },
+    {
+      "title": "CVE-2025-49682 Windows Media Elevation of Privilege Vulnerability",
+      "link": "CVE-2025-49682",
+      "source": "Microsoft-MSRC",
+      "published": "2025-08-11T12:21:13.218Z",
+      "category": "vulnerability",
+      "severity": "high",
+      "threatType": "vulnerability",
+      "summary": ""
+    },
+    {
+      "title": "CVE-2025-49683 Microsoft Virtual Hard Disk Remote Code Execution Vulnerability",
+      "link": "CVE-2025-49683",
+      "source": "Microsoft-MSRC",
+      "published": "2025-08-11T12:21:13.218Z",
+      "category": "vulnerability",
+      "severity": "high",
+      "threatType": "vulnerability",
+      "summary": ""
+    },
+    {
+      "title": "CVE-2025-49684 Windows Storage Port Driver Information Disclosure Vulnerability",
+      "link": "CVE-2025-49684",
+      "source": "Microsoft-MSRC",
+      "published": "2025-08-11T12:21:13.218Z",
+      "category": "vulnerability",
+      "severity": "high",
+      "threatType": "vulnerability",
+      "summary": ""
+    },
+    {
+      "title": "CVE-2025-49685 Windows Search Service Elevation of Privilege Vulnerability",
+      "link": "CVE-2025-49685",
+      "source": "Microsoft-MSRC",
+      "published": "2025-08-11T12:21:13.218Z",
+      "category": "vulnerability",
+      "severity": "high",
+      "threatType": "vulnerability",
+      "summary": ""
+    },
+    {
+      "title": "CVE-2025-49693 Microsoft Brokering File System Elevation of Privilege Vulnerability",
+      "link": "CVE-2025-49693",
+      "source": "Microsoft-MSRC",
+      "published": "2025-08-11T12:21:13.218Z",
+      "category": "vulnerability",
+      "severity": "high",
+      "threatType": "vulnerability",
+      "summary": ""
+    },
+    {
+      "title": "CVE-2025-49700 Microsoft Word Remote Code Execution Vulnerability",
+      "link": "CVE-2025-49700",
+      "source": "Microsoft-MSRC",
+      "published": "2025-08-11T12:21:13.218Z",
+      "category": "vulnerability",
+      "severity": "high",
+      "threatType": "vulnerability",
+      "summary": ""
+    },
+    {
+      "title": "CVE-2025-49701 Microsoft SharePoint Remote Code Execution Vulnerability",
+      "link": "CVE-2025-49701",
+      "source": "Microsoft-MSRC",
+      "published": "2025-08-11T12:21:13.218Z",
+      "category": "vulnerability",
+      "severity": "high",
+      "threatType": "vulnerability",
+      "summary": ""
+    },
+    {
+      "title": "CVE-2025-49714 Visual Studio Code Python Extension Remote Code Execution Vulnerability",
+      "link": "CVE-2025-49714",
+      "source": "Microsoft-MSRC",
+      "published": "2025-08-11T12:21:13.218Z",
+      "category": "vulnerability",
+      "severity": "high",
+      "threatType": "vulnerability",
+      "summary": ""
+    },
+    {
+      "title": "CVE-2025-49722 Windows Print Spooler Denial of Service Vulnerability",
+      "link": "CVE-2025-49722",
+      "source": "Microsoft-MSRC",
+      "published": "2025-08-11T12:21:13.218Z",
+      "category": "vulnerability",
+      "severity": "high",
+      "threatType": "vulnerability",
+      "summary": ""
+    },
+    {
+      "title": "CVE-2025-49724 Windows Connected Devices Platform Service Remote Code Execution Vulnerability",
+      "link": "CVE-2025-49724",
+      "source": "Microsoft-MSRC",
+      "published": "2025-08-11T12:21:13.218Z",
+      "category": "vulnerability",
+      "severity": "high",
+      "threatType": "vulnerability",
+      "summary": ""
+    },
+    {
+      "title": "CVE-2025-49725 Windows Notification Elevation of Privilege Vulnerability",
+      "link": "CVE-2025-49725",
+      "source": "Microsoft-MSRC",
+      "published": "2025-08-11T12:21:13.218Z",
+      "category": "vulnerability",
+      "severity": "high",
+      "threatType": "vulnerability",
+      "summary": ""
+    },
+    {
+      "title": "CVE-2025-49727 Win32k Elevation of Privilege Vulnerability",
+      "link": "CVE-2025-49727",
+      "source": "Microsoft-MSRC",
+      "published": "2025-08-11T12:21:13.218Z",
+      "category": "vulnerability",
+      "severity": "high",
+      "threatType": "vulnerability",
+      "summary": ""
+    },
+    {
+      "title": "CVE-2025-49729 Windows Routing and Remote Access Service (RRAS) Remote Code Execution Vulnerability",
+      "link": "CVE-2025-49729",
+      "source": "Microsoft-MSRC",
+      "published": "2025-08-11T12:21:13.218Z",
+      "category": "vulnerability",
+      "severity": "high",
+      "threatType": "vulnerability",
+      "summary": ""
+    },
+    {
+      "title": "CVE-2025-49730 Microsoft Windows QoS Scheduler Driver Elevation of Privilege Vulnerability",
+      "link": "CVE-2025-49730",
+      "source": "Microsoft-MSRC",
+      "published": "2025-08-11T12:21:13.218Z",
+      "category": "vulnerability",
+      "severity": "high",
+      "threatType": "vulnerability",
+      "summary": ""
+    },
+    {
+      "title": "CVE-2025-49732 Windows Graphics Component Elevation of Privilege Vulnerability",
+      "link": "CVE-2025-49732",
+      "source": "Microsoft-MSRC",
+      "published": "2025-08-11T12:21:13.218Z",
+      "category": "vulnerability",
+      "severity": "high",
+      "threatType": "vulnerability",
+      "summary": ""
+    },
+    {
+      "title": "CVE-2025-49733 Win32k Elevation of Privilege Vulnerability",
+      "link": "CVE-2025-49733",
+      "source": "Microsoft-MSRC",
+      "published": "2025-08-11T12:21:13.218Z",
+      "category": "vulnerability",
+      "severity": "high",
+      "threatType": "vulnerability",
+      "summary": ""
+    },
+    {
+      "title": "CVE-2025-47999 Windows Hyper-V Denial of Service Vulnerability",
+      "link": "CVE-2025-47999",
+      "source": "Microsoft-MSRC",
+      "published": "2025-08-11T12:21:13.218Z",
+      "category": "vulnerability",
+      "severity": "high",
+      "threatType": "vulnerability",
+      "summary": ""
+    },
+    {
+      "title": "CVE-2025-49737 Microsoft Teams Elevation of Privilege Vulnerability",
+      "link": "CVE-2025-49737",
+      "source": "Microsoft-MSRC",
+      "published": "2025-08-11T12:21:13.218Z",
+      "category": "vulnerability",
+      "severity": "high",
+      "threatType": "vulnerability",
+      "summary": ""
+    },
+    {
+      "title": "CVE-2025-49738 Microsoft PC Manager Elevation of Privilege Vulnerability",
+      "link": "CVE-2025-49738",
+      "source": "Microsoft-MSRC",
+      "published": "2025-08-11T12:21:13.218Z",
+      "category": "vulnerability",
+      "severity": "high",
+      "threatType": "vulnerability",
+      "summary": ""
+    },
+    {
+      "title": "CVE-2025-49739 Visual Studio Elevation of Privilege Vulnerability",
+      "link": "CVE-2025-49739",
+      "source": "Microsoft-MSRC",
+      "published": "2025-08-11T12:21:13.218Z",
+      "category": "vulnerability",
+      "severity": "high",
+      "threatType": "vulnerability",
+      "summary": ""
+    },
+    {
+      "title": "CVE-2025-49740 Windows SmartScreen Security Feature Bypass Vulnerability",
+      "link": "CVE-2025-49740",
+      "source": "Microsoft-MSRC",
+      "published": "2025-08-11T12:21:13.218Z",
+      "category": "vulnerability",
+      "severity": "high",
+      "threatType": "vulnerability",
+      "summary": ""
+    },
+    {
+      "title": "CVE-2025-49742 Windows Graphics Component Remote Code Execution Vulnerability",
+      "link": "CVE-2025-49742",
+      "source": "Microsoft-MSRC",
+      "published": "2025-08-11T12:21:13.218Z",
+      "category": "vulnerability",
+      "severity": "high",
+      "threatType": "vulnerability",
+      "summary": ""
+    },
+    {
+      "title": "CVE-2025-49744 Windows Graphics Component Elevation of Privilege Vulnerability",
+      "link": "CVE-2025-49744",
+      "source": "Microsoft-MSRC",
+      "published": "2025-08-11T12:21:13.218Z",
+      "category": "vulnerability",
+      "severity": "high",
+      "threatType": "vulnerability",
+      "summary": ""
+    },
+    {
+      "title": "ADV990001 Latest Servicing Stack Updates",
+      "link": "ADV990001",
+      "source": "Microsoft-MSRC",
+      "published": "2025-08-11T12:21:13.218Z",
+      "category": "general",
+      "severity": "info",
+      "threatType": "general",
+      "summary": ""
+    },
+    {
+      "title": "CVE-2025-47988 Azure Monitor Agent Remote Code Execution Vulnerability",
+      "link": "CVE-2025-47988",
+      "source": "Microsoft-MSRC",
+      "published": "2025-08-11T12:21:13.218Z",
+      "category": "vulnerability",
+      "severity": "high",
+      "threatType": "vulnerability",
+      "summary": ""
+    },
+    {
+      "title": "CVE-2025-49704 Microsoft SharePoint Remote Code Execution Vulnerability",
+      "link": "CVE-2025-49704",
+      "source": "Microsoft-MSRC",
+      "published": "2025-08-11T12:21:13.218Z",
+      "category": "vulnerability",
+      "severity": "high",
+      "threatType": "vulnerability",
+      "summary": ""
+    },
+    {
+      "title": "CVE-2025-30399 .NET and Visual Studio Remote Code Execution Vulnerability",
+      "link": "CVE-2025-30399",
+      "source": "Microsoft-MSRC",
+      "published": "2025-08-11T12:21:13.218Z",
+      "category": "vulnerability",
+      "severity": "high",
+      "threatType": "vulnerability",
+      "summary": ""
+    },
+    {
+      "title": "CVE-2024-29187 GitHub: CVE-2024-29187 WiX Burn-based bundles are vulnerable to binary hijack when run as SYSTEM",
+      "link": "CVE-2024-29187",
+      "source": "Microsoft-MSRC",
+      "published": "2025-08-11T12:21:13.218Z",
+      "category": "vulnerability",
+      "severity": "high",
+      "threatType": "vulnerability",
+      "summary": ""
+    },
+    {
+      "title": "CVE-2025-26684 Microsoft Defender Elevation of Privilege Vulnerability",
+      "link": "CVE-2025-26684",
+      "source": "Microsoft-MSRC",
+      "published": "2025-08-11T12:21:13.218Z",
+      "category": "vulnerability",
+      "severity": "high",
+      "threatType": "vulnerability",
+      "summary": ""
+    },
+    {
+      "title": "CVE-2025-47161 Microsoft Defender for Endpoint Elevation of Privilege Vulnerability",
+      "link": "CVE-2025-47161",
+      "source": "Microsoft-MSRC",
+      "published": "2025-08-11T12:21:13.218Z",
+      "category": "vulnerability",
+      "severity": "high",
+      "threatType": "vulnerability",
+      "summary": ""
+    },
+    {
+      "title": "CVE-2024-43614 Microsoft Defender for Endpoint for Linux Spoofing Vulnerability",
+      "link": "CVE-2024-43614",
+      "source": "Microsoft-MSRC",
+      "published": "2025-08-11T12:21:13.218Z",
+      "category": "vulnerability",
+      "severity": "high",
+      "threatType": "vulnerability",
+      "summary": ""
+    },
+    {
+      "title": "CVE-2022-33637 Microsoft Defender for Endpoint Tampering Vulnerability",
+      "link": "CVE-2022-33637",
+      "source": "Microsoft-MSRC",
+      "published": "2025-08-11T12:21:13.218Z",
+      "category": "vulnerability",
+      "severity": "high",
+      "threatType": "vulnerability",
+      "summary": ""
+    },
+    {
+      "title": "CVE-2022-23278 Microsoft Defender for Endpoint Spoofing Vulnerability",
+      "link": "CVE-2022-23278",
+      "source": "Microsoft-MSRC",
+      "published": "2025-08-11T12:21:13.218Z",
+      "category": "vulnerability",
+      "severity": "high",
+      "threatType": "vulnerability",
+      "summary": ""
+    },
+    {
+      "title": "CVE-2025-32726 Visual Studio Code Elevation of Privilege Vulnerability",
+      "link": "CVE-2025-32726",
+      "source": "Microsoft-MSRC",
+      "published": "2025-08-11T12:21:13.218Z",
+      "category": "vulnerability",
+      "severity": "high",
+      "threatType": "vulnerability",
+      "summary": ""
+    },
+    {
+      "title": "CVE-2025-49713 Microsoft Edge (Chromium-based) Remote Code Execution Vulnerability",
+      "link": "CVE-2025-49713",
+      "source": "Microsoft-MSRC",
+      "published": "2025-08-11T12:21:13.218Z",
+      "category": "vulnerability",
+      "severity": "high",
+      "threatType": "vulnerability",
+      "summary": ""
+    },
+    {
+      "title": "CVE-2025-49741 Microsoft Edge (Chromium-based) Information Disclosure Vulnerability",
+      "link": "CVE-2025-49741",
+      "source": "Microsoft-MSRC",
+      "published": "2025-08-11T12:21:13.218Z",
+      "category": "vulnerability",
+      "severity": "high",
+      "threatType": "vulnerability",
+      "summary": ""
+    },
+    {
+      "title": "Chromium: CVE-2025-6554 Type Confusion in V8",
+      "link": "CVE-2025-6554",
+      "source": "Microsoft-MSRC",
+      "published": "2025-08-11T12:21:13.218Z",
+      "category": "vulnerability",
+      "severity": "high",
+      "threatType": "vulnerability",
+      "summary": ""
+    },
+    {
+      "title": "CVE-2025-47182 Microsoft Edge (Chromium-based) Elevation of Privilege Vulnerability",
+      "link": "CVE-2025-47182",
+      "source": "Microsoft-MSRC",
+      "published": "2025-08-11T12:21:13.218Z",
+      "category": "vulnerability",
+      "severity": "high",
+      "threatType": "vulnerability",
+      "summary": ""
+    },
+    {
+      "title": "Chromium: CVE-2025-6555 Use after free in Animation",
+      "link": "CVE-2025-6555",
+      "source": "Microsoft-MSRC",
+      "published": "2025-08-11T12:21:13.218Z",
+      "category": "vulnerability",
+      "severity": "high",
+      "threatType": "vulnerability",
+      "summary": ""
+    },
+    {
+      "title": "CVE-2025-47964 Microsoft Edge (Chromium-based) Spoofing Vulnerability",
+      "link": "CVE-2025-47964",
+      "source": "Microsoft-MSRC",
+      "published": "2025-08-11T12:21:13.218Z",
+      "category": "vulnerability",
+      "severity": "high",
+      "threatType": "vulnerability",
+      "summary": ""
+    },
+    {
+      "title": "Chromium: CVE-2025-6556 Insufficient policy enforcement in Loader",
+      "link": "CVE-2025-6556",
+      "source": "Microsoft-MSRC",
+      "published": "2025-08-11T12:21:13.218Z",
+      "category": "vulnerability",
+      "severity": "critical",
+      "threatType": "vulnerability",
+      "summary": ""
+    },
+    {
+      "title": "Chromium: CVE-2025-6557 Insufficient data validation in DevTools",
+      "link": "CVE-2025-6557",
+      "source": "Microsoft-MSRC",
+      "published": "2025-08-11T12:21:13.218Z",
+      "category": "vulnerability",
+      "severity": "high",
+      "threatType": "vulnerability",
+      "summary": ""
+    },
+    {
+      "title": "CVE-2025-47963 Microsoft Edge (Chromium-based) Spoofing Vulnerability",
+      "link": "CVE-2025-47963",
+      "source": "Microsoft-MSRC",
+      "published": "2025-08-11T12:21:13.218Z",
+      "category": "vulnerability",
+      "severity": "high",
+      "threatType": "vulnerability",
+      "summary": ""
+    },
+    {
+      "title": "CVE-2025-33053 Internet Shortcut Files Remote Code Execution Vulnerability",
+      "link": "CVE-2025-33053",
+      "source": "Microsoft-MSRC",
+      "published": "2025-08-11T12:21:13.218Z",
+      "category": "vulnerability",
+      "severity": "high",
+      "threatType": "vulnerability",
+      "summary": ""
+    },
+    {
+      "title": "CVE-2025-32711 M365 Copilot Information Disclosure Vulnerability",
+      "link": "CVE-2025-32711",
+      "source": "Microsoft-MSRC",
+      "published": "2025-08-11T12:21:13.218Z",
+      "category": "vulnerability",
+      "severity": "high",
+      "threatType": "vulnerability",
+      "summary": ""
+    },
+    {
+      "title": "CVE-2025-21264 Visual Studio Code Security Feature Bypass Vulnerability",
+      "link": "CVE-2025-21264",
+      "source": "Microsoft-MSRC",
+      "published": "2025-08-11T12:21:13.218Z",
+      "category": "vulnerability",
+      "severity": "high",
+      "threatType": "vulnerability",
+      "summary": ""
+    },
+    {
+      "title": "Chromium: CVE-2025-5959 Type Confusion in V8",
+      "link": "CVE-2025-5959",
+      "source": "Microsoft-MSRC",
+      "published": "2025-08-11T12:21:13.218Z",
+      "category": "vulnerability",
+      "severity": "high",
+      "threatType": "vulnerability",
+      "summary": ""
+    },
+    {
+      "title": "Chromium: CVE-2025-5958 Use after free in Media",
+      "link": "CVE-2025-5958",
+      "source": "Microsoft-MSRC",
+      "published": "2025-08-11T12:21:13.218Z",
+      "category": "vulnerability",
+      "severity": "high",
+      "threatType": "vulnerability",
+      "summary": ""
+    },
+    {
+      "title": "CVE-2024-28923 Secure Boot Security Feature Bypass Vulnerability",
+      "link": "CVE-2024-28923",
+      "source": "Microsoft-MSRC",
+      "published": "2025-08-11T12:21:13.218Z",
+      "category": "vulnerability",
+      "severity": "high",
+      "threatType": "vulnerability",
+      "summary": ""
+    },
+    {
+      "title": "CVE-2025-47172 Microsoft SharePoint Server Remote Code Execution Vulnerability",
+      "link": "CVE-2025-47172",
+      "source": "Microsoft-MSRC",
+      "published": "2025-08-11T12:21:13.218Z",
+      "category": "vulnerability",
+      "severity": "high",
+      "threatType": "vulnerability",
+      "summary": ""
+    },
+    {
+      "title": "CVE-2025-33073 Windows SMB Client Elevation of Privilege Vulnerability",
+      "link": "CVE-2025-33073",
+      "source": "Microsoft-MSRC",
+      "published": "2025-08-11T12:21:13.218Z",
+      "category": "vulnerability",
+      "severity": "high",
+      "threatType": "vulnerability",
+      "summary": ""
+    },
+    {
+      "title": "CVE-2025-47957 Microsoft Word Remote Code Execution Vulnerability",
+      "link": "CVE-2025-47957",
+      "source": "Microsoft-MSRC",
+      "published": "2025-08-11T12:21:13.218Z",
+      "category": "vulnerability",
+      "severity": "high",
+      "threatType": "vulnerability",
+      "summary": ""
+    },
+    {
+      "title": "CVE-2025-29828 Windows Schannel Remote Code Execution Vulnerability",
+      "link": "CVE-2025-29828",
+      "source": "Microsoft-MSRC",
+      "published": "2025-08-11T12:21:13.218Z",
+      "category": "vulnerability",
+      "severity": "high",
+      "threatType": "vulnerability",
+      "summary": ""
+    },
+    {
+      "title": "CVE-2025-32710 Windows Remote Desktop Services Remote Code Execution Vulnerability",
+      "link": "CVE-2025-32710",
+      "source": "Microsoft-MSRC",
+      "published": "2025-08-11T12:21:13.218Z",
+      "category": "vulnerability",
+      "severity": "high",
+      "threatType": "vulnerability",
+      "summary": ""
+    },
+    {
+      "title": "CVE-2025-32712 Win32k Elevation of Privilege Vulnerability",
+      "link": "CVE-2025-32712",
+      "source": "Microsoft-MSRC",
+      "published": "2025-08-11T12:21:13.218Z",
+      "category": "vulnerability",
+      "severity": "high",
+      "threatType": "vulnerability",
+      "summary": ""
+    },
+    {
+      "title": "CVE-2025-32713 Windows Common Log File System Driver Elevation of Privilege Vulnerability",
+      "link": "CVE-2025-32713",
+      "source": "Microsoft-MSRC",
+      "published": "2025-08-11T12:21:13.218Z",
+      "category": "vulnerability",
+      "severity": "high",
+      "threatType": "vulnerability",
+      "summary": ""
+    },
+    {
+      "title": "CVE-2025-32714 Windows Installer Elevation of Privilege Vulnerability",
+      "link": "CVE-2025-32714",
+      "source": "Microsoft-MSRC",
+      "published": "2025-08-11T12:21:13.218Z",
+      "category": "vulnerability",
+      "severity": "high",
+      "threatType": "vulnerability",
+      "summary": ""
+    },
+    {
+      "title": "CVE-2025-32715 Remote Desktop Protocol Client Information Disclosure Vulnerability",
+      "link": "CVE-2025-32715",
+      "source": "Microsoft-MSRC",
+      "published": "2025-08-11T12:21:13.218Z",
+      "category": "vulnerability",
+      "severity": "high",
+      "threatType": "vulnerability",
+      "summary": ""
+    },
+    {
+      "title": "CVE-2025-32716 Windows Media Elevation of Privilege Vulnerability",
+      "link": "CVE-2025-32716",
+      "source": "Microsoft-MSRC",
+      "published": "2025-08-11T12:21:13.218Z",
+      "category": "vulnerability",
+      "severity": "high",
+      "threatType": "vulnerability",
+      "summary": ""
+    },
+    {
+      "title": "CVE-2025-32718 Windows SMB Client Elevation of Privilege Vulnerability",
+      "link": "CVE-2025-32718",
+      "source": "Microsoft-MSRC",
+      "published": "2025-08-11T12:21:13.218Z",
+      "category": "vulnerability",
+      "severity": "high",
+      "threatType": "vulnerability",
+      "summary": ""
+    },
+    {
+      "title": "CVE-2025-32719 Windows Storage Management Provider Information Disclosure Vulnerability",
+      "link": "CVE-2025-32719",
+      "source": "Microsoft-MSRC",
+      "published": "2025-08-11T12:21:13.218Z",
+      "category": "vulnerability",
+      "severity": "high",
+      "threatType": "vulnerability",
+      "summary": ""
+    },
+    {
+      "title": "CVE-2025-32720 Windows Storage Management Provider Information Disclosure Vulnerability",
+      "link": "CVE-2025-32720",
+      "source": "Microsoft-MSRC",
+      "published": "2025-08-11T12:21:13.218Z",
+      "category": "vulnerability",
+      "severity": "high",
+      "threatType": "vulnerability",
+      "summary": ""
+    },
+    {
+      "title": "CVE-2025-32721 Windows Recovery Driver Elevation of Privilege Vulnerability",
+      "link": "CVE-2025-32721",
+      "source": "Microsoft-MSRC",
+      "published": "2025-08-11T12:21:13.218Z",
+      "category": "vulnerability",
+      "severity": "high",
+      "threatType": "vulnerability",
+      "summary": ""
+    },
+    {
+      "title": "CVE-2025-32722 Windows Storage Port Driver Information Disclosure Vulnerability",
+      "link": "CVE-2025-32722",
+      "source": "Microsoft-MSRC",
+      "published": "2025-08-11T12:21:13.218Z",
+      "category": "vulnerability",
+      "severity": "high",
+      "threatType": "vulnerability",
+      "summary": ""
+    },
+    {
+      "title": "CVE-2025-32724 Local Security Authority Subsystem Service (LSASS) Denial of Service Vulnerability",
+      "link": "CVE-2025-32724",
+      "source": "Microsoft-MSRC",
+      "published": "2025-08-11T12:21:13.218Z",
+      "category": "vulnerability",
+      "severity": "high",
+      "threatType": "vulnerability",
+      "summary": ""
+    },
+    {
+      "title": "CVE-2025-33058 Windows Storage Management Provider Information Disclosure Vulnerability",
+      "link": "CVE-2025-33058",
+      "source": "Microsoft-MSRC",
+      "published": "2025-08-11T12:21:13.218Z",
+      "category": "vulnerability",
+      "severity": "high",
+      "threatType": "vulnerability",
+      "summary": ""
+    },
+    {
+      "title": "CVE-2025-33059 Windows Storage Management Provider Information Disclosure Vulnerability",
+      "link": "CVE-2025-33059",
+      "source": "Microsoft-MSRC",
+      "published": "2025-08-11T12:21:13.218Z",
+      "category": "vulnerability",
+      "severity": "high",
+      "threatType": "vulnerability",
+      "summary": ""
+    },
+    {
+      "title": "CVE-2025-33060 Windows Storage Management Provider Information Disclosure Vulnerability",
+      "link": "CVE-2025-33060",
+      "source": "Microsoft-MSRC",
+      "published": "2025-08-11T12:21:13.218Z",
+      "category": "vulnerability",
+      "severity": "high",
+      "threatType": "vulnerability",
+      "summary": ""
+    },
+    {
+      "title": "CVE-2025-33061 Windows Storage Management Provider Information Disclosure Vulnerability",
+      "link": "CVE-2025-33061",
+      "source": "Microsoft-MSRC",
+      "published": "2025-08-11T12:21:13.218Z",
+      "category": "vulnerability",
+      "severity": "high",
+      "threatType": "vulnerability",
+      "summary": ""
+    },
+    {
+      "title": "CVE-2025-33062 Windows Storage Management Provider Information Disclosure Vulnerability",
+      "link": "CVE-2025-33062",
+      "source": "Microsoft-MSRC",
+      "published": "2025-08-11T12:21:13.218Z",
+      "category": "vulnerability",
+      "severity": "high",
+      "threatType": "vulnerability",
+      "summary": ""
+    },
+    {
+      "title": "CVE-2025-33063 Windows Storage Management Provider Information Disclosure Vulnerability",
+      "link": "CVE-2025-33063",
+      "source": "Microsoft-MSRC",
+      "published": "2025-08-11T12:21:13.218Z",
+      "category": "vulnerability",
+      "severity": "high",
+      "threatType": "vulnerability",
+      "summary": ""
+    },
+    {
+      "title": "CVE-2025-33064 Windows Routing and Remote Access Service (RRAS) Remote Code Execution Vulnerability",
+      "link": "CVE-2025-33064",
+      "source": "Microsoft-MSRC",
+      "published": "2025-08-11T12:21:13.218Z",
+      "category": "vulnerability",
+      "severity": "high",
+      "threatType": "vulnerability",
+      "summary": ""
+    },
+    {
+      "title": "CVE-2025-33065 Windows Storage Management Provider Information Disclosure Vulnerability",
+      "link": "CVE-2025-33065",
+      "source": "Microsoft-MSRC",
+      "published": "2025-08-11T12:21:13.218Z",
+      "category": "vulnerability",
+      "severity": "high",
+      "threatType": "vulnerability",
+      "summary": ""
+    },
+    {
+      "title": "CVE-2025-33066 Windows Routing and Remote Access Service (RRAS) Remote Code Execution Vulnerability",
+      "link": "CVE-2025-33066",
+      "source": "Microsoft-MSRC",
+      "published": "2025-08-11T12:21:13.218Z",
+      "category": "vulnerability",
+      "severity": "high",
+      "threatType": "vulnerability",
+      "summary": ""
+    },
+    {
+      "title": "CVE-2025-33067 Windows Task Scheduler Elevation of Privilege Vulnerability",
+      "link": "CVE-2025-33067",
+      "source": "Microsoft-MSRC",
+      "published": "2025-08-11T12:21:13.218Z",
+      "category": "vulnerability",
+      "severity": "high",
+      "threatType": "vulnerability",
+      "summary": ""
+    },
+    {
+      "title": "CVE-2025-33075 Windows Installer Elevation of Privilege Vulnerability",
+      "link": "CVE-2025-33075",
+      "source": "Microsoft-MSRC",
+      "published": "2025-08-11T12:21:13.218Z",
+      "category": "vulnerability",
+      "severity": "high",
+      "threatType": "vulnerability",
+      "summary": ""
+    },
+    {
+      "title": "CVE-2025-47160 Windows Shortcut Files Security Feature Bypass Vulnerability",
+      "link": "CVE-2025-47160",
+      "source": "Microsoft-MSRC",
+      "published": "2025-08-11T12:21:13.218Z",
+      "category": "vulnerability",
+      "severity": "high",
+      "threatType": "vulnerability",
+      "summary": ""
+    },
+    {
+      "title": "CVE-2025-47162 Microsoft Office Remote Code Execution Vulnerability",
+      "link": "CVE-2025-47162",
+      "source": "Microsoft-MSRC",
+      "published": "2025-08-11T12:21:13.218Z",
+      "category": "vulnerability",
+      "severity": "high",
+      "threatType": "vulnerability",
+      "summary": ""
+    },
+    {
+      "title": "CVE-2025-47953 Microsoft Office Remote Code Execution Vulnerability",
+      "link": "CVE-2025-47953",
+      "source": "Microsoft-MSRC",
+      "published": "2025-08-11T12:21:13.218Z",
+      "category": "vulnerability",
+      "severity": "high",
+      "threatType": "vulnerability",
+      "summary": ""
+    },
+    {
+      "title": "CVE-2025-47955 Windows Remote Access Connection Manager Elevation of Privilege Vulnerability",
+      "link": "CVE-2025-47955",
+      "source": "Microsoft-MSRC",
+      "published": "2025-08-11T12:21:13.218Z",
+      "category": "vulnerability",
+      "severity": "high",
+      "threatType": "vulnerability",
+      "summary": ""
+    },
+    {
+      "title": "CVE-2025-33071 Windows KDC Proxy Service (KPSSVC) Remote Code Execution Vulnerability",
+      "link": "CVE-2025-33071",
+      "source": "Microsoft-MSRC",
+      "published": "2025-08-11T12:21:13.218Z",
+      "category": "vulnerability",
+      "severity": "high",
+      "threatType": "vulnerability",
+      "summary": ""
+    },
+    {
+      "title": "CVE-2025-47962 Windows SDK Elevation of Privilege Vulnerability",
+      "link": "CVE-2025-47962",
+      "source": "Microsoft-MSRC",
+      "published": "2025-08-11T12:21:13.218Z",
+      "category": "vulnerability",
+      "severity": "high",
+      "threatType": "vulnerability",
+      "summary": ""
+    },
+    {
+      "title": "CVE-2025-47969 Windows Virtualization-Based Security (VBS) Information Disclosure Vulnerability",
+      "link": "CVE-2025-47969",
+      "source": "Microsoft-MSRC",
+      "published": "2025-08-11T12:21:13.218Z",
+      "category": "vulnerability",
+      "severity": "high",
+      "threatType": "vulnerability",
+      "summary": ""
+    },
+    {
+      "title": "CVE-2025-32717 Microsoft Word Remote Code Execution Vulnerability",
+      "link": "CVE-2025-32717",
+      "source": "Microsoft-MSRC",
+      "published": "2025-08-11T12:21:13.218Z",
+      "category": "vulnerability",
+      "severity": "high",
+      "threatType": "vulnerability",
+      "summary": ""
+    },
+    {
+      "title": "CVE-2025-24068 Windows Storage Management Provider Information Disclosure Vulnerability",
+      "link": "CVE-2025-24068",
+      "source": "Microsoft-MSRC",
+      "published": "2025-08-11T12:21:13.218Z",
+      "category": "vulnerability",
+      "severity": "high",
+      "threatType": "vulnerability",
+      "summary": ""
+    },
+    {
+      "title": "CVE-2025-24069 Windows Storage Management Provider Information Disclosure Vulnerability",
+      "link": "CVE-2025-24069",
+      "source": "Microsoft-MSRC",
+      "published": "2025-08-11T12:21:13.218Z",
+      "category": "vulnerability",
+      "severity": "high",
+      "threatType": "vulnerability",
+      "summary": ""
+    },
+    {
+      "title": "CVE-2025-24065 Windows Storage Management Provider Information Disclosure Vulnerability",
+      "link": "CVE-2025-24065",
+      "source": "Microsoft-MSRC",
+      "published": "2025-08-11T12:21:13.218Z",
+      "category": "vulnerability",
+      "severity": "high",
+      "threatType": "vulnerability",
+      "summary": ""
+    },
+    {
+      "title": "CVE-2025-32725 DHCP Server Service Denial of Service Vulnerability",
+      "link": "CVE-2025-32725",
+      "source": "Microsoft-MSRC",
+      "published": "2025-08-11T12:21:13.218Z",
+      "category": "vulnerability",
+      "severity": "high",
+      "threatType": "vulnerability",
+      "summary": ""
+    },
+    {
+      "title": "CVE-2025-33050 DHCP Server Service Denial of Service Vulnerability",
+      "link": "CVE-2025-33050",
+      "source": "Microsoft-MSRC",
+      "published": "2025-08-11T12:21:13.218Z",
+      "category": "vulnerability",
+      "severity": "high",
+      "threatType": "vulnerability",
+      "summary": ""
+    },
+    {
+      "title": "CVE-2025-33052 Windows DWM Core Library Information Disclosure  Vulnerability",
+      "link": "CVE-2025-33052",
+      "source": "Microsoft-MSRC",
+      "published": "2025-08-11T12:21:13.218Z",
+      "category": "vulnerability",
+      "severity": "high",
+      "threatType": "vulnerability",
+      "summary": ""
+    }
+  ]
 }
