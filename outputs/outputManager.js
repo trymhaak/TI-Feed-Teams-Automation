@@ -189,6 +189,28 @@ export async function generateHTMLOutput(isDryRun = false) {
     }
 
     const pages = new EnhancedPages({ maxEntries: maxItems });
+    // If still empty, attempt to rebuild from state.seen (last N seen items)
+    if (merged.length === 0) {
+      try {
+        const rawState = await fs.readFile(path.join(process.cwd(), 'data', 'state.json'), 'utf8');
+        const st = JSON.parse(rawState);
+        const seen = st?.seen || {};
+        const rebuilt = Object.entries(seen)
+          .map(([link, meta]) => ({
+            title: meta?.title || link,
+            link,
+            source: meta?.source || 'unknown',
+            description: '',
+            publishedDate: meta?.timestamp || new Date().toISOString()
+          }))
+          .sort((a,b)=> new Date(b.publishedDate) - new Date(a.publishedDate))
+          .slice(0, maxItems);
+        if (rebuilt.length > 0) {
+          merged.push(...rebuilt);
+        }
+      } catch {}
+    }
+
     // Safety: never clobber a previously non-empty feed with empty
     if (merged.length === 0 && previousEntries.length > 0) {
       console.warn('⚠️  No entries collected this run; keeping previous non-empty feed.');
