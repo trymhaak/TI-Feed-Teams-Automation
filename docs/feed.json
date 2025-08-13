@@ -1,15 +1,15 @@
 {
-  "lastUpdated": "2025-08-13T11:14:25.482Z",
+  "lastUpdated": "2025-08-13T11:20:00.932Z",
   "entries": [
     {
       "title": "Sårbarheter i produkter från Fortinet",
       "link": "https://www.cert.se/2025/08/sarbarheter-i-produkter-fran-fortinet.html",
       "source": "CERT-SE",
-      "published": "Wed, 13 Aug 2025 13:13:00 +0200",
-      "category": "vulnerability",
-      "severity": "medium",
-      "threatType": "vulnerability",
-      "summary": "I samband med patchtisdagen informerar Fortinet om flera sårbarheter."
+      "published": "",
+      "category": "general",
+      "severity": "info",
+      "threatType": "general",
+      "summary": ""
     },
     {
       "title": "Patchtisdag augusti 2025 – samlad  information om månadens säkerhetsuppdateringar",
