@@ -1,6 +1,16 @@
 {
-  "lastUpdated": "2025-08-13T11:04:43.792Z",
+  "lastUpdated": "2025-08-13T11:14:25.482Z",
   "entries": [
+    {
+      "title": "Sårbarheter i produkter från Fortinet",
+      "link": "https://www.cert.se/2025/08/sarbarheter-i-produkter-fran-fortinet.html",
+      "source": "CERT-SE",
+      "published": "Wed, 13 Aug 2025 13:13:00 +0200",
+      "category": "vulnerability",
+      "severity": "medium",
+      "threatType": "vulnerability",
+      "summary": "I samband med patchtisdagen informerar Fortinet om flera sårbarheter."
+    },
     {
       "title": "Patchtisdag augusti 2025 – samlad  information om månadens säkerhetsuppdateringar",
       "link": "https://www.cert.se/2025/08/patchtisdag-augusti-2025-samlad-information-om-manadens-sakerhetsuppdateringar.html",
@@ -1984,16 +1994,6 @@
     {
       "title": "CVE-2025-24065 Windows Storage Management Provider Information Disclosure Vulnerability",
       "link": "CVE-2025-24065",
-      "source": "Microsoft-MSRC",
-      "published": "",
-      "category": "vulnerability",
-      "severity": "high",
-      "threatType": "vulnerability",
-      "summary": ""
-    },
-    {
-      "title": "CVE-2025-32725 DHCP Server Service Denial of Service Vulnerability",
-      "link": "CVE-2025-32725",
       "source": "Microsoft-MSRC",
       "published": "",
       "category": "vulnerability",
