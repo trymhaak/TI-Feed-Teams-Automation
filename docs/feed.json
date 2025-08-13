@@ -1,15 +1,15 @@
 {
-  "lastUpdated": "2025-08-13T09:32:43.461Z",
+  "lastUpdated": "2025-08-13T09:42:11.549Z",
   "entries": [
     {
       "title": "Patchtisdag augusti 2025 – samlad  information om månadens säkerhetsuppdateringar",
       "link": "https://www.cert.se/2025/08/patchtisdag-augusti-2025-samlad-information-om-manadens-sakerhetsuppdateringar.html",
       "source": "CERT-SE",
-      "published": "Wed, 13 Aug 2025 11:20:00 +0200",
+      "published": "",
       "category": "vulnerability",
       "severity": "medium",
       "threatType": "vulnerability",
-      "summary": "Flera leverantörer har släppt sina månatliga säkerhetsuppdateringar för augusti."
+      "summary": ""
     },
     {
       "title": "Microsoft patchetirsdag august 2025",
