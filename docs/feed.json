@@ -1,6 +1,16 @@
 {
-  "lastUpdated": "2025-08-13T09:19:14.883Z",
+  "lastUpdated": "2025-08-13T09:32:43.461Z",
   "entries": [
+    {
+      "title": "Patchtisdag augusti 2025 – samlad  information om månadens säkerhetsuppdateringar",
+      "link": "https://www.cert.se/2025/08/patchtisdag-augusti-2025-samlad-information-om-manadens-sakerhetsuppdateringar.html",
+      "source": "CERT-SE",
+      "published": "Wed, 13 Aug 2025 11:20:00 +0200",
+      "category": "vulnerability",
+      "severity": "medium",
+      "threatType": "vulnerability",
+      "summary": "Flera leverantörer har släppt sina månatliga säkerhetsuppdateringar för augusti."
+    },
     {
       "title": "Microsoft patchetirsdag august 2025",
       "link": "https://nsm.no/fagomrader/digital-sikkerhet/nasjonalt-cybersikkerhetssenter/varsler-fra-ncsc/microsoft-patchetirsdag-august-2025",
@@ -1984,16 +1994,6 @@
     {
       "title": "CVE-2025-32725 DHCP Server Service Denial of Service Vulnerability",
       "link": "CVE-2025-32725",
-      "source": "Microsoft-MSRC",
-      "published": "",
-      "category": "vulnerability",
-      "severity": "high",
-      "threatType": "vulnerability",
-      "summary": ""
-    },
-    {
-      "title": "CVE-2025-33050 DHCP Server Service Denial of Service Vulnerability",
-      "link": "CVE-2025-33050",
       "source": "Microsoft-MSRC",
       "published": "",
       "category": "vulnerability",
