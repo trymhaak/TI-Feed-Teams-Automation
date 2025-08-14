@@ -4346,7 +4346,7 @@
       "title": "Sårbarheter i produkter från Fortinet"
     }
   },
-  "lastRun": "2025-08-14T06:49:44.231Z",
+  "lastRun": "2025-08-14T06:59:03.370Z",
   "feedStats": {},
   "filterStats": {
     "total": 0,
@@ -4355,7 +4355,7 @@
     "filterRate": "NaN",
     "threatTypes": {},
     "severities": {},
-    "timestamp": "2025-08-14T06:49:44.204Z"
+    "timestamp": "2025-08-14T06:59:03.143Z"
   },
   "version": "2.0"
 }
