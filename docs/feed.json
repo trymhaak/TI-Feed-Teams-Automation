@@ -1,15 +1,15 @@
 {
-  "lastUpdated": "2025-08-15T12:26:49.883Z",
+  "lastUpdated": "2025-08-15T12:46:04.115Z",
   "entries": [
     {
       "title": "CERT-SE:s veckobrev v.33",
       "link": "https://www.cert.se/2025/08/cert-se-veckobrev-v33.html",
       "source": "CERT-SE",
-      "published": "Fri, 15 Aug 2025 14:25:00 +0200",
-      "category": "vulnerability",
-      "severity": "high",
-      "threatType": "vulnerability",
-      "summary": "Veckans läsning innehåller bland annat lärdomar från den kritiska sårbarheten CVE-2025-53770 i Microsoft Sharepoint, artiklar om fortsatta utmaningar med utnyttjande av sårbarheter i Citrix NetScaler och genomgång av månadens patchtisdag."
+      "published": "",
+      "category": "general",
+      "severity": "info",
+      "threatType": "general",
+      "summary": ""
     },
     {
       "title": "Kritisk sårbarhet i Cisco Secure Firewall Management Center",
