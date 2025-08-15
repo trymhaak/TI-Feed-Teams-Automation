@@ -1,6 +1,16 @@
 {
-  "lastUpdated": "2025-08-15T08:17:44.090Z",
+  "lastUpdated": "2025-08-15T08:32:12.678Z",
   "entries": [
+    {
+      "title": "Kritisk sårbarhet i Cisco Secure Firewall Management Center",
+      "link": "https://www.cert.se/2025/08/kritisk-sarbarhet-i-cisco-secure-firewall-management-center.html",
+      "source": "CERT-SE",
+      "published": "Fri, 15 Aug 2025 10:20:00 +0200",
+      "category": "vulnerability",
+      "severity": "high",
+      "threatType": "vulnerability",
+      "summary": "Cisco har publicerat information om en kritisk sårbarhet (CVE-2025-20265) i Cisco Secure Firewall Management Center (FMC) i RADIUS-implementation [1]. Sårbarheten har fått 10.0 i CVSS-klassificering (CVSS 3.1) av Cisco och skulle kunna göra det möjligt för en oautentiserad angripare att fjärrexekver..."
+    },
     {
       "title": "Sårbarheter i produkter från Fortinet",
       "link": "https://www.cert.se/2025/08/sarbarheter-i-produkter-fran-fortinet.html",
@@ -1984,16 +1994,6 @@
     {
       "title": "CVE-2025-24069 Windows Storage Management Provider Information Disclosure Vulnerability",
       "link": "CVE-2025-24069",
-      "source": "Microsoft-MSRC",
-      "published": "",
-      "category": "vulnerability",
-      "severity": "high",
-      "threatType": "vulnerability",
-      "summary": ""
-    },
-    {
-      "title": "CVE-2025-24065 Windows Storage Management Provider Information Disclosure Vulnerability",
-      "link": "CVE-2025-24065",
       "source": "Microsoft-MSRC",
       "published": "",
       "category": "vulnerability",

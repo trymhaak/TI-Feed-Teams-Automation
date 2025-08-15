@@ -142,7 +142,7 @@
                 
                 <div class="text-right">
                     <div class="text-sm text-blue-100">Last Updated</div>
-                    <div class="text-lg font-semibold" id="lastUpdated">8/15/2025, 8:17:43 AM</div>
+                    <div class="text-lg font-semibold" id="lastUpdated">8/15/2025, 8:32:12 AM</div>
                     <div class="text-xs text-blue-200 mt-1">
                         <i class="fas fa-wifi text-green-400"></i> Live Feed Active
                     </div>
@@ -164,7 +164,7 @@
                     <div class="text-blue-100 text-sm">High Priority</div>
                 </div>
                 <div class="text-center">
-                    <div class="text-2xl font-bold text-green-300" id="recentCount">0</div>
+                    <div class="text-2xl font-bold text-green-300" id="recentCount">1</div>
                     <div class="text-blue-100 text-sm">Last 24h</div>
                 </div>
             </div>
@@ -213,6 +213,65 @@
     <main class="container mx-auto px-6 py-8">
         <div class="space-y-6" id="feedContainer">
             
+    <article class="threat-entry card-hover bg-white rounded-lg shadow-md p-6 severity-high cursor-pointer" 
+             data-severity="high" 
+             data-threat-type="vulnerability"
+             data-link="https://www.cert.se/2025/08/kritisk-sarbarhet-i-cisco-secure-firewall-management-center.html"
+             data-search-text="kritisk sårbarhet i cisco secure firewall management center cisco har publicerat information om en kritisk sårbarhet (cve-2025-20265) i cisco secure firewall management center (fmc) i radius-implementation [1]. sårbarheten har fått 10.0 i cvss-klassificering (cvss 3.1) av cisco och skulle kunna göra det möjligt för en oautentiserad angripare att fjärrexekvera godtycklig kod med fullständiga privilegier. sårbarheten beror på en brist i hantering av användardata i autentiseringsprocessen. det finns inga uppgifter om att sårbarheten har utnyttjats. cert-se">
+        
+        <div class="flex items-start justify-between mb-4">
+            <div class="flex items-center space-x-3">
+                <div class="flex-shrink-0">
+                    <i class="fas fa-shield-alt text-orange-500 text-2xl"></i>
+                </div>
+                <div class="flex-1">
+                    <h2 class="text-lg font-semibold text-gray-900 leading-tight mb-2 hover:text-blue-600">
+                        Kritisk sårbarhet i Cisco Secure Firewall Management Center
+                    </h2>
+                    <div class="flex items-center space-x-3 text-sm text-gray-600">
+                        <span class="badge badge-high">high</span>
+                        <span class="flex items-center">
+                            <i class="fas fa-calendar-alt mr-1"></i>
+                            Just now
+                        </span>
+                        <span class="flex items-center">
+                            <i class="fas fa-rss mr-1"></i>
+                            CERT-SE
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="flex-shrink-0">
+                <button class="text-gray-400 hover:text-blue-600 p-2" title="External Link">
+                    <i class="fas fa-external-link-alt"></i>
+                </button>
+            </div>
+        </div>
+        
+        
+        <div class="text-gray-700 text-sm leading-relaxed mb-4 line-clamp-3">
+            Cisco har publicerat information om en kritisk sårbarhet (CVE-2025-20265) i Cisco Secure Firewall Management Center (FMC) i RADIUS-implementation [1]. Sårbarheten har fått 10.0 i CVSS-klassificering (CVSS 3.1) av Cisco och skulle kunna göra det möjligt för en oautentiserad angripare att fjärrexekver...
+        </div>
+        
+        
+        
+        <div class="flex items-center justify-between pt-4 border-t border-gray-100">
+            <div class="flex items-center space-x-4 text-xs text-gray-500">
+                
+                <span class="flex items-center">
+                    <i class="fas fa-clock mr-1"></i>
+                    8/15/2025
+                </span>
+            </div>
+            <div class="flex space-x-2">
+                
+                <span class="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-red-100 text-red-800">
+                    <i class="fas fa-exclamation-triangle mr-1"></i>
+                    Action Required
+                </span>
+            </div>
+        </div>
+    </article>
     <article class="threat-entry card-hover bg-white rounded-lg shadow-md p-6 severity-info cursor-pointer" 
              data-severity="info" 
              data-threat-type="general"
@@ -11341,62 +11400,6 @@
             </div>
         </div>
     </article>
-    <article class="threat-entry card-hover bg-white rounded-lg shadow-md p-6 severity-high cursor-pointer" 
-             data-severity="high" 
-             data-threat-type="vulnerability"
-             data-link="CVE-2025-24065"
-             data-search-text="cve-2025-24065 windows storage management provider information disclosure vulnerability  microsoft-msrc">
-        
-        <div class="flex items-start justify-between mb-4">
-            <div class="flex items-center space-x-3">
-                <div class="flex-shrink-0">
-                    <i class="fas fa-shield-alt text-orange-500 text-2xl"></i>
-                </div>
-                <div class="flex-1">
-                    <h2 class="text-lg font-semibold text-gray-900 leading-tight mb-2 hover:text-blue-600">
-                        CVE-2025-24065 Windows Storage Management Provider Information Disclosure Vulnerability
-                    </h2>
-                    <div class="flex items-center space-x-3 text-sm text-gray-600">
-                        <span class="badge badge-high">high</span>
-                        <span class="flex items-center">
-                            <i class="fas fa-calendar-alt mr-1"></i>
-                            Just now
-                        </span>
-                        <span class="flex items-center">
-                            <i class="fas fa-rss mr-1"></i>
-                            Microsoft-MSRC
-                        </span>
-                    </div>
-                </div>
-            </div>
-            <div class="flex-shrink-0">
-                <button class="text-gray-400 hover:text-blue-600 p-2" title="External Link">
-                    <i class="fas fa-external-link-alt"></i>
-                </button>
-            </div>
-        </div>
-        
-        
-        
-        
-        
-        <div class="flex items-center justify-between pt-4 border-t border-gray-100">
-            <div class="flex items-center space-x-4 text-xs text-gray-500">
-                
-                <span class="flex items-center">
-                    <i class="fas fa-clock mr-1"></i>
-                    8/15/2025
-                </span>
-            </div>
-            <div class="flex space-x-2">
-                
-                <span class="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-red-100 text-red-800">
-                    <i class="fas fa-exclamation-triangle mr-1"></i>
-                    Action Required
-                </span>
-            </div>
-        </div>
-    </article>
         </div>
         
         <!-- Load More / Pagination -->
@@ -11431,15 +11434,15 @@
                 <div>
                     <h3 class="font-bold text-lg mb-4">Feed Statistics</h3>
                     <div class="text-gray-300 text-sm space-y-1">
-                        <div>Generated: 8/15/2025, 8:17:44 AM</div>
+                        <div>Generated: 8/15/2025, 8:32:12 AM</div>
                         <div>Total Entries: 200</div>
                         <div>Critical Alerts: 1</div>
-                        <div>Last 24 Hours: 0</div>
+                        <div>Last 24 Hours: 1</div>
                     </div>
                 </div>
             </div>
             <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400 text-sm">
-                <p>Threat Intelligence Feed • Generated 8/15/2025, 8:17:44 AM</p>
+                <p>Threat Intelligence Feed • Generated 8/15/2025, 8:32:12 AM</p>
             </div>
         </div>
     </footer>
