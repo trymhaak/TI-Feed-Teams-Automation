@@ -4351,7 +4351,7 @@
       "title": "Kritisk sårbarhet i Cisco Secure Firewall Management Center"
     }
   },
-  "lastRun": "2025-08-15T08:53:24.366Z",
+  "lastRun": "2025-08-15T08:59:40.402Z",
   "feedStats": {},
   "filterStats": {
     "total": 0,
@@ -4360,7 +4360,7 @@
     "filterRate": "NaN",
     "threatTypes": {},
     "severities": {},
-    "timestamp": "2025-08-15T08:53:24.043Z"
+    "timestamp": "2025-08-15T08:59:40.368Z"
   },
   "version": "2.0"
 }
