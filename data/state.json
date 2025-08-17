@@ -4356,7 +4356,7 @@
       "title": "CERT-SE:s veckobrev v.33"
     }
   },
-  "lastRun": "2025-08-17T22:34:03.302Z",
+  "lastRun": "2025-08-17T22:42:41.243Z",
   "feedStats": {},
   "filterStats": {
     "total": 0,
@@ -4365,7 +4365,7 @@
     "filterRate": "NaN",
     "threatTypes": {},
     "severities": {},
-    "timestamp": "2025-08-17T22:34:03.060Z"
+    "timestamp": "2025-08-17T22:42:40.954Z"
   },
   "version": "2.0"
 }
