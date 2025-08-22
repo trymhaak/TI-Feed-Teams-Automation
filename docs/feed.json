@@ -1,6 +1,16 @@
 {
-  "lastUpdated": "2025-08-22T08:48:32.730Z",
+  "lastUpdated": "2025-08-22T08:55:48.558Z",
   "entries": [
+    {
+      "title": "Rapporter om pågående kampanj med skadlig kod i PDF-verktyg",
+      "link": "https://www.cert.se/2025/08/rapporter-om-pagaende-kampanj-med-skadlig-kod-i-pdf-verktyg.html",
+      "source": "CERT-SE",
+      "published": "Fri, 22 Aug 2025 10:50:00 +0200",
+      "category": "general",
+      "severity": "info",
+      "threatType": "general",
+      "summary": "CERT-SE har fått information om att flera svenska verksamheter har drabbats av en pågående kampanj med skadlig kod som döljs i ett PDF-verktyg. Verktyget distribueras primärt via så kallad “malvertising” via Google Ads. Målet är att få användare att ladda ned en skadlig fil av typ .MSI."
+    },
     {
       "title": "CERT-SE:s veckobrev v.33",
       "link": "https://www.cert.se/2025/08/cert-se-veckobrev-v33.html",
@@ -1984,16 +1994,6 @@
     {
       "title": "CVE-2025-32717 Microsoft Word Remote Code Execution Vulnerability",
       "link": "CVE-2025-32717",
-      "source": "Microsoft-MSRC",
-      "published": "",
-      "category": "vulnerability",
-      "severity": "high",
-      "threatType": "vulnerability",
-      "summary": ""
-    },
-    {
-      "title": "CVE-2025-24068 Windows Storage Management Provider Information Disclosure Vulnerability",
-      "link": "CVE-2025-24068",
       "source": "Microsoft-MSRC",
       "published": "",
       "category": "vulnerability",
