@@ -1,15 +1,15 @@
 {
-  "lastUpdated": "2025-08-22T08:55:48.558Z",
+  "lastUpdated": "2025-08-22T09:03:42.708Z",
   "entries": [
     {
       "title": "Rapporter om pågående kampanj med skadlig kod i PDF-verktyg",
       "link": "https://www.cert.se/2025/08/rapporter-om-pagaende-kampanj-med-skadlig-kod-i-pdf-verktyg.html",
       "source": "CERT-SE",
-      "published": "Fri, 22 Aug 2025 10:50:00 +0200",
+      "published": "",
       "category": "general",
       "severity": "info",
       "threatType": "general",
-      "summary": "CERT-SE har fått information om att flera svenska verksamheter har drabbats av en pågående kampanj med skadlig kod som döljs i ett PDF-verktyg. Verktyget distribueras primärt via så kallad “malvertising” via Google Ads. Målet är att få användare att ladda ned en skadlig fil av typ .MSI."
+      "summary": ""
     },
     {
       "title": "CERT-SE:s veckobrev v.33",
