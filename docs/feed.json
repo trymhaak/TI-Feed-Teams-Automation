@@ -1,6 +1,16 @@
 {
-  "lastUpdated": "2025-08-22T10:57:06.533Z",
+  "lastUpdated": "2025-08-22T11:04:53.118Z",
   "entries": [
+    {
+      "title": "CERT-SE:s veckobrev v.34",
+      "link": "https://www.cert.se/2025/08/cert-se-veckobrev-v34.html",
+      "source": "CERT-SE",
+      "published": "Fri, 22 Aug 2025 13:01:00 +0200",
+      "category": "general",
+      "severity": "info",
+      "threatType": "general",
+      "summary": "Blandade nyheter från veckan. Trevlig helg önskar CERT-SE!"
+    },
     {
       "title": "Rapporter om pågående kampanj med skadlig kod i PDF-verktyg",
       "link": "https://www.cert.se/2025/08/rapporter-om-pagaende-kampanj-med-skadlig-kod-i-pdf-verktyg.html",
@@ -1984,16 +1994,6 @@
     {
       "title": "CVE-2025-47969 Windows Virtualization-Based Security (VBS) Information Disclosure Vulnerability",
       "link": "CVE-2025-47969",
-      "source": "Microsoft-MSRC",
-      "published": "",
-      "category": "vulnerability",
-      "severity": "high",
-      "threatType": "vulnerability",
-      "summary": ""
-    },
-    {
-      "title": "CVE-2025-32717 Microsoft Word Remote Code Execution Vulnerability",
-      "link": "CVE-2025-32717",
       "source": "Microsoft-MSRC",
       "published": "",
       "category": "vulnerability",
