@@ -4361,7 +4361,7 @@
       "title": "Rapporter om pågående kampanj med skadlig kod i PDF-verktyg"
     }
   },
-  "lastRun": "2025-08-22T09:55:19.660Z",
+  "lastRun": "2025-08-22T10:02:20.734Z",
   "feedStats": {},
   "filterStats": {
     "total": 0,
@@ -4370,7 +4370,7 @@
     "filterRate": "NaN",
     "threatTypes": {},
     "severities": {},
-    "timestamp": "2025-08-22T09:55:19.390Z"
+    "timestamp": "2025-08-22T10:02:20.707Z"
   },
   "version": "2.0"
 }
