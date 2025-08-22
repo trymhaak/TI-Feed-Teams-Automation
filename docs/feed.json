@@ -1,15 +1,15 @@
 {
-  "lastUpdated": "2025-08-22T11:04:53.118Z",
+  "lastUpdated": "2025-08-22T11:14:23.675Z",
   "entries": [
     {
       "title": "CERT-SE:s veckobrev v.34",
       "link": "https://www.cert.se/2025/08/cert-se-veckobrev-v34.html",
       "source": "CERT-SE",
-      "published": "Fri, 22 Aug 2025 13:01:00 +0200",
+      "published": "",
       "category": "general",
       "severity": "info",
       "threatType": "general",
-      "summary": "Blandade nyheter från veckan. Trevlig helg önskar CERT-SE!"
+      "summary": ""
     },
     {
       "title": "Rapporter om pågående kampanj med skadlig kod i PDF-verktyg",
